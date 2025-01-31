@@ -1,0 +1,33 @@
+## Ignore all files
+/*
+gradle.properties
+
+## Include project files
+!src/
+!docs/
+!README.md
+!.openapi-generator-config.json
+!.openapi-generator-ignore
+
+## Infrastructure
+!system.properties
+!.editorconfig
+!.gitignore
+
+## Documentation
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+
+## Gradle wrapper
+!gradle/
+!gradlew
+!gradlew.bat
+!build.gradle.kts
+!settings.gradle.kts
+
+## Exclude IDE files
+# JetBrains
+.idea/**/*.iml
+# VSCode
+.vscode/**
