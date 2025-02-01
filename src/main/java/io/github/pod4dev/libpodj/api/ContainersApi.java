@@ -4867,7 +4867,7 @@ public class ContainersApi {
         }
 
         if (psArgs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "ps_args", psArgs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "ps_args", psArgs));
         }
 
         final String[] localVarAccepts = {
@@ -5775,7 +5775,7 @@ public class ContainersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (containers != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "containers", containers));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "containers", containers));
         }
 
         if (stream != null) {
@@ -5973,7 +5973,7 @@ public class ContainersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (names != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "names", names));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "names", names));
         }
 
         if (service != null) {
@@ -6250,11 +6250,11 @@ public class ContainersApi {
         }
 
         if (wants != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "wants", wants));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "wants", wants));
         }
 
         if (after != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "after", after));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "after", after));
         }
 
         if (requires != null) {
@@ -6262,7 +6262,7 @@ public class ContainersApi {
         }
 
         if (additionalEnvVariables != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "additionalEnvVariables", additionalEnvVariables));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "additionalEnvVariables", additionalEnvVariables));
         }
 
         final String[] localVarAccepts = {
@@ -6584,7 +6584,7 @@ public class ContainersApi {
         }
 
         if (changes != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "changes", changes));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "changes", changes));
         }
 
         if (comment != null) {
@@ -7307,7 +7307,7 @@ public class ContainersApi {
         }
 
         if (logOptions != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "logOptions", logOptions));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "logOptions", logOptions));
         }
 
         if (network != null) {
@@ -7323,7 +7323,7 @@ public class ContainersApi {
         }
 
         if (publishPorts != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "publishPorts", publishPorts));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "publishPorts", publishPorts));
         }
 
         if (publishAllPorts != null) {
@@ -7343,11 +7343,11 @@ public class ContainersApi {
         }
 
         if (staticIPs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "staticIPs", staticIPs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "staticIPs", staticIPs));
         }
 
         if (staticMACs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "staticMACs", staticMACs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "staticMACs", staticMACs));
         }
 
         if (tlsVerify != null) {

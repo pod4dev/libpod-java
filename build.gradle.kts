@@ -13,7 +13,7 @@ repositories {
 }
 
 group = "io.github.pod4dev"
-version = "5.3.2-1"
+version = "5.3.2-2"
 
 dependencies {
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")

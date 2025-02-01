@@ -116,7 +116,7 @@ public class PodsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (names != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "names", names));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "names", names));
         }
 
         if (service != null) {
@@ -393,11 +393,11 @@ public class PodsApi {
         }
 
         if (wants != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "wants", wants));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "wants", wants));
         }
 
         if (after != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "after", after));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "after", after));
         }
 
         if (requires != null) {
@@ -405,7 +405,7 @@ public class PodsApi {
         }
 
         if (additionalEnvVariables != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "additionalEnvVariables", additionalEnvVariables));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "additionalEnvVariables", additionalEnvVariables));
         }
 
         final String[] localVarAccepts = {
@@ -1154,7 +1154,7 @@ public class PodsApi {
         }
 
         if (logOptions != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "logOptions", logOptions));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "logOptions", logOptions));
         }
 
         if (network != null) {
@@ -1170,7 +1170,7 @@ public class PodsApi {
         }
 
         if (publishPorts != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "publishPorts", publishPorts));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "publishPorts", publishPorts));
         }
 
         if (publishAllPorts != null) {
@@ -1190,11 +1190,11 @@ public class PodsApi {
         }
 
         if (staticIPs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "staticIPs", staticIPs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "staticIPs", staticIPs));
         }
 
         if (staticMACs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "staticMACs", staticMACs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "staticMACs", staticMACs));
         }
 
         if (tlsVerify != null) {
@@ -3273,7 +3273,7 @@ public class PodsApi {
         }
 
         if (namesOrIDs != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "namesOrIDs", namesOrIDs));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "namesOrIDs", namesOrIDs));
         }
 
         final String[] localVarAccepts = {

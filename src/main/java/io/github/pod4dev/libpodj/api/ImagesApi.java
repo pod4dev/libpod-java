@@ -201,7 +201,7 @@ public class ImagesApi {
         }
 
         if (layerLabel != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "layerLabel", layerLabel));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "layerLabel", layerLabel));
         }
 
         if (layers != null) {
@@ -229,15 +229,15 @@ public class ImagesApi {
         }
 
         if (unsetenv != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "unsetenv", unsetenv));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "unsetenv", unsetenv));
         }
 
         if (unsetlabel != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "unsetlabel", unsetlabel));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "unsetlabel", unsetlabel));
         }
 
         if (volume != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "volume", volume));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "volume", volume));
         }
 
         final String[] localVarAccepts = {
@@ -1513,7 +1513,7 @@ public class ImagesApi {
         }
 
         if (references != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "references", references));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "references", references));
         }
 
         if (compress != null) {
@@ -2076,7 +2076,7 @@ public class ImagesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (changes != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("csv", "changes", changes));
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "changes", changes));
         }
 
         if (message != null) {
