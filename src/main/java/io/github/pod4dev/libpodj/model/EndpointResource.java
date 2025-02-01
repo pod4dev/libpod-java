@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * EndpointResource contains network resources allocated and used for a container in a network.
  */
-@ApiModel(description = "EndpointResource contains network resources allocated and used for a container in a network.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class EndpointResource implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -79,22 +79,19 @@ public class EndpointResource implements Serializable {
   }
 
   public EndpointResource endpointID(String endpointID) {
-    
     this.endpointID = endpointID;
     return this;
   }
 
-   /**
+  /**
    * Get endpointID
    * @return endpointID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getEndpointID() {
     return endpointID;
   }
-
 
   public void setEndpointID(String endpointID) {
     this.endpointID = endpointID;
@@ -102,22 +99,19 @@ public class EndpointResource implements Serializable {
 
 
   public EndpointResource ipv4Address(String ipv4Address) {
-    
     this.ipv4Address = ipv4Address;
     return this;
   }
 
-   /**
+  /**
    * Get ipv4Address
    * @return ipv4Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv4Address() {
     return ipv4Address;
   }
-
 
   public void setIpv4Address(String ipv4Address) {
     this.ipv4Address = ipv4Address;
@@ -125,22 +119,19 @@ public class EndpointResource implements Serializable {
 
 
   public EndpointResource ipv6Address(String ipv6Address) {
-    
     this.ipv6Address = ipv6Address;
     return this;
   }
 
-   /**
+  /**
    * Get ipv6Address
    * @return ipv6Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv6Address() {
     return ipv6Address;
   }
-
 
   public void setIpv6Address(String ipv6Address) {
     this.ipv6Address = ipv6Address;
@@ -148,22 +139,19 @@ public class EndpointResource implements Serializable {
 
 
   public EndpointResource macAddress(String macAddress) {
-    
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
+  /**
    * Get macAddress
    * @return macAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMacAddress() {
     return macAddress;
   }
-
 
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
@@ -171,22 +159,19 @@ public class EndpointResource implements Serializable {
 
 
   public EndpointResource name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -256,28 +241,27 @@ public class EndpointResource implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to EndpointResource
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (EndpointResource.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to EndpointResource
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EndpointResource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in EndpointResource is not found in the empty JSON string", EndpointResource.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EndpointResource.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointResource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointResource` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("EndpointID") != null && !jsonObj.get("EndpointID").isJsonNull()) && !jsonObj.get("EndpointID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `EndpointID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("EndpointID").toString()));
       }
@@ -315,31 +299,31 @@ public class EndpointResource implements Serializable {
 
            @Override
            public EndpointResource read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of EndpointResource given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of EndpointResource
-  * @throws IOException if the JSON string is invalid with respect to EndpointResource
-  */
+  /**
+   * Create an instance of EndpointResource given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of EndpointResource
+   * @throws IOException if the JSON string is invalid with respect to EndpointResource
+   */
   public static EndpointResource fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, EndpointResource.class);
   }
 
- /**
-  * Convert an instance of EndpointResource to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of EndpointResource to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

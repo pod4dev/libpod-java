@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,14 +22,13 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.NetworkPruneReport;
 import io.github.pod4dev.libpodj.model.PodPruneReport;
 import io.github.pod4dev.libpodj.model.PruneReport;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,25 +56,25 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * SystemPruneReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class SystemPruneReport implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_CONTAINER_PRUNE_REPORTS = "ContainerPruneReports";
   @SerializedName(SERIALIZED_NAME_CONTAINER_PRUNE_REPORTS)
-  private List<PruneReport> containerPruneReports = null;
+  private List<@Valid PruneReport> containerPruneReports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMAGE_PRUNE_REPORTS = "ImagePruneReports";
   @SerializedName(SERIALIZED_NAME_IMAGE_PRUNE_REPORTS)
-  private List<PruneReport> imagePruneReports = null;
+  private List<@Valid PruneReport> imagePruneReports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NETWORK_PRUNE_REPORTS = "NetworkPruneReports";
   @SerializedName(SERIALIZED_NAME_NETWORK_PRUNE_REPORTS)
-  private List<NetworkPruneReport> networkPruneReports = null;
+  private List<@Valid NetworkPruneReport> networkPruneReports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_POD_PRUNE_REPORT = "PodPruneReport";
   @SerializedName(SERIALIZED_NAME_POD_PRUNE_REPORT)
-  private List<PodPruneReport> podPruneReport = null;
+  private List<@Valid PodPruneReport> podPruneReport = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RECLAIMED_SPACE = "ReclaimedSpace";
   @SerializedName(SERIALIZED_NAME_RECLAIMED_SPACE)
@@ -81,13 +82,12 @@ public class SystemPruneReport implements Serializable {
 
   public static final String SERIALIZED_NAME_VOLUME_PRUNE_REPORTS = "VolumePruneReports";
   @SerializedName(SERIALIZED_NAME_VOLUME_PRUNE_REPORTS)
-  private List<PruneReport> volumePruneReports = null;
+  private List<@Valid PruneReport> volumePruneReports = new ArrayList<>();
 
   public SystemPruneReport() {
   }
 
-  public SystemPruneReport containerPruneReports(List<PruneReport> containerPruneReports) {
-    
+  public SystemPruneReport containerPruneReports(List<@Valid PruneReport> containerPruneReports) {
     this.containerPruneReports = containerPruneReports;
     return this;
   }
@@ -100,26 +100,23 @@ public class SystemPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get containerPruneReports
    * @return containerPruneReports
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<PruneReport> getContainerPruneReports() {
+  public List<@Valid PruneReport> getContainerPruneReports() {
     return containerPruneReports;
   }
 
-
-  public void setContainerPruneReports(List<PruneReport> containerPruneReports) {
+  public void setContainerPruneReports(List<@Valid PruneReport> containerPruneReports) {
     this.containerPruneReports = containerPruneReports;
   }
 
 
-  public SystemPruneReport imagePruneReports(List<PruneReport> imagePruneReports) {
-    
+  public SystemPruneReport imagePruneReports(List<@Valid PruneReport> imagePruneReports) {
     this.imagePruneReports = imagePruneReports;
     return this;
   }
@@ -132,26 +129,23 @@ public class SystemPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get imagePruneReports
    * @return imagePruneReports
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<PruneReport> getImagePruneReports() {
+  public List<@Valid PruneReport> getImagePruneReports() {
     return imagePruneReports;
   }
 
-
-  public void setImagePruneReports(List<PruneReport> imagePruneReports) {
+  public void setImagePruneReports(List<@Valid PruneReport> imagePruneReports) {
     this.imagePruneReports = imagePruneReports;
   }
 
 
-  public SystemPruneReport networkPruneReports(List<NetworkPruneReport> networkPruneReports) {
-    
+  public SystemPruneReport networkPruneReports(List<@Valid NetworkPruneReport> networkPruneReports) {
     this.networkPruneReports = networkPruneReports;
     return this;
   }
@@ -164,26 +158,23 @@ public class SystemPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get networkPruneReports
    * @return networkPruneReports
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<NetworkPruneReport> getNetworkPruneReports() {
+  public List<@Valid NetworkPruneReport> getNetworkPruneReports() {
     return networkPruneReports;
   }
 
-
-  public void setNetworkPruneReports(List<NetworkPruneReport> networkPruneReports) {
+  public void setNetworkPruneReports(List<@Valid NetworkPruneReport> networkPruneReports) {
     this.networkPruneReports = networkPruneReports;
   }
 
 
-  public SystemPruneReport podPruneReport(List<PodPruneReport> podPruneReport) {
-    
+  public SystemPruneReport podPruneReport(List<@Valid PodPruneReport> podPruneReport) {
     this.podPruneReport = podPruneReport;
     return this;
   }
@@ -196,49 +187,43 @@ public class SystemPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get podPruneReport
    * @return podPruneReport
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<PodPruneReport> getPodPruneReport() {
+  public List<@Valid PodPruneReport> getPodPruneReport() {
     return podPruneReport;
   }
 
-
-  public void setPodPruneReport(List<PodPruneReport> podPruneReport) {
+  public void setPodPruneReport(List<@Valid PodPruneReport> podPruneReport) {
     this.podPruneReport = podPruneReport;
   }
 
 
   public SystemPruneReport reclaimedSpace(Integer reclaimedSpace) {
-    
     this.reclaimedSpace = reclaimedSpace;
     return this;
   }
 
-   /**
+  /**
    * Get reclaimedSpace
    * @return reclaimedSpace
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getReclaimedSpace() {
     return reclaimedSpace;
   }
-
 
   public void setReclaimedSpace(Integer reclaimedSpace) {
     this.reclaimedSpace = reclaimedSpace;
   }
 
 
-  public SystemPruneReport volumePruneReports(List<PruneReport> volumePruneReports) {
-    
+  public SystemPruneReport volumePruneReports(List<@Valid PruneReport> volumePruneReports) {
     this.volumePruneReports = volumePruneReports;
     return this;
   }
@@ -251,20 +236,18 @@ public class SystemPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get volumePruneReports
    * @return volumePruneReports
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<PruneReport> getVolumePruneReports() {
+  public List<@Valid PruneReport> getVolumePruneReports() {
     return volumePruneReports;
   }
 
-
-  public void setVolumePruneReports(List<PruneReport> volumePruneReports) {
+  public void setVolumePruneReports(List<@Valid PruneReport> volumePruneReports) {
     this.volumePruneReports = volumePruneReports;
   }
 
@@ -335,28 +318,27 @@ public class SystemPruneReport implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SystemPruneReport
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (SystemPruneReport.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SystemPruneReport
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SystemPruneReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SystemPruneReport is not found in the empty JSON string", SystemPruneReport.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SystemPruneReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SystemPruneReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SystemPruneReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("ContainerPruneReports") != null && !jsonObj.get("ContainerPruneReports").isJsonNull()) {
         JsonArray jsonArraycontainerPruneReports = jsonObj.getAsJsonArray("ContainerPruneReports");
         if (jsonArraycontainerPruneReports != null) {
@@ -367,7 +349,7 @@ public class SystemPruneReport implements Serializable {
 
           // validate the optional field `ContainerPruneReports` (array)
           for (int i = 0; i < jsonArraycontainerPruneReports.size(); i++) {
-            PruneReport.validateJsonObject(jsonArraycontainerPruneReports.get(i).getAsJsonObject());
+            PruneReport.validateJsonElement(jsonArraycontainerPruneReports.get(i));
           };
         }
       }
@@ -381,7 +363,7 @@ public class SystemPruneReport implements Serializable {
 
           // validate the optional field `ImagePruneReports` (array)
           for (int i = 0; i < jsonArrayimagePruneReports.size(); i++) {
-            PruneReport.validateJsonObject(jsonArrayimagePruneReports.get(i).getAsJsonObject());
+            PruneReport.validateJsonElement(jsonArrayimagePruneReports.get(i));
           };
         }
       }
@@ -395,7 +377,7 @@ public class SystemPruneReport implements Serializable {
 
           // validate the optional field `NetworkPruneReports` (array)
           for (int i = 0; i < jsonArraynetworkPruneReports.size(); i++) {
-            NetworkPruneReport.validateJsonObject(jsonArraynetworkPruneReports.get(i).getAsJsonObject());
+            NetworkPruneReport.validateJsonElement(jsonArraynetworkPruneReports.get(i));
           };
         }
       }
@@ -409,7 +391,7 @@ public class SystemPruneReport implements Serializable {
 
           // validate the optional field `PodPruneReport` (array)
           for (int i = 0; i < jsonArraypodPruneReport.size(); i++) {
-            PodPruneReport.validateJsonObject(jsonArraypodPruneReport.get(i).getAsJsonObject());
+            PodPruneReport.validateJsonElement(jsonArraypodPruneReport.get(i));
           };
         }
       }
@@ -423,7 +405,7 @@ public class SystemPruneReport implements Serializable {
 
           // validate the optional field `VolumePruneReports` (array)
           for (int i = 0; i < jsonArrayvolumePruneReports.size(); i++) {
-            PruneReport.validateJsonObject(jsonArrayvolumePruneReports.get(i).getAsJsonObject());
+            PruneReport.validateJsonElement(jsonArrayvolumePruneReports.get(i));
           };
         }
       }
@@ -449,31 +431,31 @@ public class SystemPruneReport implements Serializable {
 
            @Override
            public SystemPruneReport read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of SystemPruneReport given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SystemPruneReport
-  * @throws IOException if the JSON string is invalid with respect to SystemPruneReport
-  */
+  /**
+   * Create an instance of SystemPruneReport given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SystemPruneReport
+   * @throws IOException if the JSON string is invalid with respect to SystemPruneReport
+   */
   public static SystemPruneReport fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SystemPruneReport.class);
   }
 
- /**
-  * Convert an instance of SystemPruneReport to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SystemPruneReport to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

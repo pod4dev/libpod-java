@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ListContainerNamespaces contains the identifiers of the container&#39;s Linux namespaces
  */
-@ApiModel(description = "ListContainerNamespaces contains the identifiers of the container's Linux namespaces")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ListContainerNamespaces implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,22 +87,19 @@ public class ListContainerNamespaces implements Serializable {
   }
 
   public ListContainerNamespaces cgroup(String cgroup) {
-    
     this.cgroup = cgroup;
     return this;
   }
 
-   /**
+  /**
    * Cgroup namespace
    * @return cgroup
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Cgroup namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroup() {
     return cgroup;
   }
-
 
   public void setCgroup(String cgroup) {
     this.cgroup = cgroup;
@@ -110,22 +107,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces ipc(String ipc) {
-    
     this.ipc = ipc;
     return this;
   }
 
-   /**
+  /**
    * IPC namespace
    * @return ipc
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IPC namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpc() {
     return ipc;
   }
-
 
   public void setIpc(String ipc) {
     this.ipc = ipc;
@@ -133,22 +127,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces mnt(String mnt) {
-    
     this.mnt = mnt;
     return this;
   }
 
-   /**
+  /**
    * Mount namespace
    * @return mnt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Mount namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMnt() {
     return mnt;
   }
-
 
   public void setMnt(String mnt) {
     this.mnt = mnt;
@@ -156,22 +147,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces net(String net) {
-    
     this.net = net;
     return this;
   }
 
-   /**
+  /**
    * Network namespace
    * @return net
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Network namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getNet() {
     return net;
   }
-
 
   public void setNet(String net) {
     this.net = net;
@@ -179,22 +167,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces pidns(String pidns) {
-    
     this.pidns = pidns;
     return this;
   }
 
-   /**
+  /**
    * PID namespace
    * @return pidns
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "PID namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPidns() {
     return pidns;
   }
-
 
   public void setPidns(String pidns) {
     this.pidns = pidns;
@@ -202,22 +187,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces user(String user) {
-    
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * User namespace
    * @return user
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "User namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUser() {
     return user;
   }
-
 
   public void setUser(String user) {
     this.user = user;
@@ -225,22 +207,19 @@ public class ListContainerNamespaces implements Serializable {
 
 
   public ListContainerNamespaces uts(String uts) {
-    
     this.uts = uts;
     return this;
   }
 
-   /**
+  /**
    * UTS namespace
    * @return uts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UTS namespace")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUts() {
     return uts;
   }
-
 
   public void setUts(String uts) {
     this.uts = uts;
@@ -316,28 +295,27 @@ public class ListContainerNamespaces implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ListContainerNamespaces
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ListContainerNamespaces.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ListContainerNamespaces
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ListContainerNamespaces.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ListContainerNamespaces is not found in the empty JSON string", ListContainerNamespaces.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ListContainerNamespaces.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListContainerNamespaces` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListContainerNamespaces` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Cgroup") != null && !jsonObj.get("Cgroup").isJsonNull()) && !jsonObj.get("Cgroup").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Cgroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Cgroup").toString()));
       }
@@ -381,31 +359,31 @@ public class ListContainerNamespaces implements Serializable {
 
            @Override
            public ListContainerNamespaces read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ListContainerNamespaces given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ListContainerNamespaces
-  * @throws IOException if the JSON string is invalid with respect to ListContainerNamespaces
-  */
+  /**
+   * Create an instance of ListContainerNamespaces given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ListContainerNamespaces
+   * @throws IOException if the JSON string is invalid with respect to ListContainerNamespaces
+   */
   public static ListContainerNamespaces fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ListContainerNamespaces.class);
   }
 
- /**
-  * Convert an instance of ListContainerNamespaces to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ListContainerNamespaces to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

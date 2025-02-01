@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ContainerExecRequest;
 import io.github.pod4dev.libpodj.model.ErrorModel;
@@ -37,7 +38,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ExecApi {
     private ApiClient localVarApiClient;
@@ -94,7 +94,7 @@ public class ExecApi {
 
         // create path and map variables
         String localVarPath = "/libpod/containers/{name}/exec"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -111,7 +111,8 @@ public class ExecApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -124,15 +125,12 @@ public class ExecApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerExecLibpodValidateBeforeCall(String name, ContainerExecRequest control, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerExecLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerExecLibpodCall(name, control, _callback);
-        return localVarCall;
+        return containerExecLibpodCall(name, control, _callback);
 
     }
 
@@ -272,7 +270,7 @@ public class ExecApi {
 
         // create path and map variables
         String localVarPath = "/libpod/exec/{id}/json"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -289,7 +287,6 @@ public class ExecApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -302,15 +299,12 @@ public class ExecApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call execInspectLibpodValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling execInspectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = execInspectLibpodCall(id, _callback);
-        return localVarCall;
+        return execInspectLibpodCall(id, _callback);
 
     }
 
@@ -434,7 +428,7 @@ public class ExecApi {
 
         // create path and map variables
         String localVarPath = "/libpod/exec/{id}/resize"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -459,7 +453,6 @@ public class ExecApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -472,15 +465,12 @@ public class ExecApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call execResizeLibpodValidateBeforeCall(String id, Integer h, Integer w, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling execResizeLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = execResizeLibpodCall(id, h, w, _callback);
-        return localVarCall;
+        return execResizeLibpodCall(id, h, w, _callback);
 
     }
 
@@ -626,7 +616,7 @@ public class ExecApi {
 
         // create path and map variables
         String localVarPath = "/libpod/exec/{id}/start"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -643,7 +633,8 @@ public class ExecApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -656,15 +647,12 @@ public class ExecApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call execStartLibpodValidateBeforeCall(String id, ExecStartLibpodRequest control, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling execStartLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = execStartLibpodCall(id, control, _callback);
-        return localVarCall;
+        return execStartLibpodCall(id, control, _callback);
 
     }
 

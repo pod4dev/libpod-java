@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Address;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,22 +56,21 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * InspectAdditionalNetwork holds information about non-default networks the container has been connected to. As with InspectNetworkSettings, many fields are unused and maintained only for compatibility with Docker.
  */
-@ApiModel(description = "InspectAdditionalNetwork holds information about non-default networks the container has been connected to. As with InspectNetworkSettings, many fields are unused and maintained only for compatibility with Docker.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InspectAdditionalNetwork implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_M_A_C_ADDRESSES = "AdditionalMACAddresses";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_M_A_C_ADDRESSES)
-  private List<String> additionalMACAddresses = null;
+  private List<String> additionalMACAddresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ALIASES = "Aliases";
   @SerializedName(SERIALIZED_NAME_ALIASES)
-  private List<String> aliases = null;
+  private List<String> aliases = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DRIVER_OPTS = "DriverOpts";
   @SerializedName(SERIALIZED_NAME_DRIVER_OPTS)
-  private Map<String, String> driverOpts = null;
+  private Map<String, String> driverOpts = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ENDPOINT_I_D = "EndpointID";
   @SerializedName(SERIALIZED_NAME_ENDPOINT_I_D)
@@ -90,7 +90,7 @@ public class InspectAdditionalNetwork implements Serializable {
 
   public static final String SERIALIZED_NAME_IP_A_M_CONFIG = "IPAMConfig";
   @SerializedName(SERIALIZED_NAME_IP_A_M_CONFIG)
-  private Map<String, String> ipAMConfig = null;
+  private Map<String, String> ipAMConfig = new HashMap<>();
 
   public static final String SERIALIZED_NAME_IP_ADDRESS = "IPAddress";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESS)
@@ -106,7 +106,7 @@ public class InspectAdditionalNetwork implements Serializable {
 
   public static final String SERIALIZED_NAME_LINKS = "Links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<String> links = null;
+  private List<String> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MAC_ADDRESS = "MacAddress";
   @SerializedName(SERIALIZED_NAME_MAC_ADDRESS)
@@ -118,17 +118,16 @@ public class InspectAdditionalNetwork implements Serializable {
 
   public static final String SERIALIZED_NAME_SECONDARY_I_P_ADDRESSES = "SecondaryIPAddresses";
   @SerializedName(SERIALIZED_NAME_SECONDARY_I_P_ADDRESSES)
-  private List<Address> secondaryIPAddresses = null;
+  private List<@Valid Address> secondaryIPAddresses = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECONDARY_I_PV6_ADDRESSES = "SecondaryIPv6Addresses";
   @SerializedName(SERIALIZED_NAME_SECONDARY_I_PV6_ADDRESSES)
-  private List<Address> secondaryIPv6Addresses = null;
+  private List<@Valid Address> secondaryIPv6Addresses = new ArrayList<>();
 
   public InspectAdditionalNetwork() {
   }
 
   public InspectAdditionalNetwork additionalMACAddresses(List<String> additionalMACAddresses) {
-    
     this.additionalMACAddresses = additionalMACAddresses;
     return this;
   }
@@ -141,17 +140,15 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * AdditionalMacAddresses is a set of additional MAC Addresses beyond the first. CNI may configure more than one interface for a single network, which can cause this.
    * @return additionalMACAddresses
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "AdditionalMacAddresses is a set of additional MAC Addresses beyond the first. CNI may configure more than one interface for a single network, which can cause this.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getAdditionalMACAddresses() {
     return additionalMACAddresses;
   }
-
 
   public void setAdditionalMACAddresses(List<String> additionalMACAddresses) {
     this.additionalMACAddresses = additionalMACAddresses;
@@ -159,7 +156,6 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork aliases(List<String> aliases) {
-    
     this.aliases = aliases;
     return this;
   }
@@ -172,17 +168,15 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Aliases are any network aliases the container has in this network.
    * @return aliases
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Aliases are any network aliases the container has in this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getAliases() {
     return aliases;
   }
-
 
   public void setAliases(List<String> aliases) {
     this.aliases = aliases;
@@ -190,7 +184,6 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork driverOpts(Map<String, String> driverOpts) {
-    
     this.driverOpts = driverOpts;
     return this;
   }
@@ -203,17 +196,15 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DriverOpts is presently unused and maintained exclusively for compatibility.
    * @return driverOpts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DriverOpts is presently unused and maintained exclusively for compatibility.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getDriverOpts() {
     return driverOpts;
   }
-
 
   public void setDriverOpts(Map<String, String> driverOpts) {
     this.driverOpts = driverOpts;
@@ -221,22 +212,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork endpointID(String endpointID) {
-    
     this.endpointID = endpointID;
     return this;
   }
 
-   /**
+  /**
    * EndpointID is unused, maintained exclusively for compatibility.
    * @return endpointID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "EndpointID is unused, maintained exclusively for compatibility.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getEndpointID() {
     return endpointID;
   }
-
 
   public void setEndpointID(String endpointID) {
     this.endpointID = endpointID;
@@ -244,22 +232,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork gateway(String gateway) {
-    
     this.gateway = gateway;
     return this;
   }
 
-   /**
+  /**
    * Gateway is the IP address of the gateway this network will use.
    * @return gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway is the IP address of the gateway this network will use.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGateway() {
     return gateway;
   }
-
 
   public void setGateway(String gateway) {
     this.gateway = gateway;
@@ -267,22 +252,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork globalIPv6Address(String globalIPv6Address) {
-    
     this.globalIPv6Address = globalIPv6Address;
     return this;
   }
 
-   /**
+  /**
    * GlobalIPv6Address is the global-scope IPv6 Address for this network.
    * @return globalIPv6Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "GlobalIPv6Address is the global-scope IPv6 Address for this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGlobalIPv6Address() {
     return globalIPv6Address;
   }
-
 
   public void setGlobalIPv6Address(String globalIPv6Address) {
     this.globalIPv6Address = globalIPv6Address;
@@ -290,22 +272,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork globalIPv6PrefixLen(Long globalIPv6PrefixLen) {
-    
     this.globalIPv6PrefixLen = globalIPv6PrefixLen;
     return this;
   }
 
-   /**
+  /**
    * GlobalIPv6PrefixLen is the length of the subnet mask of this network.
    * @return globalIPv6PrefixLen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "GlobalIPv6PrefixLen is the length of the subnet mask of this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getGlobalIPv6PrefixLen() {
     return globalIPv6PrefixLen;
   }
-
 
   public void setGlobalIPv6PrefixLen(Long globalIPv6PrefixLen) {
     this.globalIPv6PrefixLen = globalIPv6PrefixLen;
@@ -313,7 +292,6 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork ipAMConfig(Map<String, String> ipAMConfig) {
-    
     this.ipAMConfig = ipAMConfig;
     return this;
   }
@@ -326,17 +304,15 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * IPAMConfig is presently unused and maintained exclusively for compatibility.
    * @return ipAMConfig
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IPAMConfig is presently unused and maintained exclusively for compatibility.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getIpAMConfig() {
     return ipAMConfig;
   }
-
 
   public void setIpAMConfig(Map<String, String> ipAMConfig) {
     this.ipAMConfig = ipAMConfig;
@@ -344,22 +320,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork ipAddress(String ipAddress) {
-    
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * IPAddress is the IP address for this network.
    * @return ipAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IPAddress is the IP address for this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpAddress() {
     return ipAddress;
   }
-
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
@@ -367,22 +340,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork ipPrefixLen(Long ipPrefixLen) {
-    
     this.ipPrefixLen = ipPrefixLen;
     return this;
   }
 
-   /**
+  /**
    * IPPrefixLen is the length of the subnet mask of this network.
    * @return ipPrefixLen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IPPrefixLen is the length of the subnet mask of this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getIpPrefixLen() {
     return ipPrefixLen;
   }
-
 
   public void setIpPrefixLen(Long ipPrefixLen) {
     this.ipPrefixLen = ipPrefixLen;
@@ -390,22 +360,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork ipv6Gateway(String ipv6Gateway) {
-    
     this.ipv6Gateway = ipv6Gateway;
     return this;
   }
 
-   /**
+  /**
    * IPv6Gateway is the IPv6 gateway this network will use.
    * @return ipv6Gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IPv6Gateway is the IPv6 gateway this network will use.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv6Gateway() {
     return ipv6Gateway;
   }
-
 
   public void setIpv6Gateway(String ipv6Gateway) {
     this.ipv6Gateway = ipv6Gateway;
@@ -413,7 +380,6 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork links(List<String> links) {
-    
     this.links = links;
     return this;
   }
@@ -426,17 +392,15 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Links is presently unused and maintained exclusively for compatibility.
    * @return links
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Links is presently unused and maintained exclusively for compatibility.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getLinks() {
     return links;
   }
-
 
   public void setLinks(List<String> links) {
     this.links = links;
@@ -444,22 +408,19 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork macAddress(String macAddress) {
-    
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
+  /**
    * MacAddress is the MAC address for the interface in this network.
    * @return macAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MacAddress is the MAC address for the interface in this network.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMacAddress() {
     return macAddress;
   }
-
 
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
@@ -467,30 +428,26 @@ public class InspectAdditionalNetwork implements Serializable {
 
 
   public InspectAdditionalNetwork networkID(String networkID) {
-    
     this.networkID = networkID;
     return this;
   }
 
-   /**
+  /**
    * Name of the network we&#39;re connecting to.
    * @return networkID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the network we're connecting to.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getNetworkID() {
     return networkID;
   }
-
 
   public void setNetworkID(String networkID) {
     this.networkID = networkID;
   }
 
 
-  public InspectAdditionalNetwork secondaryIPAddresses(List<Address> secondaryIPAddresses) {
-    
+  public InspectAdditionalNetwork secondaryIPAddresses(List<@Valid Address> secondaryIPAddresses) {
     this.secondaryIPAddresses = secondaryIPAddresses;
     return this;
   }
@@ -503,26 +460,23 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * SecondaryIPAddresses is a list of extra IP Addresses that the container has been assigned in this network.
    * @return secondaryIPAddresses
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "SecondaryIPAddresses is a list of extra IP Addresses that the container has been assigned in this network.")
 
-  public List<Address> getSecondaryIPAddresses() {
+  public List<@Valid Address> getSecondaryIPAddresses() {
     return secondaryIPAddresses;
   }
 
-
-  public void setSecondaryIPAddresses(List<Address> secondaryIPAddresses) {
+  public void setSecondaryIPAddresses(List<@Valid Address> secondaryIPAddresses) {
     this.secondaryIPAddresses = secondaryIPAddresses;
   }
 
 
-  public InspectAdditionalNetwork secondaryIPv6Addresses(List<Address> secondaryIPv6Addresses) {
-    
+  public InspectAdditionalNetwork secondaryIPv6Addresses(List<@Valid Address> secondaryIPv6Addresses) {
     this.secondaryIPv6Addresses = secondaryIPv6Addresses;
     return this;
   }
@@ -535,20 +489,18 @@ public class InspectAdditionalNetwork implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * SecondaryIPv6Addresses is a list of extra IPv6 Addresses that the container has been assigned in this network.
    * @return secondaryIPv6Addresses
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "SecondaryIPv6Addresses is a list of extra IPv6 Addresses that the container has been assigned in this network.")
 
-  public List<Address> getSecondaryIPv6Addresses() {
+  public List<@Valid Address> getSecondaryIPv6Addresses() {
     return secondaryIPv6Addresses;
   }
 
-
-  public void setSecondaryIPv6Addresses(List<Address> secondaryIPv6Addresses) {
+  public void setSecondaryIPv6Addresses(List<@Valid Address> secondaryIPv6Addresses) {
     this.secondaryIPv6Addresses = secondaryIPv6Addresses;
   }
 
@@ -649,34 +601,33 @@ public class InspectAdditionalNetwork implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to InspectAdditionalNetwork
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (InspectAdditionalNetwork.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InspectAdditionalNetwork
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!InspectAdditionalNetwork.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in InspectAdditionalNetwork is not found in the empty JSON string", InspectAdditionalNetwork.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InspectAdditionalNetwork.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectAdditionalNetwork` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectAdditionalNetwork` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("AdditionalMACAddresses") != null && !jsonObj.get("AdditionalMACAddresses").isJsonNull()) && !jsonObj.get("AdditionalMACAddresses").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("AdditionalMACAddresses") != null && !jsonObj.get("AdditionalMACAddresses").isJsonNull() && !jsonObj.get("AdditionalMACAddresses").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `AdditionalMACAddresses` to be an array in the JSON string but got `%s`", jsonObj.get("AdditionalMACAddresses").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Aliases") != null && !jsonObj.get("Aliases").isJsonNull()) && !jsonObj.get("Aliases").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Aliases") != null && !jsonObj.get("Aliases").isJsonNull() && !jsonObj.get("Aliases").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Aliases` to be an array in the JSON string but got `%s`", jsonObj.get("Aliases").toString()));
       }
       if ((jsonObj.get("EndpointID") != null && !jsonObj.get("EndpointID").isJsonNull()) && !jsonObj.get("EndpointID").isJsonPrimitive()) {
@@ -694,8 +645,8 @@ public class InspectAdditionalNetwork implements Serializable {
       if ((jsonObj.get("IPv6Gateway") != null && !jsonObj.get("IPv6Gateway").isJsonNull()) && !jsonObj.get("IPv6Gateway").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `IPv6Gateway` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IPv6Gateway").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Links") != null && !jsonObj.get("Links").isJsonNull()) && !jsonObj.get("Links").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Links") != null && !jsonObj.get("Links").isJsonNull() && !jsonObj.get("Links").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Links` to be an array in the JSON string but got `%s`", jsonObj.get("Links").toString()));
       }
       if ((jsonObj.get("MacAddress") != null && !jsonObj.get("MacAddress").isJsonNull()) && !jsonObj.get("MacAddress").isJsonPrimitive()) {
@@ -714,7 +665,7 @@ public class InspectAdditionalNetwork implements Serializable {
 
           // validate the optional field `SecondaryIPAddresses` (array)
           for (int i = 0; i < jsonArraysecondaryIPAddresses.size(); i++) {
-            Address.validateJsonObject(jsonArraysecondaryIPAddresses.get(i).getAsJsonObject());
+            Address.validateJsonElement(jsonArraysecondaryIPAddresses.get(i));
           };
         }
       }
@@ -728,7 +679,7 @@ public class InspectAdditionalNetwork implements Serializable {
 
           // validate the optional field `SecondaryIPv6Addresses` (array)
           for (int i = 0; i < jsonArraysecondaryIPv6Addresses.size(); i++) {
-            Address.validateJsonObject(jsonArraysecondaryIPv6Addresses.get(i).getAsJsonObject());
+            Address.validateJsonElement(jsonArraysecondaryIPv6Addresses.get(i));
           };
         }
       }
@@ -754,31 +705,31 @@ public class InspectAdditionalNetwork implements Serializable {
 
            @Override
            public InspectAdditionalNetwork read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of InspectAdditionalNetwork given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InspectAdditionalNetwork
-  * @throws IOException if the JSON string is invalid with respect to InspectAdditionalNetwork
-  */
+  /**
+   * Create an instance of InspectAdditionalNetwork given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InspectAdditionalNetwork
+   * @throws IOException if the JSON string is invalid with respect to InspectAdditionalNetwork
+   */
   public static InspectAdditionalNetwork fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InspectAdditionalNetwork.class);
   }
 
- /**
-  * Convert an instance of InspectAdditionalNetwork to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InspectAdditionalNetwork to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

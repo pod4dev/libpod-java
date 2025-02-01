@@ -13,7 +13,7 @@
 
 package io.github.pod4dev.libpodj;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Pair {
     private String name = "";
     private String value = "";

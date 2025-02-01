@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.HealthCheckResults;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * InspectContainerState provides a detailed record of a container&#39;s current state. It is returned as part of InspectContainerData. As with InspectContainerData, many portions of this struct are matched to Docker, but here we see more fields that are unused (nonsensical in the context of Libpod).
  */
-@ApiModel(description = "InspectContainerState provides a detailed record of a container's current state. It is returned as part of InspectContainerData. As with InspectContainerData, many portions of this struct are matched to Docker, but here we see more fields that are unused (nonsensical in the context of Libpod).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InspectContainerState implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -153,22 +153,19 @@ public class InspectContainerState implements Serializable {
   }
 
   public InspectContainerState cgroupPath(String cgroupPath) {
-    
     this.cgroupPath = cgroupPath;
     return this;
   }
 
-   /**
+  /**
    * Get cgroupPath
    * @return cgroupPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupPath() {
     return cgroupPath;
   }
-
 
   public void setCgroupPath(String cgroupPath) {
     this.cgroupPath = cgroupPath;
@@ -176,22 +173,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState checkpointLog(String checkpointLog) {
-    
     this.checkpointLog = checkpointLog;
     return this;
   }
 
-   /**
+  /**
    * Get checkpointLog
    * @return checkpointLog
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCheckpointLog() {
     return checkpointLog;
   }
-
 
   public void setCheckpointLog(String checkpointLog) {
     this.checkpointLog = checkpointLog;
@@ -199,22 +193,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState checkpointPath(String checkpointPath) {
-    
     this.checkpointPath = checkpointPath;
     return this;
   }
 
-   /**
+  /**
    * Get checkpointPath
    * @return checkpointPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCheckpointPath() {
     return checkpointPath;
   }
-
 
   public void setCheckpointPath(String checkpointPath) {
     this.checkpointPath = checkpointPath;
@@ -222,22 +213,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState checkpointed(Boolean checkpointed) {
-    
     this.checkpointed = checkpointed;
     return this;
   }
 
-   /**
+  /**
    * Get checkpointed
    * @return checkpointed
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getCheckpointed() {
     return checkpointed;
   }
-
 
   public void setCheckpointed(Boolean checkpointed) {
     this.checkpointed = checkpointed;
@@ -245,23 +233,20 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState checkpointedAt(OffsetDateTime checkpointedAt) {
-    
     this.checkpointedAt = checkpointedAt;
     return this;
   }
 
-   /**
+  /**
    * Get checkpointedAt
    * @return checkpointedAt
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCheckpointedAt() {
     return checkpointedAt;
   }
-
 
   public void setCheckpointedAt(OffsetDateTime checkpointedAt) {
     this.checkpointedAt = checkpointedAt;
@@ -269,22 +254,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState conmonPid(Long conmonPid) {
-    
     this.conmonPid = conmonPid;
     return this;
   }
 
-   /**
+  /**
    * Get conmonPid
    * @return conmonPid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getConmonPid() {
     return conmonPid;
   }
-
 
   public void setConmonPid(Long conmonPid) {
     this.conmonPid = conmonPid;
@@ -292,22 +274,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState dead(Boolean dead) {
-    
     this.dead = dead;
     return this;
   }
 
-   /**
+  /**
    * Get dead
    * @return dead
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getDead() {
     return dead;
   }
-
 
   public void setDead(Boolean dead) {
     this.dead = dead;
@@ -315,22 +294,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState error(String error) {
-    
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Get error
    * @return error
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getError() {
     return error;
   }
-
 
   public void setError(String error) {
     this.error = error;
@@ -338,22 +314,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState exitCode(Integer exitCode) {
-    
     this.exitCode = exitCode;
     return this;
   }
 
-   /**
+  /**
    * Get exitCode
    * @return exitCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getExitCode() {
     return exitCode;
   }
-
 
   public void setExitCode(Integer exitCode) {
     this.exitCode = exitCode;
@@ -361,23 +334,20 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState finishedAt(OffsetDateTime finishedAt) {
-    
     this.finishedAt = finishedAt;
     return this;
   }
 
-   /**
+  /**
    * Get finishedAt
    * @return finishedAt
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getFinishedAt() {
     return finishedAt;
   }
-
 
   public void setFinishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
@@ -385,23 +355,20 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState health(HealthCheckResults health) {
-    
     this.health = health;
     return this;
   }
 
-   /**
+  /**
    * Get health
    * @return health
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public HealthCheckResults getHealth() {
     return health;
   }
-
 
   public void setHealth(HealthCheckResults health) {
     this.health = health;
@@ -409,22 +376,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState ooMKilled(Boolean ooMKilled) {
-    
     this.ooMKilled = ooMKilled;
     return this;
   }
 
-   /**
+  /**
    * Get ooMKilled
    * @return ooMKilled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getOoMKilled() {
     return ooMKilled;
   }
-
 
   public void setOoMKilled(Boolean ooMKilled) {
     this.ooMKilled = ooMKilled;
@@ -432,22 +396,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState ociVersion(String ociVersion) {
-    
     this.ociVersion = ociVersion;
     return this;
   }
 
-   /**
+  /**
    * Get ociVersion
    * @return ociVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOciVersion() {
     return ociVersion;
   }
-
 
   public void setOciVersion(String ociVersion) {
     this.ociVersion = ociVersion;
@@ -455,22 +416,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState paused(Boolean paused) {
-    
     this.paused = paused;
     return this;
   }
 
-   /**
+  /**
    * Get paused
    * @return paused
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getPaused() {
     return paused;
   }
-
 
   public void setPaused(Boolean paused) {
     this.paused = paused;
@@ -478,22 +436,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState pid(Long pid) {
-    
     this.pid = pid;
     return this;
   }
 
-   /**
+  /**
    * Get pid
    * @return pid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getPid() {
     return pid;
   }
-
 
   public void setPid(Long pid) {
     this.pid = pid;
@@ -501,22 +456,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState restarting(Boolean restarting) {
-    
     this.restarting = restarting;
     return this;
   }
 
-   /**
+  /**
    * Get restarting
    * @return restarting
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRestarting() {
     return restarting;
   }
-
 
   public void setRestarting(Boolean restarting) {
     this.restarting = restarting;
@@ -524,22 +476,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState restoreLog(String restoreLog) {
-    
     this.restoreLog = restoreLog;
     return this;
   }
 
-   /**
+  /**
    * Get restoreLog
    * @return restoreLog
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRestoreLog() {
     return restoreLog;
   }
-
 
   public void setRestoreLog(String restoreLog) {
     this.restoreLog = restoreLog;
@@ -547,22 +496,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState restored(Boolean restored) {
-    
     this.restored = restored;
     return this;
   }
 
-   /**
+  /**
    * Get restored
    * @return restored
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRestored() {
     return restored;
   }
-
 
   public void setRestored(Boolean restored) {
     this.restored = restored;
@@ -570,23 +516,20 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState restoredAt(OffsetDateTime restoredAt) {
-    
     this.restoredAt = restoredAt;
     return this;
   }
 
-   /**
+  /**
    * Get restoredAt
    * @return restoredAt
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getRestoredAt() {
     return restoredAt;
   }
-
 
   public void setRestoredAt(OffsetDateTime restoredAt) {
     this.restoredAt = restoredAt;
@@ -594,22 +537,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState running(Boolean running) {
-    
     this.running = running;
     return this;
   }
 
-   /**
+  /**
    * Get running
    * @return running
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRunning() {
     return running;
   }
-
 
   public void setRunning(Boolean running) {
     this.running = running;
@@ -617,23 +557,20 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState startedAt(OffsetDateTime startedAt) {
-    
     this.startedAt = startedAt;
     return this;
   }
 
-   /**
+  /**
    * Get startedAt
    * @return startedAt
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getStartedAt() {
     return startedAt;
   }
-
 
   public void setStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
@@ -641,22 +578,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState status(String status) {
-    
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStatus() {
     return status;
   }
-
 
   public void setStatus(String status) {
     this.status = status;
@@ -664,22 +598,19 @@ public class InspectContainerState implements Serializable {
 
 
   public InspectContainerState stoppedByUser(Boolean stoppedByUser) {
-    
     this.stoppedByUser = stoppedByUser;
     return this;
   }
 
-   /**
+  /**
    * Get stoppedByUser
    * @return stoppedByUser
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getStoppedByUser() {
     return stoppedByUser;
   }
-
 
   public void setStoppedByUser(Boolean stoppedByUser) {
     this.stoppedByUser = stoppedByUser;
@@ -803,28 +734,27 @@ public class InspectContainerState implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to InspectContainerState
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (InspectContainerState.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InspectContainerState
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!InspectContainerState.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in InspectContainerState is not found in the empty JSON string", InspectContainerState.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InspectContainerState.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectContainerState` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectContainerState` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("CgroupPath") != null && !jsonObj.get("CgroupPath").isJsonNull()) && !jsonObj.get("CgroupPath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `CgroupPath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CgroupPath").toString()));
       }
@@ -839,7 +769,7 @@ public class InspectContainerState implements Serializable {
       }
       // validate the optional field `Health`
       if (jsonObj.get("Health") != null && !jsonObj.get("Health").isJsonNull()) {
-        HealthCheckResults.validateJsonObject(jsonObj.getAsJsonObject("Health"));
+        HealthCheckResults.validateJsonElement(jsonObj.get("Health"));
       }
       if ((jsonObj.get("OciVersion") != null && !jsonObj.get("OciVersion").isJsonNull()) && !jsonObj.get("OciVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `OciVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("OciVersion").toString()));
@@ -872,31 +802,31 @@ public class InspectContainerState implements Serializable {
 
            @Override
            public InspectContainerState read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of InspectContainerState given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InspectContainerState
-  * @throws IOException if the JSON string is invalid with respect to InspectContainerState
-  */
+  /**
+   * Create an instance of InspectContainerState given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InspectContainerState
+   * @throws IOException if the JSON string is invalid with respect to InspectContainerState
+   */
   public static InspectContainerState fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InspectContainerState.class);
   }
 
- /**
-  * Convert an instance of InspectContainerState to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InspectContainerState to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

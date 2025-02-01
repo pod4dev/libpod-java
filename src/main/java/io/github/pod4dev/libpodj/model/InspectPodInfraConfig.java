@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.InspectHostPort;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,26 +56,25 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * InspectPodInfraConfig contains the configuration of the pod&#39;s infra container.
  */
-@ApiModel(description = "InspectPodInfraConfig contains the configuration of the pod's infra container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InspectPodInfraConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_DN_S_OPTION = "DNSOption";
   @SerializedName(SERIALIZED_NAME_DN_S_OPTION)
-  private List<String> dnSOption = null;
+  private List<String> dnSOption = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DN_S_SEARCH = "DNSSearch";
   @SerializedName(SERIALIZED_NAME_DN_S_SEARCH)
-  private List<String> dnSSearch = null;
+  private List<String> dnSSearch = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DN_S_SERVER = "DNSServer";
   @SerializedName(SERIALIZED_NAME_DN_S_SERVER)
-  private List<String> dnSServer = null;
+  private List<String> dnSServer = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_ADD = "HostAdd";
   @SerializedName(SERIALIZED_NAME_HOST_ADD)
-  private List<String> hostAdd = null;
+  private List<String> hostAdd = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_NETWORK = "HostNetwork";
   @SerializedName(SERIALIZED_NAME_HOST_NETWORK)
@@ -82,11 +82,11 @@ public class InspectPodInfraConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_NETWORK_OPTIONS = "NetworkOptions";
   @SerializedName(SERIALIZED_NAME_NETWORK_OPTIONS)
-  private Map<String, List<String>> networkOptions = null;
+  private Map<String, List<String>> networkOptions = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NETWORKS = "Networks";
   @SerializedName(SERIALIZED_NAME_NETWORKS)
-  private List<String> networks = null;
+  private List<String> networks = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NO_MANAGE_HOSTS = "NoManageHosts";
   @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTS)
@@ -98,7 +98,7 @@ public class InspectPodInfraConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_PORT_BINDINGS = "PortBindings";
   @SerializedName(SERIALIZED_NAME_PORT_BINDINGS)
-  private Map<String, List<InspectHostPort>> portBindings = null;
+  private Map<String, List<@Valid InspectHostPort>> portBindings = new HashMap<>();
 
   public static final String SERIALIZED_NAME_STATIC_I_P = "StaticIP";
   @SerializedName(SERIALIZED_NAME_STATIC_I_P)
@@ -136,7 +136,6 @@ public class InspectPodInfraConfig implements Serializable {
   }
 
   public InspectPodInfraConfig dnSOption(List<String> dnSOption) {
-    
     this.dnSOption = dnSOption;
     return this;
   }
@@ -149,17 +148,15 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSOption is a set of DNS options that will be used by the infra container&#39;s resolv.conf and shared with the remainder of the pod.
    * @return dnSOption
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSOption is a set of DNS options that will be used by the infra container's resolv.conf and shared with the remainder of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnSOption() {
     return dnSOption;
   }
-
 
   public void setDnSOption(List<String> dnSOption) {
     this.dnSOption = dnSOption;
@@ -167,7 +164,6 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig dnSSearch(List<String> dnSSearch) {
-    
     this.dnSSearch = dnSSearch;
     return this;
   }
@@ -180,17 +176,15 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSSearch is a set of DNS search domains that will be used by the infra container&#39;s resolv.conf and shared with the remainder of the pod.
    * @return dnSSearch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSSearch is a set of DNS search domains that will be used by the infra container's resolv.conf and shared with the remainder of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnSSearch() {
     return dnSSearch;
   }
-
 
   public void setDnSSearch(List<String> dnSSearch) {
     this.dnSSearch = dnSSearch;
@@ -198,7 +192,6 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig dnSServer(List<String> dnSServer) {
-    
     this.dnSServer = dnSServer;
     return this;
   }
@@ -211,17 +204,15 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSServer is a set of DNS Servers that will be used by the infra container&#39;s resolv.conf and shared with the remainder of the pod.
    * @return dnSServer
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSServer is a set of DNS Servers that will be used by the infra container's resolv.conf and shared with the remainder of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnSServer() {
     return dnSServer;
   }
-
 
   public void setDnSServer(List<String> dnSServer) {
     this.dnSServer = dnSServer;
@@ -229,7 +220,6 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig hostAdd(List<String> hostAdd) {
-    
     this.hostAdd = hostAdd;
     return this;
   }
@@ -242,17 +232,15 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * HostAdd adds a number of hosts to the infra container&#39;s resolv.conf which will be shared with the rest of the pod.
    * @return hostAdd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HostAdd adds a number of hosts to the infra container's resolv.conf which will be shared with the rest of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getHostAdd() {
     return hostAdd;
   }
-
 
   public void setHostAdd(List<String> hostAdd) {
     this.hostAdd = hostAdd;
@@ -260,22 +248,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig hostNetwork(Boolean hostNetwork) {
-    
     this.hostNetwork = hostNetwork;
     return this;
   }
 
-   /**
+  /**
    * HostNetwork is whether the infra container (and thus the whole pod) will use the host&#39;s network and not create a network namespace.
    * @return hostNetwork
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HostNetwork is whether the infra container (and thus the whole pod) will use the host's network and not create a network namespace.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getHostNetwork() {
     return hostNetwork;
   }
-
 
   public void setHostNetwork(Boolean hostNetwork) {
     this.hostNetwork = hostNetwork;
@@ -283,7 +268,6 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig networkOptions(Map<String, List<String>> networkOptions) {
-    
     this.networkOptions = networkOptions;
     return this;
   }
@@ -296,18 +280,16 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * NetworkOptions are additional options for each network
    * @return networkOptions
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "NetworkOptions are additional options for each network")
 
   public Map<String, List<String>> getNetworkOptions() {
     return networkOptions;
   }
-
 
   public void setNetworkOptions(Map<String, List<String>> networkOptions) {
     this.networkOptions = networkOptions;
@@ -315,7 +297,6 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig networks(List<String> networks) {
-    
     this.networks = networks;
     return this;
   }
@@ -328,17 +309,15 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Networks is a list of networks the pod will join.
    * @return networks
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Networks is a list of networks the pod will join.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getNetworks() {
     return networks;
   }
-
 
   public void setNetworks(List<String> networks) {
     this.networks = networks;
@@ -346,22 +325,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig noManageHosts(Boolean noManageHosts) {
-    
     this.noManageHosts = noManageHosts;
     return this;
   }
 
-   /**
+  /**
    * NoManageHosts indicates that the pod will not manage /etc/hosts and instead each container will handle their own.
    * @return noManageHosts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NoManageHosts indicates that the pod will not manage /etc/hosts and instead each container will handle their own.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getNoManageHosts() {
     return noManageHosts;
   }
-
 
   public void setNoManageHosts(Boolean noManageHosts) {
     this.noManageHosts = noManageHosts;
@@ -369,35 +345,31 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig noManageResolvConf(Boolean noManageResolvConf) {
-    
     this.noManageResolvConf = noManageResolvConf;
     return this;
   }
 
-   /**
+  /**
    * NoManageResolvConf indicates that the pod will not manage resolv.conf and instead each container will handle their own.
    * @return noManageResolvConf
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NoManageResolvConf indicates that the pod will not manage resolv.conf and instead each container will handle their own.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getNoManageResolvConf() {
     return noManageResolvConf;
   }
-
 
   public void setNoManageResolvConf(Boolean noManageResolvConf) {
     this.noManageResolvConf = noManageResolvConf;
   }
 
 
-  public InspectPodInfraConfig portBindings(Map<String, List<InspectHostPort>> portBindings) {
-    
+  public InspectPodInfraConfig portBindings(Map<String, List<@Valid InspectHostPort>> portBindings) {
     this.portBindings = portBindings;
     return this;
   }
 
-  public InspectPodInfraConfig putPortBindingsItem(String key, List<InspectHostPort> portBindingsItem) {
+  public InspectPodInfraConfig putPortBindingsItem(String key, List<@Valid InspectHostPort> portBindingsItem) {
     if (this.portBindings == null) {
       this.portBindings = new HashMap<>();
     }
@@ -405,41 +377,36 @@ public class InspectPodInfraConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * PortBindings are ports that will be forwarded to the infra container and then shared with the pod.
    * @return portBindings
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "PortBindings are ports that will be forwarded to the infra container and then shared with the pod.")
 
-  public Map<String, List<InspectHostPort>> getPortBindings() {
+  public Map<String, List<@Valid InspectHostPort>> getPortBindings() {
     return portBindings;
   }
 
-
-  public void setPortBindings(Map<String, List<InspectHostPort>> portBindings) {
+  public void setPortBindings(Map<String, List<@Valid InspectHostPort>> portBindings) {
     this.portBindings = portBindings;
   }
 
 
   public InspectPodInfraConfig staticIP(String staticIP) {
-    
     this.staticIP = staticIP;
     return this;
   }
 
-   /**
+  /**
    * StaticIP is a static IPv4 that will be assigned to the infra container and then used by the pod.
    * @return staticIP
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "StaticIP is a static IPv4 that will be assigned to the infra container and then used by the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStaticIP() {
     return staticIP;
   }
-
 
   public void setStaticIP(String staticIP) {
     this.staticIP = staticIP;
@@ -447,22 +414,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig staticMAC(String staticMAC) {
-    
     this.staticMAC = staticMAC;
     return this;
   }
 
-   /**
+  /**
    * StaticMAC is a static MAC address that will be assigned to the infra container and then used by the pod.
    * @return staticMAC
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "StaticMAC is a static MAC address that will be assigned to the infra container and then used by the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStaticMAC() {
     return staticMAC;
   }
-
 
   public void setStaticMAC(String staticMAC) {
     this.staticMAC = staticMAC;
@@ -470,22 +434,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig cpuPeriod(Integer cpuPeriod) {
-    
     this.cpuPeriod = cpuPeriod;
     return this;
   }
 
-   /**
+  /**
    * CPUPeriod contains the CPU period of the pod
    * @return cpuPeriod
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUPeriod contains the CPU period of the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getCpuPeriod() {
     return cpuPeriod;
   }
-
 
   public void setCpuPeriod(Integer cpuPeriod) {
     this.cpuPeriod = cpuPeriod;
@@ -493,22 +454,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig cpuQuota(Long cpuQuota) {
-    
     this.cpuQuota = cpuQuota;
     return this;
   }
 
-   /**
+  /**
    * CPUQuota contains the CPU quota of the pod
    * @return cpuQuota
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUQuota contains the CPU quota of the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuQuota() {
     return cpuQuota;
   }
-
 
   public void setCpuQuota(Long cpuQuota) {
     this.cpuQuota = cpuQuota;
@@ -516,22 +474,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig cpusetCpus(String cpusetCpus) {
-    
     this.cpusetCpus = cpusetCpus;
     return this;
   }
 
-   /**
+  /**
    * CPUSetCPUs contains linux specific CPU data for the container
    * @return cpusetCpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUSetCPUs contains linux specific CPU data for the container")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetCpus() {
     return cpusetCpus;
   }
-
 
   public void setCpusetCpus(String cpusetCpus) {
     this.cpusetCpus = cpusetCpus;
@@ -539,22 +494,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig pidNs(String pidNs) {
-    
     this.pidNs = pidNs;
     return this;
   }
 
-   /**
+  /**
    * Pid is the PID namespace mode of the pod&#39;s infra container
    * @return pidNs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pid is the PID namespace mode of the pod's infra container")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPidNs() {
     return pidNs;
   }
-
 
   public void setPidNs(String pidNs) {
     this.pidNs = pidNs;
@@ -562,22 +514,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig userns(String userns) {
-    
     this.userns = userns;
     return this;
   }
 
-   /**
+  /**
    * UserNS is the usernamespace that all the containers in the pod will join.
    * @return userns
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UserNS is the usernamespace that all the containers in the pod will join.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUserns() {
     return userns;
   }
-
 
   public void setUserns(String userns) {
     this.userns = userns;
@@ -585,22 +534,19 @@ public class InspectPodInfraConfig implements Serializable {
 
 
   public InspectPodInfraConfig utsNs(String utsNs) {
-    
     this.utsNs = utsNs;
     return this;
   }
 
-   /**
+  /**
    * UtsNS is the uts namespace that all containers in the pod will join
    * @return utsNs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UtsNS is the uts namespace that all containers in the pod will join")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUtsNs() {
     return utsNs;
   }
-
 
   public void setUtsNs(String utsNs) {
     this.utsNs = utsNs;
@@ -709,46 +655,45 @@ public class InspectPodInfraConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to InspectPodInfraConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (InspectPodInfraConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InspectPodInfraConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!InspectPodInfraConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in InspectPodInfraConfig is not found in the empty JSON string", InspectPodInfraConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InspectPodInfraConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectPodInfraConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectPodInfraConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("DNSOption") != null && !jsonObj.get("DNSOption").isJsonNull()) && !jsonObj.get("DNSOption").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("DNSOption") != null && !jsonObj.get("DNSOption").isJsonNull() && !jsonObj.get("DNSOption").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `DNSOption` to be an array in the JSON string but got `%s`", jsonObj.get("DNSOption").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("DNSSearch") != null && !jsonObj.get("DNSSearch").isJsonNull()) && !jsonObj.get("DNSSearch").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("DNSSearch") != null && !jsonObj.get("DNSSearch").isJsonNull() && !jsonObj.get("DNSSearch").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `DNSSearch` to be an array in the JSON string but got `%s`", jsonObj.get("DNSSearch").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("DNSServer") != null && !jsonObj.get("DNSServer").isJsonNull()) && !jsonObj.get("DNSServer").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("DNSServer") != null && !jsonObj.get("DNSServer").isJsonNull() && !jsonObj.get("DNSServer").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `DNSServer` to be an array in the JSON string but got `%s`", jsonObj.get("DNSServer").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("HostAdd") != null && !jsonObj.get("HostAdd").isJsonNull()) && !jsonObj.get("HostAdd").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("HostAdd") != null && !jsonObj.get("HostAdd").isJsonNull() && !jsonObj.get("HostAdd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `HostAdd` to be an array in the JSON string but got `%s`", jsonObj.get("HostAdd").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Networks") != null && !jsonObj.get("Networks").isJsonNull()) && !jsonObj.get("Networks").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Networks") != null && !jsonObj.get("Networks").isJsonNull() && !jsonObj.get("Networks").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Networks` to be an array in the JSON string but got `%s`", jsonObj.get("Networks").toString()));
       }
       if ((jsonObj.get("StaticIP") != null && !jsonObj.get("StaticIP").isJsonNull()) && !jsonObj.get("StaticIP").isJsonPrimitive()) {
@@ -791,31 +736,31 @@ public class InspectPodInfraConfig implements Serializable {
 
            @Override
            public InspectPodInfraConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of InspectPodInfraConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InspectPodInfraConfig
-  * @throws IOException if the JSON string is invalid with respect to InspectPodInfraConfig
-  */
+  /**
+   * Create an instance of InspectPodInfraConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InspectPodInfraConfig
+   * @throws IOException if the JSON string is invalid with respect to InspectPodInfraConfig
+   */
   public static InspectPodInfraConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InspectPodInfraConfig.class);
   }
 
- /**
-  * Convert an instance of InspectPodInfraConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InspectPodInfraConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

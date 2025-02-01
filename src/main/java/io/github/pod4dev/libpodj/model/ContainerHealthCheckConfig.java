@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Schema2HealthConfig;
 import io.github.pod4dev.libpodj.model.StartupHealthCheck;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerHealthCheckConfig describes a container healthcheck with attributes like command, retries, interval, start period, and timeout.
  */
-@ApiModel(description = "ContainerHealthCheckConfig describes a container healthcheck with attributes like command, retries, interval, start period, and timeout.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerHealthCheckConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,22 +85,19 @@ public class ContainerHealthCheckConfig implements Serializable {
   }
 
   public ContainerHealthCheckConfig healthCheckOnFailureAction(Long healthCheckOnFailureAction) {
-    
     this.healthCheckOnFailureAction = healthCheckOnFailureAction;
     return this;
   }
 
-   /**
+  /**
    * HealthCheckOnFailureAction defines how Podman reacts when a container&#39;s health status turns unhealthy.
    * @return healthCheckOnFailureAction
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HealthCheckOnFailureAction defines how Podman reacts when a container's health status turns unhealthy.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getHealthCheckOnFailureAction() {
     return healthCheckOnFailureAction;
   }
-
 
   public void setHealthCheckOnFailureAction(Long healthCheckOnFailureAction) {
     this.healthCheckOnFailureAction = healthCheckOnFailureAction;
@@ -108,22 +105,19 @@ public class ContainerHealthCheckConfig implements Serializable {
 
 
   public ContainerHealthCheckConfig healthLogDestination(String healthLogDestination) {
-    
     this.healthLogDestination = healthLogDestination;
     return this;
   }
 
-   /**
+  /**
    * HealthLogDestination defines the destination where the log is stored
    * @return healthLogDestination
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HealthLogDestination defines the destination where the log is stored")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHealthLogDestination() {
     return healthLogDestination;
   }
-
 
   public void setHealthLogDestination(String healthLogDestination) {
     this.healthLogDestination = healthLogDestination;
@@ -131,22 +125,19 @@ public class ContainerHealthCheckConfig implements Serializable {
 
 
   public ContainerHealthCheckConfig healthMaxLogCount(Integer healthMaxLogCount) {
-    
     this.healthMaxLogCount = healthMaxLogCount;
     return this;
   }
 
-   /**
+  /**
    * HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. (&#39;0&#39; value means an infinite number of attempts in the log file)
    * @return healthMaxLogCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. ('0' value means an infinite number of attempts in the log file)")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getHealthMaxLogCount() {
     return healthMaxLogCount;
   }
-
 
   public void setHealthMaxLogCount(Integer healthMaxLogCount) {
     this.healthMaxLogCount = healthMaxLogCount;
@@ -154,22 +145,19 @@ public class ContainerHealthCheckConfig implements Serializable {
 
 
   public ContainerHealthCheckConfig healthMaxLogSize(Integer healthMaxLogSize) {
-    
     this.healthMaxLogSize = healthMaxLogSize;
     return this;
   }
 
-   /**
+  /**
    * HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\&quot;0\&quot; value means an infinite log length)
    * @return healthMaxLogSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\"0\" value means an infinite log length)")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getHealthMaxLogSize() {
     return healthMaxLogSize;
   }
-
 
   public void setHealthMaxLogSize(Integer healthMaxLogSize) {
     this.healthMaxLogSize = healthMaxLogSize;
@@ -177,23 +165,20 @@ public class ContainerHealthCheckConfig implements Serializable {
 
 
   public ContainerHealthCheckConfig healthconfig(Schema2HealthConfig healthconfig) {
-    
     this.healthconfig = healthconfig;
     return this;
   }
 
-   /**
+  /**
    * Get healthconfig
    * @return healthconfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Schema2HealthConfig getHealthconfig() {
     return healthconfig;
   }
-
 
   public void setHealthconfig(Schema2HealthConfig healthconfig) {
     this.healthconfig = healthconfig;
@@ -201,23 +186,20 @@ public class ContainerHealthCheckConfig implements Serializable {
 
 
   public ContainerHealthCheckConfig startupHealthConfig(StartupHealthCheck startupHealthConfig) {
-    
     this.startupHealthConfig = startupHealthConfig;
     return this;
   }
 
-   /**
+  /**
    * Get startupHealthConfig
    * @return startupHealthConfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public StartupHealthCheck getStartupHealthConfig() {
     return startupHealthConfig;
   }
-
 
   public void setStartupHealthConfig(StartupHealthCheck startupHealthConfig) {
     this.startupHealthConfig = startupHealthConfig;
@@ -290,38 +272,37 @@ public class ContainerHealthCheckConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerHealthCheckConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerHealthCheckConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerHealthCheckConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerHealthCheckConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerHealthCheckConfig is not found in the empty JSON string", ContainerHealthCheckConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerHealthCheckConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerHealthCheckConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerHealthCheckConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("healthLogDestination") != null && !jsonObj.get("healthLogDestination").isJsonNull()) && !jsonObj.get("healthLogDestination").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `healthLogDestination` to be a primitive type in the JSON string but got `%s`", jsonObj.get("healthLogDestination").toString()));
       }
       // validate the optional field `healthconfig`
       if (jsonObj.get("healthconfig") != null && !jsonObj.get("healthconfig").isJsonNull()) {
-        Schema2HealthConfig.validateJsonObject(jsonObj.getAsJsonObject("healthconfig"));
+        Schema2HealthConfig.validateJsonElement(jsonObj.get("healthconfig"));
       }
       // validate the optional field `startupHealthConfig`
       if (jsonObj.get("startupHealthConfig") != null && !jsonObj.get("startupHealthConfig").isJsonNull()) {
-        StartupHealthCheck.validateJsonObject(jsonObj.getAsJsonObject("startupHealthConfig"));
+        StartupHealthCheck.validateJsonElement(jsonObj.get("startupHealthConfig"));
       }
   }
 
@@ -345,31 +326,31 @@ public class ContainerHealthCheckConfig implements Serializable {
 
            @Override
            public ContainerHealthCheckConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerHealthCheckConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerHealthCheckConfig
-  * @throws IOException if the JSON string is invalid with respect to ContainerHealthCheckConfig
-  */
+  /**
+   * Create an instance of ContainerHealthCheckConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerHealthCheckConfig
+   * @throws IOException if the JSON string is invalid with respect to ContainerHealthCheckConfig
+   */
   public static ContainerHealthCheckConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerHealthCheckConfig.class);
   }
 
- /**
-  * Convert an instance of ContainerHealthCheckConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerHealthCheckConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Platform;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,14 +56,13 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * This structure provides &#x60;application/vnd.oci.descriptor.v1+json&#x60; mediatype when marshalled to JSON.
  */
-@ApiModel(description = "This structure provides `application/vnd.oci.descriptor.v1+json` mediatype when marshalled to JSON.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Descriptor implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-  private Map<String, String> annotations = null;
+  private Map<String, String> annotations = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ARTIFACT_TYPE = "artifactType";
   @SerializedName(SERIALIZED_NAME_ARTIFACT_TYPE)
@@ -70,7 +70,7 @@ public class Descriptor implements Serializable {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Integer> data = null;
+  private List<Integer> data = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DIGEST = "digest";
   @SerializedName(SERIALIZED_NAME_DIGEST)
@@ -90,13 +90,12 @@ public class Descriptor implements Serializable {
 
   public static final String SERIALIZED_NAME_URLS = "urls";
   @SerializedName(SERIALIZED_NAME_URLS)
-  private List<String> urls = null;
+  private List<String> urls = new ArrayList<>();
 
   public Descriptor() {
   }
 
   public Descriptor annotations(Map<String, String> annotations) {
-    
     this.annotations = annotations;
     return this;
   }
@@ -109,17 +108,15 @@ public class Descriptor implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Annotations contains arbitrary metadata relating to the targeted content.
    * @return annotations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Annotations contains arbitrary metadata relating to the targeted content.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getAnnotations() {
     return annotations;
   }
-
 
   public void setAnnotations(Map<String, String> annotations) {
     this.annotations = annotations;
@@ -127,22 +124,19 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor artifactType(String artifactType) {
-    
     this.artifactType = artifactType;
     return this;
   }
 
-   /**
+  /**
    * ArtifactType is the IANA media type of this artifact.
    * @return artifactType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ArtifactType is the IANA media type of this artifact.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getArtifactType() {
     return artifactType;
   }
-
 
   public void setArtifactType(String artifactType) {
     this.artifactType = artifactType;
@@ -150,7 +144,6 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor data(List<Integer> data) {
-    
     this.data = data;
     return this;
   }
@@ -163,17 +156,15 @@ public class Descriptor implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Data is an embedding of the targeted content. This is encoded as a base64 string when marshalled to JSON (automatically, by encoding/json). If present, Data can be used directly to avoid fetching the targeted content.
    * @return data
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Data is an embedding of the targeted content. This is encoded as a base64 string when marshalled to JSON (automatically, by encoding/json). If present, Data can be used directly to avoid fetching the targeted content.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<Integer> getData() {
     return data;
   }
-
 
   public void setData(List<Integer> data) {
     this.data = data;
@@ -181,22 +172,19 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor digest(String digest) {
-    
     this.digest = digest;
     return this;
   }
 
-   /**
+  /**
    * The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.
    * @return digest
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDigest() {
     return digest;
   }
-
 
   public void setDigest(String digest) {
     this.digest = digest;
@@ -204,22 +192,19 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor mediaType(String mediaType) {
-    
     this.mediaType = mediaType;
     return this;
   }
 
-   /**
+  /**
    * MediaType is the media type of the object this schema refers to.
    * @return mediaType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MediaType is the media type of the object this schema refers to.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMediaType() {
     return mediaType;
   }
-
 
   public void setMediaType(String mediaType) {
     this.mediaType = mediaType;
@@ -227,23 +212,20 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor platform(Platform platform) {
-    
     this.platform = platform;
     return this;
   }
 
-   /**
+  /**
    * Get platform
    * @return platform
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Platform getPlatform() {
     return platform;
   }
-
 
   public void setPlatform(Platform platform) {
     this.platform = platform;
@@ -251,22 +233,19 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor size(Long size) {
-    
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Size specifies the size in bytes of the blob.
    * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size specifies the size in bytes of the blob.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSize() {
     return size;
   }
-
 
   public void setSize(Long size) {
     this.size = size;
@@ -274,7 +253,6 @@ public class Descriptor implements Serializable {
 
 
   public Descriptor urls(List<String> urls) {
-    
     this.urls = urls;
     return this;
   }
@@ -287,17 +265,15 @@ public class Descriptor implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * URLs specifies a list of URLs from which this object MAY be downloaded
    * @return urls
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "URLs specifies a list of URLs from which this object MAY be downloaded")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getUrls() {
     return urls;
   }
-
 
   public void setUrls(List<String> urls) {
     this.urls = urls;
@@ -376,33 +352,32 @@ public class Descriptor implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Descriptor
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Descriptor.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Descriptor
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Descriptor.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Descriptor is not found in the empty JSON string", Descriptor.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Descriptor.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Descriptor` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Descriptor` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("artifactType") != null && !jsonObj.get("artifactType").isJsonNull()) && !jsonObj.get("artifactType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `artifactType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactType").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) && !jsonObj.get("data").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull() && !jsonObj.get("data").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
       }
       if ((jsonObj.get("digest") != null && !jsonObj.get("digest").isJsonNull()) && !jsonObj.get("digest").isJsonPrimitive()) {
@@ -413,10 +388,10 @@ public class Descriptor implements Serializable {
       }
       // validate the optional field `platform`
       if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
-        Platform.validateJsonObject(jsonObj.getAsJsonObject("platform"));
+        Platform.validateJsonElement(jsonObj.get("platform"));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull()) && !jsonObj.get("urls").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull() && !jsonObj.get("urls").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `urls` to be an array in the JSON string but got `%s`", jsonObj.get("urls").toString()));
       }
   }
@@ -441,31 +416,31 @@ public class Descriptor implements Serializable {
 
            @Override
            public Descriptor read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Descriptor given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Descriptor
-  * @throws IOException if the JSON string is invalid with respect to Descriptor
-  */
+  /**
+   * Create an instance of Descriptor given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Descriptor
+   * @throws IOException if the JSON string is invalid with respect to Descriptor
+   */
   public static Descriptor fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Descriptor.class);
   }
 
- /**
-  * Convert an instance of Descriptor to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Descriptor to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -17,7 +17,7 @@ InspectPodInfraConfig contains the configuration of the pod's infra container.
 |**networks** | **List&lt;String&gt;** | Networks is a list of networks the pod will join. |  [optional] |
 |**noManageHosts** | **Boolean** | NoManageHosts indicates that the pod will not manage /etc/hosts and instead each container will handle their own. |  [optional] |
 |**noManageResolvConf** | **Boolean** | NoManageResolvConf indicates that the pod will not manage resolv.conf and instead each container will handle their own. |  [optional] |
-|**portBindings** | **Map&lt;String, List&lt;InspectHostPort&gt;&gt;** | PortBindings are ports that will be forwarded to the infra container and then shared with the pod. |  [optional] |
+|**portBindings** | **Map&lt;String, List&lt;@Valid InspectHostPort&gt;&gt;** | PortBindings are ports that will be forwarded to the infra container and then shared with the pod. |  [optional] |
 |**staticIP** | **String** | StaticIP is a static IPv4 that will be assigned to the infra container and then used by the pod. |  [optional] |
 |**staticMAC** | **String** | StaticMAC is a static MAC address that will be assigned to the infra container and then used by the pod. |  [optional] |
 |**cpuPeriod** | **Integer** | CPUPeriod contains the CPU period of the pod |  [optional] |

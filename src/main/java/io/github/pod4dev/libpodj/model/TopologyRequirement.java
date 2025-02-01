@@ -14,21 +14,19 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Topology;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,24 +54,22 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * TopologyRequirement expresses the user&#39;s requirements for a volume&#39;s accessible topology.
  */
-@ApiModel(description = "TopologyRequirement expresses the user's requirements for a volume's accessible topology.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TopologyRequirement implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_PREFERRED = "Preferred";
   @SerializedName(SERIALIZED_NAME_PREFERRED)
-  private List<Topology> preferred = null;
+  private List<@Valid Topology> preferred = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REQUISITE = "Requisite";
   @SerializedName(SERIALIZED_NAME_REQUISITE)
-  private List<Topology> requisite = null;
+  private List<@Valid Topology> requisite = new ArrayList<>();
 
   public TopologyRequirement() {
   }
 
-  public TopologyRequirement preferred(List<Topology> preferred) {
-    
+  public TopologyRequirement preferred(List<@Valid Topology> preferred) {
     this.preferred = preferred;
     return this;
   }
@@ -83,26 +82,23 @@ public class TopologyRequirement implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Preferred is a list of Topologies that the volume should attempt to be provisioned in.  Taken from the CSI spec:  Specifies the list of topologies the CO would prefer the volume to be provisioned in.  This field is OPTIONAL. If TopologyRequirement is specified either requisite or preferred or both MUST be specified.  An SP MUST attempt to make the provisioned volume available using the preferred topologies in order from first to last.  If requisite is specified, all topologies in preferred list MUST also be present in the list of requisite topologies.  If the SP is unable to make the provisioned volume available from any of the preferred topologies, the SP MAY choose a topology from the list of requisite topologies. If the list of requisite topologies is not specified, then the SP MAY choose from the list of all possible topologies. If the list of requisite topologies is specified and the SP is unable to make the provisioned volume available from any of the requisite topologies it MUST fail the CreateVolume call.  Example 1: Given a volume should be accessible from a single zone, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;} preferred &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;} then the SP SHOULD first attempt to make the provisioned volume available from \&quot;zone\&quot; \&quot;Z3\&quot; in the \&quot;region\&quot; \&quot;R1\&quot; and fall back to \&quot;zone\&quot; \&quot;Z2\&quot; in the \&quot;region\&quot; \&quot;R1\&quot; if that is not possible.  Example 2: Given a volume should be accessible from a single zone, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z4\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z5\&quot;} preferred &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z4\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;} then the SP SHOULD first attempt to make the provisioned volume accessible from \&quot;zone\&quot; \&quot;Z4\&quot; in the \&quot;region\&quot; \&quot;R1\&quot; and fall back to \&quot;zone\&quot; \&quot;Z2\&quot; in the \&quot;region\&quot; \&quot;R1\&quot; if that is not possible. If that is not possible, the SP may choose between either the \&quot;zone\&quot; \&quot;Z3\&quot; or \&quot;Z5\&quot; in the \&quot;region\&quot; \&quot;R1\&quot;.  Example 3: Given a volume should be accessible from TWO zones (because an opaque parameter in CreateVolumeRequest, for example, specifies the volume is accessible from two zones, aka synchronously replicated), and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z4\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z5\&quot;} preferred &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z5\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;} then the SP SHOULD first attempt to make the provisioned volume accessible from the combination of the two \&quot;zones\&quot; \&quot;Z5\&quot; and \&quot;Z3\&quot; in the \&quot;region\&quot; \&quot;R1\&quot;. If that&#39;s not possible, it should fall back to a combination of \&quot;Z5\&quot; and other possibilities from the list of requisite. If that&#39;s not possible, it should fall back  to a combination of \&quot;Z3\&quot; and other possibilities from the list of requisite. If that&#39;s not possible, it should fall back  to a combination of other possibilities from the list of requisite.
    * @return preferred
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Preferred is a list of Topologies that the volume should attempt to be provisioned in.  Taken from the CSI spec:  Specifies the list of topologies the CO would prefer the volume to be provisioned in.  This field is OPTIONAL. If TopologyRequirement is specified either requisite or preferred or both MUST be specified.  An SP MUST attempt to make the provisioned volume available using the preferred topologies in order from first to last.  If requisite is specified, all topologies in preferred list MUST also be present in the list of requisite topologies.  If the SP is unable to make the provisioned volume available from any of the preferred topologies, the SP MAY choose a topology from the list of requisite topologies. If the list of requisite topologies is not specified, then the SP MAY choose from the list of all possible topologies. If the list of requisite topologies is specified and the SP is unable to make the provisioned volume available from any of the requisite topologies it MUST fail the CreateVolume call.  Example 1: Given a volume should be accessible from a single zone, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"} preferred = {\"region\": \"R1\", \"zone\": \"Z3\"} then the SP SHOULD first attempt to make the provisioned volume available from \"zone\" \"Z3\" in the \"region\" \"R1\" and fall back to \"zone\" \"Z2\" in the \"region\" \"R1\" if that is not possible.  Example 2: Given a volume should be accessible from a single zone, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"}, {\"region\": \"R1\", \"zone\": \"Z4\"}, {\"region\": \"R1\", \"zone\": \"Z5\"} preferred = {\"region\": \"R1\", \"zone\": \"Z4\"}, {\"region\": \"R1\", \"zone\": \"Z2\"} then the SP SHOULD first attempt to make the provisioned volume accessible from \"zone\" \"Z4\" in the \"region\" \"R1\" and fall back to \"zone\" \"Z2\" in the \"region\" \"R1\" if that is not possible. If that is not possible, the SP may choose between either the \"zone\" \"Z3\" or \"Z5\" in the \"region\" \"R1\".  Example 3: Given a volume should be accessible from TWO zones (because an opaque parameter in CreateVolumeRequest, for example, specifies the volume is accessible from two zones, aka synchronously replicated), and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"}, {\"region\": \"R1\", \"zone\": \"Z4\"}, {\"region\": \"R1\", \"zone\": \"Z5\"} preferred = {\"region\": \"R1\", \"zone\": \"Z5\"}, {\"region\": \"R1\", \"zone\": \"Z3\"} then the SP SHOULD first attempt to make the provisioned volume accessible from the combination of the two \"zones\" \"Z5\" and \"Z3\" in the \"region\" \"R1\". If that's not possible, it should fall back to a combination of \"Z5\" and other possibilities from the list of requisite. If that's not possible, it should fall back  to a combination of \"Z3\" and other possibilities from the list of requisite. If that's not possible, it should fall back  to a combination of other possibilities from the list of requisite.")
 
-  public List<Topology> getPreferred() {
+  public List<@Valid Topology> getPreferred() {
     return preferred;
   }
 
-
-  public void setPreferred(List<Topology> preferred) {
+  public void setPreferred(List<@Valid Topology> preferred) {
     this.preferred = preferred;
   }
 
 
-  public TopologyRequirement requisite(List<Topology> requisite) {
-    
+  public TopologyRequirement requisite(List<@Valid Topology> requisite) {
     this.requisite = requisite;
     return this;
   }
@@ -115,20 +111,18 @@ public class TopologyRequirement implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Requisite specifies a list of Topologies, at least one of which the volume must be accessible from.  Taken verbatim from the CSI Spec:  Specifies the list of topologies the provisioned volume MUST be accessible from. This field is OPTIONAL. If TopologyRequirement is specified either requisite or preferred or both MUST be specified.  If requisite is specified, the provisioned volume MUST be accessible from at least one of the requisite topologies.  Given x &#x3D; number of topologies provisioned volume is accessible from n &#x3D; number of requisite topologies The CO MUST ensure n &gt;&#x3D; 1. The SP MUST ensure x &gt;&#x3D; 1 If x&#x3D;&#x3D;n, then the SP MUST make the provisioned volume available to all topologies from the list of requisite topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from a single zone, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;} then the provisioned volume MUST be accessible from the \&quot;region\&quot; \&quot;R1\&quot; and the \&quot;zone\&quot; \&quot;Z2\&quot;. Similarly, if a volume should be accessible from two zones, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;} then the provisioned volume MUST be accessible from the \&quot;region\&quot; \&quot;R1\&quot; and both \&quot;zone\&quot; \&quot;Z2\&quot; and \&quot;zone\&quot; \&quot;Z3\&quot;.  If x&lt;n, then the SP SHALL choose x unique topologies from the list of requisite topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from a single zone, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;} then the SP may choose to make the provisioned volume available in either the \&quot;zone\&quot; \&quot;Z2\&quot; or the \&quot;zone\&quot; \&quot;Z3\&quot; in the \&quot;region\&quot; \&quot;R1\&quot;. Similarly, if a volume should be accessible from two zones, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z3\&quot;}, {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z4\&quot;} then the provisioned volume MUST be accessible from any combination of two unique topologies: e.g. \&quot;R1/Z2\&quot; and \&quot;R1/Z3\&quot;, or \&quot;R1/Z2\&quot; and \&quot;R1/Z4\&quot;, or \&quot;R1/Z3\&quot; and \&quot;R1/Z4\&quot;.  If x&gt;n, then the SP MUST make the provisioned volume available from all topologies from the list of requisite topologies and MAY choose the remaining x-n unique topologies from the list of all possible topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from two zones, and requisite &#x3D; {\&quot;region\&quot;: \&quot;R1\&quot;, \&quot;zone\&quot;: \&quot;Z2\&quot;} then the provisioned volume MUST be accessible from the \&quot;region\&quot; \&quot;R1\&quot; and the \&quot;zone\&quot; \&quot;Z2\&quot; and the SP may select the second zone independently, e.g. \&quot;R1/Z4\&quot;.
    * @return requisite
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Requisite specifies a list of Topologies, at least one of which the volume must be accessible from.  Taken verbatim from the CSI Spec:  Specifies the list of topologies the provisioned volume MUST be accessible from. This field is OPTIONAL. If TopologyRequirement is specified either requisite or preferred or both MUST be specified.  If requisite is specified, the provisioned volume MUST be accessible from at least one of the requisite topologies.  Given x = number of topologies provisioned volume is accessible from n = number of requisite topologies The CO MUST ensure n >= 1. The SP MUST ensure x >= 1 If x==n, then the SP MUST make the provisioned volume available to all topologies from the list of requisite topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from a single zone, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"} then the provisioned volume MUST be accessible from the \"region\" \"R1\" and the \"zone\" \"Z2\". Similarly, if a volume should be accessible from two zones, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"} then the provisioned volume MUST be accessible from the \"region\" \"R1\" and both \"zone\" \"Z2\" and \"zone\" \"Z3\".  If x<n, then the SP SHALL choose x unique topologies from the list of requisite topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from a single zone, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"} then the SP may choose to make the provisioned volume available in either the \"zone\" \"Z2\" or the \"zone\" \"Z3\" in the \"region\" \"R1\". Similarly, if a volume should be accessible from two zones, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"}, {\"region\": \"R1\", \"zone\": \"Z3\"}, {\"region\": \"R1\", \"zone\": \"Z4\"} then the provisioned volume MUST be accessible from any combination of two unique topologies: e.g. \"R1/Z2\" and \"R1/Z3\", or \"R1/Z2\" and \"R1/Z4\", or \"R1/Z3\" and \"R1/Z4\".  If x>n, then the SP MUST make the provisioned volume available from all topologies from the list of requisite topologies and MAY choose the remaining x-n unique topologies from the list of all possible topologies. If it is unable to do so, the SP MUST fail the CreateVolume call. For example, if a volume should be accessible from two zones, and requisite = {\"region\": \"R1\", \"zone\": \"Z2\"} then the provisioned volume MUST be accessible from the \"region\" \"R1\" and the \"zone\" \"Z2\" and the SP may select the second zone independently, e.g. \"R1/Z4\".")
 
-  public List<Topology> getRequisite() {
+  public List<@Valid Topology> getRequisite() {
     return requisite;
   }
 
-
-  public void setRequisite(List<Topology> requisite) {
+  public void setRequisite(List<@Valid Topology> requisite) {
     this.requisite = requisite;
   }
 
@@ -187,28 +181,27 @@ public class TopologyRequirement implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TopologyRequirement
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TopologyRequirement.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TopologyRequirement
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TopologyRequirement.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TopologyRequirement is not found in the empty JSON string", TopologyRequirement.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TopologyRequirement.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TopologyRequirement` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TopologyRequirement` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("Preferred") != null && !jsonObj.get("Preferred").isJsonNull()) {
         JsonArray jsonArraypreferred = jsonObj.getAsJsonArray("Preferred");
         if (jsonArraypreferred != null) {
@@ -219,7 +212,7 @@ public class TopologyRequirement implements Serializable {
 
           // validate the optional field `Preferred` (array)
           for (int i = 0; i < jsonArraypreferred.size(); i++) {
-            Topology.validateJsonObject(jsonArraypreferred.get(i).getAsJsonObject());
+            Topology.validateJsonElement(jsonArraypreferred.get(i));
           };
         }
       }
@@ -233,7 +226,7 @@ public class TopologyRequirement implements Serializable {
 
           // validate the optional field `Requisite` (array)
           for (int i = 0; i < jsonArrayrequisite.size(); i++) {
-            Topology.validateJsonObject(jsonArrayrequisite.get(i).getAsJsonObject());
+            Topology.validateJsonElement(jsonArrayrequisite.get(i));
           };
         }
       }
@@ -259,31 +252,31 @@ public class TopologyRequirement implements Serializable {
 
            @Override
            public TopologyRequirement read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TopologyRequirement given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TopologyRequirement
-  * @throws IOException if the JSON string is invalid with respect to TopologyRequirement
-  */
+  /**
+   * Create an instance of TopologyRequirement given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TopologyRequirement
+   * @throws IOException if the JSON string is invalid with respect to TopologyRequirement
+   */
   public static TopologyRequirement fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TopologyRequirement.class);
   }
 
- /**
-  * Convert an instance of TopologyRequirement to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TopologyRequirement to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

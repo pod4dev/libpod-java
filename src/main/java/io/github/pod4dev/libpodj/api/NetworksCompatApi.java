@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ConnectOptions;
 import io.github.pod4dev.libpodj.model.CreateRequest;
@@ -41,7 +42,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class NetworksCompatApi {
     private ApiClient localVarApiClient;
@@ -98,7 +98,7 @@ public class NetworksCompatApi {
 
         // create path and map variables
         String localVarPath = "/networks/{name}/connect"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -115,7 +115,8 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -128,15 +129,12 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkConnectValidateBeforeCall(String name, ConnectOptions create, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkConnect(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkConnectCall(name, create, _callback);
-        return localVarCall;
+        return networkConnectCall(name, create, _callback);
 
     }
 
@@ -292,7 +290,8 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -305,10 +304,7 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkCreateValidateBeforeCall(CreateRequest create, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkCreateCall(create, _callback);
-        return localVarCall;
+        return networkCreateCall(create, _callback);
 
     }
 
@@ -444,7 +440,7 @@ public class NetworksCompatApi {
 
         // create path and map variables
         String localVarPath = "/networks/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -461,7 +457,6 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -474,15 +469,12 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkDeleteValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkDelete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkDeleteCall(name, _callback);
-        return localVarCall;
+        return networkDeleteCall(name, _callback);
 
     }
 
@@ -606,7 +598,7 @@ public class NetworksCompatApi {
 
         // create path and map variables
         String localVarPath = "/networks/{name}/disconnect"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -623,7 +615,8 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -636,15 +629,12 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkDisconnectValidateBeforeCall(String name, DisconnectOptions create, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkDisconnect(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkDisconnectCall(name, create, _callback);
-        return localVarCall;
+        return networkDisconnectCall(name, create, _callback);
 
     }
 
@@ -779,7 +769,7 @@ public class NetworksCompatApi {
 
         // create path and map variables
         String localVarPath = "/networks/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -804,7 +794,6 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -817,15 +806,12 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkInspectValidateBeforeCall(String name, Boolean verbose, String scope, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkInspect(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkInspectCall(name, verbose, scope, _callback);
-        return localVarCall;
+        return networkInspectCall(name, verbose, scope, _callback);
 
     }
 
@@ -995,7 +981,6 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1008,10 +993,7 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkListValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkListCall(filters, _callback);
-        return localVarCall;
+        return networkListCall(filters, _callback);
 
     }
 
@@ -1162,7 +1144,6 @@ public class NetworksCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1175,10 +1156,7 @@ public class NetworksCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkPruneValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkPruneCall(filters, _callback);
-        return localVarCall;
+        return networkPruneCall(filters, _callback);
 
     }
 

@@ -9,13 +9,14 @@ plugins {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 group = "io.github.pod4dev"
-version = "5.3.2"
+version = "5.3.2-1"
 
 dependencies {
-    implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+    implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
@@ -25,9 +26,7 @@ dependencies {
     implementation("javax.ws.rs:javax.ws.rs-api:2.1.1")
     implementation("org.apache.commons:commons-lang3:3.15.0")
     implementation("org.openapitools:jackson-databind-nullable:0.2.6")
-    implementation("io.swagger:swagger-annotations:1.6.15")
-    implementation("javax.validation:validation-api:2.0.1.Final")
-    implementation("javax.annotation:javax.annotation-api:1.3.2")
+    implementation("jakarta.annotation:jakarta.annotation-api:3.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
     testImplementation("org.mockito:mockito-core:5.11.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")

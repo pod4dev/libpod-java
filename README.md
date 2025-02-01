@@ -2,6 +2,7 @@
 
 supports a RESTful API for the Libpod library
 - API version: 5.0.0
+  - Generator version: 7.9.0
 
 This documentation describes the Podman v2.x+ RESTful API. It consists of a Docker-compatible
 API and a Libpod API providing support for Podman’s unique features such as pods.
@@ -75,7 +76,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.github.pod4dev</groupId>
   <artifactId>libpod-java</artifactId>
-  <version>5.3.2</version>
+  <version>5.3.2-1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -91,7 +92,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.github.pod4dev:libpod-java:5.3.2"
+     implementation "io.github.pod4dev:libpod-java:5.3.2-1"
   }
 ```
 
@@ -105,7 +106,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/libpod-java-5.3.2.jar`
+* `target/libpod-java-5.3.2-1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -118,7 +119,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.github.pod4dev.libpodj.ApiClient;
 import io.github.pod4dev.libpodj.ApiException;
 import io.github.pod4dev.libpodj.Configuration;
-import io.github.pod4dev.libpodj.models.*;
+import io.github.pod4dev.libpodj.model.*;
 import io.github.pod4dev.libpodj.api.ContainersApi;
 
 public class Example {
@@ -201,7 +202,7 @@ Class | Method | HTTP request | Description
 *ContainersCompatApi* | [**containerArchive**](docs/ContainersCompatApi.md#containerArchive) | **GET** /containers/{name}/archive | Get files from a container
 *ContainersCompatApi* | [**containerArchiveLibpod**](docs/ContainersCompatApi.md#containerArchiveLibpod) | **GET** /libpod/containers/{name}/archive | Copy files from a container
 *ContainersCompatApi* | [**containerAttach**](docs/ContainersCompatApi.md#containerAttach) | **POST** /containers/{name}/attach | Attach to a container
-*ContainersCompatApi* | [**containerChangesLibpod**](docs/ContainersCompatApi.md#containerChangesLibpod) | **GET** /libpod/containers/{name}/changes | Report on changes to container&#39;s filesystem; adds, deletes or modifications.
+*ContainersCompatApi* | [**containerChangesLibpod_0**](docs/ContainersCompatApi.md#containerChangesLibpod_0) | **GET** /libpod/containers/{name}/changes | Report on changes to container&#39;s filesystem; adds, deletes or modifications.
 *ContainersCompatApi* | [**containerCreate**](docs/ContainersCompatApi.md#containerCreate) | **POST** /containers/create | Create a container
 *ContainersCompatApi* | [**containerDelete**](docs/ContainersCompatApi.md#containerDelete) | **DELETE** /containers/{name} | Remove a container
 *ContainersCompatApi* | [**containerExport**](docs/ContainersCompatApi.md#containerExport) | **GET** /containers/{name}/export | Export a container
@@ -289,11 +290,11 @@ Class | Method | HTTP request | Description
 *NetworksCompatApi* | [**networkInspect**](docs/NetworksCompatApi.md#networkInspect) | **GET** /networks/{name} | Inspect a network
 *NetworksCompatApi* | [**networkList**](docs/NetworksCompatApi.md#networkList) | **GET** /networks | List networks
 *NetworksCompatApi* | [**networkPrune**](docs/NetworksCompatApi.md#networkPrune) | **POST** /networks/prune | Delete unused networks
-*PodsApi* | [**generateKubeLibpod**](docs/PodsApi.md#generateKubeLibpod) | **GET** /libpod/generate/kube | Generate a Kubernetes YAML file.
-*PodsApi* | [**generateSystemdLibpod**](docs/PodsApi.md#generateSystemdLibpod) | **GET** /libpod/generate/{name}/systemd | Generate Systemd Units
-*PodsApi* | [**kubeApplyLibpod**](docs/PodsApi.md#kubeApplyLibpod) | **POST** /libpod/kube/apply | Apply a podman workload or Kubernetes YAML file.
-*PodsApi* | [**playKubeDownLibpod**](docs/PodsApi.md#playKubeDownLibpod) | **DELETE** /libpod/play/kube | Remove resources created from kube play
-*PodsApi* | [**playKubeLibpod**](docs/PodsApi.md#playKubeLibpod) | **POST** /libpod/play/kube | Play a Kubernetes YAML file.
+*PodsApi* | [**generateKubeLibpod_0**](docs/PodsApi.md#generateKubeLibpod_0) | **GET** /libpod/generate/kube | Generate a Kubernetes YAML file.
+*PodsApi* | [**generateSystemdLibpod_0**](docs/PodsApi.md#generateSystemdLibpod_0) | **GET** /libpod/generate/{name}/systemd | Generate Systemd Units
+*PodsApi* | [**kubeApplyLibpod_0**](docs/PodsApi.md#kubeApplyLibpod_0) | **POST** /libpod/kube/apply | Apply a podman workload or Kubernetes YAML file.
+*PodsApi* | [**playKubeDownLibpod_0**](docs/PodsApi.md#playKubeDownLibpod_0) | **DELETE** /libpod/play/kube | Remove resources created from kube play
+*PodsApi* | [**playKubeLibpod_0**](docs/PodsApi.md#playKubeLibpod_0) | **POST** /libpod/play/kube | Play a Kubernetes YAML file.
 *PodsApi* | [**podCreateLibpod**](docs/PodsApi.md#podCreateLibpod) | **POST** /libpod/pods/create | Create a pod
 *PodsApi* | [**podDeleteLibpod**](docs/PodsApi.md#podDeleteLibpod) | **DELETE** /libpod/pods/{name} | Remove pod
 *PodsApi* | [**podExistsLibpod**](docs/PodsApi.md#podExistsLibpod) | **GET** /libpod/pods/{name}/exists | Pod exists
@@ -321,7 +322,7 @@ Class | Method | HTTP request | Description
 *SystemApi* | [**systemDataUsageLibpod**](docs/SystemApi.md#systemDataUsageLibpod) | **GET** /libpod/system/df | Show disk usage
 *SystemApi* | [**systemEventsLibpod**](docs/SystemApi.md#systemEventsLibpod) | **GET** /libpod/events | Get events
 *SystemApi* | [**systemInfoLibpod**](docs/SystemApi.md#systemInfoLibpod) | **GET** /libpod/info | Get info
-*SystemApi* | [**systemPing**](docs/SystemApi.md#systemPing) | **GET** /libpod/_ping | Ping service
+*SystemApi* | [**systemPing_0**](docs/SystemApi.md#systemPing_0) | **GET** /libpod/_ping | Ping service
 *SystemApi* | [**systemPruneLibpod**](docs/SystemApi.md#systemPruneLibpod) | **POST** /libpod/system/prune | Prune unused data
 *SystemApi* | [**systemVersionLibpod**](docs/SystemApi.md#systemVersionLibpod) | **GET** /libpod/version | Component Version information
 *SystemCompatApi* | [**systemAuth**](docs/SystemCompatApi.md#systemAuth) | **POST** /auth | Check auth configuration
@@ -632,10 +633,11 @@ Class | Method | HTTP request | Description
  - [WeightDevice](docs/WeightDevice.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
+Endpoints do not require authorization.
+
 
 ## Recommendation
 

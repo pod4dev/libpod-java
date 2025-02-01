@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.AuthConfig;
 import io.github.pod4dev.libpodj.model.AuthReport;
@@ -39,7 +40,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class SystemCompatApi {
     private ApiClient localVarApiClient;
@@ -112,7 +112,8 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -125,10 +126,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemAuthValidateBeforeCall(AuthConfig authConfig, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemAuthCall(authConfig, _callback);
-        return localVarCall;
+        return systemAuthCall(authConfig, _callback);
 
     }
 
@@ -275,7 +273,6 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -288,10 +285,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemDataUsageValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemDataUsageCall(_callback);
-        return localVarCall;
+        return systemDataUsageCall(_callback);
 
     }
 
@@ -439,7 +433,6 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -452,10 +445,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemEventsValidateBeforeCall(String since, String until, String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemEventsCall(since, until, filters, _callback);
-        return localVarCall;
+        return systemEventsCall(since, until, filters, _callback);
 
     }
 
@@ -620,7 +610,6 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -633,10 +622,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemInfoValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemInfoCall(_callback);
-        return localVarCall;
+        return systemInfoCall(_callback);
 
     }
 
@@ -768,7 +754,6 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -781,10 +766,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemPingValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemPingCall(_callback);
-        return localVarCall;
+        return systemPingCall(_callback);
 
     }
 
@@ -920,7 +902,6 @@ public class SystemCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -933,10 +914,7 @@ public class SystemCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemVersionValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemVersionCall(_callback);
-        return localVarCall;
+        return systemVersionCall(_callback);
 
     }
 

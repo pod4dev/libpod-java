@@ -14,21 +14,19 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Schema2PlatformSpec;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,8 +54,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * This is publicly visible as c/image/manifest.Schema2ManifestDescriptor.
  */
-@ApiModel(description = "This is publicly visible as c/image/manifest.Schema2ManifestDescriptor.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Schema2ManifestDescriptor implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,28 +76,25 @@ public class Schema2ManifestDescriptor implements Serializable {
 
   public static final String SERIALIZED_NAME_URLS = "urls";
   @SerializedName(SERIALIZED_NAME_URLS)
-  private List<String> urls = null;
+  private List<String> urls = new ArrayList<>();
 
   public Schema2ManifestDescriptor() {
   }
 
   public Schema2ManifestDescriptor digest(String digest) {
-    
     this.digest = digest;
     return this;
   }
 
-   /**
+  /**
    * The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.
    * @return digest
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDigest() {
     return digest;
   }
-
 
   public void setDigest(String digest) {
     this.digest = digest;
@@ -105,22 +102,19 @@ public class Schema2ManifestDescriptor implements Serializable {
 
 
   public Schema2ManifestDescriptor mediaType(String mediaType) {
-    
     this.mediaType = mediaType;
     return this;
   }
 
-   /**
+  /**
    * Get mediaType
    * @return mediaType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMediaType() {
     return mediaType;
   }
-
 
   public void setMediaType(String mediaType) {
     this.mediaType = mediaType;
@@ -128,23 +122,20 @@ public class Schema2ManifestDescriptor implements Serializable {
 
 
   public Schema2ManifestDescriptor platform(Schema2PlatformSpec platform) {
-    
     this.platform = platform;
     return this;
   }
 
-   /**
+  /**
    * Get platform
    * @return platform
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Schema2PlatformSpec getPlatform() {
     return platform;
   }
-
 
   public void setPlatform(Schema2PlatformSpec platform) {
     this.platform = platform;
@@ -152,22 +143,19 @@ public class Schema2ManifestDescriptor implements Serializable {
 
 
   public Schema2ManifestDescriptor size(Long size) {
-    
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSize() {
     return size;
   }
-
 
   public void setSize(Long size) {
     this.size = size;
@@ -175,7 +163,6 @@ public class Schema2ManifestDescriptor implements Serializable {
 
 
   public Schema2ManifestDescriptor urls(List<String> urls) {
-    
     this.urls = urls;
     return this;
   }
@@ -188,17 +175,15 @@ public class Schema2ManifestDescriptor implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get urls
    * @return urls
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getUrls() {
     return urls;
   }
-
 
   public void setUrls(List<String> urls) {
     this.urls = urls;
@@ -268,28 +253,27 @@ public class Schema2ManifestDescriptor implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Schema2ManifestDescriptor
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Schema2ManifestDescriptor.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Schema2ManifestDescriptor
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Schema2ManifestDescriptor.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Schema2ManifestDescriptor is not found in the empty JSON string", Schema2ManifestDescriptor.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Schema2ManifestDescriptor.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Schema2ManifestDescriptor` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Schema2ManifestDescriptor` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("digest") != null && !jsonObj.get("digest").isJsonNull()) && !jsonObj.get("digest").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `digest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("digest").toString()));
       }
@@ -298,10 +282,10 @@ public class Schema2ManifestDescriptor implements Serializable {
       }
       // validate the optional field `platform`
       if (jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) {
-        Schema2PlatformSpec.validateJsonObject(jsonObj.getAsJsonObject("platform"));
+        Schema2PlatformSpec.validateJsonElement(jsonObj.get("platform"));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull()) && !jsonObj.get("urls").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull() && !jsonObj.get("urls").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `urls` to be an array in the JSON string but got `%s`", jsonObj.get("urls").toString()));
       }
   }
@@ -326,31 +310,31 @@ public class Schema2ManifestDescriptor implements Serializable {
 
            @Override
            public Schema2ManifestDescriptor read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Schema2ManifestDescriptor given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Schema2ManifestDescriptor
-  * @throws IOException if the JSON string is invalid with respect to Schema2ManifestDescriptor
-  */
+  /**
+   * Create an instance of Schema2ManifestDescriptor given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Schema2ManifestDescriptor
+   * @throws IOException if the JSON string is invalid with respect to Schema2ManifestDescriptor
+   */
   public static Schema2ManifestDescriptor fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Schema2ManifestDescriptor.class);
   }
 
- /**
-  * Convert an instance of Schema2ManifestDescriptor to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Schema2ManifestDescriptor to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,16 +22,15 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Namespace;
 import io.github.pod4dev.libpodj.model.PerNetworkOptions;
 import io.github.pod4dev.libpodj.model.PortMapping;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,12 +42,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -57,33 +58,33 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * PodNetworkConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PodNetworkConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_NETWORKS = "Networks";
   @SerializedName(SERIALIZED_NAME_NETWORKS)
-  private Map<String, PerNetworkOptions> networks = null;
+  private Map<String, PerNetworkOptions> networks = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CNI_NETWORKS = "cni_networks";
   @SerializedName(SERIALIZED_NAME_CNI_NETWORKS)
-  private List<String> cniNetworks = null;
+  private List<String> cniNetworks = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DNS_OPTION = "dns_option";
   @SerializedName(SERIALIZED_NAME_DNS_OPTION)
-  private List<String> dnsOption = null;
+  private List<String> dnsOption = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DNS_SEARCH = "dns_search";
   @SerializedName(SERIALIZED_NAME_DNS_SEARCH)
-  private List<String> dnsSearch = null;
+  private List<String> dnsSearch = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DNS_SERVER = "dns_server";
   @SerializedName(SERIALIZED_NAME_DNS_SERVER)
-  private List<String> dnsServer = null;
+  private List<String> dnsServer = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOSTADD = "hostadd";
   @SerializedName(SERIALIZED_NAME_HOSTADD)
-  private List<String> hostadd = null;
+  private List<String> hostadd = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NETNS = "netns";
   @SerializedName(SERIALIZED_NAME_NETNS)
@@ -91,7 +92,7 @@ public class PodNetworkConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_NETWORK_OPTIONS = "network_options";
   @SerializedName(SERIALIZED_NAME_NETWORK_OPTIONS)
-  private Map<String, List<String>> networkOptions = null;
+  private Map<String, List<String>> networkOptions = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NO_MANAGE_HOSTS = "no_manage_hosts";
   @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTS)
@@ -103,13 +104,12 @@ public class PodNetworkConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_PORTMAPPINGS = "portmappings";
   @SerializedName(SERIALIZED_NAME_PORTMAPPINGS)
-  private List<PortMapping> portmappings = null;
+  private List<@Valid PortMapping> portmappings = new ArrayList<>();
 
   public PodNetworkConfig() {
   }
 
   public PodNetworkConfig networks(Map<String, PerNetworkOptions> networks) {
-    
     this.networks = networks;
     return this;
   }
@@ -122,18 +122,16 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Map of networks names to ids the container should join to. You can request additional settings for each network, you can set network aliases, static ips, static mac address  and the network interface name for this container on the specific network. If the map is empty and the bridge network mode is set the container will be joined to the default network.
    * @return networks
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Map of networks names to ids the container should join to. You can request additional settings for each network, you can set network aliases, static ips, static mac address  and the network interface name for this container on the specific network. If the map is empty and the bridge network mode is set the container will be joined to the default network.")
 
   public Map<String, PerNetworkOptions> getNetworks() {
     return networks;
   }
-
 
   public void setNetworks(Map<String, PerNetworkOptions> networks) {
     this.networks = networks;
@@ -141,7 +139,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig cniNetworks(List<String> cniNetworks) {
-    
     this.cniNetworks = cniNetworks;
     return this;
   }
@@ -154,17 +151,15 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * CNINetworks is a list of CNI networks to join the container to. If this list is empty, the default CNI network will be joined instead. If at least one entry is present, we will not join the default network (unless it is part of this list). Only available if NetNS is set to bridge. Optional. Deprecated: as of podman 4.0 use \&quot;Networks\&quot; instead.
    * @return cniNetworks
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CNINetworks is a list of CNI networks to join the container to. If this list is empty, the default CNI network will be joined instead. If at least one entry is present, we will not join the default network (unless it is part of this list). Only available if NetNS is set to bridge. Optional. Deprecated: as of podman 4.0 use \"Networks\" instead.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getCniNetworks() {
     return cniNetworks;
   }
-
 
   public void setCniNetworks(List<String> cniNetworks) {
     this.cniNetworks = cniNetworks;
@@ -172,7 +167,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig dnsOption(List<String> dnsOption) {
-    
     this.dnsOption = dnsOption;
     return this;
   }
@@ -185,17 +179,15 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSOption is a set of DNS options that will be used in the infra container&#39;s resolv.conf, which will, by default, be shared with all containers in the pod. Conflicts with NoInfra&#x3D;true. Optional.
    * @return dnsOption
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSOption is a set of DNS options that will be used in the infra container's resolv.conf, which will, by default, be shared with all containers in the pod. Conflicts with NoInfra=true. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnsOption() {
     return dnsOption;
   }
-
 
   public void setDnsOption(List<String> dnsOption) {
     this.dnsOption = dnsOption;
@@ -203,7 +195,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig dnsSearch(List<String> dnsSearch) {
-    
     this.dnsSearch = dnsSearch;
     return this;
   }
@@ -216,17 +207,15 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSSearch is a set of DNS search domains that will be used in the infra container&#39;s resolv.conf, which will, by default, be shared with all containers in the pod. If not provided, DNS search domains from the host&#39;s resolv.conf will be used. Conflicts with NoInfra&#x3D;true. Optional.
    * @return dnsSearch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSSearch is a set of DNS search domains that will be used in the infra container's resolv.conf, which will, by default, be shared with all containers in the pod. If not provided, DNS search domains from the host's resolv.conf will be used. Conflicts with NoInfra=true. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnsSearch() {
     return dnsSearch;
   }
-
 
   public void setDnsSearch(List<String> dnsSearch) {
     this.dnsSearch = dnsSearch;
@@ -234,7 +223,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig dnsServer(List<String> dnsServer) {
-    
     this.dnsServer = dnsServer;
     return this;
   }
@@ -247,17 +235,15 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSServer is a set of DNS servers that will be used in the infra container&#39;s resolv.conf, which will, by default, be shared with all containers in the pod. If not provided, the host&#39;s DNS servers will be used, unless the only server set is a localhost address. As the container cannot connect to the host&#39;s localhost, a default server will instead be set. Conflicts with NoInfra&#x3D;true. Optional.
    * @return dnsServer
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSServer is a set of DNS servers that will be used in the infra container's resolv.conf, which will, by default, be shared with all containers in the pod. If not provided, the host's DNS servers will be used, unless the only server set is a localhost address. As the container cannot connect to the host's localhost, a default server will instead be set. Conflicts with NoInfra=true. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnsServer() {
     return dnsServer;
   }
-
 
   public void setDnsServer(List<String> dnsServer) {
     this.dnsServer = dnsServer;
@@ -265,7 +251,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig hostadd(List<String> hostadd) {
-    
     this.hostadd = hostadd;
     return this;
   }
@@ -278,17 +263,15 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * HostAdd is a set of hosts that will be added to the infra container&#39;s etc/hosts that will, by default, be shared with all containers in the pod. Conflicts with NoInfra&#x3D;true and NoManageHosts. Optional.
    * @return hostadd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "HostAdd is a set of hosts that will be added to the infra container's etc/hosts that will, by default, be shared with all containers in the pod. Conflicts with NoInfra=true and NoManageHosts. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getHostadd() {
     return hostadd;
   }
-
 
   public void setHostadd(List<String> hostadd) {
     this.hostadd = hostadd;
@@ -296,23 +279,20 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig netns(Namespace netns) {
-    
     this.netns = netns;
     return this;
   }
 
-   /**
+  /**
    * Get netns
    * @return netns
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Namespace getNetns() {
     return netns;
   }
-
 
   public void setNetns(Namespace netns) {
     this.netns = netns;
@@ -320,7 +300,6 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig networkOptions(Map<String, List<String>> networkOptions) {
-    
     this.networkOptions = networkOptions;
     return this;
   }
@@ -333,18 +312,16 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * NetworkOptions are additional options for each network Optional.
    * @return networkOptions
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "NetworkOptions are additional options for each network Optional.")
 
   public Map<String, List<String>> getNetworkOptions() {
     return networkOptions;
   }
-
 
   public void setNetworkOptions(Map<String, List<String>> networkOptions) {
     this.networkOptions = networkOptions;
@@ -352,22 +329,19 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig noManageHosts(Boolean noManageHosts) {
-    
     this.noManageHosts = noManageHosts;
     return this;
   }
 
-   /**
+  /**
    * NoManageHosts indicates that /etc/hosts should not be managed by the pod. Instead, each container will create a separate /etc/hosts as they would if not in a pod. Conflicts with HostAdd.
    * @return noManageHosts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NoManageHosts indicates that /etc/hosts should not be managed by the pod. Instead, each container will create a separate /etc/hosts as they would if not in a pod. Conflicts with HostAdd.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getNoManageHosts() {
     return noManageHosts;
   }
-
 
   public void setNoManageHosts(Boolean noManageHosts) {
     this.noManageHosts = noManageHosts;
@@ -375,30 +349,26 @@ public class PodNetworkConfig implements Serializable {
 
 
   public PodNetworkConfig noManageResolvConf(Boolean noManageResolvConf) {
-    
     this.noManageResolvConf = noManageResolvConf;
     return this;
   }
 
-   /**
+  /**
    * NoManageResolvConf indicates that /etc/resolv.conf should not be managed by the pod. Instead, each container will create and manage a separate resolv.conf as if they had not joined a pod. Conflicts with NoInfra&#x3D;true and DNSServer, DNSSearch, DNSOption. Optional.
    * @return noManageResolvConf
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NoManageResolvConf indicates that /etc/resolv.conf should not be managed by the pod. Instead, each container will create and manage a separate resolv.conf as if they had not joined a pod. Conflicts with NoInfra=true and DNSServer, DNSSearch, DNSOption. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getNoManageResolvConf() {
     return noManageResolvConf;
   }
-
 
   public void setNoManageResolvConf(Boolean noManageResolvConf) {
     this.noManageResolvConf = noManageResolvConf;
   }
 
 
-  public PodNetworkConfig portmappings(List<PortMapping> portmappings) {
-    
+  public PodNetworkConfig portmappings(List<@Valid PortMapping> portmappings) {
     this.portmappings = portmappings;
     return this;
   }
@@ -411,20 +381,18 @@ public class PodNetworkConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * PortMappings is a set of ports to map into the infra container. As, by default, containers share their network with the infra container, this will forward the ports to the entire pod. Only available if NetNS is set to Bridge, Slirp, or Pasta. Optional.
    * @return portmappings
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "PortMappings is a set of ports to map into the infra container. As, by default, containers share their network with the infra container, this will forward the ports to the entire pod. Only available if NetNS is set to Bridge, Slirp, or Pasta. Optional.")
 
-  public List<PortMapping> getPortmappings() {
+  public List<@Valid PortMapping> getPortmappings() {
     return portmappings;
   }
 
-
-  public void setPortmappings(List<PortMapping> portmappings) {
+  public void setPortmappings(List<@Valid PortMapping> portmappings) {
     this.portmappings = portmappings;
   }
 
@@ -510,51 +478,50 @@ public class PodNetworkConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PodNetworkConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PodNetworkConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PodNetworkConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PodNetworkConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PodNetworkConfig is not found in the empty JSON string", PodNetworkConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PodNetworkConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PodNetworkConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PodNetworkConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("cni_networks") != null && !jsonObj.get("cni_networks").isJsonNull()) && !jsonObj.get("cni_networks").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("cni_networks") != null && !jsonObj.get("cni_networks").isJsonNull() && !jsonObj.get("cni_networks").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `cni_networks` to be an array in the JSON string but got `%s`", jsonObj.get("cni_networks").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("dns_option") != null && !jsonObj.get("dns_option").isJsonNull()) && !jsonObj.get("dns_option").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dns_option") != null && !jsonObj.get("dns_option").isJsonNull() && !jsonObj.get("dns_option").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns_option` to be an array in the JSON string but got `%s`", jsonObj.get("dns_option").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("dns_search") != null && !jsonObj.get("dns_search").isJsonNull()) && !jsonObj.get("dns_search").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dns_search") != null && !jsonObj.get("dns_search").isJsonNull() && !jsonObj.get("dns_search").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns_search` to be an array in the JSON string but got `%s`", jsonObj.get("dns_search").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("dns_server") != null && !jsonObj.get("dns_server").isJsonNull()) && !jsonObj.get("dns_server").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dns_server") != null && !jsonObj.get("dns_server").isJsonNull() && !jsonObj.get("dns_server").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns_server` to be an array in the JSON string but got `%s`", jsonObj.get("dns_server").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("hostadd") != null && !jsonObj.get("hostadd").isJsonNull()) && !jsonObj.get("hostadd").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("hostadd") != null && !jsonObj.get("hostadd").isJsonNull() && !jsonObj.get("hostadd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostadd` to be an array in the JSON string but got `%s`", jsonObj.get("hostadd").toString()));
       }
       // validate the optional field `netns`
       if (jsonObj.get("netns") != null && !jsonObj.get("netns").isJsonNull()) {
-        Namespace.validateJsonObject(jsonObj.getAsJsonObject("netns"));
+        Namespace.validateJsonElement(jsonObj.get("netns"));
       }
       if (jsonObj.get("portmappings") != null && !jsonObj.get("portmappings").isJsonNull()) {
         JsonArray jsonArrayportmappings = jsonObj.getAsJsonArray("portmappings");
@@ -566,7 +533,7 @@ public class PodNetworkConfig implements Serializable {
 
           // validate the optional field `portmappings` (array)
           for (int i = 0; i < jsonArrayportmappings.size(); i++) {
-            PortMapping.validateJsonObject(jsonArrayportmappings.get(i).getAsJsonObject());
+            PortMapping.validateJsonElement(jsonArrayportmappings.get(i));
           };
         }
       }
@@ -592,31 +559,31 @@ public class PodNetworkConfig implements Serializable {
 
            @Override
            public PodNetworkConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PodNetworkConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PodNetworkConfig
-  * @throws IOException if the JSON string is invalid with respect to PodNetworkConfig
-  */
+  /**
+   * Create an instance of PodNetworkConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PodNetworkConfig
+   * @throws IOException if the JSON string is invalid with respect to PodNetworkConfig
+   */
   public static PodNetworkConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PodNetworkConfig.class);
   }
 
- /**
-  * Convert an instance of PodNetworkConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PodNetworkConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

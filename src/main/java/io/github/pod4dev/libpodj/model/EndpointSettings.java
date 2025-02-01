@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.EndpointIPAMConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,22 +56,21 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * EndpointSettings stores the network endpoint details
  */
-@ApiModel(description = "EndpointSettings stores the network endpoint details")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class EndpointSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ALIASES = "Aliases";
   @SerializedName(SERIALIZED_NAME_ALIASES)
-  private List<String> aliases = null;
+  private List<String> aliases = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DN_S_NAMES = "DNSNames";
   @SerializedName(SERIALIZED_NAME_DN_S_NAMES)
-  private List<String> dnSNames = null;
+  private List<String> dnSNames = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DRIVER_OPTS = "DriverOpts";
   @SerializedName(SERIALIZED_NAME_DRIVER_OPTS)
-  private Map<String, String> driverOpts = null;
+  private Map<String, String> driverOpts = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ENDPOINT_I_D = "EndpointID";
   @SerializedName(SERIALIZED_NAME_ENDPOINT_I_D)
@@ -106,7 +106,7 @@ public class EndpointSettings implements Serializable {
 
   public static final String SERIALIZED_NAME_LINKS = "Links";
   @SerializedName(SERIALIZED_NAME_LINKS)
-  private List<String> links = null;
+  private List<String> links = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MAC_ADDRESS = "MacAddress";
   @SerializedName(SERIALIZED_NAME_MAC_ADDRESS)
@@ -120,7 +120,6 @@ public class EndpointSettings implements Serializable {
   }
 
   public EndpointSettings aliases(List<String> aliases) {
-    
     this.aliases = aliases;
     return this;
   }
@@ -133,17 +132,15 @@ public class EndpointSettings implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get aliases
    * @return aliases
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getAliases() {
     return aliases;
   }
-
 
   public void setAliases(List<String> aliases) {
     this.aliases = aliases;
@@ -151,7 +148,6 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings dnSNames(List<String> dnSNames) {
-    
     this.dnSNames = dnSNames;
     return this;
   }
@@ -164,17 +160,15 @@ public class EndpointSettings implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DNSNames holds all the (non fully qualified) DNS names associated to this endpoint. First entry is used to generate PTR records.
    * @return dnSNames
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DNSNames holds all the (non fully qualified) DNS names associated to this endpoint. First entry is used to generate PTR records.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDnSNames() {
     return dnSNames;
   }
-
 
   public void setDnSNames(List<String> dnSNames) {
     this.dnSNames = dnSNames;
@@ -182,7 +176,6 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings driverOpts(Map<String, String> driverOpts) {
-    
     this.driverOpts = driverOpts;
     return this;
   }
@@ -195,17 +188,15 @@ public class EndpointSettings implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get driverOpts
    * @return driverOpts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getDriverOpts() {
     return driverOpts;
   }
-
 
   public void setDriverOpts(Map<String, String> driverOpts) {
     this.driverOpts = driverOpts;
@@ -213,22 +204,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings endpointID(String endpointID) {
-    
     this.endpointID = endpointID;
     return this;
   }
 
-   /**
+  /**
    * Get endpointID
    * @return endpointID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getEndpointID() {
     return endpointID;
   }
-
 
   public void setEndpointID(String endpointID) {
     this.endpointID = endpointID;
@@ -236,22 +224,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings gateway(String gateway) {
-    
     this.gateway = gateway;
     return this;
   }
 
-   /**
+  /**
    * Get gateway
    * @return gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGateway() {
     return gateway;
   }
-
 
   public void setGateway(String gateway) {
     this.gateway = gateway;
@@ -259,22 +244,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings globalIPv6Address(String globalIPv6Address) {
-    
     this.globalIPv6Address = globalIPv6Address;
     return this;
   }
 
-   /**
+  /**
    * Get globalIPv6Address
    * @return globalIPv6Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGlobalIPv6Address() {
     return globalIPv6Address;
   }
-
 
   public void setGlobalIPv6Address(String globalIPv6Address) {
     this.globalIPv6Address = globalIPv6Address;
@@ -282,22 +264,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings globalIPv6PrefixLen(Long globalIPv6PrefixLen) {
-    
     this.globalIPv6PrefixLen = globalIPv6PrefixLen;
     return this;
   }
 
-   /**
+  /**
    * Get globalIPv6PrefixLen
    * @return globalIPv6PrefixLen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getGlobalIPv6PrefixLen() {
     return globalIPv6PrefixLen;
   }
-
 
   public void setGlobalIPv6PrefixLen(Long globalIPv6PrefixLen) {
     this.globalIPv6PrefixLen = globalIPv6PrefixLen;
@@ -305,23 +284,20 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings ipAMConfig(EndpointIPAMConfig ipAMConfig) {
-    
     this.ipAMConfig = ipAMConfig;
     return this;
   }
 
-   /**
+  /**
    * Get ipAMConfig
    * @return ipAMConfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public EndpointIPAMConfig getIpAMConfig() {
     return ipAMConfig;
   }
-
 
   public void setIpAMConfig(EndpointIPAMConfig ipAMConfig) {
     this.ipAMConfig = ipAMConfig;
@@ -329,22 +305,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings ipAddress(String ipAddress) {
-    
     this.ipAddress = ipAddress;
     return this;
   }
 
-   /**
+  /**
    * Get ipAddress
    * @return ipAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpAddress() {
     return ipAddress;
   }
-
 
   public void setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
@@ -352,22 +325,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings ipPrefixLen(Long ipPrefixLen) {
-    
     this.ipPrefixLen = ipPrefixLen;
     return this;
   }
 
-   /**
+  /**
    * Get ipPrefixLen
    * @return ipPrefixLen
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getIpPrefixLen() {
     return ipPrefixLen;
   }
-
 
   public void setIpPrefixLen(Long ipPrefixLen) {
     this.ipPrefixLen = ipPrefixLen;
@@ -375,22 +345,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings ipv6Gateway(String ipv6Gateway) {
-    
     this.ipv6Gateway = ipv6Gateway;
     return this;
   }
 
-   /**
+  /**
    * Get ipv6Gateway
    * @return ipv6Gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv6Gateway() {
     return ipv6Gateway;
   }
-
 
   public void setIpv6Gateway(String ipv6Gateway) {
     this.ipv6Gateway = ipv6Gateway;
@@ -398,7 +365,6 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings links(List<String> links) {
-    
     this.links = links;
     return this;
   }
@@ -411,17 +377,15 @@ public class EndpointSettings implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get links
    * @return links
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getLinks() {
     return links;
   }
-
 
   public void setLinks(List<String> links) {
     this.links = links;
@@ -429,22 +393,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings macAddress(String macAddress) {
-    
     this.macAddress = macAddress;
     return this;
   }
 
-   /**
+  /**
    * MacAddress may be used to specify a MAC address when the container is created. Once the container is running, it becomes operational data (it may contain a generated address).
    * @return macAddress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MacAddress may be used to specify a MAC address when the container is created. Once the container is running, it becomes operational data (it may contain a generated address).")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMacAddress() {
     return macAddress;
   }
-
 
   public void setMacAddress(String macAddress) {
     this.macAddress = macAddress;
@@ -452,22 +413,19 @@ public class EndpointSettings implements Serializable {
 
 
   public EndpointSettings networkID(String networkID) {
-    
     this.networkID = networkID;
     return this;
   }
 
-   /**
+  /**
    * Operational data
    * @return networkID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Operational data")
+   */
+  @jakarta.annotation.Nullable
 
   public String getNetworkID() {
     return networkID;
   }
-
 
   public void setNetworkID(String networkID) {
     this.networkID = networkID;
@@ -564,34 +522,33 @@ public class EndpointSettings implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to EndpointSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (EndpointSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to EndpointSettings
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EndpointSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in EndpointSettings is not found in the empty JSON string", EndpointSettings.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EndpointSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Aliases") != null && !jsonObj.get("Aliases").isJsonNull()) && !jsonObj.get("Aliases").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Aliases") != null && !jsonObj.get("Aliases").isJsonNull() && !jsonObj.get("Aliases").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Aliases` to be an array in the JSON string but got `%s`", jsonObj.get("Aliases").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("DNSNames") != null && !jsonObj.get("DNSNames").isJsonNull()) && !jsonObj.get("DNSNames").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("DNSNames") != null && !jsonObj.get("DNSNames").isJsonNull() && !jsonObj.get("DNSNames").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `DNSNames` to be an array in the JSON string but got `%s`", jsonObj.get("DNSNames").toString()));
       }
       if ((jsonObj.get("EndpointID") != null && !jsonObj.get("EndpointID").isJsonNull()) && !jsonObj.get("EndpointID").isJsonPrimitive()) {
@@ -605,7 +562,7 @@ public class EndpointSettings implements Serializable {
       }
       // validate the optional field `IPAMConfig`
       if (jsonObj.get("IPAMConfig") != null && !jsonObj.get("IPAMConfig").isJsonNull()) {
-        EndpointIPAMConfig.validateJsonObject(jsonObj.getAsJsonObject("IPAMConfig"));
+        EndpointIPAMConfig.validateJsonElement(jsonObj.get("IPAMConfig"));
       }
       if ((jsonObj.get("IPAddress") != null && !jsonObj.get("IPAddress").isJsonNull()) && !jsonObj.get("IPAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `IPAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IPAddress").toString()));
@@ -613,8 +570,8 @@ public class EndpointSettings implements Serializable {
       if ((jsonObj.get("IPv6Gateway") != null && !jsonObj.get("IPv6Gateway").isJsonNull()) && !jsonObj.get("IPv6Gateway").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `IPv6Gateway` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IPv6Gateway").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Links") != null && !jsonObj.get("Links").isJsonNull()) && !jsonObj.get("Links").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Links") != null && !jsonObj.get("Links").isJsonNull() && !jsonObj.get("Links").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Links` to be an array in the JSON string but got `%s`", jsonObj.get("Links").toString()));
       }
       if ((jsonObj.get("MacAddress") != null && !jsonObj.get("MacAddress").isJsonNull()) && !jsonObj.get("MacAddress").isJsonPrimitive()) {
@@ -645,31 +602,31 @@ public class EndpointSettings implements Serializable {
 
            @Override
            public EndpointSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of EndpointSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of EndpointSettings
-  * @throws IOException if the JSON string is invalid with respect to EndpointSettings
-  */
+  /**
+   * Create an instance of EndpointSettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of EndpointSettings
+   * @throws IOException if the JSON string is invalid with respect to EndpointSettings
+   */
   public static EndpointSettings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, EndpointSettings.class);
   }
 
- /**
-  * Convert an instance of EndpointSettings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of EndpointSettings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

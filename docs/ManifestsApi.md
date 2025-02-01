@@ -14,7 +14,7 @@ All URIs are relative to *http://podman.io*
 | [**manifestPushV3Libpod**](ManifestsApi.md#manifestPushV3Libpod) | **POST** /libpod/manifests/{name}/push | Push manifest to registry |
 
 
-<a name="manifestAddLibpod"></a>
+<a id="manifestAddLibpod"></a>
 # **manifestAddLibpod**
 > IdResponse manifestAddLibpod(name).options(options).execute();
 
@@ -83,7 +83,7 @@ No authorization required
 | **409** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestCreateLibpod"></a>
+<a id="manifestCreateLibpod"></a>
 # **manifestCreateLibpod**
 > IdResponse manifestCreateLibpod(name, images).all(all).amend(amend).options(options).execute();
 
@@ -160,7 +160,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestDeleteLibpod"></a>
+<a id="manifestDeleteLibpod"></a>
 # **manifestDeleteLibpod**
 > LibpodImagesRemoveReport manifestDeleteLibpod(name).execute();
 
@@ -225,7 +225,7 @@ No authorization required
 | **404** | No such manifest |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestExistsLibpod"></a>
+<a id="manifestExistsLibpod"></a>
 # **manifestExistsLibpod**
 > manifestExistsLibpod(name).execute();
 
@@ -289,7 +289,7 @@ No authorization required
 | **404** | No such manifest |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestInspectLibpod"></a>
+<a id="manifestInspectLibpod"></a>
 # **manifestInspectLibpod**
 > Schema2ListPublic manifestInspectLibpod(name).tlsVerify(tlsVerify).execute();
 
@@ -357,7 +357,7 @@ No authorization required
 | **404** | No such manifest |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestModifyLibpod"></a>
+<a id="manifestModifyLibpod"></a>
 # **manifestModifyLibpod**
 > ManifestModifyReport manifestModifyLibpod(name, options).tlsVerify(tlsVerify).execute();
 
@@ -429,7 +429,7 @@ No authorization required
 | **409** | Operation had partial success, both Images and Errors may have members |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestPushLibpod"></a>
+<a id="manifestPushLibpod"></a>
 # **manifestPushLibpod**
 > IdResponse manifestPushLibpod(name, destination).addCompression(addCompression).forceCompressionFormat(forceCompressionFormat).all(all).tlsVerify(tlsVerify).quiet(quiet).execute();
 
@@ -512,7 +512,7 @@ No authorization required
 | **404** | No such manifest |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="manifestPushV3Libpod"></a>
+<a id="manifestPushV3Libpod"></a>
 # **manifestPushV3Libpod**
 > IdResponse manifestPushV3Libpod(name, destination).all(all).execute();
 

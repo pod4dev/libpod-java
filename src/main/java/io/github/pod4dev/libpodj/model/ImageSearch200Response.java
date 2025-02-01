@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,7 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ImageSearch200Response
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ImageSearch200Response implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,22 +87,19 @@ public class ImageSearch200Response implements Serializable {
   }
 
   public ImageSearch200Response automated(String automated) {
-    
     this.automated = automated;
     return this;
   }
 
-   /**
+  /**
    * Automated indicates if the image was created by an automated build.
    * @return automated
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Automated indicates if the image was created by an automated build.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getAutomated() {
     return automated;
   }
-
 
   public void setAutomated(String automated) {
     this.automated = automated;
@@ -109,22 +107,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response description(String description) {
-    
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the image.
    * @return description
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Description of the image.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDescription() {
     return description;
   }
-
 
   public void setDescription(String description) {
     this.description = description;
@@ -132,22 +127,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response index(String index) {
-    
     this.index = index;
     return this;
   }
 
-   /**
+  /**
    * Index is the image index
    * @return index
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "quay.io", value = "Index is the image index")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIndex() {
     return index;
   }
-
 
   public void setIndex(String index) {
     this.index = index;
@@ -155,22 +147,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the canonical name of the image
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "docker.io/library/alpine\"", value = "Name is the canonical name of the image")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -178,22 +167,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response official(String official) {
-    
     this.official = official;
     return this;
   }
 
-   /**
+  /**
    * Official indicates if it&#39;s an official image.
    * @return official
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Official indicates if it's an official image.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOfficial() {
     return official;
   }
-
 
   public void setOfficial(String official) {
     this.official = official;
@@ -201,22 +187,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response stars(Long stars) {
-    
     this.stars = stars;
     return this;
   }
 
-   /**
+  /**
    * Stars is the number of stars of the image.
    * @return stars
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Stars is the number of stars of the image.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getStars() {
     return stars;
   }
-
 
   public void setStars(Long stars) {
     this.stars = stars;
@@ -224,22 +207,19 @@ public class ImageSearch200Response implements Serializable {
 
 
   public ImageSearch200Response tag(String tag) {
-    
     this.tag = tag;
     return this;
   }
 
-   /**
+  /**
    * Tag is the image tag
    * @return tag
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tag is the image tag")
+   */
+  @jakarta.annotation.Nullable
 
   public String getTag() {
     return tag;
   }
-
 
   public void setTag(String tag) {
     this.tag = tag;
@@ -315,28 +295,27 @@ public class ImageSearch200Response implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ImageSearch200Response
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ImageSearch200Response.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageSearch200Response
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ImageSearch200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ImageSearch200Response is not found in the empty JSON string", ImageSearch200Response.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImageSearch200Response.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageSearch200Response` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageSearch200Response` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Automated") != null && !jsonObj.get("Automated").isJsonNull()) && !jsonObj.get("Automated").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Automated` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Automated").toString()));
       }
@@ -377,31 +356,31 @@ public class ImageSearch200Response implements Serializable {
 
            @Override
            public ImageSearch200Response read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ImageSearch200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageSearch200Response
-  * @throws IOException if the JSON string is invalid with respect to ImageSearch200Response
-  */
+  /**
+   * Create an instance of ImageSearch200Response given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageSearch200Response
+   * @throws IOException if the JSON string is invalid with respect to ImageSearch200Response
+   */
   public static ImageSearch200Response fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageSearch200Response.class);
   }
 
- /**
-  * Convert an instance of ImageSearch200Response to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageSearch200Response to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

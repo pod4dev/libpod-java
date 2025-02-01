@@ -14,19 +14,17 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,12 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -51,7 +52,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Metadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Metadata implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,23 +64,20 @@ public class Metadata implements Serializable {
   }
 
   public Metadata lastTagTime(OffsetDateTime lastTagTime) {
-    
     this.lastTagTime = lastTagTime;
     return this;
   }
 
-   /**
+  /**
    * LastTagTime is the date and time at which the image was last tagged.
    * @return lastTagTime
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "LastTagTime is the date and time at which the image was last tagged.")
 
   public OffsetDateTime getLastTagTime() {
     return lastTagTime;
   }
-
 
   public void setLastTagTime(OffsetDateTime lastTagTime) {
     this.lastTagTime = lastTagTime;
@@ -137,28 +135,27 @@ public class Metadata implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Metadata
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Metadata.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Metadata
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Metadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Metadata is not found in the empty JSON string", Metadata.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Metadata.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Metadata` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Metadata` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -181,31 +178,31 @@ public class Metadata implements Serializable {
 
            @Override
            public Metadata read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Metadata given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Metadata
-  * @throws IOException if the JSON string is invalid with respect to Metadata
-  */
+  /**
+   * Create an instance of Metadata given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Metadata
+   * @throws IOException if the JSON string is invalid with respect to Metadata
+   */
   public static Metadata fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Metadata.class);
   }
 
- /**
-  * Convert an instance of Metadata to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Metadata to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

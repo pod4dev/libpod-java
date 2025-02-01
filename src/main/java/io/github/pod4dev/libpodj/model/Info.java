@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Topology;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,14 +56,13 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Info contains information about the Volume as a whole as provided by the CSI storage plugin.
  */
-@ApiModel(description = "Info contains information about the Volume as a whole as provided by the CSI storage plugin.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Info implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ACCESSIBLE_TOPOLOGY = "AccessibleTopology";
   @SerializedName(SERIALIZED_NAME_ACCESSIBLE_TOPOLOGY)
-  private List<Topology> accessibleTopology = null;
+  private List<@Valid Topology> accessibleTopology = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CAPACITY_BYTES = "CapacityBytes";
   @SerializedName(SERIALIZED_NAME_CAPACITY_BYTES)
@@ -70,7 +70,7 @@ public class Info implements Serializable {
 
   public static final String SERIALIZED_NAME_VOLUME_CONTEXT = "VolumeContext";
   @SerializedName(SERIALIZED_NAME_VOLUME_CONTEXT)
-  private Map<String, String> volumeContext = null;
+  private Map<String, String> volumeContext = new HashMap<>();
 
   public static final String SERIALIZED_NAME_VOLUME_I_D = "VolumeID";
   @SerializedName(SERIALIZED_NAME_VOLUME_I_D)
@@ -79,8 +79,7 @@ public class Info implements Serializable {
   public Info() {
   }
 
-  public Info accessibleTopology(List<Topology> accessibleTopology) {
-    
+  public Info accessibleTopology(List<@Valid Topology> accessibleTopology) {
     this.accessibleTopology = accessibleTopology;
     return this;
   }
@@ -93,41 +92,36 @@ public class Info implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * AccessibleTopology is the topology this volume is actually accessible from.
    * @return accessibleTopology
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "AccessibleTopology is the topology this volume is actually accessible from.")
 
-  public List<Topology> getAccessibleTopology() {
+  public List<@Valid Topology> getAccessibleTopology() {
     return accessibleTopology;
   }
 
-
-  public void setAccessibleTopology(List<Topology> accessibleTopology) {
+  public void setAccessibleTopology(List<@Valid Topology> accessibleTopology) {
     this.accessibleTopology = accessibleTopology;
   }
 
 
   public Info capacityBytes(Long capacityBytes) {
-    
     this.capacityBytes = capacityBytes;
     return this;
   }
 
-   /**
+  /**
    * CapacityBytes is the capacity of the volume in bytes. A value of 0 indicates that the capacity is unknown.
    * @return capacityBytes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CapacityBytes is the capacity of the volume in bytes. A value of 0 indicates that the capacity is unknown.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCapacityBytes() {
     return capacityBytes;
   }
-
 
   public void setCapacityBytes(Long capacityBytes) {
     this.capacityBytes = capacityBytes;
@@ -135,7 +129,6 @@ public class Info implements Serializable {
 
 
   public Info volumeContext(Map<String, String> volumeContext) {
-    
     this.volumeContext = volumeContext;
     return this;
   }
@@ -148,17 +141,15 @@ public class Info implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * VolumeContext is the context originating from the CSI storage plugin when the Volume is created.
    * @return volumeContext
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "VolumeContext is the context originating from the CSI storage plugin when the Volume is created.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getVolumeContext() {
     return volumeContext;
   }
-
 
   public void setVolumeContext(Map<String, String> volumeContext) {
     this.volumeContext = volumeContext;
@@ -166,22 +157,19 @@ public class Info implements Serializable {
 
 
   public Info volumeID(String volumeID) {
-    
     this.volumeID = volumeID;
     return this;
   }
 
-   /**
+  /**
    * VolumeID is the ID of the Volume as seen by the CSI storage plugin. This is distinct from the Volume&#39;s Swarm ID, which is the ID used by all of the Docker Engine to refer to the Volume. If this field is blank, then the Volume has not been successfully created yet.
    * @return volumeID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "VolumeID is the ID of the Volume as seen by the CSI storage plugin. This is distinct from the Volume's Swarm ID, which is the ID used by all of the Docker Engine to refer to the Volume. If this field is blank, then the Volume has not been successfully created yet.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVolumeID() {
     return volumeID;
   }
-
 
   public void setVolumeID(String volumeID) {
     this.volumeID = volumeID;
@@ -248,28 +236,27 @@ public class Info implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Info
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Info.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Info
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Info.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Info is not found in the empty JSON string", Info.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Info.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Info` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Info` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("AccessibleTopology") != null && !jsonObj.get("AccessibleTopology").isJsonNull()) {
         JsonArray jsonArrayaccessibleTopology = jsonObj.getAsJsonArray("AccessibleTopology");
         if (jsonArrayaccessibleTopology != null) {
@@ -280,7 +267,7 @@ public class Info implements Serializable {
 
           // validate the optional field `AccessibleTopology` (array)
           for (int i = 0; i < jsonArrayaccessibleTopology.size(); i++) {
-            Topology.validateJsonObject(jsonArrayaccessibleTopology.get(i).getAsJsonObject());
+            Topology.validateJsonElement(jsonArrayaccessibleTopology.get(i));
           };
         }
       }
@@ -309,31 +296,31 @@ public class Info implements Serializable {
 
            @Override
            public Info read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Info given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Info
-  * @throws IOException if the JSON string is invalid with respect to Info
-  */
+  /**
+   * Create an instance of Info given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Info
+   * @throws IOException if the JSON string is invalid with respect to Info
+   */
   public static Info fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Info.class);
   }
 
- /**
-  * Convert an instance of Info to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Info to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import io.github.pod4dev.libpodj.model.LibpodInfo;
@@ -40,7 +41,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class SystemApi {
     private ApiClient localVarApiClient;
@@ -129,7 +129,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -142,10 +141,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemCheckLibpodValidateBeforeCall(Boolean quick, Boolean repair, Boolean repairLossy, String unreferencedLayerMaxAge, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemCheckLibpodCall(quick, repair, repairLossy, unreferencedLayerMaxAge, _callback);
-        return localVarCall;
+        return systemCheckLibpodCall(quick, repair, repairLossy, unreferencedLayerMaxAge, _callback);
 
     }
 
@@ -330,7 +326,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -343,10 +338,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemDataUsageLibpodValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemDataUsageLibpodCall(_callback);
-        return localVarCall;
+        return systemDataUsageLibpodCall(_callback);
 
     }
 
@@ -498,7 +490,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -511,10 +502,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemEventsLibpodValidateBeforeCall(String since, String until, String filters, Boolean stream, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemEventsLibpodCall(since, until, filters, stream, _callback);
-        return localVarCall;
+        return systemEventsLibpodCall(since, until, filters, stream, _callback);
 
     }
 
@@ -690,7 +678,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -703,10 +690,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemInfoLibpodValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemInfoLibpodCall(_callback);
-        return localVarCall;
+        return systemInfoLibpodCall(_callback);
 
     }
 
@@ -808,7 +792,7 @@ public class SystemApi {
     public APIsystemInfoLibpodRequest systemInfoLibpod() {
         return new APIsystemInfoLibpodRequest();
     }
-    private okhttp3.Call systemPingCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call systemPing_0Call(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -842,7 +826,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -854,36 +837,33 @@ public class SystemApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call systemPingValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemPingCall(_callback);
-        return localVarCall;
+    private okhttp3.Call systemPing_0ValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return systemPing_0Call(_callback);
 
     }
 
 
-    private ApiResponse<String> systemPingWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = systemPingValidateBeforeCall(null);
+    private ApiResponse<String> systemPing_0WithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = systemPing_0ValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call systemPingAsync(final ApiCallback<String> _callback) throws ApiException {
+    private okhttp3.Call systemPing_0Async(final ApiCallback<String> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = systemPingValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = systemPing_0ValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIsystemPingRequest {
+    public class APIsystemPing_0Request {
 
-        private APIsystemPingRequest() {
+        private APIsystemPing_0Request() {
         }
 
         /**
-         * Build call for systemPing
+         * Build call for systemPing_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -895,11 +875,11 @@ public class SystemApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return systemPingCall(_callback);
+            return systemPing_0Call(_callback);
         }
 
         /**
-         * Execute systemPing request
+         * Execute systemPing_0 request
          * @return String
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -910,12 +890,12 @@ public class SystemApi {
          </table>
          */
         public String execute() throws ApiException {
-            ApiResponse<String> localVarResp = systemPingWithHttpInfo();
+            ApiResponse<String> localVarResp = systemPing_0WithHttpInfo();
             return localVarResp.getData();
         }
 
         /**
-         * Execute systemPing request with HTTP info returned
+         * Execute systemPing_0 request with HTTP info returned
          * @return ApiResponse&lt;String&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -926,11 +906,11 @@ public class SystemApi {
          </table>
          */
         public ApiResponse<String> executeWithHttpInfo() throws ApiException {
-            return systemPingWithHttpInfo();
+            return systemPing_0WithHttpInfo();
         }
 
         /**
-         * Execute systemPing request (asynchronously)
+         * Execute systemPing_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -942,14 +922,14 @@ public class SystemApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
-            return systemPingAsync(_callback);
+            return systemPing_0Async(_callback);
         }
     }
 
     /**
      * Ping service
      * Return protocol information in response headers. &#x60;HEAD /libpod/_ping&#x60; is also supported. &#x60;/_ping&#x60; is available for compatibility with other engines. The &#39;_ping&#39; endpoints are not versioned. 
-     * @return APIsystemPingRequest
+     * @return APIsystemPing_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -957,8 +937,8 @@ public class SystemApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIsystemPingRequest systemPing() {
-        return new APIsystemPingRequest();
+    public APIsystemPing_0Request systemPing_0() {
+        return new APIsystemPing_0Request();
     }
     private okhttp3.Call systemPruneLibpodCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -994,7 +974,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1007,10 +986,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemPruneLibpodValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemPruneLibpodCall(_callback);
-        return localVarCall;
+        return systemPruneLibpodCall(_callback);
 
     }
 
@@ -1151,7 +1127,6 @@ public class SystemApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1164,10 +1139,7 @@ public class SystemApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call systemVersionLibpodValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = systemVersionLibpodCall(_callback);
-        return localVarCall;
+        return systemVersionLibpodCall(_callback);
 
     }
 

@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,17 +53,17 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ManifestRemoveReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManifestRemoveReport implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_DELETED = "Deleted";
   @SerializedName(SERIALIZED_NAME_DELETED)
-  private List<String> deleted = null;
+  private List<String> deleted = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ERRORS = "Errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<String> errors = null;
+  private List<String> errors = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXIT_CODE = "ExitCode";
   @SerializedName(SERIALIZED_NAME_EXIT_CODE)
@@ -70,13 +71,12 @@ public class ManifestRemoveReport implements Serializable {
 
   public static final String SERIALIZED_NAME_UNTAGGED = "Untagged";
   @SerializedName(SERIALIZED_NAME_UNTAGGED)
-  private List<String> untagged = null;
+  private List<String> untagged = new ArrayList<>();
 
   public ManifestRemoveReport() {
   }
 
   public ManifestRemoveReport deleted(List<String> deleted) {
-    
     this.deleted = deleted;
     return this;
   }
@@ -89,17 +89,15 @@ public class ManifestRemoveReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Deleted manifest list.
    * @return deleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Deleted manifest list.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDeleted() {
     return deleted;
   }
-
 
   public void setDeleted(List<String> deleted) {
     this.deleted = deleted;
@@ -107,7 +105,6 @@ public class ManifestRemoveReport implements Serializable {
 
 
   public ManifestRemoveReport errors(List<String> errors) {
-    
     this.errors = errors;
     return this;
   }
@@ -120,17 +117,15 @@ public class ManifestRemoveReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Errors associated with operation
    * @return errors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Errors associated with operation")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getErrors() {
     return errors;
   }
-
 
   public void setErrors(List<String> errors) {
     this.errors = errors;
@@ -138,22 +133,19 @@ public class ManifestRemoveReport implements Serializable {
 
 
   public ManifestRemoveReport exitCode(Long exitCode) {
-    
     this.exitCode = exitCode;
     return this;
   }
 
-   /**
+  /**
    * ExitCode describes the exit codes as described in the &#x60;podman rmi&#x60; man page.
    * @return exitCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ExitCode describes the exit codes as described in the `podman rmi` man page.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getExitCode() {
     return exitCode;
   }
-
 
   public void setExitCode(Long exitCode) {
     this.exitCode = exitCode;
@@ -161,7 +153,6 @@ public class ManifestRemoveReport implements Serializable {
 
 
   public ManifestRemoveReport untagged(List<String> untagged) {
-    
     this.untagged = untagged;
     return this;
   }
@@ -174,17 +165,15 @@ public class ManifestRemoveReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Untagged images. Can be longer than Deleted.
    * @return untagged
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Untagged images. Can be longer than Deleted.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getUntagged() {
     return untagged;
   }
-
 
   public void setUntagged(List<String> untagged) {
     this.untagged = untagged;
@@ -251,38 +240,37 @@ public class ManifestRemoveReport implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ManifestRemoveReport
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ManifestRemoveReport.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ManifestRemoveReport
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ManifestRemoveReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ManifestRemoveReport is not found in the empty JSON string", ManifestRemoveReport.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ManifestRemoveReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManifestRemoveReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManifestRemoveReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Deleted") != null && !jsonObj.get("Deleted").isJsonNull()) && !jsonObj.get("Deleted").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Deleted") != null && !jsonObj.get("Deleted").isJsonNull() && !jsonObj.get("Deleted").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Deleted` to be an array in the JSON string but got `%s`", jsonObj.get("Deleted").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Errors") != null && !jsonObj.get("Errors").isJsonNull()) && !jsonObj.get("Errors").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Errors") != null && !jsonObj.get("Errors").isJsonNull() && !jsonObj.get("Errors").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Errors` to be an array in the JSON string but got `%s`", jsonObj.get("Errors").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Untagged") != null && !jsonObj.get("Untagged").isJsonNull()) && !jsonObj.get("Untagged").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Untagged") != null && !jsonObj.get("Untagged").isJsonNull() && !jsonObj.get("Untagged").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Untagged` to be an array in the JSON string but got `%s`", jsonObj.get("Untagged").toString()));
       }
   }
@@ -307,31 +295,31 @@ public class ManifestRemoveReport implements Serializable {
 
            @Override
            public ManifestRemoveReport read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ManifestRemoveReport given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ManifestRemoveReport
-  * @throws IOException if the JSON string is invalid with respect to ManifestRemoveReport
-  */
+  /**
+   * Create an instance of ManifestRemoveReport given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ManifestRemoveReport
+   * @throws IOException if the JSON string is invalid with respect to ManifestRemoveReport
+   */
   public static ManifestRemoveReport fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ManifestRemoveReport.class);
   }
 
- /**
-  * Convert an instance of ManifestRemoveReport to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ManifestRemoveReport to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

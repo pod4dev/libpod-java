@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -27,14 +26,13 @@ import io.github.pod4dev.libpodj.model.GraphDriverData;
 import io.github.pod4dev.libpodj.model.HostConfig;
 import io.github.pod4dev.libpodj.model.MountPoint;
 import io.github.pod4dev.libpodj.model.NetworkSettings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,12 +44,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -59,8 +60,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerJSON is newly used struct along with MountPoint
  */
-@ApiModel(description = "ContainerJSON is newly used struct along with MountPoint")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerJSON implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +70,7 @@ public class ContainerJSON implements Serializable {
 
   public static final String SERIALIZED_NAME_ARGS = "Args";
   @SerializedName(SERIALIZED_NAME_ARGS)
-  private List<String> args = null;
+  private List<String> args = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONFIG = "Config";
   @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -86,7 +86,7 @@ public class ContainerJSON implements Serializable {
 
   public static final String SERIALIZED_NAME_EXEC_I_DS = "ExecIDs";
   @SerializedName(SERIALIZED_NAME_EXEC_I_DS)
-  private List<String> execIDs = null;
+  private List<String> execIDs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GRAPH_DRIVER = "GraphDriver";
   @SerializedName(SERIALIZED_NAME_GRAPH_DRIVER)
@@ -122,7 +122,7 @@ public class ContainerJSON implements Serializable {
 
   public static final String SERIALIZED_NAME_MOUNTS = "Mounts";
   @SerializedName(SERIALIZED_NAME_MOUNTS)
-  private List<MountPoint> mounts = null;
+  private List<@Valid MountPoint> mounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "Name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -172,22 +172,19 @@ public class ContainerJSON implements Serializable {
   }
 
   public ContainerJSON appArmorProfile(String appArmorProfile) {
-    
     this.appArmorProfile = appArmorProfile;
     return this;
   }
 
-   /**
+  /**
    * Get appArmorProfile
    * @return appArmorProfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getAppArmorProfile() {
     return appArmorProfile;
   }
-
 
   public void setAppArmorProfile(String appArmorProfile) {
     this.appArmorProfile = appArmorProfile;
@@ -195,7 +192,6 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON args(List<String> args) {
-    
     this.args = args;
     return this;
   }
@@ -208,17 +204,15 @@ public class ContainerJSON implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get args
    * @return args
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getArgs() {
     return args;
   }
-
 
   public void setArgs(List<String> args) {
     this.args = args;
@@ -226,23 +220,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON config(Config config) {
-    
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Config getConfig() {
     return config;
   }
-
 
   public void setConfig(Config config) {
     this.config = config;
@@ -250,22 +241,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON created(String created) {
-    
     this.created = created;
     return this;
   }
 
-   /**
+  /**
    * Get created
    * @return created
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCreated() {
     return created;
   }
-
 
   public void setCreated(String created) {
     this.created = created;
@@ -273,22 +261,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON driver(String driver) {
-    
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Get driver
    * @return driver
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDriver() {
     return driver;
   }
-
 
   public void setDriver(String driver) {
     this.driver = driver;
@@ -296,7 +281,6 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON execIDs(List<String> execIDs) {
-    
     this.execIDs = execIDs;
     return this;
   }
@@ -309,17 +293,15 @@ public class ContainerJSON implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get execIDs
    * @return execIDs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getExecIDs() {
     return execIDs;
   }
-
 
   public void setExecIDs(List<String> execIDs) {
     this.execIDs = execIDs;
@@ -327,23 +309,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON graphDriver(GraphDriverData graphDriver) {
-    
     this.graphDriver = graphDriver;
     return this;
   }
 
-   /**
+  /**
    * Get graphDriver
    * @return graphDriver
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public GraphDriverData getGraphDriver() {
     return graphDriver;
   }
-
 
   public void setGraphDriver(GraphDriverData graphDriver) {
     this.graphDriver = graphDriver;
@@ -351,23 +330,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON hostConfig(HostConfig hostConfig) {
-    
     this.hostConfig = hostConfig;
     return this;
   }
 
-   /**
+  /**
    * Get hostConfig
    * @return hostConfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public HostConfig getHostConfig() {
     return hostConfig;
   }
-
 
   public void setHostConfig(HostConfig hostConfig) {
     this.hostConfig = hostConfig;
@@ -375,22 +351,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON hostnamePath(String hostnamePath) {
-    
     this.hostnamePath = hostnamePath;
     return this;
   }
 
-   /**
+  /**
    * Get hostnamePath
    * @return hostnamePath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostnamePath() {
     return hostnamePath;
   }
-
 
   public void setHostnamePath(String hostnamePath) {
     this.hostnamePath = hostnamePath;
@@ -398,22 +371,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON hostsPath(String hostsPath) {
-    
     this.hostsPath = hostsPath;
     return this;
   }
 
-   /**
+  /**
    * Get hostsPath
    * @return hostsPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostsPath() {
     return hostsPath;
   }
-
 
   public void setHostsPath(String hostsPath) {
     this.hostsPath = hostsPath;
@@ -421,22 +391,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON id(String id) {
-    
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -444,22 +411,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON image(String image) {
-    
     this.image = image;
     return this;
   }
 
-   /**
+  /**
    * Get image
    * @return image
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -467,22 +431,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON logPath(String logPath) {
-    
     this.logPath = logPath;
     return this;
   }
 
-   /**
+  /**
    * Get logPath
    * @return logPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getLogPath() {
     return logPath;
   }
-
 
   public void setLogPath(String logPath) {
     this.logPath = logPath;
@@ -490,30 +451,26 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON mountLabel(String mountLabel) {
-    
     this.mountLabel = mountLabel;
     return this;
   }
 
-   /**
+  /**
    * Get mountLabel
    * @return mountLabel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMountLabel() {
     return mountLabel;
   }
-
 
   public void setMountLabel(String mountLabel) {
     this.mountLabel = mountLabel;
   }
 
 
-  public ContainerJSON mounts(List<MountPoint> mounts) {
-    
+  public ContainerJSON mounts(List<@Valid MountPoint> mounts) {
     this.mounts = mounts;
     return this;
   }
@@ -526,41 +483,36 @@ public class ContainerJSON implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get mounts
    * @return mounts
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<MountPoint> getMounts() {
+  public List<@Valid MountPoint> getMounts() {
     return mounts;
   }
 
-
-  public void setMounts(List<MountPoint> mounts) {
+  public void setMounts(List<@Valid MountPoint> mounts) {
     this.mounts = mounts;
   }
 
 
   public ContainerJSON name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -568,23 +520,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON networkSettings(NetworkSettings networkSettings) {
-    
     this.networkSettings = networkSettings;
     return this;
   }
 
-   /**
+  /**
    * Get networkSettings
    * @return networkSettings
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public NetworkSettings getNetworkSettings() {
     return networkSettings;
   }
-
 
   public void setNetworkSettings(NetworkSettings networkSettings) {
     this.networkSettings = networkSettings;
@@ -592,23 +541,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON node(ContainerNode node) {
-    
     this.node = node;
     return this;
   }
 
-   /**
+  /**
    * Get node
    * @return node
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public ContainerNode getNode() {
     return node;
   }
-
 
   public void setNode(ContainerNode node) {
     this.node = node;
@@ -616,22 +562,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON path(String path) {
-    
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * Get path
    * @return path
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPath() {
     return path;
   }
-
 
   public void setPath(String path) {
     this.path = path;
@@ -639,22 +582,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON platform(String platform) {
-    
     this.platform = platform;
     return this;
   }
 
-   /**
+  /**
    * Get platform
    * @return platform
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPlatform() {
     return platform;
   }
-
 
   public void setPlatform(String platform) {
     this.platform = platform;
@@ -662,22 +602,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON processLabel(String processLabel) {
-    
     this.processLabel = processLabel;
     return this;
   }
 
-   /**
+  /**
    * Get processLabel
    * @return processLabel
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getProcessLabel() {
     return processLabel;
   }
-
 
   public void setProcessLabel(String processLabel) {
     this.processLabel = processLabel;
@@ -685,22 +622,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON resolvConfPath(String resolvConfPath) {
-    
     this.resolvConfPath = resolvConfPath;
     return this;
   }
 
-   /**
+  /**
    * Get resolvConfPath
    * @return resolvConfPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getResolvConfPath() {
     return resolvConfPath;
   }
-
 
   public void setResolvConfPath(String resolvConfPath) {
     this.resolvConfPath = resolvConfPath;
@@ -708,22 +642,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON restartCount(Long restartCount) {
-    
     this.restartCount = restartCount;
     return this;
   }
 
-   /**
+  /**
    * Get restartCount
    * @return restartCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getRestartCount() {
     return restartCount;
   }
-
 
   public void setRestartCount(Long restartCount) {
     this.restartCount = restartCount;
@@ -731,22 +662,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON sizeRootFs(Long sizeRootFs) {
-    
     this.sizeRootFs = sizeRootFs;
     return this;
   }
 
-   /**
+  /**
    * Get sizeRootFs
    * @return sizeRootFs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSizeRootFs() {
     return sizeRootFs;
   }
-
 
   public void setSizeRootFs(Long sizeRootFs) {
     this.sizeRootFs = sizeRootFs;
@@ -754,22 +682,19 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON sizeRw(Long sizeRw) {
-    
     this.sizeRw = sizeRw;
     return this;
   }
 
-   /**
+  /**
    * Get sizeRw
    * @return sizeRw
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSizeRw() {
     return sizeRw;
   }
-
 
   public void setSizeRw(Long sizeRw) {
     this.sizeRw = sizeRw;
@@ -777,23 +702,20 @@ public class ContainerJSON implements Serializable {
 
 
   public ContainerJSON state(ContainerState state) {
-    
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public ContainerState getState() {
     return state;
   }
-
 
   public void setState(ContainerState state) {
     this.state = state;
@@ -926,38 +848,37 @@ public class ContainerJSON implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerJSON
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerJSON.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerJSON
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerJSON.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerJSON is not found in the empty JSON string", ContainerJSON.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerJSON.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerJSON` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerJSON` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("AppArmorProfile") != null && !jsonObj.get("AppArmorProfile").isJsonNull()) && !jsonObj.get("AppArmorProfile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `AppArmorProfile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("AppArmorProfile").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Args") != null && !jsonObj.get("Args").isJsonNull()) && !jsonObj.get("Args").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Args") != null && !jsonObj.get("Args").isJsonNull() && !jsonObj.get("Args").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Args` to be an array in the JSON string but got `%s`", jsonObj.get("Args").toString()));
       }
       // validate the optional field `Config`
       if (jsonObj.get("Config") != null && !jsonObj.get("Config").isJsonNull()) {
-        Config.validateJsonObject(jsonObj.getAsJsonObject("Config"));
+        Config.validateJsonElement(jsonObj.get("Config"));
       }
       if ((jsonObj.get("Created") != null && !jsonObj.get("Created").isJsonNull()) && !jsonObj.get("Created").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Created` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Created").toString()));
@@ -965,17 +886,17 @@ public class ContainerJSON implements Serializable {
       if ((jsonObj.get("Driver") != null && !jsonObj.get("Driver").isJsonNull()) && !jsonObj.get("Driver").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Driver").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("ExecIDs") != null && !jsonObj.get("ExecIDs").isJsonNull()) && !jsonObj.get("ExecIDs").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ExecIDs") != null && !jsonObj.get("ExecIDs").isJsonNull() && !jsonObj.get("ExecIDs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ExecIDs` to be an array in the JSON string but got `%s`", jsonObj.get("ExecIDs").toString()));
       }
       // validate the optional field `GraphDriver`
       if (jsonObj.get("GraphDriver") != null && !jsonObj.get("GraphDriver").isJsonNull()) {
-        GraphDriverData.validateJsonObject(jsonObj.getAsJsonObject("GraphDriver"));
+        GraphDriverData.validateJsonElement(jsonObj.get("GraphDriver"));
       }
       // validate the optional field `HostConfig`
       if (jsonObj.get("HostConfig") != null && !jsonObj.get("HostConfig").isJsonNull()) {
-        HostConfig.validateJsonObject(jsonObj.getAsJsonObject("HostConfig"));
+        HostConfig.validateJsonElement(jsonObj.get("HostConfig"));
       }
       if ((jsonObj.get("HostnamePath") != null && !jsonObj.get("HostnamePath").isJsonNull()) && !jsonObj.get("HostnamePath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `HostnamePath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("HostnamePath").toString()));
@@ -1005,7 +926,7 @@ public class ContainerJSON implements Serializable {
 
           // validate the optional field `Mounts` (array)
           for (int i = 0; i < jsonArraymounts.size(); i++) {
-            MountPoint.validateJsonObject(jsonArraymounts.get(i).getAsJsonObject());
+            MountPoint.validateJsonElement(jsonArraymounts.get(i));
           };
         }
       }
@@ -1014,11 +935,11 @@ public class ContainerJSON implements Serializable {
       }
       // validate the optional field `NetworkSettings`
       if (jsonObj.get("NetworkSettings") != null && !jsonObj.get("NetworkSettings").isJsonNull()) {
-        NetworkSettings.validateJsonObject(jsonObj.getAsJsonObject("NetworkSettings"));
+        NetworkSettings.validateJsonElement(jsonObj.get("NetworkSettings"));
       }
       // validate the optional field `Node`
       if (jsonObj.get("Node") != null && !jsonObj.get("Node").isJsonNull()) {
-        ContainerNode.validateJsonObject(jsonObj.getAsJsonObject("Node"));
+        ContainerNode.validateJsonElement(jsonObj.get("Node"));
       }
       if ((jsonObj.get("Path") != null && !jsonObj.get("Path").isJsonNull()) && !jsonObj.get("Path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Path").toString()));
@@ -1034,7 +955,7 @@ public class ContainerJSON implements Serializable {
       }
       // validate the optional field `State`
       if (jsonObj.get("State") != null && !jsonObj.get("State").isJsonNull()) {
-        ContainerState.validateJsonObject(jsonObj.getAsJsonObject("State"));
+        ContainerState.validateJsonElement(jsonObj.get("State"));
       }
   }
 
@@ -1058,31 +979,31 @@ public class ContainerJSON implements Serializable {
 
            @Override
            public ContainerJSON read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerJSON given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerJSON
-  * @throws IOException if the JSON string is invalid with respect to ContainerJSON
-  */
+  /**
+   * Create an instance of ContainerJSON given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerJSON
+   * @throws IOException if the JSON string is invalid with respect to ContainerJSON
+   */
   public static ContainerJSON fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerJSON.class);
   }
 
- /**
-  * Convert an instance of ContainerJSON to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerJSON to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

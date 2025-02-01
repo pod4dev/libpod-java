@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * InspectHostPort provides information on a port on the host that a container&#39;s port is bound to.
  */
-@ApiModel(description = "InspectHostPort provides information on a port on the host that a container's port is bound to.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InspectHostPort implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,22 +67,19 @@ public class InspectHostPort implements Serializable {
   }
 
   public InspectHostPort hostIp(String hostIp) {
-    
     this.hostIp = hostIp;
     return this;
   }
 
-   /**
+  /**
    * IP on the host we are bound to. \&quot;\&quot; if not specified (binding to all IPs).
    * @return hostIp
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IP on the host we are bound to. \"\" if not specified (binding to all IPs).")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostIp() {
     return hostIp;
   }
-
 
   public void setHostIp(String hostIp) {
     this.hostIp = hostIp;
@@ -90,22 +87,19 @@ public class InspectHostPort implements Serializable {
 
 
   public InspectHostPort hostPort(String hostPort) {
-    
     this.hostPort = hostPort;
     return this;
   }
 
-   /**
+  /**
    * Port on the host we are bound to. No special formatting - just an integer stuffed into a string.
    * @return hostPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Port on the host we are bound to. No special formatting - just an integer stuffed into a string.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostPort() {
     return hostPort;
   }
-
 
   public void setHostPort(String hostPort) {
     this.hostPort = hostPort;
@@ -166,28 +160,27 @@ public class InspectHostPort implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to InspectHostPort
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (InspectHostPort.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InspectHostPort
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!InspectHostPort.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in InspectHostPort is not found in the empty JSON string", InspectHostPort.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InspectHostPort.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectHostPort` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectHostPort` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("HostIp") != null && !jsonObj.get("HostIp").isJsonNull()) && !jsonObj.get("HostIp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `HostIp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("HostIp").toString()));
       }
@@ -216,31 +209,31 @@ public class InspectHostPort implements Serializable {
 
            @Override
            public InspectHostPort read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of InspectHostPort given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InspectHostPort
-  * @throws IOException if the JSON string is invalid with respect to InspectHostPort
-  */
+  /**
+   * Create an instance of InspectHostPort given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InspectHostPort
+   * @throws IOException if the JSON string is invalid with respect to InspectHostPort
+   */
   public static InspectHostPort fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InspectHostPort.class);
   }
 
- /**
-  * Convert an instance of InspectHostPort to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InspectHostPort to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

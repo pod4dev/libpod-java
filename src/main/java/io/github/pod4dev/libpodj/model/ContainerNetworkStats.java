@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Statistics for an individual container network interface
  */
-@ApiModel(description = "Statistics for an individual container network interface")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerNetworkStats implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,22 +91,19 @@ public class ContainerNetworkStats implements Serializable {
   }
 
   public ContainerNetworkStats rxBytes(Integer rxBytes) {
-    
     this.rxBytes = rxBytes;
     return this;
   }
 
-   /**
+  /**
    * Get rxBytes
    * @return rxBytes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getRxBytes() {
     return rxBytes;
   }
-
 
   public void setRxBytes(Integer rxBytes) {
     this.rxBytes = rxBytes;
@@ -114,22 +111,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats rxDropped(Integer rxDropped) {
-    
     this.rxDropped = rxDropped;
     return this;
   }
 
-   /**
+  /**
    * Get rxDropped
    * @return rxDropped
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getRxDropped() {
     return rxDropped;
   }
-
 
   public void setRxDropped(Integer rxDropped) {
     this.rxDropped = rxDropped;
@@ -137,22 +131,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats rxErrors(Integer rxErrors) {
-    
     this.rxErrors = rxErrors;
     return this;
   }
 
-   /**
+  /**
    * Get rxErrors
    * @return rxErrors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getRxErrors() {
     return rxErrors;
   }
-
 
   public void setRxErrors(Integer rxErrors) {
     this.rxErrors = rxErrors;
@@ -160,22 +151,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats rxPackets(Integer rxPackets) {
-    
     this.rxPackets = rxPackets;
     return this;
   }
 
-   /**
+  /**
    * Get rxPackets
    * @return rxPackets
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getRxPackets() {
     return rxPackets;
   }
-
 
   public void setRxPackets(Integer rxPackets) {
     this.rxPackets = rxPackets;
@@ -183,22 +171,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats txBytes(Integer txBytes) {
-    
     this.txBytes = txBytes;
     return this;
   }
 
-   /**
+  /**
    * Get txBytes
    * @return txBytes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getTxBytes() {
     return txBytes;
   }
-
 
   public void setTxBytes(Integer txBytes) {
     this.txBytes = txBytes;
@@ -206,22 +191,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats txDropped(Integer txDropped) {
-    
     this.txDropped = txDropped;
     return this;
   }
 
-   /**
+  /**
    * Get txDropped
    * @return txDropped
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getTxDropped() {
     return txDropped;
   }
-
 
   public void setTxDropped(Integer txDropped) {
     this.txDropped = txDropped;
@@ -229,22 +211,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats txErrors(Integer txErrors) {
-    
     this.txErrors = txErrors;
     return this;
   }
 
-   /**
+  /**
    * Get txErrors
    * @return txErrors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getTxErrors() {
     return txErrors;
   }
-
 
   public void setTxErrors(Integer txErrors) {
     this.txErrors = txErrors;
@@ -252,22 +231,19 @@ public class ContainerNetworkStats implements Serializable {
 
 
   public ContainerNetworkStats txPackets(Integer txPackets) {
-    
     this.txPackets = txPackets;
     return this;
   }
 
-   /**
+  /**
    * Get txPackets
    * @return txPackets
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getTxPackets() {
     return txPackets;
   }
-
 
   public void setTxPackets(Integer txPackets) {
     this.txPackets = txPackets;
@@ -346,28 +322,27 @@ public class ContainerNetworkStats implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerNetworkStats
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerNetworkStats.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerNetworkStats
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerNetworkStats.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerNetworkStats is not found in the empty JSON string", ContainerNetworkStats.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerNetworkStats.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerNetworkStats` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerNetworkStats` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -390,31 +365,31 @@ public class ContainerNetworkStats implements Serializable {
 
            @Override
            public ContainerNetworkStats read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerNetworkStats given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerNetworkStats
-  * @throws IOException if the JSON string is invalid with respect to ContainerNetworkStats
-  */
+  /**
+   * Create an instance of ContainerNetworkStats given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerNetworkStats
+   * @throws IOException if the JSON string is invalid with respect to ContainerNetworkStats
+   */
   public static ContainerNetworkStats fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerNetworkStats.class);
   }
 
- /**
-  * Convert an instance of ContainerNetworkStats to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerNetworkStats to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

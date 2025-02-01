@@ -62,7 +62,7 @@ Here, \"non-portable\" means \"dependent of the host we are running on\". Portab
 |**oomScoreAdj** | **Long** |  |  [optional] |
 |**pidMode** | **String** |  |  [optional] |
 |**pidsLimit** | **Long** |  |  [optional] |
-|**portBindings** | **Map&lt;String, List&lt;PortBinding&gt;&gt;** | PortMap is a collection of PortBinding indexed by Port |  [optional] |
+|**portBindings** | **Map&lt;String, List&lt;@Valid PortBinding&gt;&gt;** | PortMap is a collection of PortBinding indexed by Port |  [optional] |
 |**privileged** | **Boolean** |  |  [optional] |
 |**publishAllPorts** | **Boolean** |  |  [optional] |
 |**readonlyPaths** | **List&lt;String&gt;** | ReadonlyPaths is the list of paths to be set as read-only inside the container (this overrides the default set of paths) |  [optional] |

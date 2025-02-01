@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,14 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.ImagePropertiesSize;
 import io.github.pod4dev.libpodj.model.Platform;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -54,7 +55,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ImageProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ImageProperties implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -74,28 +75,28 @@ public class ImageProperties implements Serializable {
   }
 
   public ImageProperties containers(List<String> containers) {
-    
     this.containers = containers;
     return this;
   }
 
   public ImageProperties addContainersItem(String containersItem) {
+    if (this.containers == null) {
+      this.containers = new ArrayList<>();
+    }
     this.containers.add(containersItem);
     return this;
   }
 
-   /**
+  /**
    * Containers is an array containing the IDs of the containers that are using this image.
    * @return containers
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "Containers is an array containing the IDs of the containers that are using this image.")
 
   public List<String> getContainers() {
     return containers;
   }
-
 
   public void setContainers(List<String> containers) {
     this.containers = containers;
@@ -103,24 +104,21 @@ public class ImageProperties implements Serializable {
 
 
   public ImageProperties platform(Platform platform) {
-    
     this.platform = platform;
     return this;
   }
 
-   /**
+  /**
    * Get platform
    * @return platform
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "")
 
   public Platform getPlatform() {
     return platform;
   }
-
 
   public void setPlatform(Platform platform) {
     this.platform = platform;
@@ -128,23 +126,20 @@ public class ImageProperties implements Serializable {
 
 
   public ImageProperties size(ImagePropertiesSize size) {
-    
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public ImagePropertiesSize getSize() {
     return size;
   }
-
 
   public void setSize(ImagePropertiesSize size) {
     this.size = size;
@@ -210,46 +205,45 @@ public class ImageProperties implements Serializable {
     openapiRequiredFields.add("Platform");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ImageProperties
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ImageProperties.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageProperties
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ImageProperties.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ImageProperties is not found in the empty JSON string", ImageProperties.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImageProperties.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageProperties` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageProperties` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ImageProperties.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Containers") != null && !jsonObj.get("Containers").isJsonNull()) && !jsonObj.get("Containers").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("Containers") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("Containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Containers` to be an array in the JSON string but got `%s`", jsonObj.get("Containers").toString()));
       }
-      // validate the optional field `Platform`
-      if (jsonObj.get("Platform") != null && !jsonObj.get("Platform").isJsonNull()) {
-        Platform.validateJsonObject(jsonObj.getAsJsonObject("Platform"));
-      }
+      // validate the required field `Platform`
+      Platform.validateJsonElement(jsonObj.get("Platform"));
       // validate the optional field `Size`
       if (jsonObj.get("Size") != null && !jsonObj.get("Size").isJsonNull()) {
-        ImagePropertiesSize.validateJsonObject(jsonObj.getAsJsonObject("Size"));
+        ImagePropertiesSize.validateJsonElement(jsonObj.get("Size"));
       }
   }
 
@@ -273,31 +267,31 @@ public class ImageProperties implements Serializable {
 
            @Override
            public ImageProperties read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ImageProperties given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageProperties
-  * @throws IOException if the JSON string is invalid with respect to ImageProperties
-  */
+  /**
+   * Create an instance of ImageProperties given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageProperties
+   * @throws IOException if the JSON string is invalid with respect to ImageProperties
+   */
   public static ImageProperties fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageProperties.class);
   }
 
- /**
-  * Convert an instance of ImageProperties to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageProperties to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

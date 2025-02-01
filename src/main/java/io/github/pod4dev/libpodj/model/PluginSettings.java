@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,14 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.PluginDevice;
 import io.github.pod4dev.libpodj.model.PluginMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -54,7 +55,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * PluginSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PluginSettings implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,7 +65,7 @@ public class PluginSettings implements Serializable {
 
   public static final String SERIALIZED_NAME_DEVICES = "Devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<PluginDevice> devices = new ArrayList<>();
+  private List<@Valid PluginDevice> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENV = "Env";
   @SerializedName(SERIALIZED_NAME_ENV)
@@ -72,125 +73,125 @@ public class PluginSettings implements Serializable {
 
   public static final String SERIALIZED_NAME_MOUNTS = "Mounts";
   @SerializedName(SERIALIZED_NAME_MOUNTS)
-  private List<PluginMount> mounts = new ArrayList<>();
+  private List<@Valid PluginMount> mounts = new ArrayList<>();
 
   public PluginSettings() {
   }
 
   public PluginSettings args(List<String> args) {
-    
     this.args = args;
     return this;
   }
 
   public PluginSettings addArgsItem(String argsItem) {
+    if (this.args == null) {
+      this.args = new ArrayList<>();
+    }
     this.args.add(argsItem);
     return this;
   }
 
-   /**
+  /**
    * args
    * @return args
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "args")
 
   public List<String> getArgs() {
     return args;
   }
-
 
   public void setArgs(List<String> args) {
     this.args = args;
   }
 
 
-  public PluginSettings devices(List<PluginDevice> devices) {
-    
+  public PluginSettings devices(List<@Valid PluginDevice> devices) {
     this.devices = devices;
     return this;
   }
 
   public PluginSettings addDevicesItem(PluginDevice devicesItem) {
+    if (this.devices == null) {
+      this.devices = new ArrayList<>();
+    }
     this.devices.add(devicesItem);
     return this;
   }
 
-   /**
+  /**
    * devices
    * @return devices
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "devices")
 
-  public List<PluginDevice> getDevices() {
+  public List<@Valid PluginDevice> getDevices() {
     return devices;
   }
 
-
-  public void setDevices(List<PluginDevice> devices) {
+  public void setDevices(List<@Valid PluginDevice> devices) {
     this.devices = devices;
   }
 
 
   public PluginSettings env(List<String> env) {
-    
     this.env = env;
     return this;
   }
 
   public PluginSettings addEnvItem(String envItem) {
+    if (this.env == null) {
+      this.env = new ArrayList<>();
+    }
     this.env.add(envItem);
     return this;
   }
 
-   /**
+  /**
    * env
    * @return env
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "env")
 
   public List<String> getEnv() {
     return env;
   }
-
 
   public void setEnv(List<String> env) {
     this.env = env;
   }
 
 
-  public PluginSettings mounts(List<PluginMount> mounts) {
-    
+  public PluginSettings mounts(List<@Valid PluginMount> mounts) {
     this.mounts = mounts;
     return this;
   }
 
   public PluginSettings addMountsItem(PluginMount mountsItem) {
+    if (this.mounts == null) {
+      this.mounts = new ArrayList<>();
+    }
     this.mounts.add(mountsItem);
     return this;
   }
 
-   /**
+  /**
    * mounts
    * @return mounts
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "mounts")
 
-  public List<PluginMount> getMounts() {
+  public List<@Valid PluginMount> getMounts() {
     return mounts;
   }
 
-
-  public void setMounts(List<PluginMount> mounts) {
+  public void setMounts(List<@Valid PluginMount> mounts) {
     this.mounts = mounts;
   }
 
@@ -259,71 +260,66 @@ public class PluginSettings implements Serializable {
     openapiRequiredFields.add("Mounts");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PluginSettings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PluginSettings.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PluginSettings
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PluginSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PluginSettings is not found in the empty JSON string", PluginSettings.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PluginSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PluginSettings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PluginSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PluginSettings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Args") != null && !jsonObj.get("Args").isJsonNull()) && !jsonObj.get("Args").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the required json array is present
+      if (jsonObj.get("Args") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("Args").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Args` to be an array in the JSON string but got `%s`", jsonObj.get("Args").toString()));
       }
-      if (jsonObj.get("Devices") != null && !jsonObj.get("Devices").isJsonNull()) {
-        JsonArray jsonArraydevices = jsonObj.getAsJsonArray("Devices");
-        if (jsonArraydevices != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("Devices").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `Devices` to be an array in the JSON string but got `%s`", jsonObj.get("Devices").toString()));
-          }
-
-          // validate the optional field `Devices` (array)
-          for (int i = 0; i < jsonArraydevices.size(); i++) {
-            PluginDevice.validateJsonObject(jsonArraydevices.get(i).getAsJsonObject());
-          };
-        }
-      }
       // ensure the json data is an array
-      if ((jsonObj.get("Env") != null && !jsonObj.get("Env").isJsonNull()) && !jsonObj.get("Env").isJsonArray()) {
+      if (!jsonObj.get("Devices").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Devices` to be an array in the JSON string but got `%s`", jsonObj.get("Devices").toString()));
+      }
+
+      JsonArray jsonArraydevices = jsonObj.getAsJsonArray("Devices");
+      // validate the required field `Devices` (array)
+      for (int i = 0; i < jsonArraydevices.size(); i++) {
+        PluginDevice.validateJsonElement(jsonArraydevices.get(i));
+      };
+      // ensure the required json array is present
+      if (jsonObj.get("Env") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("Env").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Env` to be an array in the JSON string but got `%s`", jsonObj.get("Env").toString()));
       }
-      if (jsonObj.get("Mounts") != null && !jsonObj.get("Mounts").isJsonNull()) {
-        JsonArray jsonArraymounts = jsonObj.getAsJsonArray("Mounts");
-        if (jsonArraymounts != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("Mounts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `Mounts` to be an array in the JSON string but got `%s`", jsonObj.get("Mounts").toString()));
-          }
-
-          // validate the optional field `Mounts` (array)
-          for (int i = 0; i < jsonArraymounts.size(); i++) {
-            PluginMount.validateJsonObject(jsonArraymounts.get(i).getAsJsonObject());
-          };
-        }
+      // ensure the json data is an array
+      if (!jsonObj.get("Mounts").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Mounts` to be an array in the JSON string but got `%s`", jsonObj.get("Mounts").toString()));
       }
+
+      JsonArray jsonArraymounts = jsonObj.getAsJsonArray("Mounts");
+      // validate the required field `Mounts` (array)
+      for (int i = 0; i < jsonArraymounts.size(); i++) {
+        PluginMount.validateJsonElement(jsonArraymounts.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -346,31 +342,31 @@ public class PluginSettings implements Serializable {
 
            @Override
            public PluginSettings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PluginSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PluginSettings
-  * @throws IOException if the JSON string is invalid with respect to PluginSettings
-  */
+  /**
+   * Create an instance of PluginSettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PluginSettings
+   * @throws IOException if the JSON string is invalid with respect to PluginSettings
+   */
   public static PluginSettings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PluginSettings.class);
   }
 
- /**
-  * Convert an instance of PluginSettings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PluginSettings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

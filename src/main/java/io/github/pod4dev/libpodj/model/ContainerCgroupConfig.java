@@ -14,19 +14,17 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Namespace;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,12 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -51,8 +52,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerCgroupConfig contains configuration information about a container&#39;s cgroups.
  */
-@ApiModel(description = "ContainerCgroupConfig contains configuration information about a container's cgroups.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerCgroupConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -72,22 +72,19 @@ public class ContainerCgroupConfig implements Serializable {
   }
 
   public ContainerCgroupConfig cgroupParent(String cgroupParent) {
-    
     this.cgroupParent = cgroupParent;
     return this;
   }
 
-   /**
+  /**
    * CgroupParent is the container&#39;s Cgroup parent. If not set, the default for the current cgroup driver will be used. Optional.
    * @return cgroupParent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CgroupParent is the container's Cgroup parent. If not set, the default for the current cgroup driver will be used. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupParent() {
     return cgroupParent;
   }
-
 
   public void setCgroupParent(String cgroupParent) {
     this.cgroupParent = cgroupParent;
@@ -95,23 +92,20 @@ public class ContainerCgroupConfig implements Serializable {
 
 
   public ContainerCgroupConfig cgroupns(Namespace cgroupns) {
-    
     this.cgroupns = cgroupns;
     return this;
   }
 
-   /**
+  /**
    * Get cgroupns
    * @return cgroupns
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Namespace getCgroupns() {
     return cgroupns;
   }
-
 
   public void setCgroupns(Namespace cgroupns) {
     this.cgroupns = cgroupns;
@@ -119,22 +113,19 @@ public class ContainerCgroupConfig implements Serializable {
 
 
   public ContainerCgroupConfig cgroupsMode(String cgroupsMode) {
-    
     this.cgroupsMode = cgroupsMode;
     return this;
   }
 
-   /**
+  /**
    * CgroupsMode sets a policy for how cgroups will be created for the container, including the ability to disable creation entirely. Optional.
    * @return cgroupsMode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CgroupsMode sets a policy for how cgroups will be created for the container, including the ability to disable creation entirely. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupsMode() {
     return cgroupsMode;
   }
-
 
   public void setCgroupsMode(String cgroupsMode) {
     this.cgroupsMode = cgroupsMode;
@@ -198,34 +189,33 @@ public class ContainerCgroupConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerCgroupConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerCgroupConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerCgroupConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerCgroupConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerCgroupConfig is not found in the empty JSON string", ContainerCgroupConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerCgroupConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerCgroupConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerCgroupConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cgroup_parent") != null && !jsonObj.get("cgroup_parent").isJsonNull()) && !jsonObj.get("cgroup_parent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cgroup_parent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cgroup_parent").toString()));
       }
       // validate the optional field `cgroupns`
       if (jsonObj.get("cgroupns") != null && !jsonObj.get("cgroupns").isJsonNull()) {
-        Namespace.validateJsonObject(jsonObj.getAsJsonObject("cgroupns"));
+        Namespace.validateJsonElement(jsonObj.get("cgroupns"));
       }
       if ((jsonObj.get("cgroups_mode") != null && !jsonObj.get("cgroups_mode").isJsonNull()) && !jsonObj.get("cgroups_mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cgroups_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cgroups_mode").toString()));
@@ -252,31 +242,31 @@ public class ContainerCgroupConfig implements Serializable {
 
            @Override
            public ContainerCgroupConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerCgroupConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerCgroupConfig
-  * @throws IOException if the JSON string is invalid with respect to ContainerCgroupConfig
-  */
+  /**
+   * Create an instance of ContainerCgroupConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerCgroupConfig
+   * @throws IOException if the JSON string is invalid with respect to ContainerCgroupConfig
+   */
   public static ContainerCgroupConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerCgroupConfig.class);
   }
 
- /**
-  * Convert an instance of ContainerCgroupConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerCgroupConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

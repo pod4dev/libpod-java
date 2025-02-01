@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.DisconnectOptions;
 import io.github.pod4dev.libpodj.model.ErrorModel;
@@ -43,7 +44,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class NetworksApi {
     private ApiClient localVarApiClient;
@@ -100,7 +100,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}/connect"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -117,7 +117,8 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -130,15 +131,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkConnectLibpodValidateBeforeCall(String name, NetworkConnectOptions create, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkConnectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkConnectLibpodCall(name, create, _callback);
-        return localVarCall;
+        return networkConnectLibpodCall(name, create, _callback);
 
     }
 
@@ -289,7 +287,8 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -302,10 +301,7 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkCreateLibpodValidateBeforeCall(NetworkCreateLibpod create, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkCreateLibpodCall(create, _callback);
-        return localVarCall;
+        return networkCreateLibpodCall(create, _callback);
 
     }
 
@@ -446,7 +442,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -467,7 +463,6 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -480,15 +475,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkDeleteLibpodValidateBeforeCall(String name, Boolean force, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkDeleteLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkDeleteLibpodCall(name, force, _callback);
-        return localVarCall;
+        return networkDeleteLibpodCall(name, force, _callback);
 
     }
 
@@ -627,7 +619,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}/disconnect"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -644,7 +636,8 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -657,15 +650,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkDisconnectLibpodValidateBeforeCall(String name, DisconnectOptions create, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkDisconnectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkDisconnectLibpodCall(name, create, _callback);
-        return localVarCall;
+        return networkDisconnectLibpodCall(name, create, _callback);
 
     }
 
@@ -800,7 +790,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}/exists"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -817,7 +807,6 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -830,15 +819,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkExistsLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkExistsLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkExistsLibpodCall(name, _callback);
-        return localVarCall;
+        return networkExistsLibpodCall(name, _callback);
 
     }
 
@@ -962,7 +948,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}/json"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -979,7 +965,6 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -992,15 +977,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkInspectLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkInspectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkInspectLibpodCall(name, _callback);
-        return localVarCall;
+        return networkInspectLibpodCall(name, _callback);
 
     }
 
@@ -1148,7 +1130,6 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1161,10 +1142,7 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkListLibpodValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkListLibpodCall(filters, _callback);
-        return localVarCall;
+        return networkListLibpodCall(filters, _callback);
 
     }
 
@@ -1315,7 +1293,6 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1328,10 +1305,7 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkPruneLibpodValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = networkPruneLibpodCall(filters, _callback);
-        return localVarCall;
+        return networkPruneLibpodCall(filters, _callback);
 
     }
 
@@ -1462,7 +1436,7 @@ public class NetworksApi {
 
         // create path and map variables
         String localVarPath = "/libpod/networks/{name}/update"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1479,7 +1453,8 @@ public class NetworksApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1492,15 +1467,12 @@ public class NetworksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call networkUpdateLibpodValidateBeforeCall(String name, NetworkUpdateOptions update, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling networkUpdateLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = networkUpdateLibpodCall(name, update, _callback);
-        return localVarCall;
+        return networkUpdateLibpodCall(name, update, _callback);
 
     }
 

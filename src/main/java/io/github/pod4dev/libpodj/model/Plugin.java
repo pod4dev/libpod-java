@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +21,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.PluginConfig;
 import io.github.pod4dev.libpodj.model.PluginSettings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Plugin A plugin for the Engine API
  */
-@ApiModel(description = "Plugin A plugin for the Engine API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Plugin implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -85,24 +85,21 @@ public class Plugin implements Serializable {
   }
 
   public Plugin config(PluginConfig config) {
-    
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "")
 
   public PluginConfig getConfig() {
     return config;
   }
-
 
   public void setConfig(PluginConfig config) {
     this.config = config;
@@ -110,23 +107,20 @@ public class Plugin implements Serializable {
 
 
   public Plugin enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
 
-   /**
+  /**
    * True if the plugin is running. False if the plugin is not running, only installed.
    * @return enabled
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "True if the plugin is running. False if the plugin is not running, only installed.")
 
   public Boolean getEnabled() {
     return enabled;
   }
-
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
@@ -134,23 +128,20 @@ public class Plugin implements Serializable {
 
 
   public Plugin name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * name
    * @return name
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "name")
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -158,24 +149,21 @@ public class Plugin implements Serializable {
 
 
   public Plugin settings(PluginSettings settings) {
-    
     this.settings = settings;
     return this;
   }
 
-   /**
+  /**
    * Get settings
    * @return settings
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
   @Valid
-  @ApiModelProperty(required = true, value = "")
 
   public PluginSettings getSettings() {
     return settings;
   }
-
 
   public void setSettings(PluginSettings settings) {
     this.settings = settings;
@@ -183,22 +171,19 @@ public class Plugin implements Serializable {
 
 
   public Plugin id(String id) {
-    
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Id
    * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Id")
+   */
+  @jakarta.annotation.Nullable
 
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -206,22 +191,19 @@ public class Plugin implements Serializable {
 
 
   public Plugin pluginReference(String pluginReference) {
-    
     this.pluginReference = pluginReference;
     return this;
   }
 
-   /**
+  /**
    * plugin remote reference used to push/pull the plugin
    * @return pluginReference
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "plugin remote reference used to push/pull the plugin")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPluginReference() {
     return pluginReference;
   }
-
 
   public void setPluginReference(String pluginReference) {
     this.pluginReference = pluginReference;
@@ -298,46 +280,41 @@ public class Plugin implements Serializable {
     openapiRequiredFields.add("Settings");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Plugin
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Plugin.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Plugin
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Plugin.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Plugin is not found in the empty JSON string", Plugin.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Plugin.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Plugin` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Plugin` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Plugin.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      // validate the optional field `Config`
-      if (jsonObj.get("Config") != null && !jsonObj.get("Config").isJsonNull()) {
-        PluginConfig.validateJsonObject(jsonObj.getAsJsonObject("Config"));
-      }
-      if ((jsonObj.get("Name") != null && !jsonObj.get("Name").isJsonNull()) && !jsonObj.get("Name").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `Config`
+      PluginConfig.validateJsonElement(jsonObj.get("Config"));
+      if (!jsonObj.get("Name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Name").toString()));
       }
-      // validate the optional field `Settings`
-      if (jsonObj.get("Settings") != null && !jsonObj.get("Settings").isJsonNull()) {
-        PluginSettings.validateJsonObject(jsonObj.getAsJsonObject("Settings"));
-      }
+      // validate the required field `Settings`
+      PluginSettings.validateJsonElement(jsonObj.get("Settings"));
       if ((jsonObj.get("Id") != null && !jsonObj.get("Id").isJsonNull()) && !jsonObj.get("Id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Id").toString()));
       }
@@ -366,31 +343,31 @@ public class Plugin implements Serializable {
 
            @Override
            public Plugin read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Plugin given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Plugin
-  * @throws IOException if the JSON string is invalid with respect to Plugin
-  */
+  /**
+   * Create an instance of Plugin given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Plugin
+   * @throws IOException if the JSON string is invalid with respect to Plugin
+   */
   public static Plugin fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Plugin.class);
   }
 
- /**
-  * Convert an instance of Plugin to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Plugin to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

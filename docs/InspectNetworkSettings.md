@@ -22,7 +22,7 @@ InspectNetworkSettings holds information about the network settings of the conta
 |**linkLocalIPv6PrefixLen** | **Long** |  |  [optional] |
 |**macAddress** | **String** | MacAddress is the MAC address for the interface in this network. |  [optional] |
 |**networks** | [**Map&lt;String, InspectAdditionalNetwork&gt;**](InspectAdditionalNetwork.md) | Networks contains information on non-default networks this container has joined. It is a map of network name to network information. |  [optional] |
-|**ports** | **Map&lt;String, List&lt;InspectHostPort&gt;&gt;** |  |  [optional] |
+|**ports** | **Map&lt;String, List&lt;@Valid InspectHostPort&gt;&gt;** |  |  [optional] |
 |**sandboxID** | **String** |  |  [optional] |
 |**sandboxKey** | **String** |  |  [optional] |
 |**secondaryIPAddresses** | [**List&lt;Address&gt;**](Address.md) | SecondaryIPAddresses is a list of extra IP Addresses that the container has been assigned in this network. |  [optional] |

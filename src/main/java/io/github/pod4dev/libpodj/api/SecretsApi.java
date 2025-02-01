@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import io.github.pod4dev.libpodj.model.SecretCreateLibpod201Response;
@@ -38,7 +39,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class SecretsApi {
     private ApiClient localVarApiClient;
@@ -127,7 +127,8 @@ public class SecretsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,15 +141,12 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call secretCreateLibpodValidateBeforeCall(String name, String driver, String driveropts, String labels, String request, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling secretCreateLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = secretCreateLibpodCall(name, driver, driveropts, labels, request, _callback);
-        return localVarCall;
+        return secretCreateLibpodCall(name, driver, driveropts, labels, request, _callback);
 
     }
 
@@ -315,7 +313,7 @@ public class SecretsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/secrets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -336,7 +334,6 @@ public class SecretsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -349,15 +346,12 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call secretDeleteLibpodValidateBeforeCall(String name, Boolean all, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling secretDeleteLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = secretDeleteLibpodCall(name, all, _callback);
-        return localVarCall;
+        return secretDeleteLibpodCall(name, all, _callback);
 
     }
 
@@ -492,7 +486,7 @@ public class SecretsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/secrets/{name}/exists"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -509,7 +503,6 @@ public class SecretsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -522,15 +515,12 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call secretExistsLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling secretExistsLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = secretExistsLibpodCall(name, _callback);
-        return localVarCall;
+        return secretExistsLibpodCall(name, _callback);
 
     }
 
@@ -654,7 +644,7 @@ public class SecretsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/secrets/{name}/json"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -675,7 +665,6 @@ public class SecretsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -688,15 +677,12 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call secretInspectLibpodValidateBeforeCall(String name, Boolean showsecret, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling secretInspectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = secretInspectLibpodCall(name, showsecret, _callback);
-        return localVarCall;
+        return secretInspectLibpodCall(name, showsecret, _callback);
 
     }
 
@@ -855,7 +841,6 @@ public class SecretsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -868,10 +853,7 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call secretListLibpodValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = secretListLibpodCall(filters, _callback);
-        return localVarCall;
+        return secretListLibpodCall(filters, _callback);
 
     }
 

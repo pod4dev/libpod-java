@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,20 +53,18 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * This description is taken verbatim from the CSI Spec:  A topological domain is a sub-division of a cluster, like \&quot;region\&quot;, \&quot;zone\&quot;, \&quot;rack\&quot;, etc. A topological segment is a specific instance of a topological domain, like \&quot;zone3\&quot;, \&quot;rack3\&quot;, etc. For example {\&quot;com.company/zone\&quot;: \&quot;Z1\&quot;, \&quot;com.company/rack\&quot;: \&quot;R3\&quot;} Valid keys have two segments: an OPTIONAL prefix and name, separated by a slash (/), for example: \&quot;com.company.example/zone\&quot;. The key name segment is REQUIRED. The prefix is OPTIONAL. The key name MUST be 63 characters or less, begin and end with an alphanumeric character ([a-z0-9A-Z]), and contain only dashes (-), underscores (_), dots (.), or alphanumerics in between, for example \&quot;zone\&quot;. The key prefix MUST be 63 characters or less, begin and end with a lower-case alphanumeric character ([a-z0-9]), contain only dashes (-), dots (.), or lower-case alphanumerics in between, and follow domain name notation format (https://tools.ietf.org/html/rfc1035#section-2.3.1). The key prefix SHOULD include the plugin&#39;s host company name and/or the plugin name, to minimize the possibility of collisions with keys from other plugins. If a key prefix is specified, it MUST be identical across all topology keys returned by the SP (across all RPCs). Keys MUST be case-insensitive. Meaning the keys \&quot;Zone\&quot; and \&quot;zone\&quot; MUST not both exist. Each value (topological segment) MUST contain 1 or more strings. Each string MUST be 63 characters or less and begin and end with an alphanumeric character with &#39;-&#39;, &#39;_&#39;, &#39;.&#39;, or alphanumerics in between.
  */
-@ApiModel(description = "This description is taken verbatim from the CSI Spec:  A topological domain is a sub-division of a cluster, like \"region\", \"zone\", \"rack\", etc. A topological segment is a specific instance of a topological domain, like \"zone3\", \"rack3\", etc. For example {\"com.company/zone\": \"Z1\", \"com.company/rack\": \"R3\"} Valid keys have two segments: an OPTIONAL prefix and name, separated by a slash (/), for example: \"com.company.example/zone\". The key name segment is REQUIRED. The prefix is OPTIONAL. The key name MUST be 63 characters or less, begin and end with an alphanumeric character ([a-z0-9A-Z]), and contain only dashes (-), underscores (_), dots (.), or alphanumerics in between, for example \"zone\". The key prefix MUST be 63 characters or less, begin and end with a lower-case alphanumeric character ([a-z0-9]), contain only dashes (-), dots (.), or lower-case alphanumerics in between, and follow domain name notation format (https://tools.ietf.org/html/rfc1035#section-2.3.1). The key prefix SHOULD include the plugin's host company name and/or the plugin name, to minimize the possibility of collisions with keys from other plugins. If a key prefix is specified, it MUST be identical across all topology keys returned by the SP (across all RPCs). Keys MUST be case-insensitive. Meaning the keys \"Zone\" and \"zone\" MUST not both exist. Each value (topological segment) MUST contain 1 or more strings. Each string MUST be 63 characters or less and begin and end with an alphanumeric character with '-', '_', '.', or alphanumerics in between.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Topology implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_SEGMENTS = "Segments";
   @SerializedName(SERIALIZED_NAME_SEGMENTS)
-  private Map<String, String> segments = null;
+  private Map<String, String> segments = new HashMap<>();
 
   public Topology() {
   }
 
   public Topology segments(Map<String, String> segments) {
-    
     this.segments = segments;
     return this;
   }
@@ -78,17 +77,15 @@ public class Topology implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get segments
    * @return segments
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getSegments() {
     return segments;
   }
-
 
   public void setSegments(Map<String, String> segments) {
     this.segments = segments;
@@ -146,28 +143,27 @@ public class Topology implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Topology
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Topology.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Topology
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Topology.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Topology is not found in the empty JSON string", Topology.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Topology.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Topology` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Topology` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -190,31 +186,31 @@ public class Topology implements Serializable {
 
            @Override
            public Topology read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Topology given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Topology
-  * @throws IOException if the JSON string is invalid with respect to Topology
-  */
+  /**
+   * Create an instance of Topology given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Topology
+   * @throws IOException if the JSON string is invalid with respect to Topology
+   */
   public static Topology fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Topology.class);
   }
 
- /**
-  * Convert an instance of Topology to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Topology to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

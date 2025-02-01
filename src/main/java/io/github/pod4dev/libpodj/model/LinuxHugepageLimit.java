@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Default to reservation limits if supported. Otherwise fallback to page fault limits.
  */
-@ApiModel(description = "Default to reservation limits if supported. Otherwise fallback to page fault limits.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LinuxHugepageLimit implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,22 +67,19 @@ public class LinuxHugepageLimit implements Serializable {
   }
 
   public LinuxHugepageLimit limit(Integer limit) {
-    
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Limit is the limit of \&quot;hugepagesize\&quot; hugetlb reservations (if supported) or usage.
    * @return limit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Limit is the limit of \"hugepagesize\" hugetlb reservations (if supported) or usage.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getLimit() {
     return limit;
   }
-
 
   public void setLimit(Integer limit) {
     this.limit = limit;
@@ -90,22 +87,19 @@ public class LinuxHugepageLimit implements Serializable {
 
 
   public LinuxHugepageLimit pageSize(String pageSize) {
-    
     this.pageSize = pageSize;
     return this;
   }
 
-   /**
+  /**
    * Pagesize is the hugepage size. Format: \&quot;&lt;size&gt;&lt;unit-prefix&gt;B&#39; (e.g. 64KB, 2MB, 1GB, etc.).
    * @return pageSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Pagesize is the hugepage size. Format: \"<size><unit-prefix>B' (e.g. 64KB, 2MB, 1GB, etc.).")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPageSize() {
     return pageSize;
   }
-
 
   public void setPageSize(String pageSize) {
     this.pageSize = pageSize;
@@ -166,28 +160,27 @@ public class LinuxHugepageLimit implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LinuxHugepageLimit
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (LinuxHugepageLimit.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to LinuxHugepageLimit
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!LinuxHugepageLimit.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LinuxHugepageLimit is not found in the empty JSON string", LinuxHugepageLimit.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LinuxHugepageLimit.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxHugepageLimit` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxHugepageLimit` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("pageSize") != null && !jsonObj.get("pageSize").isJsonNull()) && !jsonObj.get("pageSize").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageSize` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageSize").toString()));
       }
@@ -213,31 +206,31 @@ public class LinuxHugepageLimit implements Serializable {
 
            @Override
            public LinuxHugepageLimit read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of LinuxHugepageLimit given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LinuxHugepageLimit
-  * @throws IOException if the JSON string is invalid with respect to LinuxHugepageLimit
-  */
+  /**
+   * Create an instance of LinuxHugepageLimit given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LinuxHugepageLimit
+   * @throws IOException if the JSON string is invalid with respect to LinuxHugepageLimit
+   */
   public static LinuxHugepageLimit fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LinuxHugepageLimit.class);
   }
 
- /**
-  * Convert an instance of LinuxHugepageLimit to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of LinuxHugepageLimit to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

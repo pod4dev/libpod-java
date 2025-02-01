@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,13 +53,13 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainersPruneReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainersPruneReport implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_CONTAINERS_DELETED = "ContainersDeleted";
   @SerializedName(SERIALIZED_NAME_CONTAINERS_DELETED)
-  private List<String> containersDeleted = null;
+  private List<String> containersDeleted = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SPACE_RECLAIMED = "SpaceReclaimed";
   @SerializedName(SERIALIZED_NAME_SPACE_RECLAIMED)
@@ -68,7 +69,6 @@ public class ContainersPruneReport implements Serializable {
   }
 
   public ContainersPruneReport containersDeleted(List<String> containersDeleted) {
-    
     this.containersDeleted = containersDeleted;
     return this;
   }
@@ -81,17 +81,15 @@ public class ContainersPruneReport implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get containersDeleted
    * @return containersDeleted
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getContainersDeleted() {
     return containersDeleted;
   }
-
 
   public void setContainersDeleted(List<String> containersDeleted) {
     this.containersDeleted = containersDeleted;
@@ -99,22 +97,19 @@ public class ContainersPruneReport implements Serializable {
 
 
   public ContainersPruneReport spaceReclaimed(Integer spaceReclaimed) {
-    
     this.spaceReclaimed = spaceReclaimed;
     return this;
   }
 
-   /**
+  /**
    * Get spaceReclaimed
    * @return spaceReclaimed
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getSpaceReclaimed() {
     return spaceReclaimed;
   }
-
 
   public void setSpaceReclaimed(Integer spaceReclaimed) {
     this.spaceReclaimed = spaceReclaimed;
@@ -175,30 +170,29 @@ public class ContainersPruneReport implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainersPruneReport
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainersPruneReport.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainersPruneReport
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainersPruneReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainersPruneReport is not found in the empty JSON string", ContainersPruneReport.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainersPruneReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainersPruneReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainersPruneReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("ContainersDeleted") != null && !jsonObj.get("ContainersDeleted").isJsonNull()) && !jsonObj.get("ContainersDeleted").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ContainersDeleted") != null && !jsonObj.get("ContainersDeleted").isJsonNull() && !jsonObj.get("ContainersDeleted").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ContainersDeleted` to be an array in the JSON string but got `%s`", jsonObj.get("ContainersDeleted").toString()));
       }
   }
@@ -223,31 +217,31 @@ public class ContainersPruneReport implements Serializable {
 
            @Override
            public ContainersPruneReport read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainersPruneReport given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainersPruneReport
-  * @throws IOException if the JSON string is invalid with respect to ContainersPruneReport
-  */
+  /**
+   * Create an instance of ContainersPruneReport given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainersPruneReport
+   * @throws IOException if the JSON string is invalid with respect to ContainersPruneReport
+   */
   public static ContainersPruneReport fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainersPruneReport.class);
   }
 
- /**
-  * Convert an instance of ContainersPruneReport to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainersPruneReport to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

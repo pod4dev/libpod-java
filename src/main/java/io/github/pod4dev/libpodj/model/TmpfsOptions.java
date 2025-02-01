@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,7 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * TmpfsOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class TmpfsOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -62,7 +63,7 @@ public class TmpfsOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_OPTIONS = "Options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<List<String>> options = null;
+  private List<List<String>> options = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SIZE_BYTES = "SizeBytes";
   @SerializedName(SERIALIZED_NAME_SIZE_BYTES)
@@ -72,22 +73,19 @@ public class TmpfsOptions implements Serializable {
   }
 
   public TmpfsOptions mode(Integer mode) {
-    
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is [ModeDir] for directories.
    * @return mode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is [ModeDir] for directories.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getMode() {
     return mode;
   }
-
 
   public void setMode(Integer mode) {
     this.mode = mode;
@@ -95,7 +93,6 @@ public class TmpfsOptions implements Serializable {
 
 
   public TmpfsOptions options(List<List<String>> options) {
-    
     this.options = options;
     return this;
   }
@@ -108,18 +105,16 @@ public class TmpfsOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Options to be passed to the tmpfs mount. An array of arrays. Flag options should be provided as 1-length arrays. Other types should be provided as 2-length arrays, where the first item is the key and the second the value.
    * @return options
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Options to be passed to the tmpfs mount. An array of arrays. Flag options should be provided as 1-length arrays. Other types should be provided as 2-length arrays, where the first item is the key and the second the value.")
 
   public List<List<String>> getOptions() {
     return options;
   }
-
 
   public void setOptions(List<List<String>> options) {
     this.options = options;
@@ -127,22 +122,19 @@ public class TmpfsOptions implements Serializable {
 
 
   public TmpfsOptions sizeBytes(Long sizeBytes) {
-    
     this.sizeBytes = sizeBytes;
     return this;
   }
 
-   /**
+  /**
    * Size sets the size of the tmpfs, in bytes.  This will be converted to an operating system specific value depending on the host. For example, on linux, it will be converted to use a &#39;k&#39;, &#39;m&#39; or &#39;g&#39; syntax. BSD, though not widely supported with docker, uses a straight byte value.  Percentages are not supported.
    * @return sizeBytes
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Size sets the size of the tmpfs, in bytes.  This will be converted to an operating system specific value depending on the host. For example, on linux, it will be converted to use a 'k', 'm' or 'g' syntax. BSD, though not widely supported with docker, uses a straight byte value.  Percentages are not supported.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSizeBytes() {
     return sizeBytes;
   }
-
 
   public void setSizeBytes(Long sizeBytes) {
     this.sizeBytes = sizeBytes;
@@ -206,30 +198,29 @@ public class TmpfsOptions implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TmpfsOptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (TmpfsOptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to TmpfsOptions
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TmpfsOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TmpfsOptions is not found in the empty JSON string", TmpfsOptions.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TmpfsOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TmpfsOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TmpfsOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Options") != null && !jsonObj.get("Options").isJsonNull()) && !jsonObj.get("Options").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Options") != null && !jsonObj.get("Options").isJsonNull() && !jsonObj.get("Options").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Options` to be an array in the JSON string but got `%s`", jsonObj.get("Options").toString()));
       }
   }
@@ -254,31 +245,31 @@ public class TmpfsOptions implements Serializable {
 
            @Override
            public TmpfsOptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TmpfsOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TmpfsOptions
-  * @throws IOException if the JSON string is invalid with respect to TmpfsOptions
-  */
+  /**
+   * Create an instance of TmpfsOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TmpfsOptions
+   * @throws IOException if the JSON string is invalid with respect to TmpfsOptions
+   */
   public static TmpfsOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TmpfsOptions.class);
   }
 
- /**
-  * Convert an instance of TmpfsOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TmpfsOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

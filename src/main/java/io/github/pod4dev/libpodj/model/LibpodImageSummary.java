@@ -14,22 +14,20 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -54,7 +55,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * LibpodImageSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LibpodImageSummary implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -80,7 +81,7 @@ public class LibpodImageSummary implements Serializable {
 
   public static final String SERIALIZED_NAME_HISTORY = "History";
   @SerializedName(SERIALIZED_NAME_HISTORY)
-  private List<String> history = null;
+  private List<String> history = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -92,11 +93,11 @@ public class LibpodImageSummary implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NAMES = "Names";
   @SerializedName(SERIALIZED_NAME_NAMES)
-  private List<String> names = null;
+  private List<String> names = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OS = "Os";
   @SerializedName(SERIALIZED_NAME_OS)
@@ -112,11 +113,11 @@ public class LibpodImageSummary implements Serializable {
 
   public static final String SERIALIZED_NAME_REPO_DIGESTS = "RepoDigests";
   @SerializedName(SERIALIZED_NAME_REPO_DIGESTS)
-  private List<String> repoDigests = null;
+  private List<String> repoDigests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REPO_TAGS = "RepoTags";
   @SerializedName(SERIALIZED_NAME_REPO_TAGS)
-  private List<String> repoTags = null;
+  private List<String> repoTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHARED_SIZE = "SharedSize";
   @SerializedName(SERIALIZED_NAME_SHARED_SIZE)
@@ -134,22 +135,19 @@ public class LibpodImageSummary implements Serializable {
   }
 
   public LibpodImageSummary arch(String arch) {
-    
     this.arch = arch;
     return this;
   }
 
-   /**
+  /**
    * Podman extensions
    * @return arch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Podman extensions")
+   */
+  @jakarta.annotation.Nullable
 
   public String getArch() {
     return arch;
   }
-
 
   public void setArch(String arch) {
     this.arch = arch;
@@ -157,22 +155,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary containers(Long containers) {
-    
     this.containers = containers;
     return this;
   }
 
-   /**
+  /**
    * Get containers
    * @return containers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getContainers() {
     return containers;
   }
-
 
   public void setContainers(Long containers) {
     this.containers = containers;
@@ -180,22 +175,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary created(Long created) {
-    
     this.created = created;
     return this;
   }
 
-   /**
+  /**
    * Get created
    * @return created
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCreated() {
     return created;
   }
-
 
   public void setCreated(Long created) {
     this.created = created;
@@ -203,22 +195,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary dangling(Boolean dangling) {
-    
     this.dangling = dangling;
     return this;
   }
 
-   /**
+  /**
    * Get dangling
    * @return dangling
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getDangling() {
     return dangling;
   }
-
 
   public void setDangling(Boolean dangling) {
     this.dangling = dangling;
@@ -226,22 +215,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary digest(String digest) {
-    
     this.digest = digest;
     return this;
   }
 
-   /**
+  /**
    * Get digest
    * @return digest
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDigest() {
     return digest;
   }
-
 
   public void setDigest(String digest) {
     this.digest = digest;
@@ -249,7 +235,6 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary history(List<String> history) {
-    
     this.history = history;
     return this;
   }
@@ -262,17 +247,15 @@ public class LibpodImageSummary implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get history
    * @return history
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getHistory() {
     return history;
   }
-
 
   public void setHistory(List<String> history) {
     this.history = history;
@@ -280,22 +263,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary id(String id) {
-    
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -303,22 +283,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary isManifestList(Boolean isManifestList) {
-    
     this.isManifestList = isManifestList;
     return this;
   }
 
-   /**
+  /**
    * IsManifestList is a ptr so we can distinguish between a true json empty response and false.  the docker compat side needs to return empty; where as the libpod side needs a value of true or false
    * @return isManifestList
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IsManifestList is a ptr so we can distinguish between a true json empty response and false.  the docker compat side needs to return empty; where as the libpod side needs a value of true or false")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getIsManifestList() {
     return isManifestList;
   }
-
 
   public void setIsManifestList(Boolean isManifestList) {
     this.isManifestList = isManifestList;
@@ -326,7 +303,6 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -339,17 +315,15 @@ public class LibpodImageSummary implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -357,7 +331,6 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary names(List<String> names) {
-    
     this.names = names;
     return this;
   }
@@ -370,17 +343,15 @@ public class LibpodImageSummary implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get names
    * @return names
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getNames() {
     return names;
   }
-
 
   public void setNames(List<String> names) {
     this.names = names;
@@ -388,22 +359,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary os(String os) {
-    
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * Get os
    * @return os
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOs() {
     return os;
   }
-
 
   public void setOs(String os) {
     this.os = os;
@@ -411,22 +379,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary parentId(String parentId) {
-    
     this.parentId = parentId;
     return this;
   }
 
-   /**
+  /**
    * Get parentId
    * @return parentId
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getParentId() {
     return parentId;
   }
-
 
   public void setParentId(String parentId) {
     this.parentId = parentId;
@@ -434,22 +399,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary readOnly(Boolean readOnly) {
-    
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * Get readOnly
    * @return readOnly
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getReadOnly() {
     return readOnly;
   }
-
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
@@ -457,7 +419,6 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary repoDigests(List<String> repoDigests) {
-    
     this.repoDigests = repoDigests;
     return this;
   }
@@ -470,17 +431,15 @@ public class LibpodImageSummary implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get repoDigests
    * @return repoDigests
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getRepoDigests() {
     return repoDigests;
   }
-
 
   public void setRepoDigests(List<String> repoDigests) {
     this.repoDigests = repoDigests;
@@ -488,7 +447,6 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary repoTags(List<String> repoTags) {
-    
     this.repoTags = repoTags;
     return this;
   }
@@ -501,17 +459,15 @@ public class LibpodImageSummary implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get repoTags
    * @return repoTags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getRepoTags() {
     return repoTags;
   }
-
 
   public void setRepoTags(List<String> repoTags) {
     this.repoTags = repoTags;
@@ -519,22 +475,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary sharedSize(Long sharedSize) {
-    
     this.sharedSize = sharedSize;
     return this;
   }
 
-   /**
+  /**
    * Get sharedSize
    * @return sharedSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSharedSize() {
     return sharedSize;
   }
-
 
   public void setSharedSize(Long sharedSize) {
     this.sharedSize = sharedSize;
@@ -542,22 +495,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary size(Long size) {
-    
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSize() {
     return size;
   }
-
 
   public void setSize(Long size) {
     this.size = size;
@@ -565,22 +515,19 @@ public class LibpodImageSummary implements Serializable {
 
 
   public LibpodImageSummary virtualSize(Long virtualSize) {
-    
     this.virtualSize = virtualSize;
     return this;
   }
 
-   /**
+  /**
    * Get virtualSize
    * @return virtualSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getVirtualSize() {
     return virtualSize;
   }
-
 
   public void setVirtualSize(Long virtualSize) {
     this.virtualSize = virtualSize;
@@ -689,43 +636,42 @@ public class LibpodImageSummary implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LibpodImageSummary
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (LibpodImageSummary.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to LibpodImageSummary
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!LibpodImageSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LibpodImageSummary is not found in the empty JSON string", LibpodImageSummary.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LibpodImageSummary.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LibpodImageSummary` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LibpodImageSummary` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Arch") != null && !jsonObj.get("Arch").isJsonNull()) && !jsonObj.get("Arch").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Arch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Arch").toString()));
       }
       if ((jsonObj.get("Digest") != null && !jsonObj.get("Digest").isJsonNull()) && !jsonObj.get("Digest").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Digest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Digest").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("History") != null && !jsonObj.get("History").isJsonNull()) && !jsonObj.get("History").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("History") != null && !jsonObj.get("History").isJsonNull() && !jsonObj.get("History").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `History` to be an array in the JSON string but got `%s`", jsonObj.get("History").toString()));
       }
       if ((jsonObj.get("Id") != null && !jsonObj.get("Id").isJsonNull()) && !jsonObj.get("Id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Id").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Names") != null && !jsonObj.get("Names").isJsonNull()) && !jsonObj.get("Names").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Names") != null && !jsonObj.get("Names").isJsonNull() && !jsonObj.get("Names").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Names` to be an array in the JSON string but got `%s`", jsonObj.get("Names").toString()));
       }
       if ((jsonObj.get("Os") != null && !jsonObj.get("Os").isJsonNull()) && !jsonObj.get("Os").isJsonPrimitive()) {
@@ -734,12 +680,12 @@ public class LibpodImageSummary implements Serializable {
       if ((jsonObj.get("ParentId") != null && !jsonObj.get("ParentId").isJsonNull()) && !jsonObj.get("ParentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ParentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ParentId").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("RepoDigests") != null && !jsonObj.get("RepoDigests").isJsonNull()) && !jsonObj.get("RepoDigests").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("RepoDigests") != null && !jsonObj.get("RepoDigests").isJsonNull() && !jsonObj.get("RepoDigests").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `RepoDigests` to be an array in the JSON string but got `%s`", jsonObj.get("RepoDigests").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("RepoTags") != null && !jsonObj.get("RepoTags").isJsonNull()) && !jsonObj.get("RepoTags").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("RepoTags") != null && !jsonObj.get("RepoTags").isJsonNull() && !jsonObj.get("RepoTags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `RepoTags` to be an array in the JSON string but got `%s`", jsonObj.get("RepoTags").toString()));
       }
   }
@@ -764,31 +710,31 @@ public class LibpodImageSummary implements Serializable {
 
            @Override
            public LibpodImageSummary read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of LibpodImageSummary given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LibpodImageSummary
-  * @throws IOException if the JSON string is invalid with respect to LibpodImageSummary
-  */
+  /**
+   * Create an instance of LibpodImageSummary given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LibpodImageSummary
+   * @throws IOException if the JSON string is invalid with respect to LibpodImageSummary
+   */
   public static LibpodImageSummary fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LibpodImageSummary.class);
   }
 
- /**
-  * Convert an instance of LibpodImageSummary to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of LibpodImageSummary to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,12 +22,11 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.BindOptions;
 import io.github.pod4dev.libpodj.model.TmpfsOptions;
 import io.github.pod4dev.libpodj.model.VolumeOptions;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,7 +54,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Mount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Mount implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -97,23 +98,20 @@ public class Mount implements Serializable {
   }
 
   public Mount bindOptions(BindOptions bindOptions) {
-    
     this.bindOptions = bindOptions;
     return this;
   }
 
-   /**
+  /**
    * Get bindOptions
    * @return bindOptions
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public BindOptions getBindOptions() {
     return bindOptions;
   }
-
 
   public void setBindOptions(BindOptions bindOptions) {
     this.bindOptions = bindOptions;
@@ -121,22 +119,19 @@ public class Mount implements Serializable {
 
 
   public Mount clusterOptions(Object clusterOptions) {
-    
     this.clusterOptions = clusterOptions;
     return this;
   }
 
-   /**
+  /**
    * Get clusterOptions
    * @return clusterOptions
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Object getClusterOptions() {
     return clusterOptions;
   }
-
 
   public void setClusterOptions(Object clusterOptions) {
     this.clusterOptions = clusterOptions;
@@ -144,22 +139,19 @@ public class Mount implements Serializable {
 
 
   public Mount consistency(String consistency) {
-    
     this.consistency = consistency;
     return this;
   }
 
-   /**
+  /**
    * Get consistency
    * @return consistency
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getConsistency() {
     return consistency;
   }
-
 
   public void setConsistency(String consistency) {
     this.consistency = consistency;
@@ -167,22 +159,19 @@ public class Mount implements Serializable {
 
 
   public Mount readOnly(Boolean readOnly) {
-    
     this.readOnly = readOnly;
     return this;
   }
 
-   /**
+  /**
    * Get readOnly
    * @return readOnly
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getReadOnly() {
     return readOnly;
   }
-
 
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
@@ -190,22 +179,19 @@ public class Mount implements Serializable {
 
 
   public Mount source(String source) {
-    
     this.source = source;
     return this;
   }
 
-   /**
+  /**
    * Source specifies the name of the mount. Depending on mount type, this may be a volume name or a host path, or even ignored. Source is not supported for tmpfs (must be an empty value)
    * @return source
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Source specifies the name of the mount. Depending on mount type, this may be a volume name or a host path, or even ignored. Source is not supported for tmpfs (must be an empty value)")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSource() {
     return source;
   }
-
 
   public void setSource(String source) {
     this.source = source;
@@ -213,22 +199,19 @@ public class Mount implements Serializable {
 
 
   public Mount target(String target) {
-    
     this.target = target;
     return this;
   }
 
-   /**
+  /**
    * Get target
    * @return target
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getTarget() {
     return target;
   }
-
 
   public void setTarget(String target) {
     this.target = target;
@@ -236,23 +219,20 @@ public class Mount implements Serializable {
 
 
   public Mount tmpfsOptions(TmpfsOptions tmpfsOptions) {
-    
     this.tmpfsOptions = tmpfsOptions;
     return this;
   }
 
-   /**
+  /**
    * Get tmpfsOptions
    * @return tmpfsOptions
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public TmpfsOptions getTmpfsOptions() {
     return tmpfsOptions;
   }
-
 
   public void setTmpfsOptions(TmpfsOptions tmpfsOptions) {
     this.tmpfsOptions = tmpfsOptions;
@@ -260,22 +240,19 @@ public class Mount implements Serializable {
 
 
   public Mount type(String type) {
-    
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -283,23 +260,20 @@ public class Mount implements Serializable {
 
 
   public Mount volumeOptions(VolumeOptions volumeOptions) {
-    
     this.volumeOptions = volumeOptions;
     return this;
   }
 
-   /**
+  /**
    * Get volumeOptions
    * @return volumeOptions
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public VolumeOptions getVolumeOptions() {
     return volumeOptions;
   }
-
 
   public void setVolumeOptions(VolumeOptions volumeOptions) {
     this.volumeOptions = volumeOptions;
@@ -381,31 +355,30 @@ public class Mount implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Mount
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Mount.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Mount
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Mount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Mount is not found in the empty JSON string", Mount.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Mount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Mount` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Mount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `BindOptions`
       if (jsonObj.get("BindOptions") != null && !jsonObj.get("BindOptions").isJsonNull()) {
-        BindOptions.validateJsonObject(jsonObj.getAsJsonObject("BindOptions"));
+        BindOptions.validateJsonElement(jsonObj.get("BindOptions"));
       }
       if ((jsonObj.get("Consistency") != null && !jsonObj.get("Consistency").isJsonNull()) && !jsonObj.get("Consistency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Consistency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Consistency").toString()));
@@ -418,14 +391,14 @@ public class Mount implements Serializable {
       }
       // validate the optional field `TmpfsOptions`
       if (jsonObj.get("TmpfsOptions") != null && !jsonObj.get("TmpfsOptions").isJsonNull()) {
-        TmpfsOptions.validateJsonObject(jsonObj.getAsJsonObject("TmpfsOptions"));
+        TmpfsOptions.validateJsonElement(jsonObj.get("TmpfsOptions"));
       }
       if ((jsonObj.get("Type") != null && !jsonObj.get("Type").isJsonNull()) && !jsonObj.get("Type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Type").toString()));
       }
       // validate the optional field `VolumeOptions`
       if (jsonObj.get("VolumeOptions") != null && !jsonObj.get("VolumeOptions").isJsonNull()) {
-        VolumeOptions.validateJsonObject(jsonObj.getAsJsonObject("VolumeOptions"));
+        VolumeOptions.validateJsonElement(jsonObj.get("VolumeOptions"));
       }
   }
 
@@ -449,31 +422,31 @@ public class Mount implements Serializable {
 
            @Override
            public Mount read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Mount given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Mount
-  * @throws IOException if the JSON string is invalid with respect to Mount
-  */
+  /**
+   * Create an instance of Mount given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Mount
+   * @throws IOException if the JSON string is invalid with respect to Mount
+   */
   public static Mount fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Mount.class);
   }
 
- /**
-  * Convert an instance of Mount to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Mount to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

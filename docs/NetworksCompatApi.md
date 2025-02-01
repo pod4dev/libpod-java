@@ -13,7 +13,7 @@ All URIs are relative to *http://podman.io*
 | [**networkPrune**](NetworksCompatApi.md#networkPrune) | **POST** /networks/prune | Delete unused networks |
 
 
-<a name="networkConnect"></a>
+<a id="networkConnect"></a>
 # **networkConnect**
 > networkConnect(name).create(create).execute();
 
@@ -81,7 +81,7 @@ No authorization required
 | **403** | Network is already connected and container is running or transitioning to the running state (&#39;initialized&#39;) |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkCreate"></a>
+<a id="networkCreate"></a>
 # **networkCreate**
 > NetworkCreate201Response networkCreate().create(create).execute();
 
@@ -147,7 +147,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkDelete"></a>
+<a id="networkDelete"></a>
 # **networkDelete**
 > networkDelete(name).execute();
 
@@ -211,7 +211,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkDisconnect"></a>
+<a id="networkDisconnect"></a>
 # **networkDisconnect**
 > networkDisconnect(name).create(create).execute();
 
@@ -278,7 +278,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkInspect"></a>
+<a id="networkInspect"></a>
 # **networkInspect**
 > Inspect networkInspect(name).verbose(verbose).scope(scope).execute();
 
@@ -349,7 +349,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkList"></a>
+<a id="networkList"></a>
 # **networkList**
 > List&lt;Inspect&gt; networkList().filters(filters).execute();
 
@@ -414,7 +414,7 @@ No authorization required
 | **200** | Network list |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkPrune"></a>
+<a id="networkPrune"></a>
 # **networkPrune**
 > NetworkPrune200Response networkPrune().filters(filters).execute();
 

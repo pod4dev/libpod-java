@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,17 +25,16 @@ import io.github.pod4dev.libpodj.model.InspectDevice;
 import io.github.pod4dev.libpodj.model.InspectMount;
 import io.github.pod4dev.libpodj.model.InspectPodContainerInfo;
 import io.github.pod4dev.libpodj.model.InspectPodInfraConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,12 +46,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -61,8 +62,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * InspectPodData contains detailed information on a pod&#39;s configuration and state. It is used as the output of Inspect on pods.
  */
-@ApiModel(description = "InspectPodData contains detailed information on a pod's configuration and state. It is used as the output of Inspect on pods.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class InspectPodData implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -76,7 +76,7 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_CONTAINERS = "Containers";
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
-  private List<InspectPodContainerInfo> containers = null;
+  private List<@Valid InspectPodContainerInfo> containers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CREATE_CGROUP = "CreateCgroup";
   @SerializedName(SERIALIZED_NAME_CREATE_CGROUP)
@@ -84,7 +84,7 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_CREATE_COMMAND = "CreateCommand";
   @SerializedName(SERIALIZED_NAME_CREATE_COMMAND)
-  private List<String> createCommand = null;
+  private List<String> createCommand = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CREATE_INFRA = "CreateInfra";
   @SerializedName(SERIALIZED_NAME_CREATE_INFRA)
@@ -116,7 +116,7 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_LOCK_NUMBER = "LockNumber";
   @SerializedName(SERIALIZED_NAME_LOCK_NUMBER)
@@ -140,7 +140,7 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_SHARED_NAMESPACES = "SharedNamespaces";
   @SerializedName(SERIALIZED_NAME_SHARED_NAMESPACES)
-  private List<String> sharedNamespaces = null;
+  private List<String> sharedNamespaces = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_STATE = "State";
   @SerializedName(SERIALIZED_NAME_STATE)
@@ -152,7 +152,7 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_BLKIO_WEIGHT_DEVICE = "blkio_weight_device";
   @SerializedName(SERIALIZED_NAME_BLKIO_WEIGHT_DEVICE)
-  private List<InspectBlkioWeightDevice> blkioWeightDevice = null;
+  private List<@Valid InspectBlkioWeightDevice> blkioWeightDevice = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CPU_PERIOD = "cpu_period";
   @SerializedName(SERIALIZED_NAME_CPU_PERIOD)
@@ -176,15 +176,15 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_DEVICE_READ_BPS = "device_read_bps";
   @SerializedName(SERIALIZED_NAME_DEVICE_READ_BPS)
-  private List<InspectBlkioThrottleDevice> deviceReadBps = null;
+  private List<@Valid InspectBlkioThrottleDevice> deviceReadBps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICE_WRITE_BPS = "device_write_bps";
   @SerializedName(SERIALIZED_NAME_DEVICE_WRITE_BPS)
-  private List<InspectBlkioThrottleDevice> deviceWriteBps = null;
+  private List<@Valid InspectBlkioThrottleDevice> deviceWriteBps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<InspectDevice> devices = null;
+  private List<@Valid InspectDevice> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MEMORY_LIMIT = "memory_limit";
   @SerializedName(SERIALIZED_NAME_MEMORY_LIMIT)
@@ -196,36 +196,33 @@ public class InspectPodData implements Serializable {
 
   public static final String SERIALIZED_NAME_MOUNTS = "mounts";
   @SerializedName(SERIALIZED_NAME_MOUNTS)
-  private List<InspectMount> mounts = null;
+  private List<@Valid InspectMount> mounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SECURITY_OPT = "security_opt";
   @SerializedName(SERIALIZED_NAME_SECURITY_OPT)
-  private List<String> securityOpt = null;
+  private List<String> securityOpt = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_FROM = "volumes_from";
   @SerializedName(SERIALIZED_NAME_VOLUMES_FROM)
-  private List<String> volumesFrom = null;
+  private List<String> volumesFrom = new ArrayList<>();
 
   public InspectPodData() {
   }
 
   public InspectPodData cgroupParent(String cgroupParent) {
-    
     this.cgroupParent = cgroupParent;
     return this;
   }
 
-   /**
+  /**
    * CgroupParent is the parent of the pod&#39;s Cgroup.
    * @return cgroupParent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CgroupParent is the parent of the pod's Cgroup.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupParent() {
     return cgroupParent;
   }
-
 
   public void setCgroupParent(String cgroupParent) {
     this.cgroupParent = cgroupParent;
@@ -233,30 +230,26 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData cgroupPath(String cgroupPath) {
-    
     this.cgroupPath = cgroupPath;
     return this;
   }
 
-   /**
+  /**
    * CgroupPath is the path to the pod&#39;s Cgroup.
    * @return cgroupPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CgroupPath is the path to the pod's Cgroup.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupPath() {
     return cgroupPath;
   }
-
 
   public void setCgroupPath(String cgroupPath) {
     this.cgroupPath = cgroupPath;
   }
 
 
-  public InspectPodData containers(List<InspectPodContainerInfo> containers) {
-    
+  public InspectPodData containers(List<@Valid InspectPodContainerInfo> containers) {
     this.containers = containers;
     return this;
   }
@@ -269,41 +262,36 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Containers gives a brief summary of all containers in the pod and their current status.
    * @return containers
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Containers gives a brief summary of all containers in the pod and their current status.")
 
-  public List<InspectPodContainerInfo> getContainers() {
+  public List<@Valid InspectPodContainerInfo> getContainers() {
     return containers;
   }
 
-
-  public void setContainers(List<InspectPodContainerInfo> containers) {
+  public void setContainers(List<@Valid InspectPodContainerInfo> containers) {
     this.containers = containers;
   }
 
 
   public InspectPodData createCgroup(Boolean createCgroup) {
-    
     this.createCgroup = createCgroup;
     return this;
   }
 
-   /**
+  /**
    * CreateCgroup is whether this pod will create its own Cgroup to group containers under.
    * @return createCgroup
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CreateCgroup is whether this pod will create its own Cgroup to group containers under.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getCreateCgroup() {
     return createCgroup;
   }
-
 
   public void setCreateCgroup(Boolean createCgroup) {
     this.createCgroup = createCgroup;
@@ -311,7 +299,6 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData createCommand(List<String> createCommand) {
-    
     this.createCommand = createCommand;
     return this;
   }
@@ -324,17 +311,15 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * CreateCommand is the full command plus arguments of the process the container has been created with.
    * @return createCommand
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CreateCommand is the full command plus arguments of the process the container has been created with.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getCreateCommand() {
     return createCommand;
   }
-
 
   public void setCreateCommand(List<String> createCommand) {
     this.createCommand = createCommand;
@@ -342,22 +327,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData createInfra(Boolean createInfra) {
-    
     this.createInfra = createInfra;
     return this;
   }
 
-   /**
+  /**
    * CreateInfra is whether this pod will create an infra container to share namespaces.
    * @return createInfra
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CreateInfra is whether this pod will create an infra container to share namespaces.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getCreateInfra() {
     return createInfra;
   }
-
 
   public void setCreateInfra(Boolean createInfra) {
     this.createInfra = createInfra;
@@ -365,23 +347,20 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData created(OffsetDateTime created) {
-    
     this.created = created;
     return this;
   }
 
-   /**
+  /**
    * Created is the time when the pod was created.
    * @return created
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Created is the time when the pod was created.")
 
   public OffsetDateTime getCreated() {
     return created;
   }
-
 
   public void setCreated(OffsetDateTime created) {
     this.created = created;
@@ -389,22 +368,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData exitPolicy(String exitPolicy) {
-    
     this.exitPolicy = exitPolicy;
     return this;
   }
 
-   /**
+  /**
    * ExitPolicy of the pod.
    * @return exitPolicy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ExitPolicy of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getExitPolicy() {
     return exitPolicy;
   }
-
 
   public void setExitPolicy(String exitPolicy) {
     this.exitPolicy = exitPolicy;
@@ -412,22 +388,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData hostname(String hostname) {
-    
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Hostname is the hostname that the pod will set.
    * @return hostname
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Hostname is the hostname that the pod will set.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostname() {
     return hostname;
   }
-
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
@@ -435,22 +408,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData id(String id) {
-    
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID is the ID of the pod.
    * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID is the ID of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -458,23 +428,20 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData infraConfig(InspectPodInfraConfig infraConfig) {
-    
     this.infraConfig = infraConfig;
     return this;
   }
 
-   /**
+  /**
    * Get infraConfig
    * @return infraConfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public InspectPodInfraConfig getInfraConfig() {
     return infraConfig;
   }
-
 
   public void setInfraConfig(InspectPodInfraConfig infraConfig) {
     this.infraConfig = infraConfig;
@@ -482,22 +449,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData infraContainerID(String infraContainerID) {
-    
     this.infraContainerID = infraContainerID;
     return this;
   }
 
-   /**
+  /**
    * InfraContainerID is the ID of the pod&#39;s infra container, if one is present.
    * @return infraContainerID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "InfraContainerID is the ID of the pod's infra container, if one is present.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getInfraContainerID() {
     return infraContainerID;
   }
-
 
   public void setInfraContainerID(String infraContainerID) {
     this.infraContainerID = infraContainerID;
@@ -505,7 +469,6 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -518,17 +481,15 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Labels is a set of key-value labels that have been applied to the pod.
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Labels is a set of key-value labels that have been applied to the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -536,22 +497,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData lockNumber(Integer lockNumber) {
-    
     this.lockNumber = lockNumber;
     return this;
   }
 
-   /**
+  /**
    * Number of the pod&#39;s Libpod lock.
    * @return lockNumber
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of the pod's Libpod lock.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getLockNumber() {
     return lockNumber;
   }
-
 
   public void setLockNumber(Integer lockNumber) {
     this.lockNumber = lockNumber;
@@ -559,22 +517,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name of the pod.
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name is the name of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -582,22 +537,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData namespace(String namespace) {
-    
     this.namespace = namespace;
     return this;
   }
 
-   /**
+  /**
    * Namespace is the Libpod namespace the pod is placed in.
    * @return namespace
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Namespace is the Libpod namespace the pod is placed in.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getNamespace() {
     return namespace;
   }
-
 
   public void setNamespace(String namespace) {
     this.namespace = namespace;
@@ -605,22 +557,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData numContainers(Integer numContainers) {
-    
     this.numContainers = numContainers;
     return this;
   }
 
-   /**
+  /**
    * NumContainers is the number of containers in the pod, including the infra container.
    * @return numContainers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NumContainers is the number of containers in the pod, including the infra container.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getNumContainers() {
     return numContainers;
   }
-
 
   public void setNumContainers(Integer numContainers) {
     this.numContainers = numContainers;
@@ -628,22 +577,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData restartPolicy(String restartPolicy) {
-    
     this.restartPolicy = restartPolicy;
     return this;
   }
 
-   /**
+  /**
    * RestartPolicy of the pod.
    * @return restartPolicy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RestartPolicy of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRestartPolicy() {
     return restartPolicy;
   }
-
 
   public void setRestartPolicy(String restartPolicy) {
     this.restartPolicy = restartPolicy;
@@ -651,7 +597,6 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData sharedNamespaces(List<String> sharedNamespaces) {
-    
     this.sharedNamespaces = sharedNamespaces;
     return this;
   }
@@ -664,17 +609,15 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * SharedNamespaces contains a list of namespaces that will be shared by containers within the pod. Can only be set if CreateInfra is true.
    * @return sharedNamespaces
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "SharedNamespaces contains a list of namespaces that will be shared by containers within the pod. Can only be set if CreateInfra is true.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getSharedNamespaces() {
     return sharedNamespaces;
   }
-
 
   public void setSharedNamespaces(List<String> sharedNamespaces) {
     this.sharedNamespaces = sharedNamespaces;
@@ -682,22 +625,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData state(String state) {
-    
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * State represents the current state of the pod.
    * @return state
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "State represents the current state of the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getState() {
     return state;
   }
-
 
   public void setState(String state) {
     this.state = state;
@@ -705,30 +645,26 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData blkioWeight(Integer blkioWeight) {
-    
     this.blkioWeight = blkioWeight;
     return this;
   }
 
-   /**
+  /**
    * BlkioWeight contains the blkio weight limit for the pod
    * @return blkioWeight
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "BlkioWeight contains the blkio weight limit for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getBlkioWeight() {
     return blkioWeight;
   }
-
 
   public void setBlkioWeight(Integer blkioWeight) {
     this.blkioWeight = blkioWeight;
   }
 
 
-  public InspectPodData blkioWeightDevice(List<InspectBlkioWeightDevice> blkioWeightDevice) {
-    
+  public InspectPodData blkioWeightDevice(List<@Valid InspectBlkioWeightDevice> blkioWeightDevice) {
     this.blkioWeightDevice = blkioWeightDevice;
     return this;
   }
@@ -741,41 +677,36 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * BlkioWeightDevice contains the blkio weight device limits for the pod
    * @return blkioWeightDevice
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "BlkioWeightDevice contains the blkio weight device limits for the pod")
 
-  public List<InspectBlkioWeightDevice> getBlkioWeightDevice() {
+  public List<@Valid InspectBlkioWeightDevice> getBlkioWeightDevice() {
     return blkioWeightDevice;
   }
 
-
-  public void setBlkioWeightDevice(List<InspectBlkioWeightDevice> blkioWeightDevice) {
+  public void setBlkioWeightDevice(List<@Valid InspectBlkioWeightDevice> blkioWeightDevice) {
     this.blkioWeightDevice = blkioWeightDevice;
   }
 
 
   public InspectPodData cpuPeriod(Integer cpuPeriod) {
-    
     this.cpuPeriod = cpuPeriod;
     return this;
   }
 
-   /**
+  /**
    * CPUPeriod contains the CPU period of the pod
    * @return cpuPeriod
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUPeriod contains the CPU period of the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getCpuPeriod() {
     return cpuPeriod;
   }
-
 
   public void setCpuPeriod(Integer cpuPeriod) {
     this.cpuPeriod = cpuPeriod;
@@ -783,22 +714,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData cpuQuota(Long cpuQuota) {
-    
     this.cpuQuota = cpuQuota;
     return this;
   }
 
-   /**
+  /**
    * CPUQuota contains the CPU quota of the pod
    * @return cpuQuota
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUQuota contains the CPU quota of the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuQuota() {
     return cpuQuota;
   }
-
 
   public void setCpuQuota(Long cpuQuota) {
     this.cpuQuota = cpuQuota;
@@ -806,22 +734,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData cpuShares(Integer cpuShares) {
-    
     this.cpuShares = cpuShares;
     return this;
   }
 
-   /**
+  /**
    * CPUShares contains the cpu shares for the pod
    * @return cpuShares
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUShares contains the cpu shares for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getCpuShares() {
     return cpuShares;
   }
-
 
   public void setCpuShares(Integer cpuShares) {
     this.cpuShares = cpuShares;
@@ -829,22 +754,19 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData cpusetCpus(String cpusetCpus) {
-    
     this.cpusetCpus = cpusetCpus;
     return this;
   }
 
-   /**
+  /**
    * CPUSetCPUs contains linux specific CPU data for the pod
    * @return cpusetCpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUSetCPUs contains linux specific CPU data for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetCpus() {
     return cpusetCpus;
   }
-
 
   public void setCpusetCpus(String cpusetCpus) {
     this.cpusetCpus = cpusetCpus;
@@ -852,30 +774,26 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData cpusetMems(String cpusetMems) {
-    
     this.cpusetMems = cpusetMems;
     return this;
   }
 
-   /**
+  /**
    * CPUSetMems contains linux specific CPU data for the pod
    * @return cpusetMems
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "CPUSetMems contains linux specific CPU data for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetMems() {
     return cpusetMems;
   }
-
 
   public void setCpusetMems(String cpusetMems) {
     this.cpusetMems = cpusetMems;
   }
 
 
-  public InspectPodData deviceReadBps(List<InspectBlkioThrottleDevice> deviceReadBps) {
-    
+  public InspectPodData deviceReadBps(List<@Valid InspectBlkioThrottleDevice> deviceReadBps) {
     this.deviceReadBps = deviceReadBps;
     return this;
   }
@@ -888,26 +806,23 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * BlkioDeviceReadBps contains the Read/Access limit for the pod&#39;s devices
    * @return deviceReadBps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "BlkioDeviceReadBps contains the Read/Access limit for the pod's devices")
 
-  public List<InspectBlkioThrottleDevice> getDeviceReadBps() {
+  public List<@Valid InspectBlkioThrottleDevice> getDeviceReadBps() {
     return deviceReadBps;
   }
 
-
-  public void setDeviceReadBps(List<InspectBlkioThrottleDevice> deviceReadBps) {
+  public void setDeviceReadBps(List<@Valid InspectBlkioThrottleDevice> deviceReadBps) {
     this.deviceReadBps = deviceReadBps;
   }
 
 
-  public InspectPodData deviceWriteBps(List<InspectBlkioThrottleDevice> deviceWriteBps) {
-    
+  public InspectPodData deviceWriteBps(List<@Valid InspectBlkioThrottleDevice> deviceWriteBps) {
     this.deviceWriteBps = deviceWriteBps;
     return this;
   }
@@ -920,26 +835,23 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * BlkioDeviceReadBps contains the Read/Access limit for the pod&#39;s devices
    * @return deviceWriteBps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "BlkioDeviceReadBps contains the Read/Access limit for the pod's devices")
 
-  public List<InspectBlkioThrottleDevice> getDeviceWriteBps() {
+  public List<@Valid InspectBlkioThrottleDevice> getDeviceWriteBps() {
     return deviceWriteBps;
   }
 
-
-  public void setDeviceWriteBps(List<InspectBlkioThrottleDevice> deviceWriteBps) {
+  public void setDeviceWriteBps(List<@Valid InspectBlkioThrottleDevice> deviceWriteBps) {
     this.deviceWriteBps = deviceWriteBps;
   }
 
 
-  public InspectPodData devices(List<InspectDevice> devices) {
-    
+  public InspectPodData devices(List<@Valid InspectDevice> devices) {
     this.devices = devices;
     return this;
   }
@@ -952,41 +864,36 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Devices contains the specified host devices
    * @return devices
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Devices contains the specified host devices")
 
-  public List<InspectDevice> getDevices() {
+  public List<@Valid InspectDevice> getDevices() {
     return devices;
   }
 
-
-  public void setDevices(List<InspectDevice> devices) {
+  public void setDevices(List<@Valid InspectDevice> devices) {
     this.devices = devices;
   }
 
 
   public InspectPodData memoryLimit(Integer memoryLimit) {
-    
     this.memoryLimit = memoryLimit;
     return this;
   }
 
-   /**
+  /**
    * MemoryLimit contains the specified cgroup memory limit for the pod
    * @return memoryLimit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MemoryLimit contains the specified cgroup memory limit for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getMemoryLimit() {
     return memoryLimit;
   }
-
 
   public void setMemoryLimit(Integer memoryLimit) {
     this.memoryLimit = memoryLimit;
@@ -994,30 +901,26 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData memorySwap(Integer memorySwap) {
-    
     this.memorySwap = memorySwap;
     return this;
   }
 
-   /**
+  /**
    * MemorySwap contains the specified memory swap limit for the pod
    * @return memorySwap
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "MemorySwap contains the specified memory swap limit for the pod")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getMemorySwap() {
     return memorySwap;
   }
-
 
   public void setMemorySwap(Integer memorySwap) {
     this.memorySwap = memorySwap;
   }
 
 
-  public InspectPodData mounts(List<InspectMount> mounts) {
-    
+  public InspectPodData mounts(List<@Valid InspectMount> mounts) {
     this.mounts = mounts;
     return this;
   }
@@ -1030,26 +933,23 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Mounts contains volume related information for the pod
    * @return mounts
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Mounts contains volume related information for the pod")
 
-  public List<InspectMount> getMounts() {
+  public List<@Valid InspectMount> getMounts() {
     return mounts;
   }
 
-
-  public void setMounts(List<InspectMount> mounts) {
+  public void setMounts(List<@Valid InspectMount> mounts) {
     this.mounts = mounts;
   }
 
 
   public InspectPodData securityOpt(List<String> securityOpt) {
-    
     this.securityOpt = securityOpt;
     return this;
   }
@@ -1062,17 +962,15 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * SecurityOpt contains the specified security labels and related SELinux information
    * @return securityOpt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "SecurityOpt contains the specified security labels and related SELinux information")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getSecurityOpt() {
     return securityOpt;
   }
-
 
   public void setSecurityOpt(List<String> securityOpt) {
     this.securityOpt = securityOpt;
@@ -1080,7 +978,6 @@ public class InspectPodData implements Serializable {
 
 
   public InspectPodData volumesFrom(List<String> volumesFrom) {
-    
     this.volumesFrom = volumesFrom;
     return this;
   }
@@ -1093,17 +990,15 @@ public class InspectPodData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * VolumesFrom contains the containers that the pod inherits mounts from
    * @return volumesFrom
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "VolumesFrom contains the containers that the pod inherits mounts from")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getVolumesFrom() {
     return volumesFrom;
   }
-
 
   public void setVolumesFrom(List<String> volumesFrom) {
     this.volumesFrom = volumesFrom;
@@ -1263,28 +1158,27 @@ public class InspectPodData implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to InspectPodData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (InspectPodData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to InspectPodData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!InspectPodData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in InspectPodData is not found in the empty JSON string", InspectPodData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InspectPodData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectPodData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InspectPodData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("CgroupParent") != null && !jsonObj.get("CgroupParent").isJsonNull()) && !jsonObj.get("CgroupParent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `CgroupParent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CgroupParent").toString()));
       }
@@ -1301,12 +1195,12 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `Containers` (array)
           for (int i = 0; i < jsonArraycontainers.size(); i++) {
-            InspectPodContainerInfo.validateJsonObject(jsonArraycontainers.get(i).getAsJsonObject());
+            InspectPodContainerInfo.validateJsonElement(jsonArraycontainers.get(i));
           };
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("CreateCommand") != null && !jsonObj.get("CreateCommand").isJsonNull()) && !jsonObj.get("CreateCommand").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("CreateCommand") != null && !jsonObj.get("CreateCommand").isJsonNull() && !jsonObj.get("CreateCommand").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `CreateCommand` to be an array in the JSON string but got `%s`", jsonObj.get("CreateCommand").toString()));
       }
       if ((jsonObj.get("ExitPolicy") != null && !jsonObj.get("ExitPolicy").isJsonNull()) && !jsonObj.get("ExitPolicy").isJsonPrimitive()) {
@@ -1320,7 +1214,7 @@ public class InspectPodData implements Serializable {
       }
       // validate the optional field `InfraConfig`
       if (jsonObj.get("InfraConfig") != null && !jsonObj.get("InfraConfig").isJsonNull()) {
-        InspectPodInfraConfig.validateJsonObject(jsonObj.getAsJsonObject("InfraConfig"));
+        InspectPodInfraConfig.validateJsonElement(jsonObj.get("InfraConfig"));
       }
       if ((jsonObj.get("InfraContainerID") != null && !jsonObj.get("InfraContainerID").isJsonNull()) && !jsonObj.get("InfraContainerID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `InfraContainerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("InfraContainerID").toString()));
@@ -1334,8 +1228,8 @@ public class InspectPodData implements Serializable {
       if ((jsonObj.get("RestartPolicy") != null && !jsonObj.get("RestartPolicy").isJsonNull()) && !jsonObj.get("RestartPolicy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `RestartPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RestartPolicy").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("SharedNamespaces") != null && !jsonObj.get("SharedNamespaces").isJsonNull()) && !jsonObj.get("SharedNamespaces").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("SharedNamespaces") != null && !jsonObj.get("SharedNamespaces").isJsonNull() && !jsonObj.get("SharedNamespaces").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `SharedNamespaces` to be an array in the JSON string but got `%s`", jsonObj.get("SharedNamespaces").toString()));
       }
       if ((jsonObj.get("State") != null && !jsonObj.get("State").isJsonNull()) && !jsonObj.get("State").isJsonPrimitive()) {
@@ -1351,7 +1245,7 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `blkio_weight_device` (array)
           for (int i = 0; i < jsonArrayblkioWeightDevice.size(); i++) {
-            InspectBlkioWeightDevice.validateJsonObject(jsonArrayblkioWeightDevice.get(i).getAsJsonObject());
+            InspectBlkioWeightDevice.validateJsonElement(jsonArrayblkioWeightDevice.get(i));
           };
         }
       }
@@ -1371,7 +1265,7 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `device_read_bps` (array)
           for (int i = 0; i < jsonArraydeviceReadBps.size(); i++) {
-            InspectBlkioThrottleDevice.validateJsonObject(jsonArraydeviceReadBps.get(i).getAsJsonObject());
+            InspectBlkioThrottleDevice.validateJsonElement(jsonArraydeviceReadBps.get(i));
           };
         }
       }
@@ -1385,7 +1279,7 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `device_write_bps` (array)
           for (int i = 0; i < jsonArraydeviceWriteBps.size(); i++) {
-            InspectBlkioThrottleDevice.validateJsonObject(jsonArraydeviceWriteBps.get(i).getAsJsonObject());
+            InspectBlkioThrottleDevice.validateJsonElement(jsonArraydeviceWriteBps.get(i));
           };
         }
       }
@@ -1399,7 +1293,7 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `devices` (array)
           for (int i = 0; i < jsonArraydevices.size(); i++) {
-            InspectDevice.validateJsonObject(jsonArraydevices.get(i).getAsJsonObject());
+            InspectDevice.validateJsonElement(jsonArraydevices.get(i));
           };
         }
       }
@@ -1413,16 +1307,16 @@ public class InspectPodData implements Serializable {
 
           // validate the optional field `mounts` (array)
           for (int i = 0; i < jsonArraymounts.size(); i++) {
-            InspectMount.validateJsonObject(jsonArraymounts.get(i).getAsJsonObject());
+            InspectMount.validateJsonElement(jsonArraymounts.get(i));
           };
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("security_opt") != null && !jsonObj.get("security_opt").isJsonNull()) && !jsonObj.get("security_opt").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("security_opt") != null && !jsonObj.get("security_opt").isJsonNull() && !jsonObj.get("security_opt").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `security_opt` to be an array in the JSON string but got `%s`", jsonObj.get("security_opt").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull()) && !jsonObj.get("volumes_from").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull() && !jsonObj.get("volumes_from").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumes_from` to be an array in the JSON string but got `%s`", jsonObj.get("volumes_from").toString()));
       }
   }
@@ -1447,31 +1341,31 @@ public class InspectPodData implements Serializable {
 
            @Override
            public InspectPodData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of InspectPodData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of InspectPodData
-  * @throws IOException if the JSON string is invalid with respect to InspectPodData
-  */
+  /**
+   * Create an instance of InspectPodData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of InspectPodData
+   * @throws IOException if the JSON string is invalid with respect to InspectPodData
+   */
   public static InspectPodData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, InspectPodData.class);
   }
 
- /**
-  * Convert an instance of InspectPodData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of InspectPodData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

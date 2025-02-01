@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,17 +53,17 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * PlayKubePod
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PlayKubePod implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_CONTAINER_ERRORS = "ContainerErrors";
   @SerializedName(SERIALIZED_NAME_CONTAINER_ERRORS)
-  private List<String> containerErrors = null;
+  private List<String> containerErrors = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONTAINERS = "Containers";
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
-  private List<String> containers = null;
+  private List<String> containers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_I_D = "ID";
   @SerializedName(SERIALIZED_NAME_I_D)
@@ -70,17 +71,16 @@ public class PlayKubePod implements Serializable {
 
   public static final String SERIALIZED_NAME_INIT_CONTAINERS = "InitContainers";
   @SerializedName(SERIALIZED_NAME_INIT_CONTAINERS)
-  private List<String> initContainers = null;
+  private List<String> initContainers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_LOGS = "Logs";
   @SerializedName(SERIALIZED_NAME_LOGS)
-  private List<String> logs = null;
+  private List<String> logs = new ArrayList<>();
 
   public PlayKubePod() {
   }
 
   public PlayKubePod containerErrors(List<String> containerErrors) {
-    
     this.containerErrors = containerErrors;
     return this;
   }
@@ -93,17 +93,15 @@ public class PlayKubePod implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * ContainerErrors - any errors that occurred while starting containers in the pod.
    * @return containerErrors
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ContainerErrors - any errors that occurred while starting containers in the pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getContainerErrors() {
     return containerErrors;
   }
-
 
   public void setContainerErrors(List<String> containerErrors) {
     this.containerErrors = containerErrors;
@@ -111,7 +109,6 @@ public class PlayKubePod implements Serializable {
 
 
   public PlayKubePod containers(List<String> containers) {
-    
     this.containers = containers;
     return this;
   }
@@ -124,17 +121,15 @@ public class PlayKubePod implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Containers - the IDs of the containers running in the created pod.
    * @return containers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Containers - the IDs of the containers running in the created pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getContainers() {
     return containers;
   }
-
 
   public void setContainers(List<String> containers) {
     this.containers = containers;
@@ -142,22 +137,19 @@ public class PlayKubePod implements Serializable {
 
 
   public PlayKubePod ID(String ID) {
-    
     this.ID = ID;
     return this;
   }
 
-   /**
+  /**
    * ID - ID of the pod created as a result of play kube.
    * @return ID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID - ID of the pod created as a result of play kube.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getID() {
     return ID;
   }
-
 
   public void setID(String ID) {
     this.ID = ID;
@@ -165,7 +157,6 @@ public class PlayKubePod implements Serializable {
 
 
   public PlayKubePod initContainers(List<String> initContainers) {
-    
     this.initContainers = initContainers;
     return this;
   }
@@ -178,17 +169,15 @@ public class PlayKubePod implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * InitContainers - the IDs of the init containers to be run in the created pod.
    * @return initContainers
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "InitContainers - the IDs of the init containers to be run in the created pod.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getInitContainers() {
     return initContainers;
   }
-
 
   public void setInitContainers(List<String> initContainers) {
     this.initContainers = initContainers;
@@ -196,7 +185,6 @@ public class PlayKubePod implements Serializable {
 
 
   public PlayKubePod logs(List<String> logs) {
-    
     this.logs = logs;
     return this;
   }
@@ -209,17 +197,15 @@ public class PlayKubePod implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Logs - non-fatal errors and log messages while processing.
    * @return logs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Logs - non-fatal errors and log messages while processing.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getLogs() {
     return logs;
   }
-
 
   public void setLogs(List<String> logs) {
     this.logs = logs;
@@ -289,45 +275,44 @@ public class PlayKubePod implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PlayKubePod
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PlayKubePod.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PlayKubePod
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PlayKubePod.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PlayKubePod is not found in the empty JSON string", PlayKubePod.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PlayKubePod.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PlayKubePod` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PlayKubePod` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("ContainerErrors") != null && !jsonObj.get("ContainerErrors").isJsonNull()) && !jsonObj.get("ContainerErrors").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ContainerErrors") != null && !jsonObj.get("ContainerErrors").isJsonNull() && !jsonObj.get("ContainerErrors").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ContainerErrors` to be an array in the JSON string but got `%s`", jsonObj.get("ContainerErrors").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Containers") != null && !jsonObj.get("Containers").isJsonNull()) && !jsonObj.get("Containers").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Containers") != null && !jsonObj.get("Containers").isJsonNull() && !jsonObj.get("Containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Containers` to be an array in the JSON string but got `%s`", jsonObj.get("Containers").toString()));
       }
       if ((jsonObj.get("ID") != null && !jsonObj.get("ID").isJsonNull()) && !jsonObj.get("ID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ID").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("InitContainers") != null && !jsonObj.get("InitContainers").isJsonNull()) && !jsonObj.get("InitContainers").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("InitContainers") != null && !jsonObj.get("InitContainers").isJsonNull() && !jsonObj.get("InitContainers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `InitContainers` to be an array in the JSON string but got `%s`", jsonObj.get("InitContainers").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Logs") != null && !jsonObj.get("Logs").isJsonNull()) && !jsonObj.get("Logs").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Logs") != null && !jsonObj.get("Logs").isJsonNull() && !jsonObj.get("Logs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Logs` to be an array in the JSON string but got `%s`", jsonObj.get("Logs").toString()));
       }
   }
@@ -352,31 +337,31 @@ public class PlayKubePod implements Serializable {
 
            @Override
            public PlayKubePod read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PlayKubePod given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PlayKubePod
-  * @throws IOException if the JSON string is invalid with respect to PlayKubePod
-  */
+  /**
+   * Create an instance of PlayKubePod given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PlayKubePod
+   * @throws IOException if the JSON string is invalid with respect to PlayKubePod
+   */
   public static PlayKubePod fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PlayKubePod.class);
   }
 
- /**
-  * Convert an instance of PlayKubePod to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PlayKubePod to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

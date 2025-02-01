@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * LinuxDevice represents the mknod information for a Linux special device file
  */
-@ApiModel(description = "LinuxDevice represents the mknod information for a Linux special device file")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LinuxDevice implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -87,22 +87,19 @@ public class LinuxDevice implements Serializable {
   }
 
   public LinuxDevice fileMode(Integer fileMode) {
-    
     this.fileMode = fileMode;
     return this;
   }
 
-   /**
+  /**
    * The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is [ModeDir] for directories.
    * @return fileMode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The bits have the same definition on all systems, so that information about files can be moved from one system to another portably. Not all bits apply to all systems. The only required bit is [ModeDir] for directories.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getFileMode() {
     return fileMode;
   }
-
 
   public void setFileMode(Integer fileMode) {
     this.fileMode = fileMode;
@@ -110,22 +107,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice gid(Integer gid) {
-    
     this.gid = gid;
     return this;
   }
 
-   /**
+  /**
    * Gid of the device.
    * @return gid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gid of the device.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getGid() {
     return gid;
   }
-
 
   public void setGid(Integer gid) {
     this.gid = gid;
@@ -133,22 +127,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice major(Long major) {
-    
     this.major = major;
     return this;
   }
 
-   /**
+  /**
    * Major is the device&#39;s major number.
    * @return major
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Major is the device's major number.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMajor() {
     return major;
   }
-
 
   public void setMajor(Long major) {
     this.major = major;
@@ -156,22 +147,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice minor(Long minor) {
-    
     this.minor = minor;
     return this;
   }
 
-   /**
+  /**
    * Minor is the device&#39;s minor number.
    * @return minor
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minor is the device's minor number.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMinor() {
     return minor;
   }
-
 
   public void setMinor(Long minor) {
     this.minor = minor;
@@ -179,22 +167,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice path(String path) {
-    
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * Path to the device.
    * @return path
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Path to the device.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPath() {
     return path;
   }
-
 
   public void setPath(String path) {
     this.path = path;
@@ -202,22 +187,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice type(String type) {
-    
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Device type, block, char, etc.
    * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Device type, block, char, etc.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -225,22 +207,19 @@ public class LinuxDevice implements Serializable {
 
 
   public LinuxDevice uid(Integer uid) {
-    
     this.uid = uid;
     return this;
   }
 
-   /**
+  /**
    * UID of the device.
    * @return uid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UID of the device.")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getUid() {
     return uid;
   }
-
 
   public void setUid(Integer uid) {
     this.uid = uid;
@@ -316,28 +295,27 @@ public class LinuxDevice implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LinuxDevice
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (LinuxDevice.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to LinuxDevice
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!LinuxDevice.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LinuxDevice is not found in the empty JSON string", LinuxDevice.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LinuxDevice.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxDevice` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxDevice` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
@@ -366,31 +344,31 @@ public class LinuxDevice implements Serializable {
 
            @Override
            public LinuxDevice read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of LinuxDevice given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LinuxDevice
-  * @throws IOException if the JSON string is invalid with respect to LinuxDevice
-  */
+  /**
+   * Create an instance of LinuxDevice given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LinuxDevice
+   * @throws IOException if the JSON string is invalid with respect to LinuxDevice
+   */
   public static LinuxDevice fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LinuxDevice.class);
   }
 
- /**
-  * Convert an instance of LinuxDevice to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of LinuxDevice to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

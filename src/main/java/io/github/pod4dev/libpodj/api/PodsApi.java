@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
@@ -51,7 +52,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class PodsApi {
     private ApiClient localVarApiClient;
@@ -90,7 +90,7 @@ public class PodsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call generateKubeLibpodCall(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateKubeLibpod_0Call(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,7 +140,8 @@ public class PodsApi {
         }
 
         final String[] localVarAccepts = {
-            "text/vnd.yaml", "application/json"
+            "text/vnd.yaml",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -148,7 +149,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -160,35 +160,32 @@ public class PodsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateKubeLibpodValidateBeforeCall(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call generateKubeLibpod_0ValidateBeforeCall(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'names' is set
         if (names == null) {
-            throw new ApiException("Missing the required parameter 'names' when calling generateKubeLibpod(Async)");
+            throw new ApiException("Missing the required parameter 'names' when calling generateKubeLibpod_0(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = generateKubeLibpodCall(names, service, type, replicas, noTrunc, podmanOnly, _callback);
-        return localVarCall;
+        return generateKubeLibpod_0Call(names, service, type, replicas, noTrunc, podmanOnly, _callback);
 
     }
 
 
-    private ApiResponse<File> generateKubeLibpodWithHttpInfo( @NotNull List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly) throws ApiException {
-        okhttp3.Call localVarCall = generateKubeLibpodValidateBeforeCall(names, service, type, replicas, noTrunc, podmanOnly, null);
+    private ApiResponse<File> generateKubeLibpod_0WithHttpInfo( @NotNull List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly) throws ApiException {
+        okhttp3.Call localVarCall = generateKubeLibpod_0ValidateBeforeCall(names, service, type, replicas, noTrunc, podmanOnly, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call generateKubeLibpodAsync(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback<File> _callback) throws ApiException {
+    private okhttp3.Call generateKubeLibpod_0Async(List<String> names, Boolean service, String type, Integer replicas, Boolean noTrunc, Boolean podmanOnly, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateKubeLibpodValidateBeforeCall(names, service, type, replicas, noTrunc, podmanOnly, _callback);
+        okhttp3.Call localVarCall = generateKubeLibpod_0ValidateBeforeCall(names, service, type, replicas, noTrunc, podmanOnly, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIgenerateKubeLibpodRequest {
+    public class APIgenerateKubeLibpod_0Request {
         private final List<String> names;
         private Boolean service;
         private String type;
@@ -196,16 +193,16 @@ public class PodsApi {
         private Boolean noTrunc;
         private Boolean podmanOnly;
 
-        private APIgenerateKubeLibpodRequest(List<String> names) {
+        private APIgenerateKubeLibpod_0Request(List<String> names) {
             this.names = names;
         }
 
         /**
          * Set service
          * @param service Generate YAML for a Kubernetes service object. (optional, default to false)
-         * @return APIgenerateKubeLibpodRequest
+         * @return APIgenerateKubeLibpod_0Request
          */
-        public APIgenerateKubeLibpodRequest service(Boolean service) {
+        public APIgenerateKubeLibpod_0Request service(Boolean service) {
             this.service = service;
             return this;
         }
@@ -213,9 +210,9 @@ public class PodsApi {
         /**
          * Set type
          * @param type Generate YAML for the given Kubernetes kind. (optional, default to pod)
-         * @return APIgenerateKubeLibpodRequest
+         * @return APIgenerateKubeLibpod_0Request
          */
-        public APIgenerateKubeLibpodRequest type(String type) {
+        public APIgenerateKubeLibpod_0Request type(String type) {
             this.type = type;
             return this;
         }
@@ -223,9 +220,9 @@ public class PodsApi {
         /**
          * Set replicas
          * @param replicas Set the replica number for Deployment kind. (optional, default to 0)
-         * @return APIgenerateKubeLibpodRequest
+         * @return APIgenerateKubeLibpod_0Request
          */
-        public APIgenerateKubeLibpodRequest replicas(Integer replicas) {
+        public APIgenerateKubeLibpod_0Request replicas(Integer replicas) {
             this.replicas = replicas;
             return this;
         }
@@ -233,9 +230,9 @@ public class PodsApi {
         /**
          * Set noTrunc
          * @param noTrunc don&#39;t truncate annotations to the Kubernetes maximum length of 63 characters (optional, default to false)
-         * @return APIgenerateKubeLibpodRequest
+         * @return APIgenerateKubeLibpod_0Request
          */
-        public APIgenerateKubeLibpodRequest noTrunc(Boolean noTrunc) {
+        public APIgenerateKubeLibpod_0Request noTrunc(Boolean noTrunc) {
             this.noTrunc = noTrunc;
             return this;
         }
@@ -243,15 +240,15 @@ public class PodsApi {
         /**
          * Set podmanOnly
          * @param podmanOnly add podman-only reserved annotations in generated YAML file (cannot be used by Kubernetes) (optional, default to false)
-         * @return APIgenerateKubeLibpodRequest
+         * @return APIgenerateKubeLibpod_0Request
          */
-        public APIgenerateKubeLibpodRequest podmanOnly(Boolean podmanOnly) {
+        public APIgenerateKubeLibpod_0Request podmanOnly(Boolean podmanOnly) {
             this.podmanOnly = podmanOnly;
             return this;
         }
 
         /**
-         * Build call for generateKubeLibpod
+         * Build call for generateKubeLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -263,11 +260,11 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return generateKubeLibpodCall(names, service, type, replicas, noTrunc, podmanOnly, _callback);
+            return generateKubeLibpod_0Call(names, service, type, replicas, noTrunc, podmanOnly, _callback);
         }
 
         /**
-         * Execute generateKubeLibpod request
+         * Execute generateKubeLibpod_0 request
          * @return File
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -278,12 +275,12 @@ public class PodsApi {
          </table>
          */
         public File execute() throws ApiException {
-            ApiResponse<File> localVarResp = generateKubeLibpodWithHttpInfo(names, service, type, replicas, noTrunc, podmanOnly);
+            ApiResponse<File> localVarResp = generateKubeLibpod_0WithHttpInfo(names, service, type, replicas, noTrunc, podmanOnly);
             return localVarResp.getData();
         }
 
         /**
-         * Execute generateKubeLibpod request with HTTP info returned
+         * Execute generateKubeLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;File&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -294,11 +291,11 @@ public class PodsApi {
          </table>
          */
         public ApiResponse<File> executeWithHttpInfo() throws ApiException {
-            return generateKubeLibpodWithHttpInfo(names, service, type, replicas, noTrunc, podmanOnly);
+            return generateKubeLibpod_0WithHttpInfo(names, service, type, replicas, noTrunc, podmanOnly);
         }
 
         /**
-         * Execute generateKubeLibpod request (asynchronously)
+         * Execute generateKubeLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -310,7 +307,7 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<File> _callback) throws ApiException {
-            return generateKubeLibpodAsync(names, service, type, replicas, noTrunc, podmanOnly, _callback);
+            return generateKubeLibpod_0Async(names, service, type, replicas, noTrunc, podmanOnly, _callback);
         }
     }
 
@@ -318,7 +315,7 @@ public class PodsApi {
      * Generate a Kubernetes YAML file.
      * Generate Kubernetes YAML based on a pod or container.
      * @param names Name or ID of the container or pod. (required)
-     * @return APIgenerateKubeLibpodRequest
+     * @return APIgenerateKubeLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -326,10 +323,10 @@ public class PodsApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgenerateKubeLibpodRequest generateKubeLibpod(List<String> names) {
-        return new APIgenerateKubeLibpodRequest(names);
+    public APIgenerateKubeLibpod_0Request generateKubeLibpod_0(List<String> names) {
+        return new APIgenerateKubeLibpod_0Request(names);
     }
-    private okhttp3.Call generateSystemdLibpodCall(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call generateSystemdLibpod_0Call(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -347,7 +344,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/generate/{name}/systemd"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -420,7 +417,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -432,35 +428,32 @@ public class PodsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call generateSystemdLibpodValidateBeforeCall(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call generateSystemdLibpod_0ValidateBeforeCall(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling generateSystemdLibpod(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling generateSystemdLibpod_0(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = generateSystemdLibpodCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
-        return localVarCall;
+        return generateSystemdLibpod_0Call(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
 
     }
 
 
-    private ApiResponse<Map<String, String>> generateSystemdLibpodWithHttpInfo( @NotNull String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables) throws ApiException {
-        okhttp3.Call localVarCall = generateSystemdLibpodValidateBeforeCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, null);
+    private ApiResponse<Map<String, String>> generateSystemdLibpod_0WithHttpInfo( @NotNull String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables) throws ApiException {
+        okhttp3.Call localVarCall = generateSystemdLibpod_0ValidateBeforeCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, null);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call generateSystemdLibpodAsync(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback<Map<String, String>> _callback) throws ApiException {
+    private okhttp3.Call generateSystemdLibpod_0Async(String name, Boolean useName, Boolean _new, Boolean noHeader, Integer startTimeout, Integer stopTimeout, String restartPolicy, String containerPrefix, String podPrefix, String separator, Integer restartSec, List<String> wants, List<String> after, List<String> requires, List<String> additionalEnvVariables, final ApiCallback<Map<String, String>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = generateSystemdLibpodValidateBeforeCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
+        okhttp3.Call localVarCall = generateSystemdLibpod_0ValidateBeforeCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
         Type localVarReturnType = new TypeToken<Map<String, String>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIgenerateSystemdLibpodRequest {
+    public class APIgenerateSystemdLibpod_0Request {
         private final String name;
         private Boolean useName;
         private Boolean _new;
@@ -477,16 +470,16 @@ public class PodsApi {
         private List<String> requires;
         private List<String> additionalEnvVariables;
 
-        private APIgenerateSystemdLibpodRequest(String name) {
+        private APIgenerateSystemdLibpod_0Request(String name) {
             this.name = name;
         }
 
         /**
          * Set useName
          * @param useName Use container/pod names instead of IDs. (optional, default to false)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest useName(Boolean useName) {
+        public APIgenerateSystemdLibpod_0Request useName(Boolean useName) {
             this.useName = useName;
             return this;
         }
@@ -494,9 +487,9 @@ public class PodsApi {
         /**
          * Set _new
          * @param _new Create a new container instead of starting an existing one. (optional, default to false)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest _new(Boolean _new) {
+        public APIgenerateSystemdLibpod_0Request _new(Boolean _new) {
             this._new = _new;
             return this;
         }
@@ -504,9 +497,9 @@ public class PodsApi {
         /**
          * Set noHeader
          * @param noHeader Do not generate the header including the Podman version and the timestamp. (optional, default to false)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest noHeader(Boolean noHeader) {
+        public APIgenerateSystemdLibpod_0Request noHeader(Boolean noHeader) {
             this.noHeader = noHeader;
             return this;
         }
@@ -514,9 +507,9 @@ public class PodsApi {
         /**
          * Set startTimeout
          * @param startTimeout Start timeout in seconds. (optional, default to 0)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest startTimeout(Integer startTimeout) {
+        public APIgenerateSystemdLibpod_0Request startTimeout(Integer startTimeout) {
             this.startTimeout = startTimeout;
             return this;
         }
@@ -524,9 +517,9 @@ public class PodsApi {
         /**
          * Set stopTimeout
          * @param stopTimeout Stop timeout in seconds. (optional, default to 10)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest stopTimeout(Integer stopTimeout) {
+        public APIgenerateSystemdLibpod_0Request stopTimeout(Integer stopTimeout) {
             this.stopTimeout = stopTimeout;
             return this;
         }
@@ -534,9 +527,9 @@ public class PodsApi {
         /**
          * Set restartPolicy
          * @param restartPolicy Systemd restart-policy. (optional, default to on-failure)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest restartPolicy(String restartPolicy) {
+        public APIgenerateSystemdLibpod_0Request restartPolicy(String restartPolicy) {
             this.restartPolicy = restartPolicy;
             return this;
         }
@@ -544,9 +537,9 @@ public class PodsApi {
         /**
          * Set containerPrefix
          * @param containerPrefix Systemd unit name prefix for containers. (optional, default to container)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest containerPrefix(String containerPrefix) {
+        public APIgenerateSystemdLibpod_0Request containerPrefix(String containerPrefix) {
             this.containerPrefix = containerPrefix;
             return this;
         }
@@ -554,9 +547,9 @@ public class PodsApi {
         /**
          * Set podPrefix
          * @param podPrefix Systemd unit name prefix for pods. (optional, default to pod)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest podPrefix(String podPrefix) {
+        public APIgenerateSystemdLibpod_0Request podPrefix(String podPrefix) {
             this.podPrefix = podPrefix;
             return this;
         }
@@ -564,9 +557,9 @@ public class PodsApi {
         /**
          * Set separator
          * @param separator Systemd unit name separator between name/id and prefix. (optional, default to -)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest separator(String separator) {
+        public APIgenerateSystemdLibpod_0Request separator(String separator) {
             this.separator = separator;
             return this;
         }
@@ -574,9 +567,9 @@ public class PodsApi {
         /**
          * Set restartSec
          * @param restartSec Configures the time to sleep before restarting a service. (optional, default to 0)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest restartSec(Integer restartSec) {
+        public APIgenerateSystemdLibpod_0Request restartSec(Integer restartSec) {
             this.restartSec = restartSec;
             return this;
         }
@@ -584,9 +577,9 @@ public class PodsApi {
         /**
          * Set wants
          * @param wants Systemd Wants list for the container or pods. (optional)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest wants(List<String> wants) {
+        public APIgenerateSystemdLibpod_0Request wants(List<String> wants) {
             this.wants = wants;
             return this;
         }
@@ -594,9 +587,9 @@ public class PodsApi {
         /**
          * Set after
          * @param after Systemd After list for the container or pods. (optional)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest after(List<String> after) {
+        public APIgenerateSystemdLibpod_0Request after(List<String> after) {
             this.after = after;
             return this;
         }
@@ -604,9 +597,9 @@ public class PodsApi {
         /**
          * Set requires
          * @param requires Systemd Requires list for the container or pods. (optional)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest requires(List<String> requires) {
+        public APIgenerateSystemdLibpod_0Request requires(List<String> requires) {
             this.requires = requires;
             return this;
         }
@@ -614,15 +607,15 @@ public class PodsApi {
         /**
          * Set additionalEnvVariables
          * @param additionalEnvVariables Set environment variables to the systemd unit files. (optional)
-         * @return APIgenerateSystemdLibpodRequest
+         * @return APIgenerateSystemdLibpod_0Request
          */
-        public APIgenerateSystemdLibpodRequest additionalEnvVariables(List<String> additionalEnvVariables) {
+        public APIgenerateSystemdLibpod_0Request additionalEnvVariables(List<String> additionalEnvVariables) {
             this.additionalEnvVariables = additionalEnvVariables;
             return this;
         }
 
         /**
-         * Build call for generateSystemdLibpod
+         * Build call for generateSystemdLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -634,11 +627,11 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return generateSystemdLibpodCall(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
+            return generateSystemdLibpod_0Call(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
         }
 
         /**
-         * Execute generateSystemdLibpod request
+         * Execute generateSystemdLibpod_0 request
          * @return Map&lt;String, String&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -649,12 +642,12 @@ public class PodsApi {
          </table>
          */
         public Map<String, String> execute() throws ApiException {
-            ApiResponse<Map<String, String>> localVarResp = generateSystemdLibpodWithHttpInfo(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables);
+            ApiResponse<Map<String, String>> localVarResp = generateSystemdLibpod_0WithHttpInfo(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables);
             return localVarResp.getData();
         }
 
         /**
-         * Execute generateSystemdLibpod request with HTTP info returned
+         * Execute generateSystemdLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;Map&lt;String, String&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -665,11 +658,11 @@ public class PodsApi {
          </table>
          */
         public ApiResponse<Map<String, String>> executeWithHttpInfo() throws ApiException {
-            return generateSystemdLibpodWithHttpInfo(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables);
+            return generateSystemdLibpod_0WithHttpInfo(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables);
         }
 
         /**
-         * Execute generateSystemdLibpod request (asynchronously)
+         * Execute generateSystemdLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -681,7 +674,7 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Map<String, String>> _callback) throws ApiException {
-            return generateSystemdLibpodAsync(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
+            return generateSystemdLibpod_0Async(name, useName, _new, noHeader, startTimeout, stopTimeout, restartPolicy, containerPrefix, podPrefix, separator, restartSec, wants, after, requires, additionalEnvVariables, _callback);
         }
     }
 
@@ -689,7 +682,7 @@ public class PodsApi {
      * Generate Systemd Units
      * Generate Systemd Units based on a pod or container.
      * @param name Name or ID of the container or pod. (required)
-     * @return APIgenerateSystemdLibpodRequest
+     * @return APIgenerateSystemdLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -697,10 +690,10 @@ public class PodsApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgenerateSystemdLibpodRequest generateSystemdLibpod(String name) {
-        return new APIgenerateSystemdLibpodRequest(name);
+    public APIgenerateSystemdLibpod_0Request generateSystemdLibpod_0(String name) {
+        return new APIgenerateSystemdLibpod_0Request(name);
     }
-    private okhttp3.Call kubeApplyLibpodCall(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call kubeApplyLibpod_0Call(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -754,7 +747,8 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -766,30 +760,27 @@ public class PodsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call kubeApplyLibpodValidateBeforeCall(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = kubeApplyLibpodCall(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
-        return localVarCall;
+    private okhttp3.Call kubeApplyLibpod_0ValidateBeforeCall(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback _callback) throws ApiException {
+        return kubeApplyLibpod_0Call(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
 
     }
 
 
-    private ApiResponse<File> kubeApplyLibpodWithHttpInfo(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request) throws ApiException {
-        okhttp3.Call localVarCall = kubeApplyLibpodValidateBeforeCall(caCertFile, kubeConfig, namespace, service, _file, request, null);
+    private ApiResponse<File> kubeApplyLibpod_0WithHttpInfo(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request) throws ApiException {
+        okhttp3.Call localVarCall = kubeApplyLibpod_0ValidateBeforeCall(caCertFile, kubeConfig, namespace, service, _file, request, null);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call kubeApplyLibpodAsync(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback<File> _callback) throws ApiException {
+    private okhttp3.Call kubeApplyLibpod_0Async(String caCertFile, String kubeConfig, String namespace, Boolean service, String _file, String request, final ApiCallback<File> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = kubeApplyLibpodValidateBeforeCall(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
+        okhttp3.Call localVarCall = kubeApplyLibpod_0ValidateBeforeCall(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
         Type localVarReturnType = new TypeToken<File>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIkubeApplyLibpodRequest {
+    public class APIkubeApplyLibpod_0Request {
         private String caCertFile;
         private String kubeConfig;
         private String namespace;
@@ -797,15 +788,15 @@ public class PodsApi {
         private String _file;
         private String request;
 
-        private APIkubeApplyLibpodRequest() {
+        private APIkubeApplyLibpod_0Request() {
         }
 
         /**
          * Set caCertFile
          * @param caCertFile Path to the CA cert file for the Kubernetes cluster. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest caCertFile(String caCertFile) {
+        public APIkubeApplyLibpod_0Request caCertFile(String caCertFile) {
             this.caCertFile = caCertFile;
             return this;
         }
@@ -813,9 +804,9 @@ public class PodsApi {
         /**
          * Set kubeConfig
          * @param kubeConfig Path to the kubeconfig file for the Kubernetes cluster. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest kubeConfig(String kubeConfig) {
+        public APIkubeApplyLibpod_0Request kubeConfig(String kubeConfig) {
             this.kubeConfig = kubeConfig;
             return this;
         }
@@ -823,9 +814,9 @@ public class PodsApi {
         /**
          * Set namespace
          * @param namespace The namespace to deploy the workload to on the Kubernetes cluster. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest namespace(String namespace) {
+        public APIkubeApplyLibpod_0Request namespace(String namespace) {
             this.namespace = namespace;
             return this;
         }
@@ -833,9 +824,9 @@ public class PodsApi {
         /**
          * Set service
          * @param service Create a service object for the container being deployed. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest service(Boolean service) {
+        public APIkubeApplyLibpod_0Request service(Boolean service) {
             this.service = service;
             return this;
         }
@@ -843,9 +834,9 @@ public class PodsApi {
         /**
          * Set _file
          * @param _file Path to the Kubernetes yaml file to deploy. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest _file(String _file) {
+        public APIkubeApplyLibpod_0Request _file(String _file) {
             this._file = _file;
             return this;
         }
@@ -853,15 +844,15 @@ public class PodsApi {
         /**
          * Set request
          * @param request Kubernetes YAML file. (optional)
-         * @return APIkubeApplyLibpodRequest
+         * @return APIkubeApplyLibpod_0Request
          */
-        public APIkubeApplyLibpodRequest request(String request) {
+        public APIkubeApplyLibpod_0Request request(String request) {
             this.request = request;
             return this;
         }
 
         /**
-         * Build call for kubeApplyLibpod
+         * Build call for kubeApplyLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -873,11 +864,11 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return kubeApplyLibpodCall(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
+            return kubeApplyLibpod_0Call(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
         }
 
         /**
-         * Execute kubeApplyLibpod request
+         * Execute kubeApplyLibpod_0 request
          * @return File
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -888,12 +879,12 @@ public class PodsApi {
          </table>
          */
         public File execute() throws ApiException {
-            ApiResponse<File> localVarResp = kubeApplyLibpodWithHttpInfo(caCertFile, kubeConfig, namespace, service, _file, request);
+            ApiResponse<File> localVarResp = kubeApplyLibpod_0WithHttpInfo(caCertFile, kubeConfig, namespace, service, _file, request);
             return localVarResp.getData();
         }
 
         /**
-         * Execute kubeApplyLibpod request with HTTP info returned
+         * Execute kubeApplyLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;File&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -904,11 +895,11 @@ public class PodsApi {
          </table>
          */
         public ApiResponse<File> executeWithHttpInfo() throws ApiException {
-            return kubeApplyLibpodWithHttpInfo(caCertFile, kubeConfig, namespace, service, _file, request);
+            return kubeApplyLibpod_0WithHttpInfo(caCertFile, kubeConfig, namespace, service, _file, request);
         }
 
         /**
-         * Execute kubeApplyLibpod request (asynchronously)
+         * Execute kubeApplyLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -920,14 +911,14 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<File> _callback) throws ApiException {
-            return kubeApplyLibpodAsync(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
+            return kubeApplyLibpod_0Async(caCertFile, kubeConfig, namespace, service, _file, request, _callback);
         }
     }
 
     /**
      * Apply a podman workload or Kubernetes YAML file.
      * Deploy a podman container, pod, volume, or Kubernetes yaml to a Kubernetes cluster.
-     * @return APIkubeApplyLibpodRequest
+     * @return APIkubeApplyLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -935,10 +926,10 @@ public class PodsApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIkubeApplyLibpodRequest kubeApplyLibpod() {
-        return new APIkubeApplyLibpodRequest();
+    public APIkubeApplyLibpod_0Request kubeApplyLibpod_0() {
+        return new APIkubeApplyLibpod_0Request();
     }
-    private okhttp3.Call playKubeDownLibpodCall(String contentType, Boolean force, String request, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call playKubeDownLibpod_0Call(String contentType, Boolean force, String request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -979,48 +970,54 @@ public class PodsApi {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
+        final String[] localVarContentTypes = {
+            "text/plain",
+            "application/x-tar"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
         String[] localVarAuthNames = new String[] {  };
         return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call playKubeDownLibpodValidateBeforeCall(String contentType, Boolean force, String request, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = playKubeDownLibpodCall(contentType, force, request, _callback);
-        return localVarCall;
+    private okhttp3.Call playKubeDownLibpod_0ValidateBeforeCall(String contentType, Boolean force, String request, final ApiCallback _callback) throws ApiException {
+        return playKubeDownLibpod_0Call(contentType, force, request, _callback);
 
     }
 
 
-    private ApiResponse<PlayKubeReport> playKubeDownLibpodWithHttpInfo(String contentType, Boolean force, String request) throws ApiException {
-        okhttp3.Call localVarCall = playKubeDownLibpodValidateBeforeCall(contentType, force, request, null);
+    private ApiResponse<PlayKubeReport> playKubeDownLibpod_0WithHttpInfo(String contentType, Boolean force, String request) throws ApiException {
+        okhttp3.Call localVarCall = playKubeDownLibpod_0ValidateBeforeCall(contentType, force, request, null);
         Type localVarReturnType = new TypeToken<PlayKubeReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call playKubeDownLibpodAsync(String contentType, Boolean force, String request, final ApiCallback<PlayKubeReport> _callback) throws ApiException {
+    private okhttp3.Call playKubeDownLibpod_0Async(String contentType, Boolean force, String request, final ApiCallback<PlayKubeReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = playKubeDownLibpodValidateBeforeCall(contentType, force, request, _callback);
+        okhttp3.Call localVarCall = playKubeDownLibpod_0ValidateBeforeCall(contentType, force, request, _callback);
         Type localVarReturnType = new TypeToken<PlayKubeReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIplayKubeDownLibpodRequest {
+    public class APIplayKubeDownLibpod_0Request {
         private String contentType;
         private Boolean force;
         private String request;
 
-        private APIplayKubeDownLibpodRequest() {
+        private APIplayKubeDownLibpod_0Request() {
         }
 
         /**
          * Set contentType
-         * @param contentType  (optional, default to plain/text)
-         * @return APIplayKubeDownLibpodRequest
+         * @param contentType  (optional, default to text/plain)
+         * @return APIplayKubeDownLibpod_0Request
          */
-        public APIplayKubeDownLibpodRequest contentType(String contentType) {
+        public APIplayKubeDownLibpod_0Request contentType(String contentType) {
             this.contentType = contentType;
             return this;
         }
@@ -1028,9 +1025,9 @@ public class PodsApi {
         /**
          * Set force
          * @param force Remove volumes. (optional, default to false)
-         * @return APIplayKubeDownLibpodRequest
+         * @return APIplayKubeDownLibpod_0Request
          */
-        public APIplayKubeDownLibpodRequest force(Boolean force) {
+        public APIplayKubeDownLibpod_0Request force(Boolean force) {
             this.force = force;
             return this;
         }
@@ -1038,15 +1035,15 @@ public class PodsApi {
         /**
          * Set request
          * @param request Kubernetes YAML file. (optional)
-         * @return APIplayKubeDownLibpodRequest
+         * @return APIplayKubeDownLibpod_0Request
          */
-        public APIplayKubeDownLibpodRequest request(String request) {
+        public APIplayKubeDownLibpod_0Request request(String request) {
             this.request = request;
             return this;
         }
 
         /**
-         * Build call for playKubeDownLibpod
+         * Build call for playKubeDownLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -1058,11 +1055,11 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return playKubeDownLibpodCall(contentType, force, request, _callback);
+            return playKubeDownLibpod_0Call(contentType, force, request, _callback);
         }
 
         /**
-         * Execute playKubeDownLibpod request
+         * Execute playKubeDownLibpod_0 request
          * @return PlayKubeReport
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -1073,12 +1070,12 @@ public class PodsApi {
          </table>
          */
         public PlayKubeReport execute() throws ApiException {
-            ApiResponse<PlayKubeReport> localVarResp = playKubeDownLibpodWithHttpInfo(contentType, force, request);
+            ApiResponse<PlayKubeReport> localVarResp = playKubeDownLibpod_0WithHttpInfo(contentType, force, request);
             return localVarResp.getData();
         }
 
         /**
-         * Execute playKubeDownLibpod request with HTTP info returned
+         * Execute playKubeDownLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;PlayKubeReport&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -1089,11 +1086,11 @@ public class PodsApi {
          </table>
          */
         public ApiResponse<PlayKubeReport> executeWithHttpInfo() throws ApiException {
-            return playKubeDownLibpodWithHttpInfo(contentType, force, request);
+            return playKubeDownLibpod_0WithHttpInfo(contentType, force, request);
         }
 
         /**
-         * Execute playKubeDownLibpod request (asynchronously)
+         * Execute playKubeDownLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1105,14 +1102,14 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PlayKubeReport> _callback) throws ApiException {
-            return playKubeDownLibpodAsync(contentType, force, request, _callback);
+            return playKubeDownLibpod_0Async(contentType, force, request, _callback);
         }
     }
 
     /**
      * Remove resources created from kube play
      * Tears down pods, secrets, and volumes defined in a YAML file
-     * @return APIplayKubeDownLibpodRequest
+     * @return APIplayKubeDownLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -1120,10 +1117,10 @@ public class PodsApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIplayKubeDownLibpodRequest playKubeDownLibpod() {
-        return new APIplayKubeDownLibpodRequest();
+    public APIplayKubeDownLibpod_0Request playKubeDownLibpod_0() {
+        return new APIplayKubeDownLibpod_0Request();
     }
-    private okhttp3.Call playKubeLibpodCall(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call playKubeLibpod_0Call(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1228,35 +1225,41 @@ public class PodsApi {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
+        final String[] localVarContentTypes = {
+            "text/plain",
+            "application/x-tar"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
         String[] localVarAuthNames = new String[] {  };
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call playKubeLibpodValidateBeforeCall(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = playKubeLibpodCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
-        return localVarCall;
+    private okhttp3.Call playKubeLibpod_0ValidateBeforeCall(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback _callback) throws ApiException {
+        return playKubeLibpod_0Call(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
 
     }
 
 
-    private ApiResponse<PlayKubeReport> playKubeLibpodWithHttpInfo(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request) throws ApiException {
-        okhttp3.Call localVarCall = playKubeLibpodValidateBeforeCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, null);
+    private ApiResponse<PlayKubeReport> playKubeLibpod_0WithHttpInfo(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request) throws ApiException {
+        okhttp3.Call localVarCall = playKubeLibpod_0ValidateBeforeCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, null);
         Type localVarReturnType = new TypeToken<PlayKubeReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call playKubeLibpodAsync(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback<PlayKubeReport> _callback) throws ApiException {
+    private okhttp3.Call playKubeLibpod_0Async(String contentType, String annotations, String logDriver, List<String> logOptions, List<String> network, Boolean noHosts, Boolean noTrunc, List<String> publishPorts, Boolean publishAllPorts, Boolean replace, Boolean serviceContainer, Boolean start, List<String> staticIPs, List<String> staticMACs, Boolean tlsVerify, String userns, Boolean wait, Boolean build, String request, final ApiCallback<PlayKubeReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = playKubeLibpodValidateBeforeCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
+        okhttp3.Call localVarCall = playKubeLibpod_0ValidateBeforeCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
         Type localVarReturnType = new TypeToken<PlayKubeReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIplayKubeLibpodRequest {
+    public class APIplayKubeLibpod_0Request {
         private String contentType;
         private String annotations;
         private String logDriver;
@@ -1277,15 +1280,15 @@ public class PodsApi {
         private Boolean build;
         private String request;
 
-        private APIplayKubeLibpodRequest() {
+        private APIplayKubeLibpod_0Request() {
         }
 
         /**
          * Set contentType
-         * @param contentType  (optional, default to plain/text)
-         * @return APIplayKubeLibpodRequest
+         * @param contentType  (optional, default to text/plain)
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest contentType(String contentType) {
+        public APIplayKubeLibpod_0Request contentType(String contentType) {
             this.contentType = contentType;
             return this;
         }
@@ -1293,9 +1296,9 @@ public class PodsApi {
         /**
          * Set annotations
          * @param annotations JSON encoded value of annotations (a map[string]string). (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest annotations(String annotations) {
+        public APIplayKubeLibpod_0Request annotations(String annotations) {
             this.annotations = annotations;
             return this;
         }
@@ -1303,9 +1306,9 @@ public class PodsApi {
         /**
          * Set logDriver
          * @param logDriver Logging driver for the containers in the pod. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest logDriver(String logDriver) {
+        public APIplayKubeLibpod_0Request logDriver(String logDriver) {
             this.logDriver = logDriver;
             return this;
         }
@@ -1313,9 +1316,9 @@ public class PodsApi {
         /**
          * Set logOptions
          * @param logOptions logging driver options (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest logOptions(List<String> logOptions) {
+        public APIplayKubeLibpod_0Request logOptions(List<String> logOptions) {
             this.logOptions = logOptions;
             return this;
         }
@@ -1323,9 +1326,9 @@ public class PodsApi {
         /**
          * Set network
          * @param network USe the network mode or specify an array of networks. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest network(List<String> network) {
+        public APIplayKubeLibpod_0Request network(List<String> network) {
             this.network = network;
             return this;
         }
@@ -1333,9 +1336,9 @@ public class PodsApi {
         /**
          * Set noHosts
          * @param noHosts do not setup /etc/hosts file in container (optional, default to false)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest noHosts(Boolean noHosts) {
+        public APIplayKubeLibpod_0Request noHosts(Boolean noHosts) {
             this.noHosts = noHosts;
             return this;
         }
@@ -1343,9 +1346,9 @@ public class PodsApi {
         /**
          * Set noTrunc
          * @param noTrunc use annotations that are not truncated to the Kubernetes maximum length of 63 characters (optional, default to false)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest noTrunc(Boolean noTrunc) {
+        public APIplayKubeLibpod_0Request noTrunc(Boolean noTrunc) {
             this.noTrunc = noTrunc;
             return this;
         }
@@ -1353,9 +1356,9 @@ public class PodsApi {
         /**
          * Set publishPorts
          * @param publishPorts publish a container&#39;s port, or a range of ports, to the host (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest publishPorts(List<String> publishPorts) {
+        public APIplayKubeLibpod_0Request publishPorts(List<String> publishPorts) {
             this.publishPorts = publishPorts;
             return this;
         }
@@ -1363,9 +1366,9 @@ public class PodsApi {
         /**
          * Set publishAllPorts
          * @param publishAllPorts Whether to publish all ports defined in the K8S YAML file (containerPort, hostPort), if false only hostPort will be published (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest publishAllPorts(Boolean publishAllPorts) {
+        public APIplayKubeLibpod_0Request publishAllPorts(Boolean publishAllPorts) {
             this.publishAllPorts = publishAllPorts;
             return this;
         }
@@ -1373,9 +1376,9 @@ public class PodsApi {
         /**
          * Set replace
          * @param replace replace existing pods and containers (optional, default to false)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest replace(Boolean replace) {
+        public APIplayKubeLibpod_0Request replace(Boolean replace) {
             this.replace = replace;
             return this;
         }
@@ -1383,9 +1386,9 @@ public class PodsApi {
         /**
          * Set serviceContainer
          * @param serviceContainer Starts a service container before all pods. (optional, default to false)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest serviceContainer(Boolean serviceContainer) {
+        public APIplayKubeLibpod_0Request serviceContainer(Boolean serviceContainer) {
             this.serviceContainer = serviceContainer;
             return this;
         }
@@ -1393,9 +1396,9 @@ public class PodsApi {
         /**
          * Set start
          * @param start Start the pod after creating it. (optional, default to true)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest start(Boolean start) {
+        public APIplayKubeLibpod_0Request start(Boolean start) {
             this.start = start;
             return this;
         }
@@ -1403,9 +1406,9 @@ public class PodsApi {
         /**
          * Set staticIPs
          * @param staticIPs Static IPs used for the pods. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest staticIPs(List<String> staticIPs) {
+        public APIplayKubeLibpod_0Request staticIPs(List<String> staticIPs) {
             this.staticIPs = staticIPs;
             return this;
         }
@@ -1413,9 +1416,9 @@ public class PodsApi {
         /**
          * Set staticMACs
          * @param staticMACs Static MACs used for the pods. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest staticMACs(List<String> staticMACs) {
+        public APIplayKubeLibpod_0Request staticMACs(List<String> staticMACs) {
             this.staticMACs = staticMACs;
             return this;
         }
@@ -1423,9 +1426,9 @@ public class PodsApi {
         /**
          * Set tlsVerify
          * @param tlsVerify Require HTTPS and verify signatures when contacting registries. (optional, default to true)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest tlsVerify(Boolean tlsVerify) {
+        public APIplayKubeLibpod_0Request tlsVerify(Boolean tlsVerify) {
             this.tlsVerify = tlsVerify;
             return this;
         }
@@ -1433,9 +1436,9 @@ public class PodsApi {
         /**
          * Set userns
          * @param userns Set the user namespace mode for the pods. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest userns(String userns) {
+        public APIplayKubeLibpod_0Request userns(String userns) {
             this.userns = userns;
             return this;
         }
@@ -1443,9 +1446,9 @@ public class PodsApi {
         /**
          * Set wait
          * @param wait Clean up all objects created when a SIGTERM is received or pods exit. (optional, default to false)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest wait(Boolean wait) {
+        public APIplayKubeLibpod_0Request wait(Boolean wait) {
             this.wait = wait;
             return this;
         }
@@ -1453,9 +1456,9 @@ public class PodsApi {
         /**
          * Set build
          * @param build Build the images with corresponding context. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest build(Boolean build) {
+        public APIplayKubeLibpod_0Request build(Boolean build) {
             this.build = build;
             return this;
         }
@@ -1463,15 +1466,15 @@ public class PodsApi {
         /**
          * Set request
          * @param request Kubernetes YAML file. (optional)
-         * @return APIplayKubeLibpodRequest
+         * @return APIplayKubeLibpod_0Request
          */
-        public APIplayKubeLibpodRequest request(String request) {
+        public APIplayKubeLibpod_0Request request(String request) {
             this.request = request;
             return this;
         }
 
         /**
-         * Build call for playKubeLibpod
+         * Build call for playKubeLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -1483,11 +1486,11 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return playKubeLibpodCall(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
+            return playKubeLibpod_0Call(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
         }
 
         /**
-         * Execute playKubeLibpod request
+         * Execute playKubeLibpod_0 request
          * @return PlayKubeReport
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -1498,12 +1501,12 @@ public class PodsApi {
          </table>
          */
         public PlayKubeReport execute() throws ApiException {
-            ApiResponse<PlayKubeReport> localVarResp = playKubeLibpodWithHttpInfo(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request);
+            ApiResponse<PlayKubeReport> localVarResp = playKubeLibpod_0WithHttpInfo(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request);
             return localVarResp.getData();
         }
 
         /**
-         * Execute playKubeLibpod request with HTTP info returned
+         * Execute playKubeLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;PlayKubeReport&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -1514,11 +1517,11 @@ public class PodsApi {
          </table>
          */
         public ApiResponse<PlayKubeReport> executeWithHttpInfo() throws ApiException {
-            return playKubeLibpodWithHttpInfo(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request);
+            return playKubeLibpod_0WithHttpInfo(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request);
         }
 
         /**
-         * Execute playKubeLibpod request (asynchronously)
+         * Execute playKubeLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1530,14 +1533,14 @@ public class PodsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PlayKubeReport> _callback) throws ApiException {
-            return playKubeLibpodAsync(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
+            return playKubeLibpod_0Async(contentType, annotations, logDriver, logOptions, network, noHosts, noTrunc, publishPorts, publishAllPorts, replace, serviceContainer, start, staticIPs, staticMACs, tlsVerify, userns, wait, build, request, _callback);
         }
     }
 
     /**
      * Play a Kubernetes YAML file.
-     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;plain/text&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
-     * @return APIplayKubeLibpodRequest
+     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;text/plain&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
+     * @return APIplayKubeLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -1545,8 +1548,8 @@ public class PodsApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIplayKubeLibpodRequest playKubeLibpod() {
-        return new APIplayKubeLibpodRequest();
+    public APIplayKubeLibpod_0Request playKubeLibpod_0() {
+        return new APIplayKubeLibpod_0Request();
     }
     private okhttp3.Call podCreateLibpodCall(PodSpecGenerator create, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1582,7 +1585,8 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1595,10 +1599,7 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podCreateLibpodValidateBeforeCall(PodSpecGenerator create, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = podCreateLibpodCall(create, _callback);
-        return localVarCall;
+        return podCreateLibpodCall(create, _callback);
 
     }
 
@@ -1739,7 +1740,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1760,7 +1761,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1773,15 +1773,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podDeleteLibpodValidateBeforeCall(String name, Boolean force, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podDeleteLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podDeleteLibpodCall(name, force, _callback);
-        return localVarCall;
+        return podDeleteLibpodCall(name, force, _callback);
 
     }
 
@@ -1925,7 +1922,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/exists"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1942,7 +1939,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1955,15 +1951,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podExistsLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podExistsLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podExistsLibpodCall(name, _callback);
-        return localVarCall;
+        return podExistsLibpodCall(name, _callback);
 
     }
 
@@ -2087,7 +2080,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/json"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2104,7 +2097,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2117,15 +2109,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podInspectLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podInspectLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podInspectLibpodCall(name, _callback);
-        return localVarCall;
+        return podInspectLibpodCall(name, _callback);
 
     }
 
@@ -2253,7 +2242,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/kill"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2274,7 +2263,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2287,15 +2275,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podKillLibpodValidateBeforeCall(String name, String signal, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podKillLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podKillLibpodCall(name, signal, _callback);
-        return localVarCall;
+        return podKillLibpodCall(name, signal, _callback);
 
     }
 
@@ -2464,7 +2449,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2477,10 +2461,7 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podListLibpodValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = podListLibpodCall(filters, _callback);
-        return localVarCall;
+        return podListLibpodCall(filters, _callback);
 
     }
 
@@ -2616,7 +2597,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/pause"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2633,7 +2614,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2646,15 +2626,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podPauseLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podPauseLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podPauseLibpodCall(name, _callback);
-        return localVarCall;
+        return podPauseLibpodCall(name, _callback);
 
     }
 
@@ -2803,7 +2780,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2816,10 +2792,7 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podPruneLibpodValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = podPruneLibpodCall(_callback);
-        return localVarCall;
+        return podPruneLibpodCall(_callback);
 
     }
 
@@ -2949,7 +2922,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/restart"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2966,7 +2939,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2979,15 +2951,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podRestartLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podRestartLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podRestartLibpodCall(name, _callback);
-        return localVarCall;
+        return podRestartLibpodCall(name, _callback);
 
     }
 
@@ -3120,7 +3089,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/start"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3137,7 +3106,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3150,15 +3118,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podStartLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podStartLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podStartLibpodCall(name, _callback);
-        return localVarCall;
+        return podStartLibpodCall(name, _callback);
 
     }
 
@@ -3320,7 +3285,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3333,10 +3297,7 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podStatsAllLibpodValidateBeforeCall(Boolean all, List<String> namesOrIDs, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = podStatsAllLibpodCall(all, namesOrIDs, _callback);
-        return localVarCall;
+        return podStatsAllLibpodCall(all, namesOrIDs, _callback);
 
     }
 
@@ -3483,7 +3444,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/stop"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3504,7 +3465,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3517,15 +3477,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podStopLibpodValidateBeforeCall(String name, Integer t, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podStopLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podStopLibpodCall(name, t, _callback);
-        return localVarCall;
+        return podStopLibpodCall(name, t, _callback);
 
     }
 
@@ -3679,7 +3636,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/top"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3708,7 +3665,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3721,15 +3677,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podTopLibpodValidateBeforeCall(String name, Boolean stream, Integer delay, String psArgs, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podTopLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podTopLibpodCall(name, stream, delay, psArgs, _callback);
-        return localVarCall;
+        return podTopLibpodCall(name, stream, delay, psArgs, _callback);
 
     }
 
@@ -3890,7 +3843,7 @@ public class PodsApi {
 
         // create path and map variables
         String localVarPath = "/libpod/pods/{name}/unpause"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3907,7 +3860,6 @@ public class PodsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3920,15 +3872,12 @@ public class PodsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call podUnpauseLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling podUnpauseLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = podUnpauseLibpodCall(name, _callback);
-        return localVarCall;
+        return podUnpauseLibpodCall(name, _callback);
 
     }
 

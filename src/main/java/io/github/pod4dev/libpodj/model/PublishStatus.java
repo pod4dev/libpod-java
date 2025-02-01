@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * PublishStatus represents the status of the volume as published to an individual node
  */
-@ApiModel(description = "PublishStatus represents the status of the volume as published to an individual node")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PublishStatus implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +63,7 @@ public class PublishStatus implements Serializable {
 
   public static final String SERIALIZED_NAME_PUBLISH_CONTEXT = "PublishContext";
   @SerializedName(SERIALIZED_NAME_PUBLISH_CONTEXT)
-  private Map<String, String> publishContext = null;
+  private Map<String, String> publishContext = new HashMap<>();
 
   public static final String SERIALIZED_NAME_STATE = "State";
   @SerializedName(SERIALIZED_NAME_STATE)
@@ -73,22 +73,19 @@ public class PublishStatus implements Serializable {
   }
 
   public PublishStatus nodeID(String nodeID) {
-    
     this.nodeID = nodeID;
     return this;
   }
 
-   /**
+  /**
    * NodeID is the ID of the swarm node this Volume is published to.
    * @return nodeID
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "NodeID is the ID of the swarm node this Volume is published to.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getNodeID() {
     return nodeID;
   }
-
 
   public void setNodeID(String nodeID) {
     this.nodeID = nodeID;
@@ -96,7 +93,6 @@ public class PublishStatus implements Serializable {
 
 
   public PublishStatus publishContext(Map<String, String> publishContext) {
-    
     this.publishContext = publishContext;
     return this;
   }
@@ -109,17 +105,15 @@ public class PublishStatus implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * PublishContext is the PublishContext returned by the CSI plugin when a volume is published.
    * @return publishContext
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "PublishContext is the PublishContext returned by the CSI plugin when a volume is published.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getPublishContext() {
     return publishContext;
   }
-
 
   public void setPublishContext(Map<String, String> publishContext) {
     this.publishContext = publishContext;
@@ -127,22 +121,19 @@ public class PublishStatus implements Serializable {
 
 
   public PublishStatus state(String state) {
-    
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * PublishState represents the state of a Volume as it pertains to its use on a particular Node.
    * @return state
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "PublishState represents the state of a Volume as it pertains to its use on a particular Node.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getState() {
     return state;
   }
-
 
   public void setState(String state) {
     this.state = state;
@@ -206,28 +197,27 @@ public class PublishStatus implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PublishStatus
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PublishStatus.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PublishStatus
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PublishStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PublishStatus is not found in the empty JSON string", PublishStatus.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PublishStatus.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublishStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublishStatus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("NodeID") != null && !jsonObj.get("NodeID").isJsonNull()) && !jsonObj.get("NodeID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `NodeID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("NodeID").toString()));
       }
@@ -256,31 +246,31 @@ public class PublishStatus implements Serializable {
 
            @Override
            public PublishStatus read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PublishStatus given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PublishStatus
-  * @throws IOException if the JSON string is invalid with respect to PublishStatus
-  */
+  /**
+   * Create an instance of PublishStatus given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PublishStatus
+   * @throws IOException if the JSON string is invalid with respect to PublishStatus
+   */
   public static PublishStatus fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PublishStatus.class);
   }
 
- /**
-  * Convert an instance of PublishStatus to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PublishStatus to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

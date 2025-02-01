@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * EndpointIPAMConfig represents IPAM configurations for the endpoint
  */
-@ApiModel(description = "EndpointIPAMConfig represents IPAM configurations for the endpoint")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class EndpointIPAMConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -67,28 +67,25 @@ public class EndpointIPAMConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_LINK_LOCAL_I_PS = "LinkLocalIPs";
   @SerializedName(SERIALIZED_NAME_LINK_LOCAL_I_PS)
-  private List<String> linkLocalIPs = null;
+  private List<String> linkLocalIPs = new ArrayList<>();
 
   public EndpointIPAMConfig() {
   }
 
   public EndpointIPAMConfig ipv4Address(String ipv4Address) {
-    
     this.ipv4Address = ipv4Address;
     return this;
   }
 
-   /**
+  /**
    * Get ipv4Address
    * @return ipv4Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv4Address() {
     return ipv4Address;
   }
-
 
   public void setIpv4Address(String ipv4Address) {
     this.ipv4Address = ipv4Address;
@@ -96,22 +93,19 @@ public class EndpointIPAMConfig implements Serializable {
 
 
   public EndpointIPAMConfig ipv6Address(String ipv6Address) {
-    
     this.ipv6Address = ipv6Address;
     return this;
   }
 
-   /**
+  /**
    * Get ipv6Address
    * @return ipv6Address
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpv6Address() {
     return ipv6Address;
   }
-
 
   public void setIpv6Address(String ipv6Address) {
     this.ipv6Address = ipv6Address;
@@ -119,7 +113,6 @@ public class EndpointIPAMConfig implements Serializable {
 
 
   public EndpointIPAMConfig linkLocalIPs(List<String> linkLocalIPs) {
-    
     this.linkLocalIPs = linkLocalIPs;
     return this;
   }
@@ -132,17 +125,15 @@ public class EndpointIPAMConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get linkLocalIPs
    * @return linkLocalIPs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getLinkLocalIPs() {
     return linkLocalIPs;
   }
-
 
   public void setLinkLocalIPs(List<String> linkLocalIPs) {
     this.linkLocalIPs = linkLocalIPs;
@@ -206,36 +197,35 @@ public class EndpointIPAMConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to EndpointIPAMConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (EndpointIPAMConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to EndpointIPAMConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EndpointIPAMConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in EndpointIPAMConfig is not found in the empty JSON string", EndpointIPAMConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EndpointIPAMConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointIPAMConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointIPAMConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("IPv4Address") != null && !jsonObj.get("IPv4Address").isJsonNull()) && !jsonObj.get("IPv4Address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `IPv4Address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IPv4Address").toString()));
       }
       if ((jsonObj.get("IPv6Address") != null && !jsonObj.get("IPv6Address").isJsonNull()) && !jsonObj.get("IPv6Address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `IPv6Address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("IPv6Address").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("LinkLocalIPs") != null && !jsonObj.get("LinkLocalIPs").isJsonNull()) && !jsonObj.get("LinkLocalIPs").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("LinkLocalIPs") != null && !jsonObj.get("LinkLocalIPs").isJsonNull() && !jsonObj.get("LinkLocalIPs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `LinkLocalIPs` to be an array in the JSON string but got `%s`", jsonObj.get("LinkLocalIPs").toString()));
       }
   }
@@ -260,31 +250,31 @@ public class EndpointIPAMConfig implements Serializable {
 
            @Override
            public EndpointIPAMConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of EndpointIPAMConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of EndpointIPAMConfig
-  * @throws IOException if the JSON string is invalid with respect to EndpointIPAMConfig
-  */
+  /**
+   * Create an instance of EndpointIPAMConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of EndpointIPAMConfig
+   * @throws IOException if the JSON string is invalid with respect to EndpointIPAMConfig
+   */
   public static EndpointIPAMConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, EndpointIPAMConfig.class);
   }
 
- /**
-  * Convert an instance of EndpointIPAMConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of EndpointIPAMConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

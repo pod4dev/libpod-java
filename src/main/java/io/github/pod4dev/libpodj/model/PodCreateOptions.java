@@ -14,23 +14,21 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.NetOptions;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,12 +40,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -55,8 +56,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * The JSON tags below are made to match the respective field in ContainerCreateOptions for the purpose of mapping.
  */
-@ApiModel(description = "The JSON tags below are made to match the respective field in ContainerCreateOptions for the purpose of mapping.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class PodCreateOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -86,15 +86,15 @@ public class PodCreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_CREATE_COMMAND = "create_command";
   @SerializedName(SERIALIZED_NAME_CREATE_COMMAND)
-  private List<String> createCommand = null;
+  private List<String> createCommand = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICE_READ_BPS = "device_read_bps";
   @SerializedName(SERIALIZED_NAME_DEVICE_READ_BPS)
-  private List<String> deviceReadBps = null;
+  private List<String> deviceReadBps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<String> devices = null;
+  private List<String> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EXIT_POLICY = "exit_policy";
   @SerializedName(SERIALIZED_NAME_EXIT_POLICY)
@@ -118,7 +118,7 @@ public class PodCreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -138,11 +138,11 @@ public class PodCreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_SECURITY_OPT = "security_opt";
   @SerializedName(SERIALIZED_NAME_SECURITY_OPT)
-  private List<String> securityOpt = null;
+  private List<String> securityOpt = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHARE = "share";
   @SerializedName(SERIALIZED_NAME_SHARE)
-  private List<String> share = null;
+  private List<String> share = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHARE_PARENT = "share_parent";
   @SerializedName(SERIALIZED_NAME_SHARE_PARENT)
@@ -150,7 +150,7 @@ public class PodCreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_SYSCTL = "sysctl";
   @SerializedName(SERIALIZED_NAME_SYSCTL)
-  private List<String> sysctl = null;
+  private List<String> sysctl = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_UTS = "uts";
   @SerializedName(SERIALIZED_NAME_UTS)
@@ -158,32 +158,29 @@ public class PodCreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_VOLUME = "volume";
   @SerializedName(SERIALIZED_NAME_VOLUME)
-  private List<String> volume = null;
+  private List<String> volume = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_FROM = "volumes_from";
   @SerializedName(SERIALIZED_NAME_VOLUMES_FROM)
-  private List<String> volumesFrom = null;
+  private List<String> volumesFrom = new ArrayList<>();
 
   public PodCreateOptions() {
   }
 
   public PodCreateOptions cgroupParent(String cgroupParent) {
-    
     this.cgroupParent = cgroupParent;
     return this;
   }
 
-   /**
+  /**
    * Get cgroupParent
    * @return cgroupParent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupParent() {
     return cgroupParent;
   }
-
 
   public void setCgroupParent(String cgroupParent) {
     this.cgroupParent = cgroupParent;
@@ -191,22 +188,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions containerCommand(String containerCommand) {
-    
     this.containerCommand = containerCommand;
     return this;
   }
 
-   /**
+  /**
    * Get containerCommand
    * @return containerCommand
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getContainerCommand() {
     return containerCommand;
   }
-
 
   public void setContainerCommand(String containerCommand) {
     this.containerCommand = containerCommand;
@@ -214,22 +208,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions containerConmonPidfile(String containerConmonPidfile) {
-    
     this.containerConmonPidfile = containerConmonPidfile;
     return this;
   }
 
-   /**
+  /**
    * Get containerConmonPidfile
    * @return containerConmonPidfile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getContainerConmonPidfile() {
     return containerConmonPidfile;
   }
-
 
   public void setContainerConmonPidfile(String containerConmonPidfile) {
     this.containerConmonPidfile = containerConmonPidfile;
@@ -237,22 +228,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions containerName(String containerName) {
-    
     this.containerName = containerName;
     return this;
   }
 
-   /**
+  /**
    * Get containerName
    * @return containerName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getContainerName() {
     return containerName;
   }
-
 
   public void setContainerName(String containerName) {
     this.containerName = containerName;
@@ -260,22 +248,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions cpus(Double cpus) {
-    
     this.cpus = cpus;
     return this;
   }
 
-   /**
+  /**
    * Get cpus
    * @return cpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Double getCpus() {
     return cpus;
   }
-
 
   public void setCpus(Double cpus) {
     this.cpus = cpus;
@@ -283,22 +268,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions cpusetCpus(String cpusetCpus) {
-    
     this.cpusetCpus = cpusetCpus;
     return this;
   }
 
-   /**
+  /**
    * Get cpusetCpus
    * @return cpusetCpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetCpus() {
     return cpusetCpus;
   }
-
 
   public void setCpusetCpus(String cpusetCpus) {
     this.cpusetCpus = cpusetCpus;
@@ -306,7 +288,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions createCommand(List<String> createCommand) {
-    
     this.createCommand = createCommand;
     return this;
   }
@@ -319,17 +300,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get createCommand
    * @return createCommand
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getCreateCommand() {
     return createCommand;
   }
-
 
   public void setCreateCommand(List<String> createCommand) {
     this.createCommand = createCommand;
@@ -337,7 +316,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions deviceReadBps(List<String> deviceReadBps) {
-    
     this.deviceReadBps = deviceReadBps;
     return this;
   }
@@ -350,17 +328,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get deviceReadBps
    * @return deviceReadBps
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDeviceReadBps() {
     return deviceReadBps;
   }
-
 
   public void setDeviceReadBps(List<String> deviceReadBps) {
     this.deviceReadBps = deviceReadBps;
@@ -368,7 +344,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions devices(List<String> devices) {
-    
     this.devices = devices;
     return this;
   }
@@ -381,17 +356,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get devices
    * @return devices
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDevices() {
     return devices;
   }
-
 
   public void setDevices(List<String> devices) {
     this.devices = devices;
@@ -399,22 +372,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions exitPolicy(String exitPolicy) {
-    
     this.exitPolicy = exitPolicy;
     return this;
   }
 
-   /**
+  /**
    * Get exitPolicy
    * @return exitPolicy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getExitPolicy() {
     return exitPolicy;
   }
-
 
   public void setExitPolicy(String exitPolicy) {
     this.exitPolicy = exitPolicy;
@@ -422,22 +392,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions hostname(String hostname) {
-    
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * Get hostname
    * @return hostname
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getHostname() {
     return hostname;
   }
-
 
   public void setHostname(String hostname) {
     this.hostname = hostname;
@@ -445,22 +412,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions infra(Boolean infra) {
-    
     this.infra = infra;
     return this;
   }
 
-   /**
+  /**
    * Get infra
    * @return infra
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getInfra() {
     return infra;
   }
-
 
   public void setInfra(Boolean infra) {
     this.infra = infra;
@@ -468,22 +432,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions infraImage(String infraImage) {
-    
     this.infraImage = infraImage;
     return this;
   }
 
-   /**
+  /**
    * Get infraImage
    * @return infraImage
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getInfraImage() {
     return infraImage;
   }
-
 
   public void setInfraImage(String infraImage) {
     this.infraImage = infraImage;
@@ -491,22 +452,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions ipc(String ipc) {
-    
     this.ipc = ipc;
     return this;
   }
 
-   /**
+  /**
    * Get ipc
    * @return ipc
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIpc() {
     return ipc;
   }
-
 
   public void setIpc(String ipc) {
     this.ipc = ipc;
@@ -514,7 +472,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -527,17 +484,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -545,22 +500,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Get name
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -568,23 +520,20 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions net(NetOptions net) {
-    
     this.net = net;
     return this;
   }
 
-   /**
+  /**
    * Get net
    * @return net
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public NetOptions getNet() {
     return net;
   }
-
 
   public void setNet(NetOptions net) {
     this.net = net;
@@ -592,22 +541,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions pid(String pid) {
-    
     this.pid = pid;
     return this;
   }
 
-   /**
+  /**
    * Get pid
    * @return pid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPid() {
     return pid;
   }
-
 
   public void setPid(String pid) {
     this.pid = pid;
@@ -615,22 +561,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions restart(String restart) {
-    
     this.restart = restart;
     return this;
   }
 
-   /**
+  /**
    * Get restart
    * @return restart
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRestart() {
     return restart;
   }
-
 
   public void setRestart(String restart) {
     this.restart = restart;
@@ -638,7 +581,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions securityOpt(List<String> securityOpt) {
-    
     this.securityOpt = securityOpt;
     return this;
   }
@@ -651,17 +593,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get securityOpt
    * @return securityOpt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getSecurityOpt() {
     return securityOpt;
   }
-
 
   public void setSecurityOpt(List<String> securityOpt) {
     this.securityOpt = securityOpt;
@@ -669,7 +609,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions share(List<String> share) {
-    
     this.share = share;
     return this;
   }
@@ -682,17 +621,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get share
    * @return share
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getShare() {
     return share;
   }
-
 
   public void setShare(List<String> share) {
     this.share = share;
@@ -700,22 +637,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions shareParent(Boolean shareParent) {
-    
     this.shareParent = shareParent;
     return this;
   }
 
-   /**
+  /**
    * Get shareParent
    * @return shareParent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getShareParent() {
     return shareParent;
   }
-
 
   public void setShareParent(Boolean shareParent) {
     this.shareParent = shareParent;
@@ -723,7 +657,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions sysctl(List<String> sysctl) {
-    
     this.sysctl = sysctl;
     return this;
   }
@@ -736,17 +669,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get sysctl
    * @return sysctl
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getSysctl() {
     return sysctl;
   }
-
 
   public void setSysctl(List<String> sysctl) {
     this.sysctl = sysctl;
@@ -754,22 +685,19 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions uts(String uts) {
-    
     this.uts = uts;
     return this;
   }
 
-   /**
+  /**
    * Get uts
    * @return uts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUts() {
     return uts;
   }
-
 
   public void setUts(String uts) {
     this.uts = uts;
@@ -777,7 +705,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions volume(List<String> volume) {
-    
     this.volume = volume;
     return this;
   }
@@ -790,17 +717,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get volume
    * @return volume
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getVolume() {
     return volume;
   }
-
 
   public void setVolume(List<String> volume) {
     this.volume = volume;
@@ -808,7 +733,6 @@ public class PodCreateOptions implements Serializable {
 
 
   public PodCreateOptions volumesFrom(List<String> volumesFrom) {
-    
     this.volumesFrom = volumesFrom;
     return this;
   }
@@ -821,17 +745,15 @@ public class PodCreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get volumesFrom
    * @return volumesFrom
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getVolumesFrom() {
     return volumesFrom;
   }
-
 
   public void setVolumesFrom(List<String> volumesFrom) {
     this.volumesFrom = volumesFrom;
@@ -964,28 +886,27 @@ public class PodCreateOptions implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to PodCreateOptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (PodCreateOptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PodCreateOptions
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PodCreateOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in PodCreateOptions is not found in the empty JSON string", PodCreateOptions.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PodCreateOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PodCreateOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PodCreateOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cgroup_parent") != null && !jsonObj.get("cgroup_parent").isJsonNull()) && !jsonObj.get("cgroup_parent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cgroup_parent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cgroup_parent").toString()));
       }
@@ -1001,16 +922,16 @@ public class PodCreateOptions implements Serializable {
       if ((jsonObj.get("cpuset_cpus") != null && !jsonObj.get("cpuset_cpus").isJsonNull()) && !jsonObj.get("cpuset_cpus").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cpuset_cpus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cpuset_cpus").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("create_command") != null && !jsonObj.get("create_command").isJsonNull()) && !jsonObj.get("create_command").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("create_command") != null && !jsonObj.get("create_command").isJsonNull() && !jsonObj.get("create_command").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `create_command` to be an array in the JSON string but got `%s`", jsonObj.get("create_command").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("device_read_bps") != null && !jsonObj.get("device_read_bps").isJsonNull()) && !jsonObj.get("device_read_bps").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("device_read_bps") != null && !jsonObj.get("device_read_bps").isJsonNull() && !jsonObj.get("device_read_bps").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `device_read_bps` to be an array in the JSON string but got `%s`", jsonObj.get("device_read_bps").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("devices") != null && !jsonObj.get("devices").isJsonNull()) && !jsonObj.get("devices").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("devices") != null && !jsonObj.get("devices").isJsonNull() && !jsonObj.get("devices").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `devices` to be an array in the JSON string but got `%s`", jsonObj.get("devices").toString()));
       }
       if ((jsonObj.get("exit_policy") != null && !jsonObj.get("exit_policy").isJsonNull()) && !jsonObj.get("exit_policy").isJsonPrimitive()) {
@@ -1030,7 +951,7 @@ public class PodCreateOptions implements Serializable {
       }
       // validate the optional field `net`
       if (jsonObj.get("net") != null && !jsonObj.get("net").isJsonNull()) {
-        NetOptions.validateJsonObject(jsonObj.getAsJsonObject("net"));
+        NetOptions.validateJsonElement(jsonObj.get("net"));
       }
       if ((jsonObj.get("pid") != null && !jsonObj.get("pid").isJsonNull()) && !jsonObj.get("pid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pid").toString()));
@@ -1038,27 +959,27 @@ public class PodCreateOptions implements Serializable {
       if ((jsonObj.get("restart") != null && !jsonObj.get("restart").isJsonNull()) && !jsonObj.get("restart").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `restart` to be a primitive type in the JSON string but got `%s`", jsonObj.get("restart").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("security_opt") != null && !jsonObj.get("security_opt").isJsonNull()) && !jsonObj.get("security_opt").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("security_opt") != null && !jsonObj.get("security_opt").isJsonNull() && !jsonObj.get("security_opt").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `security_opt` to be an array in the JSON string but got `%s`", jsonObj.get("security_opt").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("share") != null && !jsonObj.get("share").isJsonNull()) && !jsonObj.get("share").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("share") != null && !jsonObj.get("share").isJsonNull() && !jsonObj.get("share").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `share` to be an array in the JSON string but got `%s`", jsonObj.get("share").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("sysctl") != null && !jsonObj.get("sysctl").isJsonNull()) && !jsonObj.get("sysctl").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sysctl") != null && !jsonObj.get("sysctl").isJsonNull() && !jsonObj.get("sysctl").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `sysctl` to be an array in the JSON string but got `%s`", jsonObj.get("sysctl").toString()));
       }
       if ((jsonObj.get("uts") != null && !jsonObj.get("uts").isJsonNull()) && !jsonObj.get("uts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uts").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("volume") != null && !jsonObj.get("volume").isJsonNull()) && !jsonObj.get("volume").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volume") != null && !jsonObj.get("volume").isJsonNull() && !jsonObj.get("volume").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volume` to be an array in the JSON string but got `%s`", jsonObj.get("volume").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull()) && !jsonObj.get("volumes_from").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull() && !jsonObj.get("volumes_from").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumes_from` to be an array in the JSON string but got `%s`", jsonObj.get("volumes_from").toString()));
       }
   }
@@ -1083,31 +1004,31 @@ public class PodCreateOptions implements Serializable {
 
            @Override
            public PodCreateOptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of PodCreateOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PodCreateOptions
-  * @throws IOException if the JSON string is invalid with respect to PodCreateOptions
-  */
+  /**
+   * Create an instance of PodCreateOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PodCreateOptions
+   * @throws IOException if the JSON string is invalid with respect to PodCreateOptions
+   */
   public static PodCreateOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PodCreateOptions.class);
   }
 
- /**
-  * Convert an instance of PodCreateOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PodCreateOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

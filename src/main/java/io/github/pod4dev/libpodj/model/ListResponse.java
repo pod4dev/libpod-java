@@ -14,21 +14,19 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Volume;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,24 +54,22 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Volume list response
  */
-@ApiModel(description = "Volume list response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ListResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_VOLUMES = "Volumes";
   @SerializedName(SERIALIZED_NAME_VOLUMES)
-  private List<Volume> volumes = null;
+  private List<@Valid Volume> volumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WARNINGS = "Warnings";
   @SerializedName(SERIALIZED_NAME_WARNINGS)
-  private List<String> warnings = null;
+  private List<String> warnings = new ArrayList<>();
 
   public ListResponse() {
   }
 
-  public ListResponse volumes(List<Volume> volumes) {
-    
+  public ListResponse volumes(List<@Valid Volume> volumes) {
     this.volumes = volumes;
     return this;
   }
@@ -83,26 +82,23 @@ public class ListResponse implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * List of volumes
    * @return volumes
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "List of volumes")
 
-  public List<Volume> getVolumes() {
+  public List<@Valid Volume> getVolumes() {
     return volumes;
   }
 
-
-  public void setVolumes(List<Volume> volumes) {
+  public void setVolumes(List<@Valid Volume> volumes) {
     this.volumes = volumes;
   }
 
 
   public ListResponse warnings(List<String> warnings) {
-    
     this.warnings = warnings;
     return this;
   }
@@ -115,17 +111,15 @@ public class ListResponse implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Warnings that occurred when fetching the list of volumes.
    * @return warnings
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Warnings that occurred when fetching the list of volumes.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getWarnings() {
     return warnings;
   }
-
 
   public void setWarnings(List<String> warnings) {
     this.warnings = warnings;
@@ -186,28 +180,27 @@ public class ListResponse implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ListResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ListResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ListResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ListResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ListResponse is not found in the empty JSON string", ListResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ListResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("Volumes") != null && !jsonObj.get("Volumes").isJsonNull()) {
         JsonArray jsonArrayvolumes = jsonObj.getAsJsonArray("Volumes");
         if (jsonArrayvolumes != null) {
@@ -218,12 +211,12 @@ public class ListResponse implements Serializable {
 
           // validate the optional field `Volumes` (array)
           for (int i = 0; i < jsonArrayvolumes.size(); i++) {
-            Volume.validateJsonObject(jsonArrayvolumes.get(i).getAsJsonObject());
+            Volume.validateJsonElement(jsonArrayvolumes.get(i));
           };
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Warnings") != null && !jsonObj.get("Warnings").isJsonNull()) && !jsonObj.get("Warnings").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Warnings") != null && !jsonObj.get("Warnings").isJsonNull() && !jsonObj.get("Warnings").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Warnings` to be an array in the JSON string but got `%s`", jsonObj.get("Warnings").toString()));
       }
   }
@@ -248,31 +241,31 @@ public class ListResponse implements Serializable {
 
            @Override
            public ListResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ListResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ListResponse
-  * @throws IOException if the JSON string is invalid with respect to ListResponse
-  */
+  /**
+   * Create an instance of ListResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ListResponse
+   * @throws IOException if the JSON string is invalid with respect to ListResponse
+   */
   public static ListResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ListResponse.class);
   }
 
- /**
-  * Convert an instance of ListResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ListResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

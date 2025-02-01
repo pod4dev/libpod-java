@@ -15,7 +15,7 @@ All URIs are relative to *http://podman.io*
 | [**networkUpdateLibpod**](NetworksApi.md#networkUpdateLibpod) | **POST** /libpod/networks/{name}/update | Update existing podman network |
 
 
-<a name="networkConnectLibpod"></a>
+<a id="networkConnectLibpod"></a>
 # **networkConnectLibpod**
 > networkConnectLibpod(name).create(create).execute();
 
@@ -82,7 +82,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkCreateLibpod"></a>
+<a id="networkCreateLibpod"></a>
 # **networkCreateLibpod**
 > Network networkCreateLibpod().create(create).execute();
 
@@ -149,7 +149,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkDeleteLibpod"></a>
+<a id="networkDeleteLibpod"></a>
 # **networkDeleteLibpod**
 > List&lt;NetworkRmReport&gt; networkDeleteLibpod(name).force(force).execute();
 
@@ -217,7 +217,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkDisconnectLibpod"></a>
+<a id="networkDisconnectLibpod"></a>
 # **networkDisconnectLibpod**
 > networkDisconnectLibpod(name).create(create).execute();
 
@@ -284,7 +284,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkExistsLibpod"></a>
+<a id="networkExistsLibpod"></a>
 # **networkExistsLibpod**
 > networkExistsLibpod(name).execute();
 
@@ -348,7 +348,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkInspectLibpod"></a>
+<a id="networkInspectLibpod"></a>
 # **networkInspectLibpod**
 > NetworkInspectReport networkInspectLibpod(name).execute();
 
@@ -413,7 +413,7 @@ No authorization required
 | **404** | No such network |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkListLibpod"></a>
+<a id="networkListLibpod"></a>
 # **networkListLibpod**
 > List&lt;Network&gt; networkListLibpod().filters(filters).execute();
 
@@ -478,7 +478,7 @@ No authorization required
 | **200** | Network list |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkPruneLibpod"></a>
+<a id="networkPruneLibpod"></a>
 # **networkPruneLibpod**
 > List&lt;NetworkPruneReport&gt; networkPruneLibpod().filters(filters).execute();
 
@@ -543,7 +543,7 @@ No authorization required
 | **200** | Network prune |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="networkUpdateLibpod"></a>
+<a id="networkUpdateLibpod"></a>
 # **networkUpdateLibpod**
 > networkUpdateLibpod(name).update(update).execute();
 

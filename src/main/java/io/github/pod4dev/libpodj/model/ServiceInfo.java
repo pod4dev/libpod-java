@@ -14,21 +14,19 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Task;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,8 +54,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ServiceInfo represents service parameters with the list of service&#39;s tasks
  */
-@ApiModel(description = "ServiceInfo represents service parameters with the list of service's tasks")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ServiceInfo implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -64,11 +64,11 @@ public class ServiceInfo implements Serializable {
 
   public static final String SERIALIZED_NAME_PORTS = "Ports";
   @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<String> ports = null;
+  private List<String> ports = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TASKS = "Tasks";
   @SerializedName(SERIALIZED_NAME_TASKS)
-  private List<Task> tasks = null;
+  private List<@Valid Task> tasks = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_V_I_P = "VIP";
   @SerializedName(SERIALIZED_NAME_V_I_P)
@@ -78,22 +78,19 @@ public class ServiceInfo implements Serializable {
   }
 
   public ServiceInfo localLBIndex(Long localLBIndex) {
-    
     this.localLBIndex = localLBIndex;
     return this;
   }
 
-   /**
+  /**
    * Get localLBIndex
    * @return localLBIndex
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getLocalLBIndex() {
     return localLBIndex;
   }
-
 
   public void setLocalLBIndex(Long localLBIndex) {
     this.localLBIndex = localLBIndex;
@@ -101,7 +98,6 @@ public class ServiceInfo implements Serializable {
 
 
   public ServiceInfo ports(List<String> ports) {
-    
     this.ports = ports;
     return this;
   }
@@ -114,25 +110,22 @@ public class ServiceInfo implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get ports
    * @return ports
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getPorts() {
     return ports;
   }
-
 
   public void setPorts(List<String> ports) {
     this.ports = ports;
   }
 
 
-  public ServiceInfo tasks(List<Task> tasks) {
-    
+  public ServiceInfo tasks(List<@Valid Task> tasks) {
     this.tasks = tasks;
     return this;
   }
@@ -145,41 +138,36 @@ public class ServiceInfo implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get tasks
    * @return tasks
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<Task> getTasks() {
+  public List<@Valid Task> getTasks() {
     return tasks;
   }
 
-
-  public void setTasks(List<Task> tasks) {
+  public void setTasks(List<@Valid Task> tasks) {
     this.tasks = tasks;
   }
 
 
   public ServiceInfo VIP(String VIP) {
-    
     this.VIP = VIP;
     return this;
   }
 
-   /**
+  /**
    * Get VIP
    * @return VIP
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVIP() {
     return VIP;
   }
-
 
   public void setVIP(String VIP) {
     this.VIP = VIP;
@@ -246,30 +234,29 @@ public class ServiceInfo implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ServiceInfo
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ServiceInfo.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ServiceInfo
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ServiceInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ServiceInfo is not found in the empty JSON string", ServiceInfo.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ServiceInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServiceInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServiceInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Ports") != null && !jsonObj.get("Ports").isJsonNull()) && !jsonObj.get("Ports").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Ports") != null && !jsonObj.get("Ports").isJsonNull() && !jsonObj.get("Ports").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Ports` to be an array in the JSON string but got `%s`", jsonObj.get("Ports").toString()));
       }
       if (jsonObj.get("Tasks") != null && !jsonObj.get("Tasks").isJsonNull()) {
@@ -282,7 +269,7 @@ public class ServiceInfo implements Serializable {
 
           // validate the optional field `Tasks` (array)
           for (int i = 0; i < jsonArraytasks.size(); i++) {
-            Task.validateJsonObject(jsonArraytasks.get(i).getAsJsonObject());
+            Task.validateJsonElement(jsonArraytasks.get(i));
           };
         }
       }
@@ -311,31 +298,31 @@ public class ServiceInfo implements Serializable {
 
            @Override
            public ServiceInfo read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ServiceInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ServiceInfo
-  * @throws IOException if the JSON string is invalid with respect to ServiceInfo
-  */
+  /**
+   * Create an instance of ServiceInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ServiceInfo
+   * @throws IOException if the JSON string is invalid with respect to ServiceInfo
+   */
   public static ServiceInfo fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ServiceInfo.class);
   }
 
- /**
-  * Convert an instance of ServiceInfo to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ServiceInfo to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

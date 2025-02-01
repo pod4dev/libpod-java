@@ -14,22 +14,20 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -54,8 +55,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ManifestAddOptions provides model for adding digests to manifest list
  */
-@ApiModel(description = "ManifestAddOptions provides model for adding digests to manifest list")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ManifestAddOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -65,11 +65,11 @@ public class ManifestAddOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_ANNOTATION = "annotation";
   @SerializedName(SERIALIZED_NAME_ANNOTATION)
-  private List<String> annotation = null;
+  private List<String> annotation = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-  private Map<String, String> annotations = null;
+  private Map<String, String> annotations = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ARCH = "arch";
   @SerializedName(SERIALIZED_NAME_ARCH)
@@ -77,19 +77,19 @@ public class ManifestAddOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_FEATURES = "features";
   @SerializedName(SERIALIZED_NAME_FEATURES)
-  private List<String> features = null;
+  private List<String> features = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMAGES = "images";
   @SerializedName(SERIALIZED_NAME_IMAGES)
-  private List<String> images = null;
+  private List<String> images = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INDEX_ANNOTATION = "index_annotation";
   @SerializedName(SERIALIZED_NAME_INDEX_ANNOTATION)
-  private List<String> indexAnnotation = null;
+  private List<String> indexAnnotation = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INDEX_ANNOTATIONS = "index_annotations";
   @SerializedName(SERIALIZED_NAME_INDEX_ANNOTATIONS)
-  private Map<String, String> indexAnnotations = null;
+  private Map<String, String> indexAnnotations = new HashMap<>();
 
   public static final String SERIALIZED_NAME_OS = "os";
   @SerializedName(SERIALIZED_NAME_OS)
@@ -97,7 +97,7 @@ public class ManifestAddOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_OS_FEATURES = "os_features";
   @SerializedName(SERIALIZED_NAME_OS_FEATURES)
-  private List<String> osFeatures = null;
+  private List<String> osFeatures = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OS_VERSION = "os_version";
   @SerializedName(SERIALIZED_NAME_OS_VERSION)
@@ -115,22 +115,19 @@ public class ManifestAddOptions implements Serializable {
   }
 
   public ManifestAddOptions all(Boolean all) {
-    
     this.all = all;
     return this;
   }
 
-   /**
+  /**
    * True when operating on a list to include all images
    * @return all
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "True when operating on a list to include all images")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getAll() {
     return all;
   }
-
 
   public void setAll(Boolean all) {
     this.all = all;
@@ -138,7 +135,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions annotation(List<String> annotation) {
-    
     this.annotation = annotation;
     return this;
   }
@@ -151,17 +147,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Annotation to add to the item in the manifest list
    * @return annotation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Annotation to add to the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getAnnotation() {
     return annotation;
   }
-
 
   public void setAnnotation(List<String> annotation) {
     this.annotation = annotation;
@@ -169,7 +163,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions annotations(Map<String, String> annotations) {
-    
     this.annotations = annotations;
     return this;
   }
@@ -182,17 +175,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Annotations to add to the item in the manifest list by a map which is preferred over Annotation
    * @return annotations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Annotations to add to the item in the manifest list by a map which is preferred over Annotation")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getAnnotations() {
     return annotations;
   }
-
 
   public void setAnnotations(Map<String, String> annotations) {
     this.annotations = annotations;
@@ -200,22 +191,19 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions arch(String arch) {
-    
     this.arch = arch;
     return this;
   }
 
-   /**
+  /**
    * Arch overrides the architecture for the item in the manifest list
    * @return arch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Arch overrides the architecture for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public String getArch() {
     return arch;
   }
-
 
   public void setArch(String arch) {
     this.arch = arch;
@@ -223,7 +211,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions features(List<String> features) {
-    
     this.features = features;
     return this;
   }
@@ -236,17 +223,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Feature list for the item in the manifest list
    * @return features
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Feature list for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getFeatures() {
     return features;
   }
-
 
   public void setFeatures(List<String> features) {
     this.features = features;
@@ -254,7 +239,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions images(List<String> images) {
-    
     this.images = images;
     return this;
   }
@@ -267,17 +251,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Images is an optional list of image references to add to manifest list
    * @return images
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Images is an optional list of image references to add to manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getImages() {
     return images;
   }
-
 
   public void setImages(List<String> images) {
     this.images = images;
@@ -285,7 +267,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions indexAnnotation(List<String> indexAnnotation) {
-    
     this.indexAnnotation = indexAnnotation;
     return this;
   }
@@ -298,17 +279,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * IndexAnnotation is a slice of key&#x3D;value annotations to add to the manifest list itself
    * @return indexAnnotation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IndexAnnotation is a slice of key=value annotations to add to the manifest list itself")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getIndexAnnotation() {
     return indexAnnotation;
   }
-
 
   public void setIndexAnnotation(List<String> indexAnnotation) {
     this.indexAnnotation = indexAnnotation;
@@ -316,7 +295,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions indexAnnotations(Map<String, String> indexAnnotations) {
-    
     this.indexAnnotations = indexAnnotations;
     return this;
   }
@@ -329,17 +307,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * IndexAnnotations is a map of key:value annotations to add to the manifest list itself, by a map which is preferred over IndexAnnotation
    * @return indexAnnotations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IndexAnnotations is a map of key:value annotations to add to the manifest list itself, by a map which is preferred over IndexAnnotation")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getIndexAnnotations() {
     return indexAnnotations;
   }
-
 
   public void setIndexAnnotations(Map<String, String> indexAnnotations) {
     this.indexAnnotations = indexAnnotations;
@@ -347,22 +323,19 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions os(String os) {
-    
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * OS overrides the operating system for the item in the manifest list
    * @return os
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OS overrides the operating system for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOs() {
     return os;
   }
-
 
   public void setOs(String os) {
     this.os = os;
@@ -370,7 +343,6 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions osFeatures(List<String> osFeatures) {
-    
     this.osFeatures = osFeatures;
     return this;
   }
@@ -383,17 +355,15 @@ public class ManifestAddOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * OS features for the item in the manifest list
    * @return osFeatures
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OS features for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getOsFeatures() {
     return osFeatures;
   }
-
 
   public void setOsFeatures(List<String> osFeatures) {
     this.osFeatures = osFeatures;
@@ -401,22 +371,19 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions osVersion(String osVersion) {
-    
     this.osVersion = osVersion;
     return this;
   }
 
-   /**
+  /**
    * OSVersion overrides the operating system for the item in the manifest list
    * @return osVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OSVersion overrides the operating system for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOsVersion() {
     return osVersion;
   }
-
 
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
@@ -424,22 +391,19 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions subject(String subject) {
-    
     this.subject = subject;
     return this;
   }
 
-   /**
+  /**
    * IndexSubject is a subject value to set in the manifest list itself
    * @return subject
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "IndexSubject is a subject value to set in the manifest list itself")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSubject() {
     return subject;
   }
-
 
   public void setSubject(String subject) {
     this.subject = subject;
@@ -447,22 +411,19 @@ public class ManifestAddOptions implements Serializable {
 
 
   public ManifestAddOptions variant(String variant) {
-    
     this.variant = variant;
     return this;
   }
 
-   /**
+  /**
    * Variant for the item in the manifest list
    * @return variant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Variant for the item in the manifest list")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVariant() {
     return variant;
   }
-
 
   public void setVariant(String variant) {
     this.variant = variant;
@@ -556,52 +517,51 @@ public class ManifestAddOptions implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ManifestAddOptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ManifestAddOptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ManifestAddOptions
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ManifestAddOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ManifestAddOptions is not found in the empty JSON string", ManifestAddOptions.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ManifestAddOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManifestAddOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManifestAddOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("annotation") != null && !jsonObj.get("annotation").isJsonNull()) && !jsonObj.get("annotation").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("annotation") != null && !jsonObj.get("annotation").isJsonNull() && !jsonObj.get("annotation").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `annotation` to be an array in the JSON string but got `%s`", jsonObj.get("annotation").toString()));
       }
       if ((jsonObj.get("arch") != null && !jsonObj.get("arch").isJsonNull()) && !jsonObj.get("arch").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `arch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("arch").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("features") != null && !jsonObj.get("features").isJsonNull()) && !jsonObj.get("features").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("features") != null && !jsonObj.get("features").isJsonNull() && !jsonObj.get("features").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `features` to be an array in the JSON string but got `%s`", jsonObj.get("features").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("images") != null && !jsonObj.get("images").isJsonNull()) && !jsonObj.get("images").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("images") != null && !jsonObj.get("images").isJsonNull() && !jsonObj.get("images").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `images` to be an array in the JSON string but got `%s`", jsonObj.get("images").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("index_annotation") != null && !jsonObj.get("index_annotation").isJsonNull()) && !jsonObj.get("index_annotation").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("index_annotation") != null && !jsonObj.get("index_annotation").isJsonNull() && !jsonObj.get("index_annotation").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `index_annotation` to be an array in the JSON string but got `%s`", jsonObj.get("index_annotation").toString()));
       }
       if ((jsonObj.get("os") != null && !jsonObj.get("os").isJsonNull()) && !jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("os_features") != null && !jsonObj.get("os_features").isJsonNull()) && !jsonObj.get("os_features").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("os_features") != null && !jsonObj.get("os_features").isJsonNull() && !jsonObj.get("os_features").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `os_features` to be an array in the JSON string but got `%s`", jsonObj.get("os_features").toString()));
       }
       if ((jsonObj.get("os_version") != null && !jsonObj.get("os_version").isJsonNull()) && !jsonObj.get("os_version").isJsonPrimitive()) {
@@ -635,31 +595,31 @@ public class ManifestAddOptions implements Serializable {
 
            @Override
            public ManifestAddOptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ManifestAddOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ManifestAddOptions
-  * @throws IOException if the JSON string is invalid with respect to ManifestAddOptions
-  */
+  /**
+   * Create an instance of ManifestAddOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ManifestAddOptions
+   * @throws IOException if the JSON string is invalid with respect to ManifestAddOptions
+   */
   public static ManifestAddOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ManifestAddOptions.class);
   }
 
- /**
-  * Convert an instance of ManifestAddOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ManifestAddOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

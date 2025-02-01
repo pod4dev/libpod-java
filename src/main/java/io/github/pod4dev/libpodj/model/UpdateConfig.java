@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,14 +25,13 @@ import io.github.pod4dev.libpodj.model.RestartPolicy;
 import io.github.pod4dev.libpodj.model.ThrottleDevice;
 import io.github.pod4dev.libpodj.model.Ulimit;
 import io.github.pod4dev.libpodj.model.WeightDevice;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,12 +43,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -58,26 +59,25 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Those attributes can be updated at runtime.
  */
-@ApiModel(description = "Those attributes can be updated at runtime.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class UpdateConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_BLKIO_DEVICE_READ_BPS = "BlkioDeviceReadBps";
   @SerializedName(SERIALIZED_NAME_BLKIO_DEVICE_READ_BPS)
-  private List<ThrottleDevice> blkioDeviceReadBps = null;
+  private List<@Valid ThrottleDevice> blkioDeviceReadBps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BLKIO_DEVICE_READ_I_OPS = "BlkioDeviceReadIOps";
   @SerializedName(SERIALIZED_NAME_BLKIO_DEVICE_READ_I_OPS)
-  private List<ThrottleDevice> blkioDeviceReadIOps = null;
+  private List<@Valid ThrottleDevice> blkioDeviceReadIOps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BLKIO_DEVICE_WRITE_BPS = "BlkioDeviceWriteBps";
   @SerializedName(SERIALIZED_NAME_BLKIO_DEVICE_WRITE_BPS)
-  private List<ThrottleDevice> blkioDeviceWriteBps = null;
+  private List<@Valid ThrottleDevice> blkioDeviceWriteBps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BLKIO_DEVICE_WRITE_I_OPS = "BlkioDeviceWriteIOps";
   @SerializedName(SERIALIZED_NAME_BLKIO_DEVICE_WRITE_I_OPS)
-  private List<ThrottleDevice> blkioDeviceWriteIOps = null;
+  private List<@Valid ThrottleDevice> blkioDeviceWriteIOps = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BLKIO_WEIGHT = "BlkioWeight";
   @SerializedName(SERIALIZED_NAME_BLKIO_WEIGHT)
@@ -85,7 +85,7 @@ public class UpdateConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_BLKIO_WEIGHT_DEVICE = "BlkioWeightDevice";
   @SerializedName(SERIALIZED_NAME_BLKIO_WEIGHT_DEVICE)
-  private List<WeightDevice> blkioWeightDevice = null;
+  private List<@Valid WeightDevice> blkioWeightDevice = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CGROUP_PARENT = "CgroupParent";
   @SerializedName(SERIALIZED_NAME_CGROUP_PARENT)
@@ -129,15 +129,15 @@ public class UpdateConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_DEVICE_CGROUP_RULES = "DeviceCgroupRules";
   @SerializedName(SERIALIZED_NAME_DEVICE_CGROUP_RULES)
-  private List<String> deviceCgroupRules = null;
+  private List<String> deviceCgroupRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICE_REQUESTS = "DeviceRequests";
   @SerializedName(SERIALIZED_NAME_DEVICE_REQUESTS)
-  private List<DeviceRequest> deviceRequests = null;
+  private List<@Valid DeviceRequest> deviceRequests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICES = "Devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<DeviceMapping> devices = null;
+  private List<@Valid DeviceMapping> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IO_MAXIMUM_BANDWIDTH = "IOMaximumBandwidth";
   @SerializedName(SERIALIZED_NAME_IO_MAXIMUM_BANDWIDTH)
@@ -189,13 +189,12 @@ public class UpdateConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_ULIMITS = "Ulimits";
   @SerializedName(SERIALIZED_NAME_ULIMITS)
-  private List<Ulimit> ulimits = null;
+  private List<@Valid Ulimit> ulimits = new ArrayList<>();
 
   public UpdateConfig() {
   }
 
-  public UpdateConfig blkioDeviceReadBps(List<ThrottleDevice> blkioDeviceReadBps) {
-    
+  public UpdateConfig blkioDeviceReadBps(List<@Valid ThrottleDevice> blkioDeviceReadBps) {
     this.blkioDeviceReadBps = blkioDeviceReadBps;
     return this;
   }
@@ -208,26 +207,23 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get blkioDeviceReadBps
    * @return blkioDeviceReadBps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<ThrottleDevice> getBlkioDeviceReadBps() {
+  public List<@Valid ThrottleDevice> getBlkioDeviceReadBps() {
     return blkioDeviceReadBps;
   }
 
-
-  public void setBlkioDeviceReadBps(List<ThrottleDevice> blkioDeviceReadBps) {
+  public void setBlkioDeviceReadBps(List<@Valid ThrottleDevice> blkioDeviceReadBps) {
     this.blkioDeviceReadBps = blkioDeviceReadBps;
   }
 
 
-  public UpdateConfig blkioDeviceReadIOps(List<ThrottleDevice> blkioDeviceReadIOps) {
-    
+  public UpdateConfig blkioDeviceReadIOps(List<@Valid ThrottleDevice> blkioDeviceReadIOps) {
     this.blkioDeviceReadIOps = blkioDeviceReadIOps;
     return this;
   }
@@ -240,26 +236,23 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get blkioDeviceReadIOps
    * @return blkioDeviceReadIOps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<ThrottleDevice> getBlkioDeviceReadIOps() {
+  public List<@Valid ThrottleDevice> getBlkioDeviceReadIOps() {
     return blkioDeviceReadIOps;
   }
 
-
-  public void setBlkioDeviceReadIOps(List<ThrottleDevice> blkioDeviceReadIOps) {
+  public void setBlkioDeviceReadIOps(List<@Valid ThrottleDevice> blkioDeviceReadIOps) {
     this.blkioDeviceReadIOps = blkioDeviceReadIOps;
   }
 
 
-  public UpdateConfig blkioDeviceWriteBps(List<ThrottleDevice> blkioDeviceWriteBps) {
-    
+  public UpdateConfig blkioDeviceWriteBps(List<@Valid ThrottleDevice> blkioDeviceWriteBps) {
     this.blkioDeviceWriteBps = blkioDeviceWriteBps;
     return this;
   }
@@ -272,26 +265,23 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get blkioDeviceWriteBps
    * @return blkioDeviceWriteBps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<ThrottleDevice> getBlkioDeviceWriteBps() {
+  public List<@Valid ThrottleDevice> getBlkioDeviceWriteBps() {
     return blkioDeviceWriteBps;
   }
 
-
-  public void setBlkioDeviceWriteBps(List<ThrottleDevice> blkioDeviceWriteBps) {
+  public void setBlkioDeviceWriteBps(List<@Valid ThrottleDevice> blkioDeviceWriteBps) {
     this.blkioDeviceWriteBps = blkioDeviceWriteBps;
   }
 
 
-  public UpdateConfig blkioDeviceWriteIOps(List<ThrottleDevice> blkioDeviceWriteIOps) {
-    
+  public UpdateConfig blkioDeviceWriteIOps(List<@Valid ThrottleDevice> blkioDeviceWriteIOps) {
     this.blkioDeviceWriteIOps = blkioDeviceWriteIOps;
     return this;
   }
@@ -304,49 +294,43 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get blkioDeviceWriteIOps
    * @return blkioDeviceWriteIOps
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<ThrottleDevice> getBlkioDeviceWriteIOps() {
+  public List<@Valid ThrottleDevice> getBlkioDeviceWriteIOps() {
     return blkioDeviceWriteIOps;
   }
 
-
-  public void setBlkioDeviceWriteIOps(List<ThrottleDevice> blkioDeviceWriteIOps) {
+  public void setBlkioDeviceWriteIOps(List<@Valid ThrottleDevice> blkioDeviceWriteIOps) {
     this.blkioDeviceWriteIOps = blkioDeviceWriteIOps;
   }
 
 
   public UpdateConfig blkioWeight(Integer blkioWeight) {
-    
     this.blkioWeight = blkioWeight;
     return this;
   }
 
-   /**
+  /**
    * Get blkioWeight
    * @return blkioWeight
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getBlkioWeight() {
     return blkioWeight;
   }
-
 
   public void setBlkioWeight(Integer blkioWeight) {
     this.blkioWeight = blkioWeight;
   }
 
 
-  public UpdateConfig blkioWeightDevice(List<WeightDevice> blkioWeightDevice) {
-    
+  public UpdateConfig blkioWeightDevice(List<@Valid WeightDevice> blkioWeightDevice) {
     this.blkioWeightDevice = blkioWeightDevice;
     return this;
   }
@@ -359,41 +343,36 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get blkioWeightDevice
    * @return blkioWeightDevice
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<WeightDevice> getBlkioWeightDevice() {
+  public List<@Valid WeightDevice> getBlkioWeightDevice() {
     return blkioWeightDevice;
   }
 
-
-  public void setBlkioWeightDevice(List<WeightDevice> blkioWeightDevice) {
+  public void setBlkioWeightDevice(List<@Valid WeightDevice> blkioWeightDevice) {
     this.blkioWeightDevice = blkioWeightDevice;
   }
 
 
   public UpdateConfig cgroupParent(String cgroupParent) {
-    
     this.cgroupParent = cgroupParent;
     return this;
   }
 
-   /**
+  /**
    * Applicable to UNIX platforms
    * @return cgroupParent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Applicable to UNIX platforms")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCgroupParent() {
     return cgroupParent;
   }
-
 
   public void setCgroupParent(String cgroupParent) {
     this.cgroupParent = cgroupParent;
@@ -401,22 +380,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuCount(Long cpuCount) {
-    
     this.cpuCount = cpuCount;
     return this;
   }
 
-   /**
+  /**
    * Applicable to Windows
    * @return cpuCount
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Applicable to Windows")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuCount() {
     return cpuCount;
   }
-
 
   public void setCpuCount(Long cpuCount) {
     this.cpuCount = cpuCount;
@@ -424,22 +400,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuPercent(Long cpuPercent) {
-    
     this.cpuPercent = cpuPercent;
     return this;
   }
 
-   /**
+  /**
    * Get cpuPercent
    * @return cpuPercent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuPercent() {
     return cpuPercent;
   }
-
 
   public void setCpuPercent(Long cpuPercent) {
     this.cpuPercent = cpuPercent;
@@ -447,22 +420,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuPeriod(Long cpuPeriod) {
-    
     this.cpuPeriod = cpuPeriod;
     return this;
   }
 
-   /**
+  /**
    * Get cpuPeriod
    * @return cpuPeriod
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuPeriod() {
     return cpuPeriod;
   }
-
 
   public void setCpuPeriod(Long cpuPeriod) {
     this.cpuPeriod = cpuPeriod;
@@ -470,22 +440,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuQuota(Long cpuQuota) {
-    
     this.cpuQuota = cpuQuota;
     return this;
   }
 
-   /**
+  /**
    * Get cpuQuota
    * @return cpuQuota
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuQuota() {
     return cpuQuota;
   }
-
 
   public void setCpuQuota(Long cpuQuota) {
     this.cpuQuota = cpuQuota;
@@ -493,22 +460,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuRealtimePeriod(Long cpuRealtimePeriod) {
-    
     this.cpuRealtimePeriod = cpuRealtimePeriod;
     return this;
   }
 
-   /**
+  /**
    * Get cpuRealtimePeriod
    * @return cpuRealtimePeriod
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuRealtimePeriod() {
     return cpuRealtimePeriod;
   }
-
 
   public void setCpuRealtimePeriod(Long cpuRealtimePeriod) {
     this.cpuRealtimePeriod = cpuRealtimePeriod;
@@ -516,22 +480,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuRealtimeRuntime(Long cpuRealtimeRuntime) {
-    
     this.cpuRealtimeRuntime = cpuRealtimeRuntime;
     return this;
   }
 
-   /**
+  /**
    * Get cpuRealtimeRuntime
    * @return cpuRealtimeRuntime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuRealtimeRuntime() {
     return cpuRealtimeRuntime;
   }
-
 
   public void setCpuRealtimeRuntime(Long cpuRealtimeRuntime) {
     this.cpuRealtimeRuntime = cpuRealtimeRuntime;
@@ -539,22 +500,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpuShares(Long cpuShares) {
-    
     this.cpuShares = cpuShares;
     return this;
   }
 
-   /**
+  /**
    * Applicable to all platforms
    * @return cpuShares
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Applicable to all platforms")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getCpuShares() {
     return cpuShares;
   }
-
 
   public void setCpuShares(Long cpuShares) {
     this.cpuShares = cpuShares;
@@ -562,22 +520,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpusetCpus(String cpusetCpus) {
-    
     this.cpusetCpus = cpusetCpus;
     return this;
   }
 
-   /**
+  /**
    * Get cpusetCpus
    * @return cpusetCpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetCpus() {
     return cpusetCpus;
   }
-
 
   public void setCpusetCpus(String cpusetCpus) {
     this.cpusetCpus = cpusetCpus;
@@ -585,22 +540,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig cpusetMems(String cpusetMems) {
-    
     this.cpusetMems = cpusetMems;
     return this;
   }
 
-   /**
+  /**
    * Get cpusetMems
    * @return cpusetMems
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getCpusetMems() {
     return cpusetMems;
   }
-
 
   public void setCpusetMems(String cpusetMems) {
     this.cpusetMems = cpusetMems;
@@ -608,7 +560,6 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig deviceCgroupRules(List<String> deviceCgroupRules) {
-    
     this.deviceCgroupRules = deviceCgroupRules;
     return this;
   }
@@ -621,25 +572,22 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get deviceCgroupRules
    * @return deviceCgroupRules
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDeviceCgroupRules() {
     return deviceCgroupRules;
   }
-
 
   public void setDeviceCgroupRules(List<String> deviceCgroupRules) {
     this.deviceCgroupRules = deviceCgroupRules;
   }
 
 
-  public UpdateConfig deviceRequests(List<DeviceRequest> deviceRequests) {
-    
+  public UpdateConfig deviceRequests(List<@Valid DeviceRequest> deviceRequests) {
     this.deviceRequests = deviceRequests;
     return this;
   }
@@ -652,26 +600,23 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get deviceRequests
    * @return deviceRequests
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<DeviceRequest> getDeviceRequests() {
+  public List<@Valid DeviceRequest> getDeviceRequests() {
     return deviceRequests;
   }
 
-
-  public void setDeviceRequests(List<DeviceRequest> deviceRequests) {
+  public void setDeviceRequests(List<@Valid DeviceRequest> deviceRequests) {
     this.deviceRequests = deviceRequests;
   }
 
 
-  public UpdateConfig devices(List<DeviceMapping> devices) {
-    
+  public UpdateConfig devices(List<@Valid DeviceMapping> devices) {
     this.devices = devices;
     return this;
   }
@@ -684,41 +629,36 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get devices
    * @return devices
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<DeviceMapping> getDevices() {
+  public List<@Valid DeviceMapping> getDevices() {
     return devices;
   }
 
-
-  public void setDevices(List<DeviceMapping> devices) {
+  public void setDevices(List<@Valid DeviceMapping> devices) {
     this.devices = devices;
   }
 
 
   public UpdateConfig ioMaximumBandwidth(Integer ioMaximumBandwidth) {
-    
     this.ioMaximumBandwidth = ioMaximumBandwidth;
     return this;
   }
 
-   /**
+  /**
    * Get ioMaximumBandwidth
    * @return ioMaximumBandwidth
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getIoMaximumBandwidth() {
     return ioMaximumBandwidth;
   }
-
 
   public void setIoMaximumBandwidth(Integer ioMaximumBandwidth) {
     this.ioMaximumBandwidth = ioMaximumBandwidth;
@@ -726,22 +666,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig ioMaximumIOps(Integer ioMaximumIOps) {
-    
     this.ioMaximumIOps = ioMaximumIOps;
     return this;
   }
 
-   /**
+  /**
    * Get ioMaximumIOps
    * @return ioMaximumIOps
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getIoMaximumIOps() {
     return ioMaximumIOps;
   }
-
 
   public void setIoMaximumIOps(Integer ioMaximumIOps) {
     this.ioMaximumIOps = ioMaximumIOps;
@@ -749,22 +686,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig kernelMemory(Long kernelMemory) {
-    
     this.kernelMemory = kernelMemory;
     return this;
   }
 
-   /**
+  /**
    * KernelMemory specifies the kernel memory limit (in bytes) for the container. Deprecated: kernel 5.4 deprecated kmem.limit_in_bytes.
    * @return kernelMemory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "KernelMemory specifies the kernel memory limit (in bytes) for the container. Deprecated: kernel 5.4 deprecated kmem.limit_in_bytes.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getKernelMemory() {
     return kernelMemory;
   }
-
 
   public void setKernelMemory(Long kernelMemory) {
     this.kernelMemory = kernelMemory;
@@ -772,22 +706,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig kernelMemoryTCP(Long kernelMemoryTCP) {
-    
     this.kernelMemoryTCP = kernelMemoryTCP;
     return this;
   }
 
-   /**
+  /**
    * Get kernelMemoryTCP
    * @return kernelMemoryTCP
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getKernelMemoryTCP() {
     return kernelMemoryTCP;
   }
-
 
   public void setKernelMemoryTCP(Long kernelMemoryTCP) {
     this.kernelMemoryTCP = kernelMemoryTCP;
@@ -795,22 +726,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig memory(Long memory) {
-    
     this.memory = memory;
     return this;
   }
 
-   /**
+  /**
    * Get memory
    * @return memory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMemory() {
     return memory;
   }
-
 
   public void setMemory(Long memory) {
     this.memory = memory;
@@ -818,22 +746,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig memoryReservation(Long memoryReservation) {
-    
     this.memoryReservation = memoryReservation;
     return this;
   }
 
-   /**
+  /**
    * Get memoryReservation
    * @return memoryReservation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMemoryReservation() {
     return memoryReservation;
   }
-
 
   public void setMemoryReservation(Long memoryReservation) {
     this.memoryReservation = memoryReservation;
@@ -841,22 +766,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig memorySwap(Long memorySwap) {
-    
     this.memorySwap = memorySwap;
     return this;
   }
 
-   /**
+  /**
    * Get memorySwap
    * @return memorySwap
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMemorySwap() {
     return memorySwap;
   }
-
 
   public void setMemorySwap(Long memorySwap) {
     this.memorySwap = memorySwap;
@@ -864,22 +786,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig memorySwappiness(Long memorySwappiness) {
-    
     this.memorySwappiness = memorySwappiness;
     return this;
   }
 
-   /**
+  /**
    * Get memorySwappiness
    * @return memorySwappiness
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getMemorySwappiness() {
     return memorySwappiness;
   }
-
 
   public void setMemorySwappiness(Long memorySwappiness) {
     this.memorySwappiness = memorySwappiness;
@@ -887,22 +806,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig nanoCpus(Long nanoCpus) {
-    
     this.nanoCpus = nanoCpus;
     return this;
   }
 
-   /**
+  /**
    * Get nanoCpus
    * @return nanoCpus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getNanoCpus() {
     return nanoCpus;
   }
-
 
   public void setNanoCpus(Long nanoCpus) {
     this.nanoCpus = nanoCpus;
@@ -910,22 +826,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig oomKillDisable(Boolean oomKillDisable) {
-    
     this.oomKillDisable = oomKillDisable;
     return this;
   }
 
-   /**
+  /**
    * Get oomKillDisable
    * @return oomKillDisable
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getOomKillDisable() {
     return oomKillDisable;
   }
-
 
   public void setOomKillDisable(Boolean oomKillDisable) {
     this.oomKillDisable = oomKillDisable;
@@ -933,22 +846,19 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig pidsLimit(Long pidsLimit) {
-    
     this.pidsLimit = pidsLimit;
     return this;
   }
 
-   /**
+  /**
    * Get pidsLimit
    * @return pidsLimit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getPidsLimit() {
     return pidsLimit;
   }
-
 
   public void setPidsLimit(Long pidsLimit) {
     this.pidsLimit = pidsLimit;
@@ -956,31 +866,27 @@ public class UpdateConfig implements Serializable {
 
 
   public UpdateConfig restartPolicy(RestartPolicy restartPolicy) {
-    
     this.restartPolicy = restartPolicy;
     return this;
   }
 
-   /**
+  /**
    * Get restartPolicy
    * @return restartPolicy
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public RestartPolicy getRestartPolicy() {
     return restartPolicy;
   }
-
 
   public void setRestartPolicy(RestartPolicy restartPolicy) {
     this.restartPolicy = restartPolicy;
   }
 
 
-  public UpdateConfig ulimits(List<Ulimit> ulimits) {
-    
+  public UpdateConfig ulimits(List<@Valid Ulimit> ulimits) {
     this.ulimits = ulimits;
     return this;
   }
@@ -993,20 +899,18 @@ public class UpdateConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get ulimits
    * @return ulimits
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<Ulimit> getUlimits() {
+  public List<@Valid Ulimit> getUlimits() {
     return ulimits;
   }
 
-
-  public void setUlimits(List<Ulimit> ulimits) {
+  public void setUlimits(List<@Valid Ulimit> ulimits) {
     this.ulimits = ulimits;
   }
 
@@ -1155,28 +1059,27 @@ public class UpdateConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to UpdateConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (UpdateConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to UpdateConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!UpdateConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateConfig is not found in the empty JSON string", UpdateConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("BlkioDeviceReadBps") != null && !jsonObj.get("BlkioDeviceReadBps").isJsonNull()) {
         JsonArray jsonArrayblkioDeviceReadBps = jsonObj.getAsJsonArray("BlkioDeviceReadBps");
         if (jsonArrayblkioDeviceReadBps != null) {
@@ -1187,7 +1090,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `BlkioDeviceReadBps` (array)
           for (int i = 0; i < jsonArrayblkioDeviceReadBps.size(); i++) {
-            ThrottleDevice.validateJsonObject(jsonArrayblkioDeviceReadBps.get(i).getAsJsonObject());
+            ThrottleDevice.validateJsonElement(jsonArrayblkioDeviceReadBps.get(i));
           };
         }
       }
@@ -1201,7 +1104,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `BlkioDeviceReadIOps` (array)
           for (int i = 0; i < jsonArrayblkioDeviceReadIOps.size(); i++) {
-            ThrottleDevice.validateJsonObject(jsonArrayblkioDeviceReadIOps.get(i).getAsJsonObject());
+            ThrottleDevice.validateJsonElement(jsonArrayblkioDeviceReadIOps.get(i));
           };
         }
       }
@@ -1215,7 +1118,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `BlkioDeviceWriteBps` (array)
           for (int i = 0; i < jsonArrayblkioDeviceWriteBps.size(); i++) {
-            ThrottleDevice.validateJsonObject(jsonArrayblkioDeviceWriteBps.get(i).getAsJsonObject());
+            ThrottleDevice.validateJsonElement(jsonArrayblkioDeviceWriteBps.get(i));
           };
         }
       }
@@ -1229,7 +1132,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `BlkioDeviceWriteIOps` (array)
           for (int i = 0; i < jsonArrayblkioDeviceWriteIOps.size(); i++) {
-            ThrottleDevice.validateJsonObject(jsonArrayblkioDeviceWriteIOps.get(i).getAsJsonObject());
+            ThrottleDevice.validateJsonElement(jsonArrayblkioDeviceWriteIOps.get(i));
           };
         }
       }
@@ -1243,7 +1146,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `BlkioWeightDevice` (array)
           for (int i = 0; i < jsonArrayblkioWeightDevice.size(); i++) {
-            WeightDevice.validateJsonObject(jsonArrayblkioWeightDevice.get(i).getAsJsonObject());
+            WeightDevice.validateJsonElement(jsonArrayblkioWeightDevice.get(i));
           };
         }
       }
@@ -1256,8 +1159,8 @@ public class UpdateConfig implements Serializable {
       if ((jsonObj.get("CpusetMems") != null && !jsonObj.get("CpusetMems").isJsonNull()) && !jsonObj.get("CpusetMems").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `CpusetMems` to be a primitive type in the JSON string but got `%s`", jsonObj.get("CpusetMems").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("DeviceCgroupRules") != null && !jsonObj.get("DeviceCgroupRules").isJsonNull()) && !jsonObj.get("DeviceCgroupRules").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("DeviceCgroupRules") != null && !jsonObj.get("DeviceCgroupRules").isJsonNull() && !jsonObj.get("DeviceCgroupRules").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `DeviceCgroupRules` to be an array in the JSON string but got `%s`", jsonObj.get("DeviceCgroupRules").toString()));
       }
       if (jsonObj.get("DeviceRequests") != null && !jsonObj.get("DeviceRequests").isJsonNull()) {
@@ -1270,7 +1173,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `DeviceRequests` (array)
           for (int i = 0; i < jsonArraydeviceRequests.size(); i++) {
-            DeviceRequest.validateJsonObject(jsonArraydeviceRequests.get(i).getAsJsonObject());
+            DeviceRequest.validateJsonElement(jsonArraydeviceRequests.get(i));
           };
         }
       }
@@ -1284,13 +1187,13 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `Devices` (array)
           for (int i = 0; i < jsonArraydevices.size(); i++) {
-            DeviceMapping.validateJsonObject(jsonArraydevices.get(i).getAsJsonObject());
+            DeviceMapping.validateJsonElement(jsonArraydevices.get(i));
           };
         }
       }
       // validate the optional field `RestartPolicy`
       if (jsonObj.get("RestartPolicy") != null && !jsonObj.get("RestartPolicy").isJsonNull()) {
-        RestartPolicy.validateJsonObject(jsonObj.getAsJsonObject("RestartPolicy"));
+        RestartPolicy.validateJsonElement(jsonObj.get("RestartPolicy"));
       }
       if (jsonObj.get("Ulimits") != null && !jsonObj.get("Ulimits").isJsonNull()) {
         JsonArray jsonArrayulimits = jsonObj.getAsJsonArray("Ulimits");
@@ -1302,7 +1205,7 @@ public class UpdateConfig implements Serializable {
 
           // validate the optional field `Ulimits` (array)
           for (int i = 0; i < jsonArrayulimits.size(); i++) {
-            Ulimit.validateJsonObject(jsonArrayulimits.get(i).getAsJsonObject());
+            Ulimit.validateJsonElement(jsonArrayulimits.get(i));
           };
         }
       }
@@ -1328,31 +1231,31 @@ public class UpdateConfig implements Serializable {
 
            @Override
            public UpdateConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of UpdateConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateConfig
-  * @throws IOException if the JSON string is invalid with respect to UpdateConfig
-  */
+  /**
+   * Create an instance of UpdateConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UpdateConfig
+   * @throws IOException if the JSON string is invalid with respect to UpdateConfig
+   */
   public static UpdateConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UpdateConfig.class);
   }
 
- /**
-  * Convert an instance of UpdateConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of UpdateConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

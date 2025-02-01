@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * HealthCheckLog describes the results of a single healthcheck
  */
-@ApiModel(description = "HealthCheckLog describes the results of a single healthcheck")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class HealthCheckLog implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,22 +75,19 @@ public class HealthCheckLog implements Serializable {
   }
 
   public HealthCheckLog end(String end) {
-    
     this.end = end;
     return this;
   }
 
-   /**
+  /**
    * End time as a string
    * @return end
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "End time as a string")
+   */
+  @jakarta.annotation.Nullable
 
   public String getEnd() {
     return end;
   }
-
 
   public void setEnd(String end) {
     this.end = end;
@@ -98,22 +95,19 @@ public class HealthCheckLog implements Serializable {
 
 
   public HealthCheckLog exitCode(Long exitCode) {
-    
     this.exitCode = exitCode;
     return this;
   }
 
-   /**
+  /**
    * Exitcode is 0 or 1
    * @return exitCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Exitcode is 0 or 1")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getExitCode() {
     return exitCode;
   }
-
 
   public void setExitCode(Long exitCode) {
     this.exitCode = exitCode;
@@ -121,22 +115,19 @@ public class HealthCheckLog implements Serializable {
 
 
   public HealthCheckLog output(String output) {
-    
     this.output = output;
     return this;
   }
 
-   /**
+  /**
    * Output is the stdout/stderr from the healthcheck command
    * @return output
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Output is the stdout/stderr from the healthcheck command")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOutput() {
     return output;
   }
-
 
   public void setOutput(String output) {
     this.output = output;
@@ -144,22 +135,19 @@ public class HealthCheckLog implements Serializable {
 
 
   public HealthCheckLog start(String start) {
-    
     this.start = start;
     return this;
   }
 
-   /**
+  /**
    * Start time as string
    * @return start
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Start time as string")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStart() {
     return start;
   }
-
 
   public void setStart(String start) {
     this.start = start;
@@ -226,28 +214,27 @@ public class HealthCheckLog implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HealthCheckLog
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (HealthCheckLog.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HealthCheckLog
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HealthCheckLog.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HealthCheckLog is not found in the empty JSON string", HealthCheckLog.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HealthCheckLog.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HealthCheckLog` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HealthCheckLog` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("End") != null && !jsonObj.get("End").isJsonNull()) && !jsonObj.get("End").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `End` to be a primitive type in the JSON string but got `%s`", jsonObj.get("End").toString()));
       }
@@ -279,31 +266,31 @@ public class HealthCheckLog implements Serializable {
 
            @Override
            public HealthCheckLog read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HealthCheckLog given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HealthCheckLog
-  * @throws IOException if the JSON string is invalid with respect to HealthCheckLog
-  */
+  /**
+   * Create an instance of HealthCheckLog given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HealthCheckLog
+   * @throws IOException if the JSON string is invalid with respect to HealthCheckLog
+   */
   public static HealthCheckLog fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HealthCheckLog.class);
   }
 
- /**
-  * Convert an instance of HealthCheckLog to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HealthCheckLog to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

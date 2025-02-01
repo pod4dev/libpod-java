@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,16 +27,15 @@ import io.github.pod4dev.libpodj.model.LinuxMemory;
 import io.github.pod4dev.libpodj.model.LinuxNetwork;
 import io.github.pod4dev.libpodj.model.LinuxPids;
 import io.github.pod4dev.libpodj.model.LinuxRdma;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,12 +47,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -62,8 +63,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * LinuxResources has container runtime resource constraints
  */
-@ApiModel(description = "LinuxResources has container runtime resource constraints")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class LinuxResources implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -77,11 +77,11 @@ public class LinuxResources implements Serializable {
 
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<LinuxDeviceCgroup> devices = null;
+  private List<@Valid LinuxDeviceCgroup> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HUGEPAGE_LIMITS = "hugepageLimits";
   @SerializedName(SERIALIZED_NAME_HUGEPAGE_LIMITS)
-  private List<LinuxHugepageLimit> hugepageLimits = null;
+  private List<@Valid LinuxHugepageLimit> hugepageLimits = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_MEMORY = "memory";
   @SerializedName(SERIALIZED_NAME_MEMORY)
@@ -97,33 +97,30 @@ public class LinuxResources implements Serializable {
 
   public static final String SERIALIZED_NAME_RDMA = "rdma";
   @SerializedName(SERIALIZED_NAME_RDMA)
-  private Map<String, LinuxRdma> rdma = null;
+  private Map<String, LinuxRdma> rdma = new HashMap<>();
 
   public static final String SERIALIZED_NAME_UNIFIED = "unified";
   @SerializedName(SERIALIZED_NAME_UNIFIED)
-  private Map<String, String> unified = null;
+  private Map<String, String> unified = new HashMap<>();
 
   public LinuxResources() {
   }
 
   public LinuxResources blockIO(LinuxBlockIO blockIO) {
-    
     this.blockIO = blockIO;
     return this;
   }
 
-   /**
+  /**
    * Get blockIO
    * @return blockIO
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LinuxBlockIO getBlockIO() {
     return blockIO;
   }
-
 
   public void setBlockIO(LinuxBlockIO blockIO) {
     this.blockIO = blockIO;
@@ -131,31 +128,27 @@ public class LinuxResources implements Serializable {
 
 
   public LinuxResources cpu(LinuxCPU cpu) {
-    
     this.cpu = cpu;
     return this;
   }
 
-   /**
+  /**
    * Get cpu
    * @return cpu
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LinuxCPU getCpu() {
     return cpu;
   }
-
 
   public void setCpu(LinuxCPU cpu) {
     this.cpu = cpu;
   }
 
 
-  public LinuxResources devices(List<LinuxDeviceCgroup> devices) {
-    
+  public LinuxResources devices(List<@Valid LinuxDeviceCgroup> devices) {
     this.devices = devices;
     return this;
   }
@@ -168,26 +161,23 @@ public class LinuxResources implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Devices configures the device allowlist.
    * @return devices
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Devices configures the device allowlist.")
 
-  public List<LinuxDeviceCgroup> getDevices() {
+  public List<@Valid LinuxDeviceCgroup> getDevices() {
     return devices;
   }
 
-
-  public void setDevices(List<LinuxDeviceCgroup> devices) {
+  public void setDevices(List<@Valid LinuxDeviceCgroup> devices) {
     this.devices = devices;
   }
 
 
-  public LinuxResources hugepageLimits(List<LinuxHugepageLimit> hugepageLimits) {
-    
+  public LinuxResources hugepageLimits(List<@Valid LinuxHugepageLimit> hugepageLimits) {
     this.hugepageLimits = hugepageLimits;
     return this;
   }
@@ -200,42 +190,37 @@ public class LinuxResources implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Hugetlb limits (in bytes). Default to reservation limits if supported.
    * @return hugepageLimits
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Hugetlb limits (in bytes). Default to reservation limits if supported.")
 
-  public List<LinuxHugepageLimit> getHugepageLimits() {
+  public List<@Valid LinuxHugepageLimit> getHugepageLimits() {
     return hugepageLimits;
   }
 
-
-  public void setHugepageLimits(List<LinuxHugepageLimit> hugepageLimits) {
+  public void setHugepageLimits(List<@Valid LinuxHugepageLimit> hugepageLimits) {
     this.hugepageLimits = hugepageLimits;
   }
 
 
   public LinuxResources memory(LinuxMemory memory) {
-    
     this.memory = memory;
     return this;
   }
 
-   /**
+  /**
    * Get memory
    * @return memory
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LinuxMemory getMemory() {
     return memory;
   }
-
 
   public void setMemory(LinuxMemory memory) {
     this.memory = memory;
@@ -243,23 +228,20 @@ public class LinuxResources implements Serializable {
 
 
   public LinuxResources network(LinuxNetwork network) {
-    
     this.network = network;
     return this;
   }
 
-   /**
+  /**
    * Get network
    * @return network
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LinuxNetwork getNetwork() {
     return network;
   }
-
 
   public void setNetwork(LinuxNetwork network) {
     this.network = network;
@@ -267,23 +249,20 @@ public class LinuxResources implements Serializable {
 
 
   public LinuxResources pids(LinuxPids pids) {
-    
     this.pids = pids;
     return this;
   }
 
-   /**
+  /**
    * Get pids
    * @return pids
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LinuxPids getPids() {
     return pids;
   }
-
 
   public void setPids(LinuxPids pids) {
     this.pids = pids;
@@ -291,7 +270,6 @@ public class LinuxResources implements Serializable {
 
 
   public LinuxResources rdma(Map<String, LinuxRdma> rdma) {
-    
     this.rdma = rdma;
     return this;
   }
@@ -304,18 +282,16 @@ public class LinuxResources implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Rdma resource restriction configuration. Limits are a set of key value pairs that define RDMA resource limits, where the key is device name and value is resource limits.
    * @return rdma
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Rdma resource restriction configuration. Limits are a set of key value pairs that define RDMA resource limits, where the key is device name and value is resource limits.")
 
   public Map<String, LinuxRdma> getRdma() {
     return rdma;
   }
-
 
   public void setRdma(Map<String, LinuxRdma> rdma) {
     this.rdma = rdma;
@@ -323,7 +299,6 @@ public class LinuxResources implements Serializable {
 
 
   public LinuxResources unified(Map<String, String> unified) {
-    
     this.unified = unified;
     return this;
   }
@@ -336,17 +311,15 @@ public class LinuxResources implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Unified resources.
    * @return unified
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unified resources.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getUnified() {
     return unified;
   }
-
 
   public void setUnified(Map<String, String> unified) {
     this.unified = unified;
@@ -428,35 +401,34 @@ public class LinuxResources implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LinuxResources
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (LinuxResources.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to LinuxResources
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!LinuxResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LinuxResources is not found in the empty JSON string", LinuxResources.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LinuxResources.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxResources` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinuxResources` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `blockIO`
       if (jsonObj.get("blockIO") != null && !jsonObj.get("blockIO").isJsonNull()) {
-        LinuxBlockIO.validateJsonObject(jsonObj.getAsJsonObject("blockIO"));
+        LinuxBlockIO.validateJsonElement(jsonObj.get("blockIO"));
       }
       // validate the optional field `cpu`
       if (jsonObj.get("cpu") != null && !jsonObj.get("cpu").isJsonNull()) {
-        LinuxCPU.validateJsonObject(jsonObj.getAsJsonObject("cpu"));
+        LinuxCPU.validateJsonElement(jsonObj.get("cpu"));
       }
       if (jsonObj.get("devices") != null && !jsonObj.get("devices").isJsonNull()) {
         JsonArray jsonArraydevices = jsonObj.getAsJsonArray("devices");
@@ -468,7 +440,7 @@ public class LinuxResources implements Serializable {
 
           // validate the optional field `devices` (array)
           for (int i = 0; i < jsonArraydevices.size(); i++) {
-            LinuxDeviceCgroup.validateJsonObject(jsonArraydevices.get(i).getAsJsonObject());
+            LinuxDeviceCgroup.validateJsonElement(jsonArraydevices.get(i));
           };
         }
       }
@@ -482,21 +454,21 @@ public class LinuxResources implements Serializable {
 
           // validate the optional field `hugepageLimits` (array)
           for (int i = 0; i < jsonArrayhugepageLimits.size(); i++) {
-            LinuxHugepageLimit.validateJsonObject(jsonArrayhugepageLimits.get(i).getAsJsonObject());
+            LinuxHugepageLimit.validateJsonElement(jsonArrayhugepageLimits.get(i));
           };
         }
       }
       // validate the optional field `memory`
       if (jsonObj.get("memory") != null && !jsonObj.get("memory").isJsonNull()) {
-        LinuxMemory.validateJsonObject(jsonObj.getAsJsonObject("memory"));
+        LinuxMemory.validateJsonElement(jsonObj.get("memory"));
       }
       // validate the optional field `network`
       if (jsonObj.get("network") != null && !jsonObj.get("network").isJsonNull()) {
-        LinuxNetwork.validateJsonObject(jsonObj.getAsJsonObject("network"));
+        LinuxNetwork.validateJsonElement(jsonObj.get("network"));
       }
       // validate the optional field `pids`
       if (jsonObj.get("pids") != null && !jsonObj.get("pids").isJsonNull()) {
-        LinuxPids.validateJsonObject(jsonObj.getAsJsonObject("pids"));
+        LinuxPids.validateJsonElement(jsonObj.get("pids"));
       }
   }
 
@@ -520,31 +492,31 @@ public class LinuxResources implements Serializable {
 
            @Override
            public LinuxResources read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of LinuxResources given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of LinuxResources
-  * @throws IOException if the JSON string is invalid with respect to LinuxResources
-  */
+  /**
+   * Create an instance of LinuxResources given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of LinuxResources
+   * @throws IOException if the JSON string is invalid with respect to LinuxResources
+   */
   public static LinuxResources fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LinuxResources.class);
   }
 
- /**
-  * Convert an instance of LinuxResources to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of LinuxResources to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

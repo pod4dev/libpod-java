@@ -10,7 +10,7 @@ All URIs are relative to *http://podman.io*
 | [**secretList**](SecretsCompatApi.md#secretList) | **GET** /secrets | List secrets |
 
 
-<a name="secretCreate"></a>
+<a id="secretCreate"></a>
 # **secretCreate**
 > SecretCreateLibpod201Response secretCreate().create(create).execute();
 
@@ -74,7 +74,7 @@ No authorization required
 | **409** | Secret in use |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="secretDelete"></a>
+<a id="secretDelete"></a>
 # **secretDelete**
 > secretDelete(name).execute();
 
@@ -136,7 +136,7 @@ No authorization required
 | **404** | No such secret |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="secretInspect"></a>
+<a id="secretInspect"></a>
 # **secretInspect**
 > SecretInfoReportCompat secretInspect(name).execute();
 
@@ -199,7 +199,7 @@ No authorization required
 | **404** | No such secret |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="secretList"></a>
+<a id="secretList"></a>
 # **secretList**
 > List&lt;SecretInfoReportCompat&gt; secretList().filters(filters).execute();
 

@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,7 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Version
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Version implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -94,22 +95,19 @@ public class Version implements Serializable {
   }
 
   public Version apIVersion(String apIVersion) {
-    
     this.apIVersion = apIVersion;
     return this;
   }
 
-   /**
+  /**
    * Get apIVersion
    * @return apIVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getApIVersion() {
     return apIVersion;
   }
-
 
   public void setApIVersion(String apIVersion) {
     this.apIVersion = apIVersion;
@@ -117,22 +115,19 @@ public class Version implements Serializable {
 
 
   public Version version(String version) {
-    
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVersion() {
     return version;
   }
-
 
   public void setVersion(String version) {
     this.version = version;
@@ -140,22 +135,19 @@ public class Version implements Serializable {
 
 
   public Version goVersion(String goVersion) {
-    
     this.goVersion = goVersion;
     return this;
   }
 
-   /**
+  /**
    * Get goVersion
    * @return goVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGoVersion() {
     return goVersion;
   }
-
 
   public void setGoVersion(String goVersion) {
     this.goVersion = goVersion;
@@ -163,22 +155,19 @@ public class Version implements Serializable {
 
 
   public Version gitCommit(String gitCommit) {
-    
     this.gitCommit = gitCommit;
     return this;
   }
 
-   /**
+  /**
    * Get gitCommit
    * @return gitCommit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGitCommit() {
     return gitCommit;
   }
-
 
   public void setGitCommit(String gitCommit) {
     this.gitCommit = gitCommit;
@@ -186,22 +175,19 @@ public class Version implements Serializable {
 
 
   public Version builtTime(String builtTime) {
-    
     this.builtTime = builtTime;
     return this;
   }
 
-   /**
+  /**
    * Get builtTime
    * @return builtTime
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getBuiltTime() {
     return builtTime;
   }
-
 
   public void setBuiltTime(String builtTime) {
     this.builtTime = builtTime;
@@ -209,22 +195,19 @@ public class Version implements Serializable {
 
 
   public Version built(Integer built) {
-    
     this.built = built;
     return this;
   }
 
-   /**
+  /**
    * Get built
    * @return built
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getBuilt() {
     return built;
   }
-
 
   public void setBuilt(Integer built) {
     this.built = built;
@@ -232,22 +215,19 @@ public class Version implements Serializable {
 
 
   public Version osArch(String osArch) {
-    
     this.osArch = osArch;
     return this;
   }
 
-   /**
+  /**
    * Get osArch
    * @return osArch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOsArch() {
     return osArch;
   }
-
 
   public void setOsArch(String osArch) {
     this.osArch = osArch;
@@ -255,22 +235,19 @@ public class Version implements Serializable {
 
 
   public Version os(String os) {
-    
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * Get os
    * @return os
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOs() {
     return os;
   }
-
 
   public void setOs(String os) {
     this.os = os;
@@ -278,22 +255,19 @@ public class Version implements Serializable {
 
 
   public Version index(Integer index) {
-    
     this.index = index;
     return this;
   }
 
-   /**
+  /**
    * Get index
    * @return index
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getIndex() {
     return index;
   }
-
 
   public void setIndex(Integer index) {
     this.index = index;
@@ -375,28 +349,27 @@ public class Version implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Version
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Version.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Version
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Version.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Version is not found in the empty JSON string", Version.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Version.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Version` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Version` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("APIVersion") != null && !jsonObj.get("APIVersion").isJsonNull()) && !jsonObj.get("APIVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `APIVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("APIVersion").toString()));
       }
@@ -440,31 +413,31 @@ public class Version implements Serializable {
 
            @Override
            public Version read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Version given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Version
-  * @throws IOException if the JSON string is invalid with respect to Version
-  */
+  /**
+   * Create an instance of Version given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Version
+   * @throws IOException if the JSON string is invalid with respect to Version
+   */
   public static Version fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Version.class);
   }
 
- /**
-  * Convert an instance of Version to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Version to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

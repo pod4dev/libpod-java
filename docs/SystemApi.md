@@ -8,12 +8,12 @@ All URIs are relative to *http://podman.io*
 | [**systemDataUsageLibpod**](SystemApi.md#systemDataUsageLibpod) | **GET** /libpod/system/df | Show disk usage |
 | [**systemEventsLibpod**](SystemApi.md#systemEventsLibpod) | **GET** /libpod/events | Get events |
 | [**systemInfoLibpod**](SystemApi.md#systemInfoLibpod) | **GET** /libpod/info | Get info |
-| [**systemPing**](SystemApi.md#systemPing) | **GET** /libpod/_ping | Ping service |
+| [**systemPing_0**](SystemApi.md#systemPing_0) | **GET** /libpod/_ping | Ping service |
 | [**systemPruneLibpod**](SystemApi.md#systemPruneLibpod) | **POST** /libpod/system/prune | Prune unused data |
 | [**systemVersionLibpod**](SystemApi.md#systemVersionLibpod) | **GET** /libpod/version | Component Version information |
 
 
-<a name="systemCheckLibpod"></a>
+<a id="systemCheckLibpod"></a>
 # **systemCheckLibpod**
 > SystemCheckReport systemCheckLibpod().quick(quick).repair(repair).repairLossy(repairLossy).unreferencedLayerMaxAge(unreferencedLayerMaxAge).execute();
 
@@ -86,7 +86,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="systemDataUsageLibpod"></a>
+<a id="systemDataUsageLibpod"></a>
 # **systemDataUsageLibpod**
 > SystemDfReport systemDataUsageLibpod().execute();
 
@@ -146,7 +146,7 @@ No authorization required
 | **200** | Disk usage |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="systemEventsLibpod"></a>
+<a id="systemEventsLibpod"></a>
 # **systemEventsLibpod**
 > systemEventsLibpod().since(since).until(until).filters(filters).stream(stream).execute();
 
@@ -219,7 +219,7 @@ No authorization required
 | **200** | returns a string of json data describing an event |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="systemInfoLibpod"></a>
+<a id="systemInfoLibpod"></a>
 # **systemInfoLibpod**
 > LibpodInfo systemInfoLibpod().execute();
 
@@ -279,9 +279,9 @@ No authorization required
 | **200** | Info |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="systemPing"></a>
-# **systemPing**
-> String systemPing().execute();
+<a id="systemPing_0"></a>
+# **systemPing_0**
+> String systemPing_0().execute();
 
 Ping service
 
@@ -303,11 +303,11 @@ public class Example {
 
     SystemApi apiInstance = new SystemApi(defaultClient);
     try {
-      String result = apiInstance.systemPing()
+      String result = apiInstance.systemPing_0()
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SystemApi#systemPing");
+      System.err.println("Exception when calling SystemApi#systemPing_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -339,7 +339,7 @@ No authorization required
 | **200** | Success |  * Docker-Experimental - If the server is running with experimental mode enabled, always true <br>  * Cache-Control - always no-cache <br>  * Libpod-Buildah-Version - Default version of libpod image builder.   Available if service is backed by Podman, therefore may be used to   determine if talking to Podman engine or another engine  <br>  * Libpod-API-Version - Max Podman API Version the server supports. Available if service is backed by Podman, therefore may be used to determine if talking to Podman engine or another engine  <br>  * BuildKit-Version - Default version of docker image builder <br>  * Pragma - always no-cache <br>  * API-Version - Max compatibility API Version the server supports <br>  |
 | **500** | Internal server error |  -  |
 
-<a name="systemPruneLibpod"></a>
+<a id="systemPruneLibpod"></a>
 # **systemPruneLibpod**
 > SystemPruneReport systemPruneLibpod().execute();
 
@@ -398,7 +398,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="systemVersionLibpod"></a>
+<a id="systemVersionLibpod"></a>
 # **systemVersionLibpod**
 > SystemComponentVersion systemVersionLibpod().execute();
 

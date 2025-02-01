@@ -19,7 +19,7 @@ All URIs are relative to *http://podman.io*
 | [**imageTag**](ImagesCompatApi.md#imageTag) | **POST** /images/{name}/tag | Tag an image |
 
 
-<a name="imageBuild"></a>
+<a id="imageBuild"></a>
 # **imageBuild**
 > ImageBuild200Response imageBuild().contentType(contentType).xRegistryConfig(xRegistryConfig).dockerfile(dockerfile).t(t).extrahosts(extrahosts).remote(remote).retry(retry).retryDelay(retryDelay).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).networkmode(networkmode).platform(platform).target(target).outputs(outputs).inputStream(inputStream).execute();
 
@@ -162,7 +162,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-tar
+ - **Content-Type**: application/x-tar
  - **Accept**: application/json
 
 ### HTTP response details
@@ -172,7 +172,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageCreate"></a>
+<a id="imageCreate"></a>
 # **imageCreate**
 > File imageCreate().xRegistryAuth(xRegistryAuth).fromImage(fromImage).fromSrc(fromSrc).repo(repo).tag(tag).message(message).platform(platform).inputImage(inputImage).execute();
 
@@ -259,7 +259,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageDelete"></a>
+<a id="imageDelete"></a>
 # **imageDelete**
 > List&lt;ImageDelete200ResponseInner&gt; imageDelete(name).force(force).noprune(noprune).execute();
 
@@ -331,7 +331,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageGet"></a>
+<a id="imageGet"></a>
 # **imageGet**
 > File imageGet(name).execute();
 
@@ -395,7 +395,7 @@ No authorization required
 | **200** | no error |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageGetAll"></a>
+<a id="imageGetAll"></a>
 # **imageGetAll**
 > File imageGetAll(names).execute();
 
@@ -459,7 +459,7 @@ No authorization required
 | **200** | no error |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageHistory"></a>
+<a id="imageHistory"></a>
 # **imageHistory**
 > HistoryResponse imageHistory(name).execute();
 
@@ -524,7 +524,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageInspect"></a>
+<a id="imageInspect"></a>
 # **imageInspect**
 > ImageInspect imageInspect(name).execute();
 
@@ -589,7 +589,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageList"></a>
+<a id="imageList"></a>
 # **imageList**
 > List&lt;Summary&gt; imageList().all(all).filters(filters).digests(digests).execute();
 
@@ -660,7 +660,7 @@ No authorization required
 | **200** | Image summary for compat API |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageLoad"></a>
+<a id="imageLoad"></a>
 # **imageLoad**
 > imageLoad().quiet(quiet).request(request).execute();
 
@@ -727,7 +727,7 @@ No authorization required
 | **200** | no error |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imagePrune"></a>
+<a id="imagePrune"></a>
 # **imagePrune**
 > List&lt;ImageDelete200ResponseInner&gt; imagePrune().filters(filters).execute();
 
@@ -792,7 +792,7 @@ No authorization required
 | **200** | Image Delete |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imagePush"></a>
+<a id="imagePush"></a>
 # **imagePush**
 > File imagePush(name).tag(tag).all(all).compress(compress).destination(destination).format(format).tlsVerify(tlsVerify).xRegistryAuth(xRegistryAuth).execute();
 
@@ -878,7 +878,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageSearch"></a>
+<a id="imageSearch"></a>
 # **imageSearch**
 > ImageSearch200Response imageSearch().term(term).limit(limit).filters(filters).tlsVerify(tlsVerify).listTags(listTags).execute();
 
@@ -956,7 +956,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageTag"></a>
+<a id="imageTag"></a>
 # **imageTag**
 > imageTag(name).repo(repo).tag(tag).execute();
 

@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,8 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Schema2HealthConfig is a HealthConfig, which holds configuration settings for the HEALTHCHECK feature, from docker/docker/api/types/container.
  */
-@ApiModel(description = "Schema2HealthConfig is a HealthConfig, which holds configuration settings for the HEALTHCHECK feature, from docker/docker/api/types/container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Schema2HealthConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,7 +75,7 @@ public class Schema2HealthConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_TEST = "Test";
   @SerializedName(SERIALIZED_NAME_TEST)
-  private List<String> test = null;
+  private List<String> test = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TIMEOUT = "Timeout";
   @SerializedName(SERIALIZED_NAME_TIMEOUT)
@@ -85,22 +85,19 @@ public class Schema2HealthConfig implements Serializable {
   }
 
   public Schema2HealthConfig interval(Long interval) {
-    
     this.interval = interval;
     return this;
   }
 
-   /**
+  /**
    * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
    * @return interval
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getInterval() {
     return interval;
   }
-
 
   public void setInterval(Long interval) {
     this.interval = interval;
@@ -108,22 +105,19 @@ public class Schema2HealthConfig implements Serializable {
 
 
   public Schema2HealthConfig retries(Long retries) {
-    
     this.retries = retries;
     return this;
   }
 
-   /**
+  /**
    * Retries is the number of consecutive failures needed to consider a container as unhealthy. Zero means inherit.
    * @return retries
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Retries is the number of consecutive failures needed to consider a container as unhealthy. Zero means inherit.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getRetries() {
     return retries;
   }
-
 
   public void setRetries(Long retries) {
     this.retries = retries;
@@ -131,22 +125,19 @@ public class Schema2HealthConfig implements Serializable {
 
 
   public Schema2HealthConfig startInterval(Long startInterval) {
-    
     this.startInterval = startInterval;
     return this;
   }
 
-   /**
+  /**
    * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
    * @return startInterval
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getStartInterval() {
     return startInterval;
   }
-
 
   public void setStartInterval(Long startInterval) {
     this.startInterval = startInterval;
@@ -154,22 +145,19 @@ public class Schema2HealthConfig implements Serializable {
 
 
   public Schema2HealthConfig startPeriod(Long startPeriod) {
-    
     this.startPeriod = startPeriod;
     return this;
   }
 
-   /**
+  /**
    * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
    * @return startPeriod
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getStartPeriod() {
     return startPeriod;
   }
-
 
   public void setStartPeriod(Long startPeriod) {
     this.startPeriod = startPeriod;
@@ -177,7 +165,6 @@ public class Schema2HealthConfig implements Serializable {
 
 
   public Schema2HealthConfig test(List<String> test) {
-    
     this.test = test;
     return this;
   }
@@ -190,17 +177,15 @@ public class Schema2HealthConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Test is the test to perform to check that the container is healthy. An empty slice means to inherit the default. The options are: {} : inherit healthcheck {\&quot;NONE\&quot;} : disable healthcheck {\&quot;CMD\&quot;, args...} : exec arguments directly {\&quot;CMD-SHELL\&quot;, command} : run command with system&#39;s default shell
    * @return test
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Test is the test to perform to check that the container is healthy. An empty slice means to inherit the default. The options are: {} : inherit healthcheck {\"NONE\"} : disable healthcheck {\"CMD\", args...} : exec arguments directly {\"CMD-SHELL\", command} : run command with system's default shell")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getTest() {
     return test;
   }
-
 
   public void setTest(List<String> test) {
     this.test = test;
@@ -208,22 +193,19 @@ public class Schema2HealthConfig implements Serializable {
 
 
   public Schema2HealthConfig timeout(Long timeout) {
-    
     this.timeout = timeout;
     return this;
   }
 
-   /**
+  /**
    * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
    * @return timeout
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getTimeout() {
     return timeout;
   }
-
 
   public void setTimeout(Long timeout) {
     this.timeout = timeout;
@@ -296,30 +278,29 @@ public class Schema2HealthConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Schema2HealthConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Schema2HealthConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Schema2HealthConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Schema2HealthConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Schema2HealthConfig is not found in the empty JSON string", Schema2HealthConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Schema2HealthConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Schema2HealthConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Schema2HealthConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Test") != null && !jsonObj.get("Test").isJsonNull()) && !jsonObj.get("Test").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Test") != null && !jsonObj.get("Test").isJsonNull() && !jsonObj.get("Test").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Test` to be an array in the JSON string but got `%s`", jsonObj.get("Test").toString()));
       }
   }
@@ -344,31 +325,31 @@ public class Schema2HealthConfig implements Serializable {
 
            @Override
            public Schema2HealthConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Schema2HealthConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Schema2HealthConfig
-  * @throws IOException if the JSON string is invalid with respect to Schema2HealthConfig
-  */
+  /**
+   * Create an instance of Schema2HealthConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Schema2HealthConfig
+   * @throws IOException if the JSON string is invalid with respect to Schema2HealthConfig
+   */
   public static Schema2HealthConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Schema2HealthConfig.class);
   }
 
- /**
-  * Convert an instance of Schema2HealthConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Schema2HealthConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

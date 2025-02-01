@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,17 +24,16 @@ import io.github.pod4dev.libpodj.model.History;
 import io.github.pod4dev.libpodj.model.ImageConfig;
 import io.github.pod4dev.libpodj.model.RootFS;
 import io.github.pod4dev.libpodj.model.Schema2HealthConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,12 +45,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -60,13 +61,13 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ImageData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ImageData implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_ANNOTATIONS = "Annotations";
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-  private Map<String, String> annotations = null;
+  private Map<String, String> annotations = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ARCHITECTURE = "Architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -102,7 +103,7 @@ public class ImageData implements Serializable {
 
   public static final String SERIALIZED_NAME_HISTORY = "History";
   @SerializedName(SERIALIZED_NAME_HISTORY)
-  private List<History> history = null;
+  private List<@Valid History> history = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -110,7 +111,7 @@ public class ImageData implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_MANIFEST_TYPE = "ManifestType";
   @SerializedName(SERIALIZED_NAME_MANIFEST_TYPE)
@@ -118,7 +119,7 @@ public class ImageData implements Serializable {
 
   public static final String SERIALIZED_NAME_NAMES_HISTORY = "NamesHistory";
   @SerializedName(SERIALIZED_NAME_NAMES_HISTORY)
-  private List<String> namesHistory = null;
+  private List<String> namesHistory = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OS = "Os";
   @SerializedName(SERIALIZED_NAME_OS)
@@ -130,11 +131,11 @@ public class ImageData implements Serializable {
 
   public static final String SERIALIZED_NAME_REPO_DIGESTS = "RepoDigests";
   @SerializedName(SERIALIZED_NAME_REPO_DIGESTS)
-  private List<String> repoDigests = null;
+  private List<String> repoDigests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REPO_TAGS = "RepoTags";
   @SerializedName(SERIALIZED_NAME_REPO_TAGS)
-  private List<String> repoTags = null;
+  private List<String> repoTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ROOT_F_S = "RootFS";
   @SerializedName(SERIALIZED_NAME_ROOT_F_S)
@@ -160,7 +161,6 @@ public class ImageData implements Serializable {
   }
 
   public ImageData annotations(Map<String, String> annotations) {
-    
     this.annotations = annotations;
     return this;
   }
@@ -173,17 +173,15 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get annotations
    * @return annotations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getAnnotations() {
     return annotations;
   }
-
 
   public void setAnnotations(Map<String, String> annotations) {
     this.annotations = annotations;
@@ -191,22 +189,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData architecture(String architecture) {
-    
     this.architecture = architecture;
     return this;
   }
 
-   /**
+  /**
    * Get architecture
    * @return architecture
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getArchitecture() {
     return architecture;
   }
-
 
   public void setArchitecture(String architecture) {
     this.architecture = architecture;
@@ -214,22 +209,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData author(String author) {
-    
     this.author = author;
     return this;
   }
 
-   /**
+  /**
    * Get author
    * @return author
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getAuthor() {
     return author;
   }
-
 
   public void setAuthor(String author) {
     this.author = author;
@@ -237,22 +229,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData comment(String comment) {
-    
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getComment() {
     return comment;
   }
-
 
   public void setComment(String comment) {
     this.comment = comment;
@@ -260,23 +249,20 @@ public class ImageData implements Serializable {
 
 
   public ImageData config(ImageConfig config) {
-    
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
    * @return config
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public ImageConfig getConfig() {
     return config;
   }
-
 
   public void setConfig(ImageConfig config) {
     this.config = config;
@@ -284,23 +270,20 @@ public class ImageData implements Serializable {
 
 
   public ImageData created(OffsetDateTime created) {
-    
     this.created = created;
     return this;
   }
 
-   /**
+  /**
    * Get created
    * @return created
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreated() {
     return created;
   }
-
 
   public void setCreated(OffsetDateTime created) {
     this.created = created;
@@ -308,22 +291,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData digest(String digest) {
-    
     this.digest = digest;
     return this;
   }
 
-   /**
+  /**
    * The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.
    * @return digest
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The following is an example of the contents of Digest types:  sha256:7173b809ca12ec5dee4506cd86be934c4596dd234ee82c0662eac04a8c2c71dc  This allows to abstract the digest behind this type and work only in those terms.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDigest() {
     return digest;
   }
-
 
   public void setDigest(String digest) {
     this.digest = digest;
@@ -331,23 +311,20 @@ public class ImageData implements Serializable {
 
 
   public ImageData graphDriver(DriverData graphDriver) {
-    
     this.graphDriver = graphDriver;
     return this;
   }
 
-   /**
+  /**
    * Get graphDriver
    * @return graphDriver
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public DriverData getGraphDriver() {
     return graphDriver;
   }
-
 
   public void setGraphDriver(DriverData graphDriver) {
     this.graphDriver = graphDriver;
@@ -355,31 +332,27 @@ public class ImageData implements Serializable {
 
 
   public ImageData healthcheck(Schema2HealthConfig healthcheck) {
-    
     this.healthcheck = healthcheck;
     return this;
   }
 
-   /**
+  /**
    * Get healthcheck
    * @return healthcheck
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Schema2HealthConfig getHealthcheck() {
     return healthcheck;
   }
-
 
   public void setHealthcheck(Schema2HealthConfig healthcheck) {
     this.healthcheck = healthcheck;
   }
 
 
-  public ImageData history(List<History> history) {
-    
+  public ImageData history(List<@Valid History> history) {
     this.history = history;
     return this;
   }
@@ -392,41 +365,36 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get history
    * @return history
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
-  public List<History> getHistory() {
+  public List<@Valid History> getHistory() {
     return history;
   }
 
-
-  public void setHistory(List<History> history) {
+  public void setHistory(List<@Valid History> history) {
     this.history = history;
   }
 
 
   public ImageData id(String id) {
-    
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -434,7 +402,6 @@ public class ImageData implements Serializable {
 
 
   public ImageData labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -447,17 +414,15 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -465,22 +430,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData manifestType(String manifestType) {
-    
     this.manifestType = manifestType;
     return this;
   }
 
-   /**
+  /**
    * Get manifestType
    * @return manifestType
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getManifestType() {
     return manifestType;
   }
-
 
   public void setManifestType(String manifestType) {
     this.manifestType = manifestType;
@@ -488,7 +450,6 @@ public class ImageData implements Serializable {
 
 
   public ImageData namesHistory(List<String> namesHistory) {
-    
     this.namesHistory = namesHistory;
     return this;
   }
@@ -501,17 +462,15 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get namesHistory
    * @return namesHistory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getNamesHistory() {
     return namesHistory;
   }
-
 
   public void setNamesHistory(List<String> namesHistory) {
     this.namesHistory = namesHistory;
@@ -519,22 +478,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData os(String os) {
-    
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * Get os
    * @return os
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOs() {
     return os;
   }
-
 
   public void setOs(String os) {
     this.os = os;
@@ -542,22 +498,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData parent(String parent) {
-    
     this.parent = parent;
     return this;
   }
 
-   /**
+  /**
    * Get parent
    * @return parent
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getParent() {
     return parent;
   }
-
 
   public void setParent(String parent) {
     this.parent = parent;
@@ -565,7 +518,6 @@ public class ImageData implements Serializable {
 
 
   public ImageData repoDigests(List<String> repoDigests) {
-    
     this.repoDigests = repoDigests;
     return this;
   }
@@ -578,17 +530,15 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get repoDigests
    * @return repoDigests
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getRepoDigests() {
     return repoDigests;
   }
-
 
   public void setRepoDigests(List<String> repoDigests) {
     this.repoDigests = repoDigests;
@@ -596,7 +546,6 @@ public class ImageData implements Serializable {
 
 
   public ImageData repoTags(List<String> repoTags) {
-    
     this.repoTags = repoTags;
     return this;
   }
@@ -609,17 +558,15 @@ public class ImageData implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get repoTags
    * @return repoTags
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getRepoTags() {
     return repoTags;
   }
-
 
   public void setRepoTags(List<String> repoTags) {
     this.repoTags = repoTags;
@@ -627,23 +574,20 @@ public class ImageData implements Serializable {
 
 
   public ImageData rootFS(RootFS rootFS) {
-    
     this.rootFS = rootFS;
     return this;
   }
 
-   /**
+  /**
    * Get rootFS
    * @return rootFS
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public RootFS getRootFS() {
     return rootFS;
   }
-
 
   public void setRootFS(RootFS rootFS) {
     this.rootFS = rootFS;
@@ -651,22 +595,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData size(Long size) {
-    
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getSize() {
     return size;
   }
-
 
   public void setSize(Long size) {
     this.size = size;
@@ -674,22 +615,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData user(String user) {
-    
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUser() {
     return user;
   }
-
 
   public void setUser(String user) {
     this.user = user;
@@ -697,22 +635,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData version(String version) {
-    
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVersion() {
     return version;
   }
-
 
   public void setVersion(String version) {
     this.version = version;
@@ -720,22 +655,19 @@ public class ImageData implements Serializable {
 
 
   public ImageData virtualSize(Long virtualSize) {
-    
     this.virtualSize = virtualSize;
     return this;
   }
 
-   /**
+  /**
    * Get virtualSize
    * @return virtualSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getVirtualSize() {
     return virtualSize;
   }
-
 
   public void setVirtualSize(Long virtualSize) {
     this.virtualSize = virtualSize;
@@ -859,28 +791,27 @@ public class ImageData implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ImageData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ImageData.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ImageData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ImageData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ImageData is not found in the empty JSON string", ImageData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImageData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImageData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Architecture") != null && !jsonObj.get("Architecture").isJsonNull()) && !jsonObj.get("Architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Architecture").toString()));
       }
@@ -892,18 +823,18 @@ public class ImageData implements Serializable {
       }
       // validate the optional field `Config`
       if (jsonObj.get("Config") != null && !jsonObj.get("Config").isJsonNull()) {
-        ImageConfig.validateJsonObject(jsonObj.getAsJsonObject("Config"));
+        ImageConfig.validateJsonElement(jsonObj.get("Config"));
       }
       if ((jsonObj.get("Digest") != null && !jsonObj.get("Digest").isJsonNull()) && !jsonObj.get("Digest").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Digest` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Digest").toString()));
       }
       // validate the optional field `GraphDriver`
       if (jsonObj.get("GraphDriver") != null && !jsonObj.get("GraphDriver").isJsonNull()) {
-        DriverData.validateJsonObject(jsonObj.getAsJsonObject("GraphDriver"));
+        DriverData.validateJsonElement(jsonObj.get("GraphDriver"));
       }
       // validate the optional field `Healthcheck`
       if (jsonObj.get("Healthcheck") != null && !jsonObj.get("Healthcheck").isJsonNull()) {
-        Schema2HealthConfig.validateJsonObject(jsonObj.getAsJsonObject("Healthcheck"));
+        Schema2HealthConfig.validateJsonElement(jsonObj.get("Healthcheck"));
       }
       if (jsonObj.get("History") != null && !jsonObj.get("History").isJsonNull()) {
         JsonArray jsonArrayhistory = jsonObj.getAsJsonArray("History");
@@ -915,7 +846,7 @@ public class ImageData implements Serializable {
 
           // validate the optional field `History` (array)
           for (int i = 0; i < jsonArrayhistory.size(); i++) {
-            History.validateJsonObject(jsonArrayhistory.get(i).getAsJsonObject());
+            History.validateJsonElement(jsonArrayhistory.get(i));
           };
         }
       }
@@ -925,8 +856,8 @@ public class ImageData implements Serializable {
       if ((jsonObj.get("ManifestType") != null && !jsonObj.get("ManifestType").isJsonNull()) && !jsonObj.get("ManifestType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ManifestType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ManifestType").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("NamesHistory") != null && !jsonObj.get("NamesHistory").isJsonNull()) && !jsonObj.get("NamesHistory").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("NamesHistory") != null && !jsonObj.get("NamesHistory").isJsonNull() && !jsonObj.get("NamesHistory").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `NamesHistory` to be an array in the JSON string but got `%s`", jsonObj.get("NamesHistory").toString()));
       }
       if ((jsonObj.get("Os") != null && !jsonObj.get("Os").isJsonNull()) && !jsonObj.get("Os").isJsonPrimitive()) {
@@ -935,17 +866,17 @@ public class ImageData implements Serializable {
       if ((jsonObj.get("Parent") != null && !jsonObj.get("Parent").isJsonNull()) && !jsonObj.get("Parent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Parent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Parent").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("RepoDigests") != null && !jsonObj.get("RepoDigests").isJsonNull()) && !jsonObj.get("RepoDigests").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("RepoDigests") != null && !jsonObj.get("RepoDigests").isJsonNull() && !jsonObj.get("RepoDigests").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `RepoDigests` to be an array in the JSON string but got `%s`", jsonObj.get("RepoDigests").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("RepoTags") != null && !jsonObj.get("RepoTags").isJsonNull()) && !jsonObj.get("RepoTags").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("RepoTags") != null && !jsonObj.get("RepoTags").isJsonNull() && !jsonObj.get("RepoTags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `RepoTags` to be an array in the JSON string but got `%s`", jsonObj.get("RepoTags").toString()));
       }
       // validate the optional field `RootFS`
       if (jsonObj.get("RootFS") != null && !jsonObj.get("RootFS").isJsonNull()) {
-        RootFS.validateJsonObject(jsonObj.getAsJsonObject("RootFS"));
+        RootFS.validateJsonElement(jsonObj.get("RootFS"));
       }
       if ((jsonObj.get("User") != null && !jsonObj.get("User").isJsonNull()) && !jsonObj.get("User").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `User` to be a primitive type in the JSON string but got `%s`", jsonObj.get("User").toString()));
@@ -975,31 +906,31 @@ public class ImageData implements Serializable {
 
            @Override
            public ImageData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ImageData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ImageData
-  * @throws IOException if the JSON string is invalid with respect to ImageData
-  */
+  /**
+   * Create an instance of ImageData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ImageData
+   * @throws IOException if the JSON string is invalid with respect to ImageData
+   */
   public static ImageData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ImageData.class);
   }
 
- /**
-  * Convert an instance of ImageData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ImageData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

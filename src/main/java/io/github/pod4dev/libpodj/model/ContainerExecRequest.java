@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,7 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerExecRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerExecRequest implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -70,7 +71,7 @@ public class ContainerExecRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_CMD = "Cmd";
   @SerializedName(SERIALIZED_NAME_CMD)
-  private List<String> cmd = null;
+  private List<String> cmd = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DETACH_KEYS = "DetachKeys";
   @SerializedName(SERIALIZED_NAME_DETACH_KEYS)
@@ -78,7 +79,7 @@ public class ContainerExecRequest implements Serializable {
 
   public static final String SERIALIZED_NAME_ENV = "Env";
   @SerializedName(SERIALIZED_NAME_ENV)
-  private List<String> env = null;
+  private List<String> env = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRIVILEGED = "Privileged";
   @SerializedName(SERIALIZED_NAME_PRIVILEGED)
@@ -100,22 +101,19 @@ public class ContainerExecRequest implements Serializable {
   }
 
   public ContainerExecRequest attachStderr(Boolean attachStderr) {
-    
     this.attachStderr = attachStderr;
     return this;
   }
 
-   /**
+  /**
    * Attach to stderr of the exec command
    * @return attachStderr
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Attach to stderr of the exec command")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getAttachStderr() {
     return attachStderr;
   }
-
 
   public void setAttachStderr(Boolean attachStderr) {
     this.attachStderr = attachStderr;
@@ -123,22 +121,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest attachStdin(Boolean attachStdin) {
-    
     this.attachStdin = attachStdin;
     return this;
   }
 
-   /**
+  /**
    * Attach to stdin of the exec command
    * @return attachStdin
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Attach to stdin of the exec command")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getAttachStdin() {
     return attachStdin;
   }
-
 
   public void setAttachStdin(Boolean attachStdin) {
     this.attachStdin = attachStdin;
@@ -146,22 +141,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest attachStdout(Boolean attachStdout) {
-    
     this.attachStdout = attachStdout;
     return this;
   }
 
-   /**
+  /**
    * Attach to stdout of the exec command
    * @return attachStdout
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Attach to stdout of the exec command")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getAttachStdout() {
     return attachStdout;
   }
-
 
   public void setAttachStdout(Boolean attachStdout) {
     this.attachStdout = attachStdout;
@@ -169,7 +161,6 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest cmd(List<String> cmd) {
-    
     this.cmd = cmd;
     return this;
   }
@@ -182,17 +173,15 @@ public class ContainerExecRequest implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Command to run, as a string or array of strings.
    * @return cmd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Command to run, as a string or array of strings.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getCmd() {
     return cmd;
   }
-
 
   public void setCmd(List<String> cmd) {
     this.cmd = cmd;
@@ -200,22 +189,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest detachKeys(String detachKeys) {
-    
     this.detachKeys = detachKeys;
     return this;
   }
 
-   /**
+  /**
    * \&quot;Override the key sequence for detaching a container. Format is a single character [a-Z] or ctrl-&lt;value&gt; where &lt;value&gt; is one of: a-z, @, ^, [, , or _.\&quot; 
    * @return detachKeys
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "\"Override the key sequence for detaching a container. Format is a single character [a-Z] or ctrl-<value> where <value> is one of: a-z, @, ^, [, , or _.\" ")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDetachKeys() {
     return detachKeys;
   }
-
 
   public void setDetachKeys(String detachKeys) {
     this.detachKeys = detachKeys;
@@ -223,7 +209,6 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest env(List<String> env) {
-    
     this.env = env;
     return this;
   }
@@ -236,17 +221,15 @@ public class ContainerExecRequest implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * A list of environment variables in the form [\&quot;VAR&#x3D;value\&quot;, ...]
    * @return env
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of environment variables in the form [\"VAR=value\", ...]")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getEnv() {
     return env;
   }
-
 
   public void setEnv(List<String> env) {
     this.env = env;
@@ -254,22 +237,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest privileged(Boolean privileged) {
-    
     this.privileged = privileged;
     return this;
   }
 
-   /**
+  /**
    * Runs the exec process with extended privileges
    * @return privileged
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Runs the exec process with extended privileges")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getPrivileged() {
     return privileged;
   }
-
 
   public void setPrivileged(Boolean privileged) {
     this.privileged = privileged;
@@ -277,22 +257,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest tty(Boolean tty) {
-    
     this.tty = tty;
     return this;
   }
 
-   /**
+  /**
    * Allocate a pseudo-TTY
    * @return tty
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Allocate a pseudo-TTY")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getTty() {
     return tty;
   }
-
 
   public void setTty(Boolean tty) {
     this.tty = tty;
@@ -300,22 +277,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest user(String user) {
-    
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * \&quot;The user, and optionally, group to run the exec process inside the container. Format is one of: user, user:group, uid, or uid:gid.\&quot; 
    * @return user
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "\"The user, and optionally, group to run the exec process inside the container. Format is one of: user, user:group, uid, or uid:gid.\" ")
+   */
+  @jakarta.annotation.Nullable
 
   public String getUser() {
     return user;
   }
-
 
   public void setUser(String user) {
     this.user = user;
@@ -323,22 +297,19 @@ public class ContainerExecRequest implements Serializable {
 
 
   public ContainerExecRequest workingDir(String workingDir) {
-    
     this.workingDir = workingDir;
     return this;
   }
 
-   /**
+  /**
    * The working directory for the exec process inside the container.
    * @return workingDir
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The working directory for the exec process inside the container.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getWorkingDir() {
     return workingDir;
   }
-
 
   public void setWorkingDir(String workingDir) {
     this.workingDir = workingDir;
@@ -423,37 +394,36 @@ public class ContainerExecRequest implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerExecRequest
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerExecRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerExecRequest
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerExecRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerExecRequest is not found in the empty JSON string", ContainerExecRequest.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerExecRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerExecRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerExecRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Cmd") != null && !jsonObj.get("Cmd").isJsonNull()) && !jsonObj.get("Cmd").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Cmd") != null && !jsonObj.get("Cmd").isJsonNull() && !jsonObj.get("Cmd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Cmd` to be an array in the JSON string but got `%s`", jsonObj.get("Cmd").toString()));
       }
       if ((jsonObj.get("DetachKeys") != null && !jsonObj.get("DetachKeys").isJsonNull()) && !jsonObj.get("DetachKeys").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `DetachKeys` to be a primitive type in the JSON string but got `%s`", jsonObj.get("DetachKeys").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("Env") != null && !jsonObj.get("Env").isJsonNull()) && !jsonObj.get("Env").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Env") != null && !jsonObj.get("Env").isJsonNull() && !jsonObj.get("Env").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Env` to be an array in the JSON string but got `%s`", jsonObj.get("Env").toString()));
       }
       if ((jsonObj.get("User") != null && !jsonObj.get("User").isJsonNull()) && !jsonObj.get("User").isJsonPrimitive()) {
@@ -484,31 +454,31 @@ public class ContainerExecRequest implements Serializable {
 
            @Override
            public ContainerExecRequest read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerExecRequest given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerExecRequest
-  * @throws IOException if the JSON string is invalid with respect to ContainerExecRequest
-  */
+  /**
+   * Create an instance of ContainerExecRequest given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerExecRequest
+   * @throws IOException if the JSON string is invalid with respect to ContainerExecRequest
+   */
   public static ContainerExecRequest fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerExecRequest.class);
   }
 
- /**
-  * Convert an instance of ContainerExecRequest to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerExecRequest to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

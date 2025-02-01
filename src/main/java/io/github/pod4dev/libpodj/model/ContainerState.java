@@ -14,19 +14,17 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Health;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,12 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -51,8 +52,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerState stores container&#39;s running state it&#39;s part of ContainerJSONBase and will return by \&quot;inspect\&quot; command
  */
-@ApiModel(description = "ContainerState stores container's running state it's part of ContainerJSONBase and will return by \"inspect\" command")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerState implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -108,22 +108,19 @@ public class ContainerState implements Serializable {
   }
 
   public ContainerState dead(Boolean dead) {
-    
     this.dead = dead;
     return this;
   }
 
-   /**
+  /**
    * Get dead
    * @return dead
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getDead() {
     return dead;
   }
-
 
   public void setDead(Boolean dead) {
     this.dead = dead;
@@ -131,22 +128,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState error(String error) {
-    
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Get error
    * @return error
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getError() {
     return error;
   }
-
 
   public void setError(String error) {
     this.error = error;
@@ -154,22 +148,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState exitCode(Long exitCode) {
-    
     this.exitCode = exitCode;
     return this;
   }
 
-   /**
+  /**
    * Get exitCode
    * @return exitCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getExitCode() {
     return exitCode;
   }
-
 
   public void setExitCode(Long exitCode) {
     this.exitCode = exitCode;
@@ -177,22 +168,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState finishedAt(String finishedAt) {
-    
     this.finishedAt = finishedAt;
     return this;
   }
 
-   /**
+  /**
    * Get finishedAt
    * @return finishedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getFinishedAt() {
     return finishedAt;
   }
-
 
   public void setFinishedAt(String finishedAt) {
     this.finishedAt = finishedAt;
@@ -200,23 +188,20 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState health(Health health) {
-    
     this.health = health;
     return this;
   }
 
-   /**
+  /**
    * Get health
    * @return health
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Health getHealth() {
     return health;
   }
-
 
   public void setHealth(Health health) {
     this.health = health;
@@ -224,22 +209,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState ooMKilled(Boolean ooMKilled) {
-    
     this.ooMKilled = ooMKilled;
     return this;
   }
 
-   /**
+  /**
    * Get ooMKilled
    * @return ooMKilled
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getOoMKilled() {
     return ooMKilled;
   }
-
 
   public void setOoMKilled(Boolean ooMKilled) {
     this.ooMKilled = ooMKilled;
@@ -247,22 +229,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState paused(Boolean paused) {
-    
     this.paused = paused;
     return this;
   }
 
-   /**
+  /**
    * Get paused
    * @return paused
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getPaused() {
     return paused;
   }
-
 
   public void setPaused(Boolean paused) {
     this.paused = paused;
@@ -270,22 +249,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState pid(Long pid) {
-    
     this.pid = pid;
     return this;
   }
 
-   /**
+  /**
    * Get pid
    * @return pid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getPid() {
     return pid;
   }
-
 
   public void setPid(Long pid) {
     this.pid = pid;
@@ -293,22 +269,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState restarting(Boolean restarting) {
-    
     this.restarting = restarting;
     return this;
   }
 
-   /**
+  /**
    * Get restarting
    * @return restarting
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRestarting() {
     return restarting;
   }
-
 
   public void setRestarting(Boolean restarting) {
     this.restarting = restarting;
@@ -316,22 +289,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState running(Boolean running) {
-    
     this.running = running;
     return this;
   }
 
-   /**
+  /**
    * Get running
    * @return running
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRunning() {
     return running;
   }
-
 
   public void setRunning(Boolean running) {
     this.running = running;
@@ -339,22 +309,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState startedAt(String startedAt) {
-    
     this.startedAt = startedAt;
     return this;
   }
 
-   /**
+  /**
    * Get startedAt
    * @return startedAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStartedAt() {
     return startedAt;
   }
-
 
   public void setStartedAt(String startedAt) {
     this.startedAt = startedAt;
@@ -362,22 +329,19 @@ public class ContainerState implements Serializable {
 
 
   public ContainerState status(String status) {
-    
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getStatus() {
     return status;
   }
-
 
   public void setStatus(String status) {
     this.status = status;
@@ -468,28 +432,27 @@ public class ContainerState implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerState
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerState.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerState
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerState.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerState is not found in the empty JSON string", ContainerState.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerState.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerState` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerState` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Error") != null && !jsonObj.get("Error").isJsonNull()) && !jsonObj.get("Error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Error").toString()));
       }
@@ -498,7 +461,7 @@ public class ContainerState implements Serializable {
       }
       // validate the optional field `Health`
       if (jsonObj.get("Health") != null && !jsonObj.get("Health").isJsonNull()) {
-        Health.validateJsonObject(jsonObj.getAsJsonObject("Health"));
+        Health.validateJsonElement(jsonObj.get("Health"));
       }
       if ((jsonObj.get("StartedAt") != null && !jsonObj.get("StartedAt").isJsonNull()) && !jsonObj.get("StartedAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `StartedAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("StartedAt").toString()));
@@ -528,31 +491,31 @@ public class ContainerState implements Serializable {
 
            @Override
            public ContainerState read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerState given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerState
-  * @throws IOException if the JSON string is invalid with respect to ContainerState
-  */
+  /**
+   * Create an instance of ContainerState given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerState
+   * @throws IOException if the JSON string is invalid with respect to ContainerState
+   */
   public static ContainerState fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerState.class);
   }
 
- /**
-  * Convert an instance of ContainerState to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerState to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

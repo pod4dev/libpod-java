@@ -43,7 +43,7 @@ All URIs are relative to *http://podman.io*
 | [**putContainerArchiveLibpod**](ContainersApi.md#putContainerArchiveLibpod) | **PUT** /libpod/containers/{name}/archive | Copy files into a container |
 
 
-<a name="containerAttachLibpod"></a>
+<a id="containerAttachLibpod"></a>
 # **containerAttachLibpod**
 > containerAttachLibpod(name).detachKeys(detachKeys).logs(logs).stream(stream).stdout(stdout).stderr(stderr).stdin(stdin).execute();
 
@@ -126,7 +126,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerChangesLibpod"></a>
+<a id="containerChangesLibpod"></a>
 # **containerChangesLibpod**
 > containerChangesLibpod(name).parent(parent).diffType(diffType).execute();
 
@@ -196,7 +196,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerCheckpointLibpod"></a>
+<a id="containerCheckpointLibpod"></a>
 # **containerCheckpointLibpod**
 > containerCheckpointLibpod(name).keep(keep).leaveRunning(leaveRunning).tcpEstablished(tcpEstablished).export(export).ignoreRootFS(ignoreRootFS).ignoreVolumes(ignoreVolumes).preCheckpoint(preCheckpoint).withPrevious(withPrevious).fileLocks(fileLocks).printStats(printStats).execute();
 
@@ -288,7 +288,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerCreateLibpod"></a>
+<a id="containerCreateLibpod"></a>
 # **containerCreateLibpod**
 > ContainerCreateResponse containerCreateLibpod(create).execute();
 
@@ -353,7 +353,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerDeleteLibpod"></a>
+<a id="containerDeleteLibpod"></a>
 # **containerDeleteLibpod**
 > List&lt;LibpodContainersRmReport&gt; containerDeleteLibpod(name).depend(depend).force(force).ignore(ignore).timeout(timeout).v(v).execute();
 
@@ -436,7 +436,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerExistsLibpod"></a>
+<a id="containerExistsLibpod"></a>
 # **containerExistsLibpod**
 > containerExistsLibpod(name).execute();
 
@@ -500,7 +500,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerExportLibpod"></a>
+<a id="containerExportLibpod"></a>
 # **containerExportLibpod**
 > containerExportLibpod(name).execute();
 
@@ -564,7 +564,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerHealthcheckLibpod"></a>
+<a id="containerHealthcheckLibpod"></a>
 # **containerHealthcheckLibpod**
 > HealthCheckResults containerHealthcheckLibpod(name).execute();
 
@@ -630,7 +630,7 @@ No authorization required
 | **409** | container has no healthcheck or is not running |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerInitLibpod"></a>
+<a id="containerInitLibpod"></a>
 # **containerInitLibpod**
 > containerInitLibpod(name).execute();
 
@@ -695,7 +695,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerInspectLibpod"></a>
+<a id="containerInspectLibpod"></a>
 # **containerInspectLibpod**
 > InspectContainerData containerInspectLibpod(name).size(size).execute();
 
@@ -763,7 +763,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerKillLibpod"></a>
+<a id="containerKillLibpod"></a>
 # **containerKillLibpod**
 > containerKillLibpod(name).signal(signal).execute();
 
@@ -831,7 +831,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerListLibpod"></a>
+<a id="containerListLibpod"></a>
 # **containerListLibpod**
 > List&lt;ListContainer&gt; containerListLibpod().all(all).limit(limit).namespace(namespace).pod(pod).size(size).sync(sync).filters(filters).execute();
 
@@ -915,7 +915,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerLogsLibpod"></a>
+<a id="containerLogsLibpod"></a>
 # **containerLogsLibpod**
 > containerLogsLibpod(name).follow(follow).stdout(stdout).stderr(stderr).since(since).until(until).timestamps(timestamps).tail(tail).execute();
 
@@ -1000,7 +1000,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerMountLibpod"></a>
+<a id="containerMountLibpod"></a>
 # **containerMountLibpod**
 > String containerMountLibpod(name).execute();
 
@@ -1065,7 +1065,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerPauseLibpod"></a>
+<a id="containerPauseLibpod"></a>
 # **containerPauseLibpod**
 > containerPauseLibpod(name).execute();
 
@@ -1129,7 +1129,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerPruneLibpod"></a>
+<a id="containerPruneLibpod"></a>
 # **containerPruneLibpod**
 > List&lt;ContainersPruneReportLibpod&gt; containerPruneLibpod().filters(filters).execute();
 
@@ -1194,7 +1194,7 @@ No authorization required
 | **200** | Prune Containers |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerRenameLibpod"></a>
+<a id="containerRenameLibpod"></a>
 # **containerRenameLibpod**
 > containerRenameLibpod(name, name2).execute();
 
@@ -1261,7 +1261,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerResizeLibpod"></a>
+<a id="containerResizeLibpod"></a>
 # **containerResizeLibpod**
 > Object containerResizeLibpod(name).h(h).w(w).execute();
 
@@ -1333,7 +1333,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerRestartLibpod"></a>
+<a id="containerRestartLibpod"></a>
 # **containerRestartLibpod**
 > containerRestartLibpod(name).t(t).execute();
 
@@ -1398,7 +1398,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerRestoreLibpod"></a>
+<a id="containerRestoreLibpod"></a>
 # **containerRestoreLibpod**
 > containerRestoreLibpod(name).name2(name2).keep(keep).tcpEstablished(tcpEstablished)._import(_import).ignoreRootFS(ignoreRootFS).ignoreVolumes(ignoreVolumes).ignoreStaticIP(ignoreStaticIP).ignoreStaticMAC(ignoreStaticMAC).fileLocks(fileLocks).printStats(printStats).pod(pod).execute();
 
@@ -1495,7 +1495,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerShowMountedLibpod"></a>
+<a id="containerShowMountedLibpod"></a>
 # **containerShowMountedLibpod**
 > Map&lt;String, String&gt; containerShowMountedLibpod().execute();
 
@@ -1555,7 +1555,7 @@ No authorization required
 | **200** | mounted containers |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerStartLibpod"></a>
+<a id="containerStartLibpod"></a>
 # **containerStartLibpod**
 > containerStartLibpod(name).detachKeys(detachKeys).execute();
 
@@ -1621,7 +1621,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerStatsLibpod"></a>
+<a id="containerStatsLibpod"></a>
 # **containerStatsLibpod**
 > containerStatsLibpod(name).stream(stream).execute();
 
@@ -1689,7 +1689,7 @@ No authorization required
 | **409** | Conflict error in operation |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerStopLibpod"></a>
+<a id="containerStopLibpod"></a>
 # **containerStopLibpod**
 > containerStopLibpod(name).timeout(timeout).ignore(ignore).execute();
 
@@ -1758,7 +1758,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerTopLibpod"></a>
+<a id="containerTopLibpod"></a>
 # **containerTopLibpod**
 > ContainerTopOKBody containerTopLibpod(name).stream(stream).delay(delay).psArgs(psArgs).execute();
 
@@ -1832,7 +1832,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerUnmountLibpod"></a>
+<a id="containerUnmountLibpod"></a>
 # **containerUnmountLibpod**
 > containerUnmountLibpod(name).execute();
 
@@ -1896,7 +1896,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerUnpauseLibpod"></a>
+<a id="containerUnpauseLibpod"></a>
 # **containerUnpauseLibpod**
 > containerUnpauseLibpod(name).execute();
 
@@ -1958,7 +1958,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerUpdateLibpod"></a>
+<a id="containerUpdateLibpod"></a>
 # **containerUpdateLibpod**
 > containerUpdateLibpod(name).restartPolicy(restartPolicy).restartRetries(restartRetries).config(config).execute();
 
@@ -2031,7 +2031,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containerWaitLibpod"></a>
+<a id="containerWaitLibpod"></a>
 # **containerWaitLibpod**
 > Integer containerWaitLibpod(name).condition(condition).interval(interval).execute();
 
@@ -2102,7 +2102,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="containersStatsAllLibpod"></a>
+<a id="containersStatsAllLibpod"></a>
 # **containersStatsAllLibpod**
 > ContainerStats containersStatsAllLibpod().containers(containers).stream(stream).interval(interval).execute();
 
@@ -2174,7 +2174,7 @@ No authorization required
 | **404** | No such container |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="generateKubeLibpod"></a>
+<a id="generateKubeLibpod"></a>
 # **generateKubeLibpod**
 > File generateKubeLibpod(names).service(service).type(type).replicas(replicas).noTrunc(noTrunc).podmanOnly(podmanOnly).execute();
 
@@ -2253,7 +2253,7 @@ No authorization required
 | **200** | Kubernetes YAML file describing pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="generateSystemdLibpod"></a>
+<a id="generateSystemdLibpod"></a>
 # **generateSystemdLibpod**
 > Map&lt;String, String&gt; generateSystemdLibpod(name).useName(useName)._new(_new).noHeader(noHeader).startTimeout(startTimeout).stopTimeout(stopTimeout).restartPolicy(restartPolicy).containerPrefix(containerPrefix).podPrefix(podPrefix).separator(separator).restartSec(restartSec).wants(wants).after(after).requires(requires).additionalEnvVariables(additionalEnvVariables).execute();
 
@@ -2359,7 +2359,7 @@ No authorization required
 | **200** | no error |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="imageCommitLibpod"></a>
+<a id="imageCommitLibpod"></a>
 # **imageCommitLibpod**
 > imageCommitLibpod(container).author(author).changes(changes).comment(comment).format(format).pause(pause).squash(squash).repo(repo).stream(stream).tag(tag).execute();
 
@@ -2450,7 +2450,7 @@ No authorization required
 | **404** | No such image |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="kubeApplyLibpod"></a>
+<a id="kubeApplyLibpod"></a>
 # **kubeApplyLibpod**
 > File kubeApplyLibpod().caCertFile(caCertFile).kubeConfig(kubeConfig).namespace(namespace).service(service)._file(_file).request(request).execute();
 
@@ -2530,7 +2530,7 @@ No authorization required
 | **200** | Kubernetes YAML file successfully deployed to cluster |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="playKubeDownLibpod"></a>
+<a id="playKubeDownLibpod"></a>
 # **playKubeDownLibpod**
 > PlayKubeReport playKubeDownLibpod().contentType(contentType).force(force).request(request).execute();
 
@@ -2553,7 +2553,7 @@ public class Example {
     defaultClient.setBasePath("http://podman.io");
 
     ContainersApi apiInstance = new ContainersApi(defaultClient);
-    String contentType = "plain/text"; // String | 
+    String contentType = "text/plain"; // String | 
     Boolean force = false; // Boolean | Remove volumes.
     String request = "request_example"; // String | Kubernetes YAML file.
     try {
@@ -2578,7 +2578,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] [default to plain/text] [enum: plain/text, application/x-tar] |
+| **contentType** | **String**|  | [optional] [default to text/plain] [enum: text/plain, application/x-tar] |
 | **force** | **Boolean**| Remove volumes. | [optional] [default to false] |
 | **request** | **String**| Kubernetes YAML file. | [optional] |
 
@@ -2592,7 +2592,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-tar
+ - **Content-Type**: text/plain, application/x-tar
  - **Accept**: application/json
 
 ### HTTP response details
@@ -2601,13 +2601,13 @@ No authorization required
 | **200** | PlayKube response |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="playKubeLibpod"></a>
+<a id="playKubeLibpod"></a>
 # **playKubeLibpod**
 > PlayKubeReport playKubeLibpod().contentType(contentType).annotations(annotations).logDriver(logDriver).logOptions(logOptions).network(network).noHosts(noHosts).noTrunc(noTrunc).publishPorts(publishPorts).publishAllPorts(publishAllPorts).replace(replace).serviceContainer(serviceContainer).start(start).staticIPs(staticIPs).staticMACs(staticMACs).tlsVerify(tlsVerify).userns(userns).wait(wait).build(build).request(request).execute();
 
 Play a Kubernetes YAML file.
 
-Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;plain/text&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
+Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;text/plain&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -2624,7 +2624,7 @@ public class Example {
     defaultClient.setBasePath("http://podman.io");
 
     ContainersApi apiInstance = new ContainersApi(defaultClient);
-    String contentType = "plain/text"; // String | 
+    String contentType = "text/plain"; // String | 
     String annotations = "annotations_example"; // String | JSON encoded value of annotations (a map[string]string).
     String logDriver = "logDriver_example"; // String | Logging driver for the containers in the pod.
     List<String> logOptions = Arrays.asList(); // List<String> | logging driver options
@@ -2681,7 +2681,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] [default to plain/text] [enum: plain/text, application/x-tar] |
+| **contentType** | **String**|  | [optional] [default to text/plain] [enum: text/plain, application/x-tar] |
 | **annotations** | **String**| JSON encoded value of annotations (a map[string]string). | [optional] |
 | **logDriver** | **String**| Logging driver for the containers in the pod. | [optional] |
 | **logOptions** | [**List&lt;String&gt;**](String.md)| logging driver options | [optional] |
@@ -2711,7 +2711,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-tar
+ - **Content-Type**: text/plain, application/x-tar
  - **Accept**: application/json
 
 ### HTTP response details
@@ -2720,7 +2720,7 @@ No authorization required
 | **200** | PlayKube response |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="putContainerArchiveLibpod"></a>
+<a id="putContainerArchiveLibpod"></a>
 # **putContainerArchiveLibpod**
 > putContainerArchiveLibpod(name, path).pause(pause).request(request).execute();
 

@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,14 +21,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.ConfigReference;
 import io.github.pod4dev.libpodj.model.IPAM;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -41,12 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -54,7 +55,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * CreateOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class CreateOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -92,11 +93,11 @@ public class CreateOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_OPTIONS = "Options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private Map<String, String> options = null;
+  private Map<String, String> options = new HashMap<>();
 
   public static final String SERIALIZED_NAME_SCOPE = "Scope";
   @SerializedName(SERIALIZED_NAME_SCOPE)
@@ -106,22 +107,19 @@ public class CreateOptions implements Serializable {
   }
 
   public CreateOptions attachable(Boolean attachable) {
-    
     this.attachable = attachable;
     return this;
   }
 
-   /**
+  /**
    * Get attachable
    * @return attachable
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getAttachable() {
     return attachable;
   }
-
 
   public void setAttachable(Boolean attachable) {
     this.attachable = attachable;
@@ -129,23 +127,20 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions configFrom(ConfigReference configFrom) {
-    
     this.configFrom = configFrom;
     return this;
   }
 
-   /**
+  /**
    * Get configFrom
    * @return configFrom
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public ConfigReference getConfigFrom() {
     return configFrom;
   }
-
 
   public void setConfigFrom(ConfigReference configFrom) {
     this.configFrom = configFrom;
@@ -153,22 +148,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions configOnly(Boolean configOnly) {
-    
     this.configOnly = configOnly;
     return this;
   }
 
-   /**
+  /**
    * Get configOnly
    * @return configOnly
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getConfigOnly() {
     return configOnly;
   }
-
 
   public void setConfigOnly(Boolean configOnly) {
     this.configOnly = configOnly;
@@ -176,22 +168,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions driver(String driver) {
-    
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Name of the volume driver to use.
    * @return driver
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the volume driver to use.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDriver() {
     return driver;
   }
-
 
   public void setDriver(String driver) {
     this.driver = driver;
@@ -199,22 +188,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions enableIPv6(Boolean enableIPv6) {
-    
     this.enableIPv6 = enableIPv6;
     return this;
   }
 
-   /**
+  /**
    * Get enableIPv6
    * @return enableIPv6
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getEnableIPv6() {
     return enableIPv6;
   }
-
 
   public void setEnableIPv6(Boolean enableIPv6) {
     this.enableIPv6 = enableIPv6;
@@ -222,23 +208,20 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions ipam(IPAM ipam) {
-    
     this.ipam = ipam;
     return this;
   }
 
-   /**
+  /**
    * Get ipam
    * @return ipam
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public IPAM getIPAM() {
     return ipam;
   }
-
 
   public void setIPAM(IPAM ipam) {
     this.ipam = ipam;
@@ -246,22 +229,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions ingress(Boolean ingress) {
-    
     this.ingress = ingress;
     return this;
   }
 
-   /**
+  /**
    * Get ingress
    * @return ingress
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getIngress() {
     return ingress;
   }
-
 
   public void setIngress(Boolean ingress) {
     this.ingress = ingress;
@@ -269,22 +249,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions internal(Boolean internal) {
-    
     this.internal = internal;
     return this;
   }
 
-   /**
+  /**
    * Get internal
    * @return internal
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getInternal() {
     return internal;
   }
-
 
   public void setInternal(Boolean internal) {
     this.internal = internal;
@@ -292,7 +269,6 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -305,17 +281,15 @@ public class CreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * User-defined key/value metadata.
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "User-defined key/value metadata.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -323,7 +297,6 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions options(Map<String, String> options) {
-    
     this.options = options;
     return this;
   }
@@ -336,17 +309,15 @@ public class CreateOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get options
    * @return options
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getOptions() {
     return options;
   }
-
 
   public void setOptions(Map<String, String> options) {
     this.options = options;
@@ -354,22 +325,19 @@ public class CreateOptions implements Serializable {
 
 
   public CreateOptions scope(String scope) {
-    
     this.scope = scope;
     return this;
   }
 
-   /**
+  /**
    * Get scope
    * @return scope
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getScope() {
     return scope;
   }
-
 
   public void setScope(String scope) {
     this.scope = scope;
@@ -457,38 +425,37 @@ public class CreateOptions implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateOptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (CreateOptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CreateOptions
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CreateOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateOptions is not found in the empty JSON string", CreateOptions.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `ConfigFrom`
       if (jsonObj.get("ConfigFrom") != null && !jsonObj.get("ConfigFrom").isJsonNull()) {
-        ConfigReference.validateJsonObject(jsonObj.getAsJsonObject("ConfigFrom"));
+        ConfigReference.validateJsonElement(jsonObj.get("ConfigFrom"));
       }
       if ((jsonObj.get("Driver") != null && !jsonObj.get("Driver").isJsonNull()) && !jsonObj.get("Driver").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Driver` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Driver").toString()));
       }
       // validate the optional field `IPAM`
       if (jsonObj.get("IPAM") != null && !jsonObj.get("IPAM").isJsonNull()) {
-        IPAM.validateJsonObject(jsonObj.getAsJsonObject("IPAM"));
+        IPAM.validateJsonElement(jsonObj.get("IPAM"));
       }
       if ((jsonObj.get("Scope") != null && !jsonObj.get("Scope").isJsonNull()) && !jsonObj.get("Scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Scope").toString()));
@@ -515,31 +482,31 @@ public class CreateOptions implements Serializable {
 
            @Override
            public CreateOptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of CreateOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateOptions
-  * @throws IOException if the JSON string is invalid with respect to CreateOptions
-  */
+  /**
+   * Create an instance of CreateOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CreateOptions
+   * @throws IOException if the JSON string is invalid with respect to CreateOptions
+   */
   public static CreateOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CreateOptions.class);
   }
 
- /**
-  * Convert an instance of CreateOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CreateOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,19 +14,17 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.TypeMount;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,12 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -51,7 +52,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * AccessMode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class AccessMode implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,22 +76,19 @@ public class AccessMode implements Serializable {
   }
 
   public AccessMode blockVolume(Object blockVolume) {
-    
     this.blockVolume = blockVolume;
     return this;
   }
 
-   /**
+  /**
    * Intentionally empty.
    * @return blockVolume
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Intentionally empty.")
+   */
+  @jakarta.annotation.Nullable
 
   public Object getBlockVolume() {
     return blockVolume;
   }
-
 
   public void setBlockVolume(Object blockVolume) {
     this.blockVolume = blockVolume;
@@ -98,23 +96,20 @@ public class AccessMode implements Serializable {
 
 
   public AccessMode mountVolume(TypeMount mountVolume) {
-    
     this.mountVolume = mountVolume;
     return this;
   }
 
-   /**
+  /**
    * Get mountVolume
    * @return mountVolume
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public TypeMount getMountVolume() {
     return mountVolume;
   }
-
 
   public void setMountVolume(TypeMount mountVolume) {
     this.mountVolume = mountVolume;
@@ -122,22 +117,19 @@ public class AccessMode implements Serializable {
 
 
   public AccessMode scope(String scope) {
-    
     this.scope = scope;
     return this;
   }
 
-   /**
+  /**
    * Scope defines the Scope of a Cluster Volume. This is how many nodes a Volume can be accessed simultaneously on.
    * @return scope
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Scope defines the Scope of a Cluster Volume. This is how many nodes a Volume can be accessed simultaneously on.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getScope() {
     return scope;
   }
-
 
   public void setScope(String scope) {
     this.scope = scope;
@@ -145,22 +137,19 @@ public class AccessMode implements Serializable {
 
 
   public AccessMode sharing(String sharing) {
-    
     this.sharing = sharing;
     return this;
   }
 
-   /**
+  /**
    * SharingMode defines the Sharing of a Cluster Volume. This is how Tasks using a Volume at the same time can use it.
    * @return sharing
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "SharingMode defines the Sharing of a Cluster Volume. This is how Tasks using a Volume at the same time can use it.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSharing() {
     return sharing;
   }
-
 
   public void setSharing(String sharing) {
     this.sharing = sharing;
@@ -227,31 +216,30 @@ public class AccessMode implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AccessMode
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (AccessMode.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AccessMode
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccessMode.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AccessMode is not found in the empty JSON string", AccessMode.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AccessMode.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccessMode` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccessMode` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `MountVolume`
       if (jsonObj.get("MountVolume") != null && !jsonObj.get("MountVolume").isJsonNull()) {
-        TypeMount.validateJsonObject(jsonObj.getAsJsonObject("MountVolume"));
+        TypeMount.validateJsonElement(jsonObj.get("MountVolume"));
       }
       if ((jsonObj.get("Scope") != null && !jsonObj.get("Scope").isJsonNull()) && !jsonObj.get("Scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Scope").toString()));
@@ -281,31 +269,31 @@ public class AccessMode implements Serializable {
 
            @Override
            public AccessMode read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of AccessMode given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AccessMode
-  * @throws IOException if the JSON string is invalid with respect to AccessMode
-  */
+  /**
+   * Create an instance of AccessMode given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AccessMode
+   * @throws IOException if the JSON string is invalid with respect to AccessMode
+   */
   public static AccessMode fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AccessMode.class);
   }
 
- /**
-  * Convert an instance of AccessMode to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AccessMode to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

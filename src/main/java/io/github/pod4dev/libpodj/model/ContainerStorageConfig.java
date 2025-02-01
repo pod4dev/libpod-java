@@ -14,7 +14,6 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,16 +27,15 @@ import io.github.pod4dev.libpodj.model.NamedVolume;
 import io.github.pod4dev.libpodj.model.Namespace;
 import io.github.pod4dev.libpodj.model.OverlayVolume;
 import io.github.pod4dev.libpodj.model.Secret;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,12 +47,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -62,14 +63,13 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * ContainerStorageConfig contains information on the storage configuration of a container.
  */
-@ApiModel(description = "ContainerStorageConfig contains information on the storage configuration of a container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerStorageConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
   public static final String SERIALIZED_NAME_CHROOT_DIRECTORIES = "chroot_directories";
   @SerializedName(SERIALIZED_NAME_CHROOT_DIRECTORIES)
-  private List<String> chrootDirectories = null;
+  private List<String> chrootDirectories = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CREATE_WORKING_DIR = "create_working_dir";
   @SerializedName(SERIALIZED_NAME_CREATE_WORKING_DIR)
@@ -77,19 +77,19 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_DEVICE_CGROUP_RULE = "device_cgroup_rule";
   @SerializedName(SERIALIZED_NAME_DEVICE_CGROUP_RULE)
-  private List<LinuxDeviceCgroup> deviceCgroupRule = null;
+  private List<@Valid LinuxDeviceCgroup> deviceCgroupRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICES = "devices";
   @SerializedName(SERIALIZED_NAME_DEVICES)
-  private List<LinuxDevice> devices = null;
+  private List<@Valid LinuxDevice> devices = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEVICES_FROM = "devices_from";
   @SerializedName(SERIALIZED_NAME_DEVICES_FROM)
-  private List<String> devicesFrom = null;
+  private List<String> devicesFrom = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOST_DEVICE_LIST = "host_device_list";
   @SerializedName(SERIALIZED_NAME_HOST_DEVICE_LIST)
-  private List<LinuxDevice> hostDeviceList = null;
+  private List<@Valid LinuxDevice> hostDeviceList = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IMAGE = "image";
   @SerializedName(SERIALIZED_NAME_IMAGE)
@@ -113,7 +113,7 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_IMAGE_VOLUMES = "image_volumes";
   @SerializedName(SERIALIZED_NAME_IMAGE_VOLUMES)
-  private List<ImageVolume> imageVolumes = null;
+  private List<@Valid ImageVolume> imageVolumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_INIT = "init";
   @SerializedName(SERIALIZED_NAME_INIT)
@@ -129,11 +129,11 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_MOUNTS = "mounts";
   @SerializedName(SERIALIZED_NAME_MOUNTS)
-  private List<Mount> mounts = null;
+  private List<@Valid Mount> mounts = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OVERLAY_VOLUMES = "overlay_volumes";
   @SerializedName(SERIALIZED_NAME_OVERLAY_VOLUMES)
-  private List<OverlayVolume> overlayVolumes = null;
+  private List<@Valid OverlayVolume> overlayVolumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RAW_IMAGE_NAME = "raw_image_name";
   @SerializedName(SERIALIZED_NAME_RAW_IMAGE_NAME)
@@ -157,7 +157,7 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_SECRETS = "secrets";
   @SerializedName(SERIALIZED_NAME_SECRETS)
-  private List<Secret> secrets = null;
+  private List<@Valid Secret> secrets = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SHM_SIZE = "shm_size";
   @SerializedName(SERIALIZED_NAME_SHM_SIZE)
@@ -169,7 +169,7 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_STORAGE_OPTS = "storage_opts";
   @SerializedName(SERIALIZED_NAME_STORAGE_OPTS)
-  private Map<String, String> storageOpts = null;
+  private Map<String, String> storageOpts = new HashMap<>();
 
   public static final String SERIALIZED_NAME_VOLATILE = "volatile";
   @SerializedName(SERIALIZED_NAME_VOLATILE)
@@ -177,11 +177,11 @@ public class ContainerStorageConfig implements Serializable {
 
   public static final String SERIALIZED_NAME_VOLUMES = "volumes";
   @SerializedName(SERIALIZED_NAME_VOLUMES)
-  private List<NamedVolume> volumes = null;
+  private List<@Valid NamedVolume> volumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VOLUMES_FROM = "volumes_from";
   @SerializedName(SERIALIZED_NAME_VOLUMES_FROM)
-  private List<String> volumesFrom = null;
+  private List<String> volumesFrom = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_WORK_DIR = "work_dir";
   @SerializedName(SERIALIZED_NAME_WORK_DIR)
@@ -191,7 +191,6 @@ public class ContainerStorageConfig implements Serializable {
   }
 
   public ContainerStorageConfig chrootDirectories(List<String> chrootDirectories) {
-    
     this.chrootDirectories = chrootDirectories;
     return this;
   }
@@ -204,17 +203,15 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * ChrootDirs is an additional set of directories that need to be treated as root directories. Standard bind mounts will be mounted into paths relative to these directories. Optional.
    * @return chrootDirectories
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ChrootDirs is an additional set of directories that need to be treated as root directories. Standard bind mounts will be mounted into paths relative to these directories. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getChrootDirectories() {
     return chrootDirectories;
   }
-
 
   public void setChrootDirectories(List<String> chrootDirectories) {
     this.chrootDirectories = chrootDirectories;
@@ -222,30 +219,26 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig createWorkingDir(Boolean createWorkingDir) {
-    
     this.createWorkingDir = createWorkingDir;
     return this;
   }
 
-   /**
+  /**
    * Create the working directory if it doesn&#39;t exist. If unset, it doesn&#39;t create it. Optional.
    * @return createWorkingDir
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Create the working directory if it doesn't exist. If unset, it doesn't create it. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getCreateWorkingDir() {
     return createWorkingDir;
   }
-
 
   public void setCreateWorkingDir(Boolean createWorkingDir) {
     this.createWorkingDir = createWorkingDir;
   }
 
 
-  public ContainerStorageConfig deviceCgroupRule(List<LinuxDeviceCgroup> deviceCgroupRule) {
-    
+  public ContainerStorageConfig deviceCgroupRule(List<@Valid LinuxDeviceCgroup> deviceCgroupRule) {
     this.deviceCgroupRule = deviceCgroupRule;
     return this;
   }
@@ -258,26 +251,23 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DeviceCgroupRule are device cgroup rules that allow containers to use additional types of devices.
    * @return deviceCgroupRule
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "DeviceCgroupRule are device cgroup rules that allow containers to use additional types of devices.")
 
-  public List<LinuxDeviceCgroup> getDeviceCgroupRule() {
+  public List<@Valid LinuxDeviceCgroup> getDeviceCgroupRule() {
     return deviceCgroupRule;
   }
 
-
-  public void setDeviceCgroupRule(List<LinuxDeviceCgroup> deviceCgroupRule) {
+  public void setDeviceCgroupRule(List<@Valid LinuxDeviceCgroup> deviceCgroupRule) {
     this.deviceCgroupRule = deviceCgroupRule;
   }
 
 
-  public ContainerStorageConfig devices(List<LinuxDevice> devices) {
-    
+  public ContainerStorageConfig devices(List<@Valid LinuxDevice> devices) {
     this.devices = devices;
     return this;
   }
@@ -290,26 +280,23 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Devices are devices that will be added to the container. Optional.
    * @return devices
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Devices are devices that will be added to the container. Optional.")
 
-  public List<LinuxDevice> getDevices() {
+  public List<@Valid LinuxDevice> getDevices() {
     return devices;
   }
 
-
-  public void setDevices(List<LinuxDevice> devices) {
+  public void setDevices(List<@Valid LinuxDevice> devices) {
     this.devices = devices;
   }
 
 
   public ContainerStorageConfig devicesFrom(List<String> devicesFrom) {
-    
     this.devicesFrom = devicesFrom;
     return this;
   }
@@ -322,25 +309,22 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * DevicesFrom specifies that this container will mount the device(s) from other container(s). Optional.
    * @return devicesFrom
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "DevicesFrom specifies that this container will mount the device(s) from other container(s). Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getDevicesFrom() {
     return devicesFrom;
   }
-
 
   public void setDevicesFrom(List<String> devicesFrom) {
     this.devicesFrom = devicesFrom;
   }
 
 
-  public ContainerStorageConfig hostDeviceList(List<LinuxDevice> hostDeviceList) {
-    
+  public ContainerStorageConfig hostDeviceList(List<@Valid LinuxDevice> hostDeviceList) {
     this.hostDeviceList = hostDeviceList;
     return this;
   }
@@ -353,41 +337,36 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * HostDeviceList is used to recreate the mounted device on inherited containers
    * @return hostDeviceList
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "HostDeviceList is used to recreate the mounted device on inherited containers")
 
-  public List<LinuxDevice> getHostDeviceList() {
+  public List<@Valid LinuxDevice> getHostDeviceList() {
     return hostDeviceList;
   }
 
-
-  public void setHostDeviceList(List<LinuxDevice> hostDeviceList) {
+  public void setHostDeviceList(List<@Valid LinuxDevice> hostDeviceList) {
     this.hostDeviceList = hostDeviceList;
   }
 
 
   public ContainerStorageConfig image(String image) {
-    
     this.image = image;
     return this;
   }
 
-   /**
+  /**
    * Image is the image the container will be based on. The image will be used as the container&#39;s root filesystem, and its environment vars, volumes, and other configuration will be applied to the container. Conflicts with Rootfs. At least one of Image or Rootfs must be specified.
    * @return image
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Image is the image the container will be based on. The image will be used as the container's root filesystem, and its environment vars, volumes, and other configuration will be applied to the container. Conflicts with Rootfs. At least one of Image or Rootfs must be specified.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImage() {
     return image;
   }
-
 
   public void setImage(String image) {
     this.image = image;
@@ -395,22 +374,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig imageArch(String imageArch) {
-    
     this.imageArch = imageArch;
     return this;
   }
 
-   /**
+  /**
    * ImageArch is the user-specified image architecture. Used to select a different variant from a manifest list. Optional.
    * @return imageArch
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImageArch is the user-specified image architecture. Used to select a different variant from a manifest list. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImageArch() {
     return imageArch;
   }
-
 
   public void setImageArch(String imageArch) {
     this.imageArch = imageArch;
@@ -418,22 +394,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig imageOs(String imageOs) {
-    
     this.imageOs = imageOs;
     return this;
   }
 
-   /**
+  /**
    * ImageOS is the user-specified OS of the image. Used to select a different variant from a manifest list. Optional.
    * @return imageOs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImageOS is the user-specified OS of the image. Used to select a different variant from a manifest list. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImageOs() {
     return imageOs;
   }
-
 
   public void setImageOs(String imageOs) {
     this.imageOs = imageOs;
@@ -441,22 +414,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig imageVariant(String imageVariant) {
-    
     this.imageVariant = imageVariant;
     return this;
   }
 
-   /**
+  /**
    * ImageVariant is the user-specified image variant. Used to select a different variant from a manifest list. Optional.
    * @return imageVariant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImageVariant is the user-specified image variant. Used to select a different variant from a manifest list. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImageVariant() {
     return imageVariant;
   }
-
 
   public void setImageVariant(String imageVariant) {
     this.imageVariant = imageVariant;
@@ -464,30 +434,26 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig imageVolumeMode(String imageVolumeMode) {
-    
     this.imageVolumeMode = imageVolumeMode;
     return this;
   }
 
-   /**
+  /**
    * ImageVolumeMode indicates how image volumes will be created. Supported modes are \&quot;ignore\&quot; (do not create), \&quot;tmpfs\&quot; (create as tmpfs), and \&quot;anonymous\&quot; (create as anonymous volumes). The default if unset is anonymous. Optional.
    * @return imageVolumeMode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ImageVolumeMode indicates how image volumes will be created. Supported modes are \"ignore\" (do not create), \"tmpfs\" (create as tmpfs), and \"anonymous\" (create as anonymous volumes). The default if unset is anonymous. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getImageVolumeMode() {
     return imageVolumeMode;
   }
-
 
   public void setImageVolumeMode(String imageVolumeMode) {
     this.imageVolumeMode = imageVolumeMode;
   }
 
 
-  public ContainerStorageConfig imageVolumes(List<ImageVolume> imageVolumes) {
-    
+  public ContainerStorageConfig imageVolumes(List<@Valid ImageVolume> imageVolumes) {
     this.imageVolumes = imageVolumes;
     return this;
   }
@@ -500,41 +466,36 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Image volumes bind-mount a container-image mount into the container. Optional.
    * @return imageVolumes
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Image volumes bind-mount a container-image mount into the container. Optional.")
 
-  public List<ImageVolume> getImageVolumes() {
+  public List<@Valid ImageVolume> getImageVolumes() {
     return imageVolumes;
   }
 
-
-  public void setImageVolumes(List<ImageVolume> imageVolumes) {
+  public void setImageVolumes(List<@Valid ImageVolume> imageVolumes) {
     this.imageVolumes = imageVolumes;
   }
 
 
   public ContainerStorageConfig init(Boolean init) {
-    
     this.init = init;
     return this;
   }
 
-   /**
+  /**
    * Init specifies that an init binary will be mounted into the container, and will be used as PID1. Optional.
    * @return init
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Init specifies that an init binary will be mounted into the container, and will be used as PID1. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getInit() {
     return init;
   }
-
 
   public void setInit(Boolean init) {
     this.init = init;
@@ -542,22 +503,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig initPath(String initPath) {
-    
     this.initPath = initPath;
     return this;
   }
 
-   /**
+  /**
    * InitPath specifies the path to the init binary that will be added if Init is specified above. If not specified, the default set in the Libpod config will be used. Ignored if Init above is not set. Optional.
    * @return initPath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "InitPath specifies the path to the init binary that will be added if Init is specified above. If not specified, the default set in the Libpod config will be used. Ignored if Init above is not set. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getInitPath() {
     return initPath;
   }
-
 
   public void setInitPath(String initPath) {
     this.initPath = initPath;
@@ -565,31 +523,27 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig ipcns(Namespace ipcns) {
-    
     this.ipcns = ipcns;
     return this;
   }
 
-   /**
+  /**
    * Get ipcns
    * @return ipcns
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Namespace getIpcns() {
     return ipcns;
   }
-
 
   public void setIpcns(Namespace ipcns) {
     this.ipcns = ipcns;
   }
 
 
-  public ContainerStorageConfig mounts(List<Mount> mounts) {
-    
+  public ContainerStorageConfig mounts(List<@Valid Mount> mounts) {
     this.mounts = mounts;
     return this;
   }
@@ -602,26 +556,23 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Mounts are mounts that will be added to the container. These will supersede Image Volumes and VolumesFrom volumes where there are conflicts. Optional.
    * @return mounts
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Mounts are mounts that will be added to the container. These will supersede Image Volumes and VolumesFrom volumes where there are conflicts. Optional.")
 
-  public List<Mount> getMounts() {
+  public List<@Valid Mount> getMounts() {
     return mounts;
   }
 
-
-  public void setMounts(List<Mount> mounts) {
+  public void setMounts(List<@Valid Mount> mounts) {
     this.mounts = mounts;
   }
 
 
-  public ContainerStorageConfig overlayVolumes(List<OverlayVolume> overlayVolumes) {
-    
+  public ContainerStorageConfig overlayVolumes(List<@Valid OverlayVolume> overlayVolumes) {
     this.overlayVolumes = overlayVolumes;
     return this;
   }
@@ -634,41 +585,36 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Overlay volumes are named volumes that will be added to the container. Optional.
    * @return overlayVolumes
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Overlay volumes are named volumes that will be added to the container. Optional.")
 
-  public List<OverlayVolume> getOverlayVolumes() {
+  public List<@Valid OverlayVolume> getOverlayVolumes() {
     return overlayVolumes;
   }
 
-
-  public void setOverlayVolumes(List<OverlayVolume> overlayVolumes) {
+  public void setOverlayVolumes(List<@Valid OverlayVolume> overlayVolumes) {
     this.overlayVolumes = overlayVolumes;
   }
 
 
   public ContainerStorageConfig rawImageName(String rawImageName) {
-    
     this.rawImageName = rawImageName;
     return this;
   }
 
-   /**
+  /**
    * RawImageName is the user-specified and unprocessed input referring to a local or a remote image. Optional, but strongly encouraged to be set if Image is set.
    * @return rawImageName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RawImageName is the user-specified and unprocessed input referring to a local or a remote image. Optional, but strongly encouraged to be set if Image is set.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRawImageName() {
     return rawImageName;
   }
-
 
   public void setRawImageName(String rawImageName) {
     this.rawImageName = rawImageName;
@@ -676,22 +622,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig rootfs(String rootfs) {
-    
     this.rootfs = rootfs;
     return this;
   }
 
-   /**
+  /**
    * Rootfs is the path to a directory that will be used as the container&#39;s root filesystem. No modification will be made to the directory, it will be directly mounted into the container as root. Conflicts with Image. At least one of Image or Rootfs must be specified.
    * @return rootfs
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rootfs is the path to a directory that will be used as the container's root filesystem. No modification will be made to the directory, it will be directly mounted into the container as root. Conflicts with Image. At least one of Image or Rootfs must be specified.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRootfs() {
     return rootfs;
   }
-
 
   public void setRootfs(String rootfs) {
     this.rootfs = rootfs;
@@ -699,22 +642,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig rootfsMapping(String rootfsMapping) {
-    
     this.rootfsMapping = rootfsMapping;
     return this;
   }
 
-   /**
+  /**
    * RootfsMapping specifies if there are UID/GID mappings to apply to the rootfs. Optional.
    * @return rootfsMapping
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RootfsMapping specifies if there are UID/GID mappings to apply to the rootfs. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRootfsMapping() {
     return rootfsMapping;
   }
-
 
   public void setRootfsMapping(String rootfsMapping) {
     this.rootfsMapping = rootfsMapping;
@@ -722,22 +662,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig rootfsOverlay(Boolean rootfsOverlay) {
-    
     this.rootfsOverlay = rootfsOverlay;
     return this;
   }
 
-   /**
+  /**
    * RootfsOverlay tells if rootfs is actually an overlay on top of base path. Optional.
    * @return rootfsOverlay
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RootfsOverlay tells if rootfs is actually an overlay on top of base path. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRootfsOverlay() {
     return rootfsOverlay;
   }
-
 
   public void setRootfsOverlay(Boolean rootfsOverlay) {
     this.rootfsOverlay = rootfsOverlay;
@@ -745,30 +682,26 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig rootfsPropagation(String rootfsPropagation) {
-    
     this.rootfsPropagation = rootfsPropagation;
     return this;
   }
 
-   /**
+  /**
    * RootfsPropagation is the rootfs propagation mode for the container. If not set, the default of rslave will be used. Optional.
    * @return rootfsPropagation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RootfsPropagation is the rootfs propagation mode for the container. If not set, the default of rslave will be used. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getRootfsPropagation() {
     return rootfsPropagation;
   }
-
 
   public void setRootfsPropagation(String rootfsPropagation) {
     this.rootfsPropagation = rootfsPropagation;
   }
 
 
-  public ContainerStorageConfig secrets(List<Secret> secrets) {
-    
+  public ContainerStorageConfig secrets(List<@Valid Secret> secrets) {
     this.secrets = secrets;
     return this;
   }
@@ -781,41 +714,36 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Secrets are the secrets that will be added to the container Optional.
    * @return secrets
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Secrets are the secrets that will be added to the container Optional.")
 
-  public List<Secret> getSecrets() {
+  public List<@Valid Secret> getSecrets() {
     return secrets;
   }
 
-
-  public void setSecrets(List<Secret> secrets) {
+  public void setSecrets(List<@Valid Secret> secrets) {
     this.secrets = secrets;
   }
 
 
   public ContainerStorageConfig shmSize(Long shmSize) {
-    
     this.shmSize = shmSize;
     return this;
   }
 
-   /**
+  /**
    * ShmSize is the size of the tmpfs to mount in at /dev/shm, in bytes. Conflicts with ShmSize if IpcNS is not private. Optional.
    * @return shmSize
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ShmSize is the size of the tmpfs to mount in at /dev/shm, in bytes. Conflicts with ShmSize if IpcNS is not private. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getShmSize() {
     return shmSize;
   }
-
 
   public void setShmSize(Long shmSize) {
     this.shmSize = shmSize;
@@ -823,22 +751,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig shmSizeSystemd(Long shmSizeSystemd) {
-    
     this.shmSizeSystemd = shmSizeSystemd;
     return this;
   }
 
-   /**
+  /**
    * ShmSizeSystemd is the size of systemd-specific tmpfs mounts specifically /run, /run/lock, /var/log/journal and /tmp. Optional
    * @return shmSizeSystemd
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ShmSizeSystemd is the size of systemd-specific tmpfs mounts specifically /run, /run/lock, /var/log/journal and /tmp. Optional")
+   */
+  @jakarta.annotation.Nullable
 
   public Long getShmSizeSystemd() {
     return shmSizeSystemd;
   }
-
 
   public void setShmSizeSystemd(Long shmSizeSystemd) {
     this.shmSizeSystemd = shmSizeSystemd;
@@ -846,7 +771,6 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig storageOpts(Map<String, String> storageOpts) {
-    
     this.storageOpts = storageOpts;
     return this;
   }
@@ -859,17 +783,15 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * StorageOpts is the container&#39;s storage options Optional.
    * @return storageOpts
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "StorageOpts is the container's storage options Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getStorageOpts() {
     return storageOpts;
   }
-
 
   public void setStorageOpts(Map<String, String> storageOpts) {
     this.storageOpts = storageOpts;
@@ -877,30 +799,26 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig _volatile(Boolean _volatile) {
-    
     this._volatile = _volatile;
     return this;
   }
 
-   /**
+  /**
    * Volatile specifies whether the container storage can be optimized at the cost of not syncing all the dirty files in memory. Optional.
    * @return _volatile
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Volatile specifies whether the container storage can be optimized at the cost of not syncing all the dirty files in memory. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getVolatile() {
     return _volatile;
   }
-
 
   public void setVolatile(Boolean _volatile) {
     this._volatile = _volatile;
   }
 
 
-  public ContainerStorageConfig volumes(List<NamedVolume> volumes) {
-    
+  public ContainerStorageConfig volumes(List<@Valid NamedVolume> volumes) {
     this.volumes = volumes;
     return this;
   }
@@ -913,26 +831,23 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Volumes are named volumes that will be added to the container. These will supersede Image Volumes and VolumesFrom volumes where there are conflicts. Optional.
    * @return volumes
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "Volumes are named volumes that will be added to the container. These will supersede Image Volumes and VolumesFrom volumes where there are conflicts. Optional.")
 
-  public List<NamedVolume> getVolumes() {
+  public List<@Valid NamedVolume> getVolumes() {
     return volumes;
   }
 
-
-  public void setVolumes(List<NamedVolume> volumes) {
+  public void setVolumes(List<@Valid NamedVolume> volumes) {
     this.volumes = volumes;
   }
 
 
   public ContainerStorageConfig volumesFrom(List<String> volumesFrom) {
-    
     this.volumesFrom = volumesFrom;
     return this;
   }
@@ -945,17 +860,15 @@ public class ContainerStorageConfig implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * VolumesFrom is a set of containers whose volumes will be added to this container. The name or ID of the container must be provided, and may optionally be followed by a : and then one or more comma-separated options. Valid options are &#39;ro&#39;, &#39;rw&#39;, and &#39;z&#39;. Options will be used for all volumes sourced from the container. Optional.
    * @return volumesFrom
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "VolumesFrom is a set of containers whose volumes will be added to this container. The name or ID of the container must be provided, and may optionally be followed by a : and then one or more comma-separated options. Valid options are 'ro', 'rw', and 'z'. Options will be used for all volumes sourced from the container. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getVolumesFrom() {
     return volumesFrom;
   }
-
 
   public void setVolumesFrom(List<String> volumesFrom) {
     this.volumesFrom = volumesFrom;
@@ -963,22 +876,19 @@ public class ContainerStorageConfig implements Serializable {
 
 
   public ContainerStorageConfig workDir(String workDir) {
-    
     this.workDir = workDir;
     return this;
   }
 
-   /**
+  /**
    * WorkDir is the container&#39;s working directory. If unset, the default, /, will be used. Optional.
    * @return workDir
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "WorkDir is the container's working directory. If unset, the default, /, will be used. Optional.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getWorkDir() {
     return workDir;
   }
-
 
   public void setWorkDir(String workDir) {
     this.workDir = workDir;
@@ -1123,30 +1033,29 @@ public class ContainerStorageConfig implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ContainerStorageConfig
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (ContainerStorageConfig.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ContainerStorageConfig
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ContainerStorageConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ContainerStorageConfig is not found in the empty JSON string", ContainerStorageConfig.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ContainerStorageConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerStorageConfig` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerStorageConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("chroot_directories") != null && !jsonObj.get("chroot_directories").isJsonNull()) && !jsonObj.get("chroot_directories").isJsonArray()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("chroot_directories") != null && !jsonObj.get("chroot_directories").isJsonNull() && !jsonObj.get("chroot_directories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `chroot_directories` to be an array in the JSON string but got `%s`", jsonObj.get("chroot_directories").toString()));
       }
       if (jsonObj.get("device_cgroup_rule") != null && !jsonObj.get("device_cgroup_rule").isJsonNull()) {
@@ -1159,7 +1068,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `device_cgroup_rule` (array)
           for (int i = 0; i < jsonArraydeviceCgroupRule.size(); i++) {
-            LinuxDeviceCgroup.validateJsonObject(jsonArraydeviceCgroupRule.get(i).getAsJsonObject());
+            LinuxDeviceCgroup.validateJsonElement(jsonArraydeviceCgroupRule.get(i));
           };
         }
       }
@@ -1173,12 +1082,12 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `devices` (array)
           for (int i = 0; i < jsonArraydevices.size(); i++) {
-            LinuxDevice.validateJsonObject(jsonArraydevices.get(i).getAsJsonObject());
+            LinuxDevice.validateJsonElement(jsonArraydevices.get(i));
           };
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("devices_from") != null && !jsonObj.get("devices_from").isJsonNull()) && !jsonObj.get("devices_from").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("devices_from") != null && !jsonObj.get("devices_from").isJsonNull() && !jsonObj.get("devices_from").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `devices_from` to be an array in the JSON string but got `%s`", jsonObj.get("devices_from").toString()));
       }
       if (jsonObj.get("host_device_list") != null && !jsonObj.get("host_device_list").isJsonNull()) {
@@ -1191,7 +1100,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `host_device_list` (array)
           for (int i = 0; i < jsonArrayhostDeviceList.size(); i++) {
-            LinuxDevice.validateJsonObject(jsonArrayhostDeviceList.get(i).getAsJsonObject());
+            LinuxDevice.validateJsonElement(jsonArrayhostDeviceList.get(i));
           };
         }
       }
@@ -1220,7 +1129,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `image_volumes` (array)
           for (int i = 0; i < jsonArrayimageVolumes.size(); i++) {
-            ImageVolume.validateJsonObject(jsonArrayimageVolumes.get(i).getAsJsonObject());
+            ImageVolume.validateJsonElement(jsonArrayimageVolumes.get(i));
           };
         }
       }
@@ -1229,7 +1138,7 @@ public class ContainerStorageConfig implements Serializable {
       }
       // validate the optional field `ipcns`
       if (jsonObj.get("ipcns") != null && !jsonObj.get("ipcns").isJsonNull()) {
-        Namespace.validateJsonObject(jsonObj.getAsJsonObject("ipcns"));
+        Namespace.validateJsonElement(jsonObj.get("ipcns"));
       }
       if (jsonObj.get("mounts") != null && !jsonObj.get("mounts").isJsonNull()) {
         JsonArray jsonArraymounts = jsonObj.getAsJsonArray("mounts");
@@ -1241,7 +1150,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `mounts` (array)
           for (int i = 0; i < jsonArraymounts.size(); i++) {
-            Mount.validateJsonObject(jsonArraymounts.get(i).getAsJsonObject());
+            Mount.validateJsonElement(jsonArraymounts.get(i));
           };
         }
       }
@@ -1255,7 +1164,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `overlay_volumes` (array)
           for (int i = 0; i < jsonArrayoverlayVolumes.size(); i++) {
-            OverlayVolume.validateJsonObject(jsonArrayoverlayVolumes.get(i).getAsJsonObject());
+            OverlayVolume.validateJsonElement(jsonArrayoverlayVolumes.get(i));
           };
         }
       }
@@ -1281,7 +1190,7 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `secrets` (array)
           for (int i = 0; i < jsonArraysecrets.size(); i++) {
-            Secret.validateJsonObject(jsonArraysecrets.get(i).getAsJsonObject());
+            Secret.validateJsonElement(jsonArraysecrets.get(i));
           };
         }
       }
@@ -1295,12 +1204,12 @@ public class ContainerStorageConfig implements Serializable {
 
           // validate the optional field `volumes` (array)
           for (int i = 0; i < jsonArrayvolumes.size(); i++) {
-            NamedVolume.validateJsonObject(jsonArrayvolumes.get(i).getAsJsonObject());
+            NamedVolume.validateJsonElement(jsonArrayvolumes.get(i));
           };
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull()) && !jsonObj.get("volumes_from").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes_from") != null && !jsonObj.get("volumes_from").isJsonNull() && !jsonObj.get("volumes_from").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `volumes_from` to be an array in the JSON string but got `%s`", jsonObj.get("volumes_from").toString()));
       }
       if ((jsonObj.get("work_dir") != null && !jsonObj.get("work_dir").isJsonNull()) && !jsonObj.get("work_dir").isJsonPrimitive()) {
@@ -1328,31 +1237,31 @@ public class ContainerStorageConfig implements Serializable {
 
            @Override
            public ContainerStorageConfig read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ContainerStorageConfig given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ContainerStorageConfig
-  * @throws IOException if the JSON string is invalid with respect to ContainerStorageConfig
-  */
+  /**
+   * Create an instance of ContainerStorageConfig given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ContainerStorageConfig
+   * @throws IOException if the JSON string is invalid with respect to ContainerStorageConfig
+   */
   public static ContainerStorageConfig fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ContainerStorageConfig.class);
   }
 
- /**
-  * Convert an instance of ContainerStorageConfig to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ContainerStorageConfig to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

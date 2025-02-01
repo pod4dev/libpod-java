@@ -14,21 +14,19 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Driver;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -40,12 +38,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -53,7 +54,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * VolumeOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class VolumeOptions implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -63,7 +64,7 @@ public class VolumeOptions implements Serializable {
 
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
-  private Map<String, String> labels = null;
+  private Map<String, String> labels = new HashMap<>();
 
   public static final String SERIALIZED_NAME_NO_COPY = "NoCopy";
   @SerializedName(SERIALIZED_NAME_NO_COPY)
@@ -77,23 +78,20 @@ public class VolumeOptions implements Serializable {
   }
 
   public VolumeOptions driverConfig(Driver driverConfig) {
-    
     this.driverConfig = driverConfig;
     return this;
   }
 
-   /**
+  /**
    * Get driverConfig
    * @return driverConfig
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public Driver getDriverConfig() {
     return driverConfig;
   }
-
 
   public void setDriverConfig(Driver driverConfig) {
     this.driverConfig = driverConfig;
@@ -101,7 +99,6 @@ public class VolumeOptions implements Serializable {
 
 
   public VolumeOptions labels(Map<String, String> labels) {
-    
     this.labels = labels;
     return this;
   }
@@ -114,17 +111,15 @@ public class VolumeOptions implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * Get labels
    * @return labels
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Map<String, String> getLabels() {
     return labels;
   }
-
 
   public void setLabels(Map<String, String> labels) {
     this.labels = labels;
@@ -132,22 +127,19 @@ public class VolumeOptions implements Serializable {
 
 
   public VolumeOptions noCopy(Boolean noCopy) {
-    
     this.noCopy = noCopy;
     return this;
   }
 
-   /**
+  /**
    * Get noCopy
    * @return noCopy
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getNoCopy() {
     return noCopy;
   }
-
 
   public void setNoCopy(Boolean noCopy) {
     this.noCopy = noCopy;
@@ -155,22 +147,19 @@ public class VolumeOptions implements Serializable {
 
 
   public VolumeOptions subpath(String subpath) {
-    
     this.subpath = subpath;
     return this;
   }
 
-   /**
+  /**
    * Get subpath
    * @return subpath
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSubpath() {
     return subpath;
   }
-
 
   public void setSubpath(String subpath) {
     this.subpath = subpath;
@@ -237,31 +226,30 @@ public class VolumeOptions implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to VolumeOptions
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (VolumeOptions.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to VolumeOptions
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!VolumeOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in VolumeOptions is not found in the empty JSON string", VolumeOptions.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VolumeOptions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VolumeOptions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VolumeOptions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `DriverConfig`
       if (jsonObj.get("DriverConfig") != null && !jsonObj.get("DriverConfig").isJsonNull()) {
-        Driver.validateJsonObject(jsonObj.getAsJsonObject("DriverConfig"));
+        Driver.validateJsonElement(jsonObj.get("DriverConfig"));
       }
       if ((jsonObj.get("Subpath") != null && !jsonObj.get("Subpath").isJsonNull()) && !jsonObj.get("Subpath").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Subpath` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Subpath").toString()));
@@ -288,31 +276,31 @@ public class VolumeOptions implements Serializable {
 
            @Override
            public VolumeOptions read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of VolumeOptions given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of VolumeOptions
-  * @throws IOException if the JSON string is invalid with respect to VolumeOptions
-  */
+  /**
+   * Create an instance of VolumeOptions given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of VolumeOptions
+   * @throws IOException if the JSON string is invalid with respect to VolumeOptions
+   */
   public static VolumeOptions fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, VolumeOptions.class);
   }
 
- /**
-  * Convert an instance of VolumeOptions to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of VolumeOptions to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

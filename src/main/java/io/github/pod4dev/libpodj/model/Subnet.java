@@ -14,19 +14,17 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.LeaseRange;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -38,12 +36,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -51,7 +52,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Subnet
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Subnet implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -71,22 +72,19 @@ public class Subnet implements Serializable {
   }
 
   public Subnet gateway(String gateway) {
-    
     this.gateway = gateway;
     return this;
   }
 
-   /**
+  /**
    * Gateway IP for this Network.
    * @return gateway
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Gateway IP for this Network.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getGateway() {
     return gateway;
   }
-
 
   public void setGateway(String gateway) {
     this.gateway = gateway;
@@ -94,23 +92,20 @@ public class Subnet implements Serializable {
 
 
   public Subnet leaseRange(LeaseRange leaseRange) {
-    
     this.leaseRange = leaseRange;
     return this;
   }
 
-   /**
+  /**
    * Get leaseRange
    * @return leaseRange
-  **/
-  @javax.annotation.Nullable
+   */
+  @jakarta.annotation.Nullable
   @Valid
-  @ApiModelProperty(value = "")
 
   public LeaseRange getLeaseRange() {
     return leaseRange;
   }
-
 
   public void setLeaseRange(LeaseRange leaseRange) {
     this.leaseRange = leaseRange;
@@ -118,22 +113,19 @@ public class Subnet implements Serializable {
 
 
   public Subnet subnet(String subnet) {
-    
     this.subnet = subnet;
     return this;
   }
 
-   /**
+  /**
    * Subnet for this Network in CIDR form.
    * @return subnet
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subnet for this Network in CIDR form.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSubnet() {
     return subnet;
   }
-
 
   public void setSubnet(String subnet) {
     this.subnet = subnet;
@@ -197,34 +189,33 @@ public class Subnet implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Subnet
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Subnet.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Subnet
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Subnet.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Subnet is not found in the empty JSON string", Subnet.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Subnet.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Subnet` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Subnet` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gateway") != null && !jsonObj.get("gateway").isJsonNull()) && !jsonObj.get("gateway").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gateway` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway").toString()));
       }
       // validate the optional field `lease_range`
       if (jsonObj.get("lease_range") != null && !jsonObj.get("lease_range").isJsonNull()) {
-        LeaseRange.validateJsonObject(jsonObj.getAsJsonObject("lease_range"));
+        LeaseRange.validateJsonElement(jsonObj.get("lease_range"));
       }
       if ((jsonObj.get("subnet") != null && !jsonObj.get("subnet").isJsonNull()) && !jsonObj.get("subnet").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subnet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subnet").toString()));
@@ -251,31 +242,31 @@ public class Subnet implements Serializable {
 
            @Override
            public Subnet read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Subnet given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Subnet
-  * @throws IOException if the JSON string is invalid with respect to Subnet
-  */
+  /**
+   * Create an instance of Subnet given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Subnet
+   * @throws IOException if the JSON string is invalid with respect to Subnet
+   */
   public static Subnet fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Subnet.class);
   }
 
- /**
-  * Convert an instance of Subnet to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Subnet to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

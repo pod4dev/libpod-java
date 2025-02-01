@@ -4,11 +4,11 @@ All URIs are relative to *http://podman.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**generateKubeLibpod**](PodsApi.md#generateKubeLibpod) | **GET** /libpod/generate/kube | Generate a Kubernetes YAML file. |
-| [**generateSystemdLibpod**](PodsApi.md#generateSystemdLibpod) | **GET** /libpod/generate/{name}/systemd | Generate Systemd Units |
-| [**kubeApplyLibpod**](PodsApi.md#kubeApplyLibpod) | **POST** /libpod/kube/apply | Apply a podman workload or Kubernetes YAML file. |
-| [**playKubeDownLibpod**](PodsApi.md#playKubeDownLibpod) | **DELETE** /libpod/play/kube | Remove resources created from kube play |
-| [**playKubeLibpod**](PodsApi.md#playKubeLibpod) | **POST** /libpod/play/kube | Play a Kubernetes YAML file. |
+| [**generateKubeLibpod_0**](PodsApi.md#generateKubeLibpod_0) | **GET** /libpod/generate/kube | Generate a Kubernetes YAML file. |
+| [**generateSystemdLibpod_0**](PodsApi.md#generateSystemdLibpod_0) | **GET** /libpod/generate/{name}/systemd | Generate Systemd Units |
+| [**kubeApplyLibpod_0**](PodsApi.md#kubeApplyLibpod_0) | **POST** /libpod/kube/apply | Apply a podman workload or Kubernetes YAML file. |
+| [**playKubeDownLibpod_0**](PodsApi.md#playKubeDownLibpod_0) | **DELETE** /libpod/play/kube | Remove resources created from kube play |
+| [**playKubeLibpod_0**](PodsApi.md#playKubeLibpod_0) | **POST** /libpod/play/kube | Play a Kubernetes YAML file. |
 | [**podCreateLibpod**](PodsApi.md#podCreateLibpod) | **POST** /libpod/pods/create | Create a pod |
 | [**podDeleteLibpod**](PodsApi.md#podDeleteLibpod) | **DELETE** /libpod/pods/{name} | Remove pod |
 | [**podExistsLibpod**](PodsApi.md#podExistsLibpod) | **GET** /libpod/pods/{name}/exists | Pod exists |
@@ -25,9 +25,9 @@ All URIs are relative to *http://podman.io*
 | [**podUnpauseLibpod**](PodsApi.md#podUnpauseLibpod) | **POST** /libpod/pods/{name}/unpause | Unpause a pod |
 
 
-<a name="generateKubeLibpod"></a>
-# **generateKubeLibpod**
-> File generateKubeLibpod(names).service(service).type(type).replicas(replicas).noTrunc(noTrunc).podmanOnly(podmanOnly).execute();
+<a id="generateKubeLibpod_0"></a>
+# **generateKubeLibpod_0**
+> File generateKubeLibpod_0(names).service(service).type(type).replicas(replicas).noTrunc(noTrunc).podmanOnly(podmanOnly).execute();
 
 Generate a Kubernetes YAML file.
 
@@ -55,7 +55,7 @@ public class Example {
     Boolean noTrunc = false; // Boolean | don't truncate annotations to the Kubernetes maximum length of 63 characters
     Boolean podmanOnly = false; // Boolean | add podman-only reserved annotations in generated YAML file (cannot be used by Kubernetes)
     try {
-      File result = apiInstance.generateKubeLibpod(names)
+      File result = apiInstance.generateKubeLibpod_0(names)
             .service(service)
             .type(type)
             .replicas(replicas)
@@ -64,7 +64,7 @@ public class Example {
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PodsApi#generateKubeLibpod");
+      System.err.println("Exception when calling PodsApi#generateKubeLibpod_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -104,9 +104,9 @@ No authorization required
 | **200** | Kubernetes YAML file describing pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="generateSystemdLibpod"></a>
-# **generateSystemdLibpod**
-> Map&lt;String, String&gt; generateSystemdLibpod(name).useName(useName)._new(_new).noHeader(noHeader).startTimeout(startTimeout).stopTimeout(stopTimeout).restartPolicy(restartPolicy).containerPrefix(containerPrefix).podPrefix(podPrefix).separator(separator).restartSec(restartSec).wants(wants).after(after).requires(requires).additionalEnvVariables(additionalEnvVariables).execute();
+<a id="generateSystemdLibpod_0"></a>
+# **generateSystemdLibpod_0**
+> Map&lt;String, String&gt; generateSystemdLibpod_0(name).useName(useName)._new(_new).noHeader(noHeader).startTimeout(startTimeout).stopTimeout(stopTimeout).restartPolicy(restartPolicy).containerPrefix(containerPrefix).podPrefix(podPrefix).separator(separator).restartSec(restartSec).wants(wants).after(after).requires(requires).additionalEnvVariables(additionalEnvVariables).execute();
 
 Generate Systemd Units
 
@@ -143,7 +143,7 @@ public class Example {
     List<String> requires = Arrays.asList(); // List<String> | Systemd Requires list for the container or pods.
     List<String> additionalEnvVariables = Arrays.asList(); // List<String> | Set environment variables to the systemd unit files.
     try {
-      Map<String, String> result = apiInstance.generateSystemdLibpod(name)
+      Map<String, String> result = apiInstance.generateSystemdLibpod_0(name)
             .useName(useName)
             ._new(_new)
             .noHeader(noHeader)
@@ -161,7 +161,7 @@ public class Example {
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PodsApi#generateSystemdLibpod");
+      System.err.println("Exception when calling PodsApi#generateSystemdLibpod_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -210,9 +210,9 @@ No authorization required
 | **200** | no error |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="kubeApplyLibpod"></a>
-# **kubeApplyLibpod**
-> File kubeApplyLibpod().caCertFile(caCertFile).kubeConfig(kubeConfig).namespace(namespace).service(service)._file(_file).request(request).execute();
+<a id="kubeApplyLibpod_0"></a>
+# **kubeApplyLibpod_0**
+> File kubeApplyLibpod_0().caCertFile(caCertFile).kubeConfig(kubeConfig).namespace(namespace).service(service)._file(_file).request(request).execute();
 
 Apply a podman workload or Kubernetes YAML file.
 
@@ -240,7 +240,7 @@ public class Example {
     String _file = "_file_example"; // String | Path to the Kubernetes yaml file to deploy.
     String request = "request_example"; // String | Kubernetes YAML file.
     try {
-      File result = apiInstance.kubeApplyLibpod()
+      File result = apiInstance.kubeApplyLibpod_0()
             .caCertFile(caCertFile)
             .kubeConfig(kubeConfig)
             .namespace(namespace)
@@ -250,7 +250,7 @@ public class Example {
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PodsApi#kubeApplyLibpod");
+      System.err.println("Exception when calling PodsApi#kubeApplyLibpod_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -290,9 +290,9 @@ No authorization required
 | **200** | Kubernetes YAML file successfully deployed to cluster |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="playKubeDownLibpod"></a>
-# **playKubeDownLibpod**
-> PlayKubeReport playKubeDownLibpod().contentType(contentType).force(force).request(request).execute();
+<a id="playKubeDownLibpod_0"></a>
+# **playKubeDownLibpod_0**
+> PlayKubeReport playKubeDownLibpod_0().contentType(contentType).force(force).request(request).execute();
 
 Remove resources created from kube play
 
@@ -313,18 +313,18 @@ public class Example {
     defaultClient.setBasePath("http://podman.io");
 
     PodsApi apiInstance = new PodsApi(defaultClient);
-    String contentType = "plain/text"; // String | 
+    String contentType = "text/plain"; // String | 
     Boolean force = false; // Boolean | Remove volumes.
     String request = "request_example"; // String | Kubernetes YAML file.
     try {
-      PlayKubeReport result = apiInstance.playKubeDownLibpod()
+      PlayKubeReport result = apiInstance.playKubeDownLibpod_0()
             .contentType(contentType)
             .force(force)
             .request(request)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PodsApi#playKubeDownLibpod");
+      System.err.println("Exception when calling PodsApi#playKubeDownLibpod_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -338,7 +338,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] [default to plain/text] [enum: plain/text, application/x-tar] |
+| **contentType** | **String**|  | [optional] [default to text/plain] [enum: text/plain, application/x-tar] |
 | **force** | **Boolean**| Remove volumes. | [optional] [default to false] |
 | **request** | **String**| Kubernetes YAML file. | [optional] |
 
@@ -352,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-tar
+ - **Content-Type**: text/plain, application/x-tar
  - **Accept**: application/json
 
 ### HTTP response details
@@ -361,13 +361,13 @@ No authorization required
 | **200** | PlayKube response |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="playKubeLibpod"></a>
-# **playKubeLibpod**
-> PlayKubeReport playKubeLibpod().contentType(contentType).annotations(annotations).logDriver(logDriver).logOptions(logOptions).network(network).noHosts(noHosts).noTrunc(noTrunc).publishPorts(publishPorts).publishAllPorts(publishAllPorts).replace(replace).serviceContainer(serviceContainer).start(start).staticIPs(staticIPs).staticMACs(staticMACs).tlsVerify(tlsVerify).userns(userns).wait(wait).build(build).request(request).execute();
+<a id="playKubeLibpod_0"></a>
+# **playKubeLibpod_0**
+> PlayKubeReport playKubeLibpod_0().contentType(contentType).annotations(annotations).logDriver(logDriver).logOptions(logOptions).network(network).noHosts(noHosts).noTrunc(noTrunc).publishPorts(publishPorts).publishAllPorts(publishAllPorts).replace(replace).serviceContainer(serviceContainer).start(start).staticIPs(staticIPs).staticMACs(staticMACs).tlsVerify(tlsVerify).userns(userns).wait(wait).build(build).request(request).execute();
 
 Play a Kubernetes YAML file.
 
-Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;plain/text&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
+Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;text/plain&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
 
 ### Example
 ```java
@@ -384,7 +384,7 @@ public class Example {
     defaultClient.setBasePath("http://podman.io");
 
     PodsApi apiInstance = new PodsApi(defaultClient);
-    String contentType = "plain/text"; // String | 
+    String contentType = "text/plain"; // String | 
     String annotations = "annotations_example"; // String | JSON encoded value of annotations (a map[string]string).
     String logDriver = "logDriver_example"; // String | Logging driver for the containers in the pod.
     List<String> logOptions = Arrays.asList(); // List<String> | logging driver options
@@ -404,7 +404,7 @@ public class Example {
     Boolean build = true; // Boolean | Build the images with corresponding context.
     String request = "request_example"; // String | Kubernetes YAML file.
     try {
-      PlayKubeReport result = apiInstance.playKubeLibpod()
+      PlayKubeReport result = apiInstance.playKubeLibpod_0()
             .contentType(contentType)
             .annotations(annotations)
             .logDriver(logDriver)
@@ -427,7 +427,7 @@ public class Example {
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PodsApi#playKubeLibpod");
+      System.err.println("Exception when calling PodsApi#playKubeLibpod_0");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -441,7 +441,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **contentType** | **String**|  | [optional] [default to plain/text] [enum: plain/text, application/x-tar] |
+| **contentType** | **String**|  | [optional] [default to text/plain] [enum: text/plain, application/x-tar] |
 | **annotations** | **String**| JSON encoded value of annotations (a map[string]string). | [optional] |
 | **logDriver** | **String**| Logging driver for the containers in the pod. | [optional] |
 | **logOptions** | [**List&lt;String&gt;**](String.md)| logging driver options | [optional] |
@@ -471,7 +471,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-tar
+ - **Content-Type**: text/plain, application/x-tar
  - **Accept**: application/json
 
 ### HTTP response details
@@ -480,7 +480,7 @@ No authorization required
 | **200** | PlayKube response |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podCreateLibpod"></a>
+<a id="podCreateLibpod"></a>
 # **podCreateLibpod**
 > IdResponse podCreateLibpod().create(create).execute();
 
@@ -545,7 +545,7 @@ No authorization required
 | **409** | status conflict |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podDeleteLibpod"></a>
+<a id="podDeleteLibpod"></a>
 # **podDeleteLibpod**
 > PodRmReport podDeleteLibpod(name).force(force).execute();
 
@@ -612,7 +612,7 @@ No authorization required
 | **404** | No such pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podExistsLibpod"></a>
+<a id="podExistsLibpod"></a>
 # **podExistsLibpod**
 > podExistsLibpod(name).execute();
 
@@ -676,7 +676,7 @@ No authorization required
 | **404** | No such pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podInspectLibpod"></a>
+<a id="podInspectLibpod"></a>
 # **podInspectLibpod**
 > InspectPodData podInspectLibpod(name).execute();
 
@@ -739,7 +739,7 @@ No authorization required
 | **404** | No such pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podKillLibpod"></a>
+<a id="podKillLibpod"></a>
 # **podKillLibpod**
 > PodKillReport podKillLibpod(name).signal(signal).execute();
 
@@ -807,7 +807,7 @@ No authorization required
 | **409** | Kill Pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podListLibpod"></a>
+<a id="podListLibpod"></a>
 # **podListLibpod**
 > List&lt;ListPodsReport&gt; podListLibpod().filters(filters).execute();
 
@@ -871,7 +871,7 @@ No authorization required
 | **400** | Bad parameter in request |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podPauseLibpod"></a>
+<a id="podPauseLibpod"></a>
 # **podPauseLibpod**
 > PodPauseReport podPauseLibpod(name).execute();
 
@@ -937,7 +937,7 @@ No authorization required
 | **409** | Pause pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podPruneLibpod"></a>
+<a id="podPruneLibpod"></a>
 # **podPruneLibpod**
 > PodPruneReport podPruneLibpod().execute();
 
@@ -997,7 +997,7 @@ No authorization required
 | **409** | pod already exists |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podRestartLibpod"></a>
+<a id="podRestartLibpod"></a>
 # **podRestartLibpod**
 > PodRestartReport podRestartLibpod(name).execute();
 
@@ -1061,7 +1061,7 @@ No authorization required
 | **409** | Restart pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podStartLibpod"></a>
+<a id="podStartLibpod"></a>
 # **podStartLibpod**
 > PodStartReport podStartLibpod(name).execute();
 
@@ -1126,7 +1126,7 @@ No authorization required
 | **409** | Start pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podStatsAllLibpod"></a>
+<a id="podStatsAllLibpod"></a>
 # **podStatsAllLibpod**
 > List&lt;PodStatsReport&gt; podStatsAllLibpod().all(all).namesOrIDs(namesOrIDs).execute();
 
@@ -1195,7 +1195,7 @@ No authorization required
 | **404** | No such pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podStopLibpod"></a>
+<a id="podStopLibpod"></a>
 # **podStopLibpod**
 > PodStopReport podStopLibpod(name).t(t).execute();
 
@@ -1264,7 +1264,7 @@ No authorization required
 | **409** | Stop pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podTopLibpod"></a>
+<a id="podTopLibpod"></a>
 # **podTopLibpod**
 > PodTopOKBody podTopLibpod(name).stream(stream).delay(delay).psArgs(psArgs).execute();
 
@@ -1338,7 +1338,7 @@ No authorization required
 | **404** | No such pod |  -  |
 | **500** | Internal server error |  -  |
 
-<a name="podUnpauseLibpod"></a>
+<a id="podUnpauseLibpod"></a>
 # **podUnpauseLibpod**
 > PodUnpauseReport podUnpauseLibpod(name).execute();
 

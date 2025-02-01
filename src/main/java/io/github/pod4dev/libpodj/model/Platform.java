@@ -14,20 +14,18 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,12 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -52,7 +53,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Platform
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Platform implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -66,7 +67,7 @@ public class Platform implements Serializable {
 
   public static final String SERIALIZED_NAME_OS_FEATURES = "os.features";
   @SerializedName(SERIALIZED_NAME_OS_FEATURES)
-  private List<String> osFeatures = null;
+  private List<String> osFeatures = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_OS_VERSION = "os.version";
   @SerializedName(SERIALIZED_NAME_OS_VERSION)
@@ -80,22 +81,19 @@ public class Platform implements Serializable {
   }
 
   public Platform architecture(String architecture) {
-    
     this.architecture = architecture;
     return this;
   }
 
-   /**
+  /**
    * Architecture field specifies the CPU architecture, for example &#x60;amd64&#x60; or &#x60;ppc64le&#x60;.
    * @return architecture
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Architecture field specifies the CPU architecture, for example `amd64` or `ppc64le`.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getArchitecture() {
     return architecture;
   }
-
 
   public void setArchitecture(String architecture) {
     this.architecture = architecture;
@@ -103,22 +101,19 @@ public class Platform implements Serializable {
 
 
   public Platform os(String os) {
-    
     this.os = os;
     return this;
   }
 
-   /**
+  /**
    * OS specifies the operating system, for example &#x60;linux&#x60; or &#x60;windows&#x60;.
    * @return os
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OS specifies the operating system, for example `linux` or `windows`.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOs() {
     return os;
   }
-
 
   public void setOs(String os) {
     this.os = os;
@@ -126,7 +121,6 @@ public class Platform implements Serializable {
 
 
   public Platform osFeatures(List<String> osFeatures) {
-    
     this.osFeatures = osFeatures;
     return this;
   }
@@ -139,17 +133,15 @@ public class Platform implements Serializable {
     return this;
   }
 
-   /**
+  /**
    * OSFeatures is an optional field specifying an array of strings, each listing a required OS feature (for example on Windows &#x60;win32k&#x60;).
    * @return osFeatures
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OSFeatures is an optional field specifying an array of strings, each listing a required OS feature (for example on Windows `win32k`).")
+   */
+  @jakarta.annotation.Nullable
 
   public List<String> getOsFeatures() {
     return osFeatures;
   }
-
 
   public void setOsFeatures(List<String> osFeatures) {
     this.osFeatures = osFeatures;
@@ -157,22 +149,19 @@ public class Platform implements Serializable {
 
 
   public Platform osVersion(String osVersion) {
-    
     this.osVersion = osVersion;
     return this;
   }
 
-   /**
+  /**
    * OSVersion is an optional field specifying the operating system version, for example on Windows &#x60;10.0.14393.1066&#x60;.
    * @return osVersion
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "OSVersion is an optional field specifying the operating system version, for example on Windows `10.0.14393.1066`.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getOsVersion() {
     return osVersion;
   }
-
 
   public void setOsVersion(String osVersion) {
     this.osVersion = osVersion;
@@ -180,22 +169,19 @@ public class Platform implements Serializable {
 
 
   public Platform variant(String variant) {
-    
     this.variant = variant;
     return this;
   }
 
-   /**
+  /**
    * Variant is an optional field specifying a variant of the CPU, for example &#x60;v7&#x60; to specify ARMv7 when architecture is &#x60;arm&#x60;.
    * @return variant
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Variant is an optional field specifying a variant of the CPU, for example `v7` to specify ARMv7 when architecture is `arm`.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getVariant() {
     return variant;
   }
-
 
   public void setVariant(String variant) {
     this.variant = variant;
@@ -265,36 +251,35 @@ public class Platform implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Platform
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Platform.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Platform
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Platform.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Platform is not found in the empty JSON string", Platform.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Platform.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Platform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Platform` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("architecture") != null && !jsonObj.get("architecture").isJsonNull()) && !jsonObj.get("architecture").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
       }
       if ((jsonObj.get("os") != null && !jsonObj.get("os").isJsonNull()) && !jsonObj.get("os").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("os.features") != null && !jsonObj.get("os.features").isJsonNull()) && !jsonObj.get("os.features").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("os.features") != null && !jsonObj.get("os.features").isJsonNull() && !jsonObj.get("os.features").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `os.features` to be an array in the JSON string but got `%s`", jsonObj.get("os.features").toString()));
       }
       if ((jsonObj.get("os.version") != null && !jsonObj.get("os.version").isJsonNull()) && !jsonObj.get("os.version").isJsonPrimitive()) {
@@ -325,31 +310,31 @@ public class Platform implements Serializable {
 
            @Override
            public Platform read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Platform given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Platform
-  * @throws IOException if the JSON string is invalid with respect to Platform
-  */
+  /**
+   * Create an instance of Platform given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Platform
+   * @throws IOException if the JSON string is invalid with respect to Platform
+   */
   public static Platform fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Platform.class);
   }
 
- /**
-  * Convert an instance of Platform to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Platform to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

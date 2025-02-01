@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * This is used for reporting the mountpoints in use by a container.
  */
-@ApiModel(description = "This is used for reporting the mountpoints in use by a container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class MountPoint implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -91,22 +91,19 @@ public class MountPoint implements Serializable {
   }
 
   public MountPoint destination(String destination) {
-    
     this.destination = destination;
     return this;
   }
 
-   /**
+  /**
    * Destination is the path relative to the container root (&#x60;/&#x60;) where the Source is mounted inside the container.
    * @return destination
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Destination is the path relative to the container root (`/`) where the Source is mounted inside the container.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDestination() {
     return destination;
   }
-
 
   public void setDestination(String destination) {
     this.destination = destination;
@@ -114,22 +111,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint driver(String driver) {
-    
     this.driver = driver;
     return this;
   }
 
-   /**
+  /**
    * Driver is the volume driver used to create the volume (if it is a volume).
    * @return driver
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Driver is the volume driver used to create the volume (if it is a volume).")
+   */
+  @jakarta.annotation.Nullable
 
   public String getDriver() {
     return driver;
   }
-
 
   public void setDriver(String driver) {
     this.driver = driver;
@@ -137,22 +131,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint mode(String mode) {
-    
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * Mode is a comma separated list of options supplied by the user when creating the bind/volume mount.  The default is platform-specific (&#x60;\&quot;z\&quot;&#x60; on Linux, empty on Windows).
    * @return mode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Mode is a comma separated list of options supplied by the user when creating the bind/volume mount.  The default is platform-specific (`\"z\"` on Linux, empty on Windows).")
+   */
+  @jakarta.annotation.Nullable
 
   public String getMode() {
     return mode;
   }
-
 
   public void setMode(String mode) {
     this.mode = mode;
@@ -160,22 +151,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint name(String name) {
-    
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name is the name reference to the underlying data defined by &#x60;Source&#x60; e.g., the volume name.
    * @return name
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name is the name reference to the underlying data defined by `Source` e.g., the volume name.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
@@ -183,22 +171,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint propagation(String propagation) {
-    
     this.propagation = propagation;
     return this;
   }
 
-   /**
+  /**
    * Get propagation
    * @return propagation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getPropagation() {
     return propagation;
   }
-
 
   public void setPropagation(String propagation) {
     this.propagation = propagation;
@@ -206,22 +191,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint RW(Boolean RW) {
-    
     this.RW = RW;
     return this;
   }
 
-   /**
+  /**
    * RW indicates whether the mount is mounted writable (read-write).
    * @return RW
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "RW indicates whether the mount is mounted writable (read-write).")
+   */
+  @jakarta.annotation.Nullable
 
   public Boolean getRW() {
     return RW;
   }
-
 
   public void setRW(Boolean RW) {
     this.RW = RW;
@@ -229,22 +211,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint source(String source) {
-    
     this.source = source;
     return this;
   }
 
-   /**
+  /**
    * Source is the source location of the mount.  For volumes, this contains the storage location of the volume (within &#x60;/var/lib/docker/volumes/&#x60;). For bind-mounts, and &#x60;npipe&#x60;, this contains the source (host) part of the bind-mount. For &#x60;tmpfs&#x60; mount points, this field is empty.
    * @return source
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Source is the source location of the mount.  For volumes, this contains the storage location of the volume (within `/var/lib/docker/volumes/`). For bind-mounts, and `npipe`, this contains the source (host) part of the bind-mount. For `tmpfs` mount points, this field is empty.")
+   */
+  @jakarta.annotation.Nullable
 
   public String getSource() {
     return source;
   }
-
 
   public void setSource(String source) {
     this.source = source;
@@ -252,22 +231,19 @@ public class MountPoint implements Serializable {
 
 
   public MountPoint type(String type) {
-    
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+   */
+  @jakarta.annotation.Nullable
 
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -346,28 +322,27 @@ public class MountPoint implements Serializable {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MountPoint
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (MountPoint.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to MountPoint
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MountPoint.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in MountPoint is not found in the empty JSON string", MountPoint.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MountPoint.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MountPoint` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MountPoint` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Destination") != null && !jsonObj.get("Destination").isJsonNull()) && !jsonObj.get("Destination").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Destination` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Destination").toString()));
       }
@@ -411,31 +386,31 @@ public class MountPoint implements Serializable {
 
            @Override
            public MountPoint read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of MountPoint given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of MountPoint
-  * @throws IOException if the JSON string is invalid with respect to MountPoint
-  */
+  /**
+   * Create an instance of MountPoint given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of MountPoint
+   * @throws IOException if the JSON string is invalid with respect to MountPoint
+   */
   public static MountPoint fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, MountPoint.class);
   }
 
- /**
-  * Convert an instance of MountPoint to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of MountPoint to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

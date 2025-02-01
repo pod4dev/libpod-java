@@ -14,18 +14,16 @@
 package io.github.pod4dev.libpodj.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.io.Serializable;
-import javax.validation.constraints.*;
-import javax.validation.Valid;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,12 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import io.github.pod4dev.libpodj.JSON;
@@ -50,8 +51,7 @@ import io.github.pod4dev.libpodj.JSON;
 /**
  * Port An open port on a container
  */
-@ApiModel(description = "Port An open port on a container")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class Port implements Serializable {
   private static final long serialVersionUID = 1L;
 
@@ -75,23 +75,20 @@ public class Port implements Serializable {
   }
 
   public Port privatePort(Integer privatePort) {
-    
     this.privatePort = privatePort;
     return this;
   }
 
-   /**
+  /**
    * Port on the container
    * @return privatePort
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "Port on the container")
 
   public Integer getPrivatePort() {
     return privatePort;
   }
-
 
   public void setPrivatePort(Integer privatePort) {
     this.privatePort = privatePort;
@@ -99,23 +96,20 @@ public class Port implements Serializable {
 
 
   public Port type(String type) {
-    
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * type
    * @return type
-  **/
-  @javax.annotation.Nonnull
+   */
+  @jakarta.annotation.Nonnull
   @NotNull
-  @ApiModelProperty(required = true, value = "type")
 
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
@@ -123,22 +117,19 @@ public class Port implements Serializable {
 
 
   public Port IP(String IP) {
-    
     this.IP = IP;
     return this;
   }
 
-   /**
+  /**
    * Host IP address that the container&#39;s port is mapped to
    * @return IP
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Host IP address that the container's port is mapped to")
+   */
+  @jakarta.annotation.Nullable
 
   public String getIP() {
     return IP;
   }
-
 
   public void setIP(String IP) {
     this.IP = IP;
@@ -146,22 +137,19 @@ public class Port implements Serializable {
 
 
   public Port publicPort(Integer publicPort) {
-    
     this.publicPort = publicPort;
     return this;
   }
 
-   /**
+  /**
    * Port exposed on the host
    * @return publicPort
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Port exposed on the host")
+   */
+  @jakarta.annotation.Nullable
 
   public Integer getPublicPort() {
     return publicPort;
   }
-
 
   public void setPublicPort(Integer publicPort) {
     this.publicPort = publicPort;
@@ -230,36 +218,35 @@ public class Port implements Serializable {
     openapiRequiredFields.add("Type");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Port
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (Port.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Port
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Port.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Port is not found in the empty JSON string", Port.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Port.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Port` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Port` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Port.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
-      if ((jsonObj.get("Type") != null && !jsonObj.get("Type").isJsonNull()) && !jsonObj.get("Type").isJsonPrimitive()) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("Type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Type").toString()));
       }
       if ((jsonObj.get("IP") != null && !jsonObj.get("IP").isJsonNull()) && !jsonObj.get("IP").isJsonPrimitive()) {
@@ -287,31 +274,31 @@ public class Port implements Serializable {
 
            @Override
            public Port read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Port given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Port
-  * @throws IOException if the JSON string is invalid with respect to Port
-  */
+  /**
+   * Create an instance of Port given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Port
+   * @throws IOException if the JSON string is invalid with respect to Port
+   */
   public static Port fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Port.class);
   }
 
- /**
-  * Convert an instance of Port to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Port to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

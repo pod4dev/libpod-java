@@ -21,7 +21,7 @@ NetworkSettings exposes the network settings in the api
 |**linkLocalIPv6PrefixLen** | **Long** | LinkLocalIPv6PrefixLen is the prefix length of an IPv6 unicast address  Deprecated: This field is never set and will be removed in a future release. |  [optional] |
 |**macAddress** | **String** |  |  [optional] |
 |**networks** | [**Map&lt;String, EndpointSettings&gt;**](EndpointSettings.md) |  |  [optional] |
-|**ports** | **Map&lt;String, List&lt;PortBinding&gt;&gt;** | PortMap is a collection of PortBinding indexed by Port |  [optional] |
+|**ports** | **Map&lt;String, List&lt;@Valid PortBinding&gt;&gt;** | PortMap is a collection of PortBinding indexed by Port |  [optional] |
 |**sandboxID** | **String** |  |  [optional] |
 |**sandboxKey** | **String** |  |  [optional] |
 |**secondaryIPAddresses** | [**List&lt;Address&gt;**](Address.md) |  |  [optional] |

@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.Container;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
@@ -44,7 +45,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ContainersCompatApi {
     private ApiClient localVarApiClient;
@@ -101,7 +101,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/archive"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -122,7 +122,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -135,20 +134,17 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerArchiveValidateBeforeCall(String name, String path, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerArchive(Async)");
         }
-        
+
         // verify the required parameter 'path' is set
         if (path == null) {
             throw new ApiException("Missing the required parameter 'path' when calling containerArchive(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerArchiveCall(name, path, _callback);
-        return localVarCall;
+        return containerArchiveCall(name, path, _callback);
 
     }
 
@@ -284,7 +280,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/libpod/containers/{name}/archive"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -309,7 +305,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -322,20 +317,17 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerArchiveLibpodValidateBeforeCall(String name, String path, String rename, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerArchiveLibpod(Async)");
         }
-        
+
         // verify the required parameter 'path' is set
         if (path == null) {
             throw new ApiException("Missing the required parameter 'path' when calling containerArchiveLibpod(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerArchiveLibpodCall(name, path, rename, _callback);
-        return localVarCall;
+        return containerArchiveLibpodCall(name, path, rename, _callback);
 
     }
 
@@ -482,7 +474,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/attach"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -523,7 +515,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -536,15 +527,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerAttachValidateBeforeCall(String name, String detachKeys, Boolean logs, Boolean stream, Boolean stdout, Boolean stderr, Boolean stdin, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerAttach(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerAttachCall(name, detachKeys, logs, stream, stdout, stderr, stdin, _callback);
-        return localVarCall;
+        return containerAttachCall(name, detachKeys, logs, stream, stdout, stderr, stdin, _callback);
 
     }
 
@@ -721,7 +709,7 @@ public class ContainersCompatApi {
     public APIcontainerAttachRequest containerAttach(String name) {
         return new APIcontainerAttachRequest(name);
     }
-    private okhttp3.Call containerChangesLibpodCall(String name, String parent, String diffType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containerChangesLibpod_0Call(String name, String parent, String diffType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -739,7 +727,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/libpod/containers/{name}/changes"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -756,7 +744,9 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json", "application/octet-stream", "text/plain"
+            "application/json",
+            "application/octet-stream",
+            "text/plain"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -764,7 +754,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -776,47 +765,44 @@ public class ContainersCompatApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call containerChangesLibpodValidateBeforeCall(String name, String parent, String diffType, final ApiCallback _callback) throws ApiException {
-        
+    private okhttp3.Call containerChangesLibpod_0ValidateBeforeCall(String name, String parent, String diffType, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
-            throw new ApiException("Missing the required parameter 'name' when calling containerChangesLibpod(Async)");
+            throw new ApiException("Missing the required parameter 'name' when calling containerChangesLibpod_0(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerChangesLibpodCall(name, parent, diffType, _callback);
-        return localVarCall;
+        return containerChangesLibpod_0Call(name, parent, diffType, _callback);
 
     }
 
 
-    private ApiResponse<Void> containerChangesLibpodWithHttpInfo( @NotNull String name, String parent, String diffType) throws ApiException {
-        okhttp3.Call localVarCall = containerChangesLibpodValidateBeforeCall(name, parent, diffType, null);
+    private ApiResponse<Void> containerChangesLibpod_0WithHttpInfo( @NotNull String name, String parent, String diffType) throws ApiException {
+        okhttp3.Call localVarCall = containerChangesLibpod_0ValidateBeforeCall(name, parent, diffType, null);
         return localVarApiClient.execute(localVarCall);
     }
 
-    private okhttp3.Call containerChangesLibpodAsync(String name, String parent, String diffType, final ApiCallback<Void> _callback) throws ApiException {
+    private okhttp3.Call containerChangesLibpod_0Async(String name, String parent, String diffType, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = containerChangesLibpodValidateBeforeCall(name, parent, diffType, _callback);
+        okhttp3.Call localVarCall = containerChangesLibpod_0ValidateBeforeCall(name, parent, diffType, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 
-    public class APIcontainerChangesLibpodRequest {
+    public class APIcontainerChangesLibpod_0Request {
         private final String name;
         private String parent;
         private String diffType;
 
-        private APIcontainerChangesLibpodRequest(String name) {
+        private APIcontainerChangesLibpod_0Request(String name) {
             this.name = name;
         }
 
         /**
          * Set parent
          * @param parent specify a second layer which is used to compare against it instead of the parent layer (optional)
-         * @return APIcontainerChangesLibpodRequest
+         * @return APIcontainerChangesLibpod_0Request
          */
-        public APIcontainerChangesLibpodRequest parent(String parent) {
+        public APIcontainerChangesLibpod_0Request parent(String parent) {
             this.parent = parent;
             return this;
         }
@@ -824,15 +810,15 @@ public class ContainersCompatApi {
         /**
          * Set diffType
          * @param diffType select what you want to match, default is all (optional)
-         * @return APIcontainerChangesLibpodRequest
+         * @return APIcontainerChangesLibpod_0Request
          */
-        public APIcontainerChangesLibpodRequest diffType(String diffType) {
+        public APIcontainerChangesLibpod_0Request diffType(String diffType) {
             this.diffType = diffType;
             return this;
         }
 
         /**
-         * Build call for containerChangesLibpod
+         * Build call for containerChangesLibpod_0
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -845,11 +831,11 @@ public class ContainersCompatApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return containerChangesLibpodCall(name, parent, diffType, _callback);
+            return containerChangesLibpod_0Call(name, parent, diffType, _callback);
         }
 
         /**
-         * Execute containerChangesLibpod request
+         * Execute containerChangesLibpod_0 request
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -860,11 +846,11 @@ public class ContainersCompatApi {
          </table>
          */
         public void execute() throws ApiException {
-            containerChangesLibpodWithHttpInfo(name, parent, diffType);
+            containerChangesLibpod_0WithHttpInfo(name, parent, diffType);
         }
 
         /**
-         * Execute containerChangesLibpod request with HTTP info returned
+         * Execute containerChangesLibpod_0 request with HTTP info returned
          * @return ApiResponse&lt;Void&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
@@ -876,11 +862,11 @@ public class ContainersCompatApi {
          </table>
          */
         public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-            return containerChangesLibpodWithHttpInfo(name, parent, diffType);
+            return containerChangesLibpod_0WithHttpInfo(name, parent, diffType);
         }
 
         /**
-         * Execute containerChangesLibpod request (asynchronously)
+         * Execute containerChangesLibpod_0 request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -893,7 +879,7 @@ public class ContainersCompatApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Void> _callback) throws ApiException {
-            return containerChangesLibpodAsync(name, parent, diffType, _callback);
+            return containerChangesLibpod_0Async(name, parent, diffType, _callback);
         }
     }
 
@@ -901,7 +887,7 @@ public class ContainersCompatApi {
      * Report on changes to container&#39;s filesystem; adds, deletes or modifications.
      * Returns which files in a container&#39;s filesystem have been added, deleted, or modified. The Kind of modification can be one of:  0: Modified 1: Added 2: Deleted 
      * @param name the name or id of the container (required)
-     * @return APIcontainerChangesLibpodRequest
+     * @return APIcontainerChangesLibpod_0Request
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -910,8 +896,8 @@ public class ContainersCompatApi {
         <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
      </table>
      */
-    public APIcontainerChangesLibpodRequest containerChangesLibpod(String name) {
-        return new APIcontainerChangesLibpodRequest(name);
+    public APIcontainerChangesLibpod_0Request containerChangesLibpod_0(String name) {
+        return new APIcontainerChangesLibpod_0Request(name);
     }
     private okhttp3.Call containerCreateCall(CreateContainerConfig body, String name, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -951,7 +937,8 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -964,15 +951,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerCreateValidateBeforeCall(CreateContainerConfig body, String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling containerCreate(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerCreateCall(body, name, _callback);
-        return localVarCall;
+        return containerCreateCall(body, name, _callback);
 
     }
 
@@ -1121,7 +1105,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1150,7 +1134,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1163,15 +1146,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerDeleteValidateBeforeCall(String name, Boolean force, Boolean v, Boolean link, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerDelete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerDeleteCall(name, force, v, link, _callback);
-        return localVarCall;
+        return containerDeleteCall(name, force, v, link, _callback);
 
     }
 
@@ -1338,7 +1318,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/export"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1355,7 +1335,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1368,15 +1347,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerExportValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerExport(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerExportCall(name, _callback);
-        return localVarCall;
+        return containerExportCall(name, _callback);
 
     }
 
@@ -1500,7 +1476,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/json"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1521,7 +1497,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1534,15 +1509,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerInspectValidateBeforeCall(String name, Boolean size, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerInspect(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerInspectCall(name, size, _callback);
-        return localVarCall;
+        return containerInspectCall(name, size, _callback);
 
     }
 
@@ -1681,7 +1653,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/kill"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1706,7 +1678,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1719,15 +1690,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerKillValidateBeforeCall(String name, Boolean all, String signal, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerKill(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerKillCall(name, all, signal, _callback);
-        return localVarCall;
+        return containerKillCall(name, all, signal, _callback);
 
     }
 
@@ -1914,7 +1882,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1927,10 +1894,7 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerListValidateBeforeCall(Boolean all, Boolean external, Integer limit, Boolean size, String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = containerListCall(all, external, limit, size, filters, _callback);
-        return localVarCall;
+        return containerListCall(all, external, limit, size, filters, _callback);
 
     }
 
@@ -2110,7 +2074,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/logs"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2155,7 +2119,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2168,15 +2131,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerLogsValidateBeforeCall(String name, Boolean follow, Boolean stdout, Boolean stderr, String since, String until, Boolean timestamps, String tail, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerLogs(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerLogsCall(name, follow, stdout, stderr, since, until, timestamps, tail, _callback);
-        return localVarCall;
+        return containerLogsCall(name, follow, stdout, stderr, since, until, timestamps, tail, _callback);
 
     }
 
@@ -2377,7 +2337,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/pause"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2394,7 +2354,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2407,15 +2366,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerPauseValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerPause(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerPauseCall(name, _callback);
-        return localVarCall;
+        return containerPauseCall(name, _callback);
 
     }
 
@@ -2559,7 +2515,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2572,10 +2527,7 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerPruneValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = containerPruneCall(filters, _callback);
-        return localVarCall;
+        return containerPruneCall(filters, _callback);
 
     }
 
@@ -2706,7 +2658,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/rename"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2727,7 +2679,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2740,20 +2691,17 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerRenameValidateBeforeCall(String name, String name2, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerRename(Async)");
         }
-        
+
         // verify the required parameter 'name2' is set
         if (name2 == null) {
             throw new ApiException("Missing the required parameter 'name2' when calling containerRename(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerRenameCall(name, name2, _callback);
-        return localVarCall;
+        return containerRenameCall(name, name2, _callback);
 
     }
 
@@ -2885,7 +2833,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/resize"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2914,7 +2862,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2927,15 +2874,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerResizeValidateBeforeCall(String name, Integer h, Integer w, Boolean running, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerResize(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerResizeCall(name, h, w, running, _callback);
-        return localVarCall;
+        return containerResizeCall(name, h, w, running, _callback);
 
     }
 
@@ -3096,7 +3040,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/restart"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3117,7 +3061,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3130,15 +3073,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerRestartValidateBeforeCall(String name, Integer t, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerRestart(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerRestartCall(name, t, _callback);
-        return localVarCall;
+        return containerRestartCall(name, t, _callback);
 
     }
 
@@ -3273,7 +3213,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/start"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3294,7 +3234,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3307,15 +3246,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerStartValidateBeforeCall(String name, String detachKeys, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerStart(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerStartCall(name, detachKeys, _callback);
-        return localVarCall;
+        return containerStartCall(name, detachKeys, _callback);
 
     }
 
@@ -3455,7 +3391,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/stats"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3480,7 +3416,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3493,15 +3428,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerStatsValidateBeforeCall(String name, Boolean stream, Boolean oneShot, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerStats(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerStatsCall(name, stream, oneShot, _callback);
-        return localVarCall;
+        return containerStatsCall(name, stream, oneShot, _callback);
 
     }
 
@@ -3651,7 +3583,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/stop"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3672,7 +3604,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3685,15 +3616,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerStopValidateBeforeCall(String name, Integer t, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerStop(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerStopCall(name, t, _callback);
-        return localVarCall;
+        return containerStopCall(name, t, _callback);
 
     }
 
@@ -3833,7 +3761,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/top"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3854,7 +3782,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3867,15 +3794,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerTopValidateBeforeCall(String name, String psArgs, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerTop(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerTopCall(name, psArgs, _callback);
-        return localVarCall;
+        return containerTopCall(name, psArgs, _callback);
 
     }
 
@@ -4014,7 +3938,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/unpause"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4031,7 +3955,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4044,15 +3967,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerUnpauseValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerUnpause(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerUnpauseCall(name, _callback);
-        return localVarCall;
+        return containerUnpauseCall(name, _callback);
 
     }
 
@@ -4176,7 +4096,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/update"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4193,7 +4113,8 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4206,15 +4127,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerUpdateValidateBeforeCall(String name, UpdateConfig resources, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerUpdate(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerUpdateCall(name, resources, _callback);
-        return localVarCall;
+        return containerUpdateCall(name, resources, _callback);
 
     }
 
@@ -4349,7 +4267,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/wait"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4374,7 +4292,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4387,15 +4304,12 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call containerWaitValidateBeforeCall(String name, String condition, String interval, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerWait(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = containerWaitCall(name, condition, interval, _callback);
-        return localVarCall;
+        return containerWaitCall(name, condition, interval, _callback);
 
     }
 
@@ -4593,7 +4507,6 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4606,10 +4519,7 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageCommitValidateBeforeCall(String container, String repo, String tag, String comment, String author, Boolean pause, String changes, Boolean squash, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageCommitCall(container, repo, tag, comment, author, pause, changes, squash, _callback);
-        return localVarCall;
+        return imageCommitCall(container, repo, tag, comment, author, pause, changes, squash, _callback);
 
     }
 
@@ -4818,7 +4728,7 @@ public class ContainersCompatApi {
 
         // create path and map variables
         String localVarPath = "/containers/{name}/archive"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4847,7 +4757,8 @@ public class ContainersCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4860,20 +4771,17 @@ public class ContainersCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call putContainerArchiveValidateBeforeCall(String name, String path, String noOverwriteDirNonDir, String copyUIDGID, String request, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling putContainerArchive(Async)");
         }
-        
+
         // verify the required parameter 'path' is set
         if (path == null) {
             throw new ApiException("Missing the required parameter 'path' when calling putContainerArchive(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = putContainerArchiveCall(name, path, noOverwriteDirNonDir, copyUIDGID, request, _callback);
-        return localVarCall;
+        return putContainerArchiveCall(name, path, noOverwriteDirNonDir, copyUIDGID, request, _callback);
 
     }
 

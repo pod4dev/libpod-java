@@ -26,7 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
@@ -42,7 +43,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ImagesCompatApi {
     private ApiClient localVarApiClient;
@@ -231,7 +231,7 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -244,10 +244,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageBuildValidateBeforeCall(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
-        return localVarCall;
+        return imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
 
     }
 
@@ -746,7 +743,8 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "text/plain", "application/octet-stream"
+            "text/plain",
+            "application/octet-stream"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -759,10 +757,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageCreateValidateBeforeCall(String xRegistryAuth, String fromImage, String fromSrc, String repo, String tag, String message, String platform, File inputImage, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageCreateCall(xRegistryAuth, fromImage, fromSrc, repo, tag, message, platform, inputImage, _callback);
-        return localVarCall;
+        return imageCreateCall(xRegistryAuth, fromImage, fromSrc, repo, tag, message, platform, inputImage, _callback);
 
     }
 
@@ -975,7 +970,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1000,7 +995,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1013,15 +1007,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageDeleteValidateBeforeCall(String name, Boolean force, Boolean noprune, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imageDelete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageDeleteCall(name, force, noprune, _callback);
-        return localVarCall;
+        return imageDeleteCall(name, force, noprune, _callback);
 
     }
 
@@ -1176,7 +1167,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}/get"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1193,7 +1184,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1206,15 +1196,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageGetValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imageGet(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageGetCall(name, _callback);
-        return localVarCall;
+        return imageGetCall(name, _callback);
 
     }
 
@@ -1357,7 +1344,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1370,15 +1356,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageGetAllValidateBeforeCall(String names, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'names' is set
         if (names == null) {
             throw new ApiException("Missing the required parameter 'names' when calling imageGetAll(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageGetAllCall(names, _callback);
-        return localVarCall;
+        return imageGetAllCall(names, _callback);
 
     }
 
@@ -1501,7 +1484,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}/history"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1518,7 +1501,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1531,15 +1513,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageHistoryValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imageHistory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageHistoryCall(name, _callback);
-        return localVarCall;
+        return imageHistoryCall(name, _callback);
 
     }
 
@@ -1667,7 +1646,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}/json"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1684,7 +1663,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1697,15 +1675,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageInspectValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imageInspect(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageInspectCall(name, _callback);
-        return localVarCall;
+        return imageInspectCall(name, _callback);
 
     }
 
@@ -1861,7 +1836,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1874,10 +1848,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageListValidateBeforeCall(Boolean all, String filters, Boolean digests, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageListCall(all, filters, digests, _callback);
-        return localVarCall;
+        return imageListCall(all, filters, digests, _callback);
 
     }
 
@@ -2050,7 +2021,8 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json", "application/x-tar"
+            "application/json",
+            "application/x-tar"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2063,10 +2035,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageLoadValidateBeforeCall(Boolean quiet, String request, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageLoadCall(quiet, request, _callback);
-        return localVarCall;
+        return imageLoadCall(quiet, request, _callback);
 
     }
 
@@ -2224,7 +2193,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2237,10 +2205,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imagePruneValidateBeforeCall(String filters, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imagePruneCall(filters, _callback);
-        return localVarCall;
+        return imagePruneCall(filters, _callback);
 
     }
 
@@ -2371,7 +2336,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}/push"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2416,7 +2381,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2429,15 +2393,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imagePushValidateBeforeCall(String name, String tag, Boolean all, Boolean compress, String destination, String format, Boolean tlsVerify, String xRegistryAuth, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imagePush(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imagePushCall(name, tag, all, compress, destination, format, tlsVerify, xRegistryAuth, _callback);
-        return localVarCall;
+        return imagePushCall(name, tag, all, compress, destination, format, tlsVerify, xRegistryAuth, _callback);
 
     }
 
@@ -2678,7 +2639,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2691,10 +2651,7 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageSearchValidateBeforeCall(String term, Integer limit, String filters, Boolean tlsVerify, Boolean listTags, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = imageSearchCall(term, limit, filters, tlsVerify, listTags, _callback);
-        return localVarCall;
+        return imageSearchCall(term, limit, filters, tlsVerify, listTags, _callback);
 
     }
 
@@ -2874,7 +2831,7 @@ public class ImagesCompatApi {
 
         // create path and map variables
         String localVarPath = "/images/{name}/tag"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2899,7 +2856,6 @@ public class ImagesCompatApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2912,15 +2868,12 @@ public class ImagesCompatApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call imageTagValidateBeforeCall(String name, String repo, String tag, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling imageTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = imageTagCall(name, repo, tag, _callback);
-        return localVarCall;
+        return imageTagCall(name, repo, tag, _callback);
 
     }
 
