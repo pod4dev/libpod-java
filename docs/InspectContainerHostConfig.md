@@ -44,6 +44,7 @@ nolint:revive,stylecheck // Field names are fixed for compatibility and cannot b
 |**dnsSearch** | **List&lt;String&gt;** | DnsSearch is a list of DNS search domains that will be set in the container&#39;s resolv.conf |  [optional] |
 |**extraHosts** | **List&lt;String&gt;** | ExtraHosts contains hosts that will be added to the container&#39;s etc/hosts. |  [optional] |
 |**groupAdd** | **List&lt;String&gt;** | GroupAdd contains groups that the user inside the container will be added to. |  [optional] |
+|**hostsFile** | **String** | HostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the container. |  [optional] |
 |**idMappings** | [**InspectIDMappings**](InspectIDMappings.md) |  |  [optional] |
 |**ioMaximumBandwidth** | **Integer** | IOMaximumBandwidth is Windows-only and not presently implemented. |  [optional] |
 |**ioMaximumIOps** | **Integer** | IOMaximumIOps is Windows-only and not presently implemented. |  [optional] |

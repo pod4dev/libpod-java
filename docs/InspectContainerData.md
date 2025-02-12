@@ -47,6 +47,8 @@ InspectContainerData provides a detailed record of a container's configuration a
 |**sizeRw** | **Long** |  |  [optional] |
 |**state** | [**InspectContainerState**](InspectContainerState.md) |  |  [optional] |
 |**staticDir** | **String** |  |  [optional] |
+|**useImageHostname** | **Boolean** |  |  [optional] |
+|**useImageHosts** | **Boolean** |  |  [optional] |
 |**lockNumber** | **Integer** |  |  [optional] |
 
 

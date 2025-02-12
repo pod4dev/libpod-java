@@ -21,7 +21,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="imageBuild"></a>
 # **imageBuild**
-> ImageBuild200Response imageBuild().contentType(contentType).xRegistryConfig(xRegistryConfig).dockerfile(dockerfile).t(t).extrahosts(extrahosts).remote(remote).retry(retry).retryDelay(retryDelay).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).networkmode(networkmode).platform(platform).target(target).outputs(outputs).inputStream(inputStream).execute();
+> ImageBuild200Response imageBuild().contentType(contentType).xRegistryConfig(xRegistryConfig).dockerfile(dockerfile).t(t).extrahosts(extrahosts).nohosts(nohosts).remote(remote).retry(retry).retryDelay(retryDelay).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).networkmode(networkmode).platform(platform).target(target).outputs(outputs).inputStream(inputStream).execute();
 
 Create image
 
@@ -47,6 +47,7 @@ public class Example {
     String dockerfile = "Dockerfile"; // String | Path within the build context to the `Dockerfile`. This is ignored if remote is specified and points to an external `Dockerfile`. 
     String t = "latest"; // String | A name and optional tag to apply to the image in the `name:tag` format. If you omit the tag, the default latest value is assumed. You can provide several t parameters.
     String extrahosts = "extrahosts_example"; // String | TBD Extra hosts to add to /etc/hosts (As of version 1.xx) 
+    Boolean nohosts = true; // Boolean | Not to create /etc/hosts when building the image 
     String remote = "remote_example"; // String | A Git repository URI or HTTP/HTTPS context URI. If the URI points to a single text file, the file’s contents are placed into a file called Dockerfile and the image is built from that file. If the URI points to a tarball, the file is downloaded by the daemon and the contents therein used as the context for the build. If the URI points to a tarball and the dockerfile parameter is also specified, there must be a file with the corresponding path inside the tarball. (As of version 1.xx) 
     Integer retry = 3; // Integer | Number of times to retry in case of failure when performing push/pull. 
     String retryDelay = "2s"; // String | Delay between retries in case of push/pull failures. 
@@ -79,6 +80,7 @@ public class Example {
             .dockerfile(dockerfile)
             .t(t)
             .extrahosts(extrahosts)
+            .nohosts(nohosts)
             .remote(remote)
             .retry(retry)
             .retryDelay(retryDelay)
@@ -126,6 +128,7 @@ public class Example {
 | **dockerfile** | **String**| Path within the build context to the &#x60;Dockerfile&#x60;. This is ignored if remote is specified and points to an external &#x60;Dockerfile&#x60;.  | [optional] [default to Dockerfile] |
 | **t** | **String**| A name and optional tag to apply to the image in the &#x60;name:tag&#x60; format. If you omit the tag, the default latest value is assumed. You can provide several t parameters. | [optional] [default to latest] |
 | **extrahosts** | **String**| TBD Extra hosts to add to /etc/hosts (As of version 1.xx)  | [optional] |
+| **nohosts** | **Boolean**| Not to create /etc/hosts when building the image  | [optional] |
 | **remote** | **String**| A Git repository URI or HTTP/HTTPS context URI. If the URI points to a single text file, the file’s contents are placed into a file called Dockerfile and the image is built from that file. If the URI points to a tarball, the file is downloaded by the daemon and the contents therein used as the context for the build. If the URI points to a tarball and the dockerfile parameter is also specified, there must be a file with the corresponding path inside the tarball. (As of version 1.xx)  | [optional] |
 | **retry** | **Integer**| Number of times to retry in case of failure when performing push/pull.  | [optional] [default to 3] |
 | **retryDelay** | **String**| Delay between retries in case of push/pull failures.  | [optional] [default to 2s] |

@@ -29,7 +29,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="imageBuildLibpod"></a>
 # **imageBuildLibpod**
-> ImageBuildLibpod200Response imageBuildLibpod().dockerfile(dockerfile).t(t).allplatforms(allplatforms).extrahosts(extrahosts).remote(remote).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).layerLabel(layerLabel).layers(layers).networkmode(networkmode).platform(platform).target(target).outputs(outputs).httpproxy(httpproxy).unsetenv(unsetenv).unsetlabel(unsetlabel).volume(volume).execute();
+> ImageBuildLibpod200Response imageBuildLibpod().dockerfile(dockerfile).t(t).allplatforms(allplatforms).extrahosts(extrahosts).nohosts(nohosts).remote(remote).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).layerLabel(layerLabel).layers(layers).networkmode(networkmode).platform(platform).target(target).outputs(outputs).httpproxy(httpproxy).unsetenv(unsetenv).unsetlabel(unsetlabel).volume(volume).execute();
 
 Create image
 
@@ -54,6 +54,7 @@ public class Example {
     String t = "latest"; // String | A name and optional tag to apply to the image in the `name:tag` format.  If you omit the tag, the default latest value is assumed. You can provide several t parameters.
     Boolean allplatforms = false; // Boolean | Instead of building for a set of platforms specified using the platform option, inspect the build's base images, and build for all of the platforms that are available.  Stages that use *scratch* as a starting point can not be inspected, so at least one non-*scratch* stage must be present for detection to work usefully. 
     String extrahosts = "extrahosts_example"; // String | TBD Extra hosts to add to /etc/hosts (As of version 1.xx) 
+    Boolean nohosts = true; // Boolean | Not to create /etc/hosts when building the image 
     String remote = "remote_example"; // String | A Git repository URI or HTTP/HTTPS context URI. If the URI points to a single text file, the file’s contents are placed into a file called Dockerfile and the image is built from that file. If the URI points to a tarball, the file is downloaded by the daemon and the contents therein used as the context for the build. If the URI points to a tarball and the dockerfile parameter is also specified, there must be a file with the corresponding path inside the tarball. (As of version 1.xx) 
     Boolean q = false; // Boolean | Suppress verbose build output 
     Boolean compatvolumes = false; // Boolean | Contents of base images to be modified on ADD or COPY only (As of Podman version v5.2) 
@@ -88,6 +89,7 @@ public class Example {
             .t(t)
             .allplatforms(allplatforms)
             .extrahosts(extrahosts)
+            .nohosts(nohosts)
             .remote(remote)
             .q(q)
             .compatvolumes(compatvolumes)
@@ -137,6 +139,7 @@ public class Example {
 | **t** | **String**| A name and optional tag to apply to the image in the &#x60;name:tag&#x60; format.  If you omit the tag, the default latest value is assumed. You can provide several t parameters. | [optional] [default to latest] |
 | **allplatforms** | **Boolean**| Instead of building for a set of platforms specified using the platform option, inspect the build&#39;s base images, and build for all of the platforms that are available.  Stages that use *scratch* as a starting point can not be inspected, so at least one non-*scratch* stage must be present for detection to work usefully.  | [optional] [default to false] |
 | **extrahosts** | **String**| TBD Extra hosts to add to /etc/hosts (As of version 1.xx)  | [optional] |
+| **nohosts** | **Boolean**| Not to create /etc/hosts when building the image  | [optional] |
 | **remote** | **String**| A Git repository URI or HTTP/HTTPS context URI. If the URI points to a single text file, the file’s contents are placed into a file called Dockerfile and the image is built from that file. If the URI points to a tarball, the file is downloaded by the daemon and the contents therein used as the context for the build. If the URI points to a tarball and the dockerfile parameter is also specified, there must be a file with the corresponding path inside the tarball. (As of version 1.xx)  | [optional] |
 | **q** | **Boolean**| Suppress verbose build output  | [optional] [default to false] |
 | **compatvolumes** | **Boolean**| Contents of base images to be modified on ADD or COPY only (As of Podman version v5.2)  | [optional] [default to false] |

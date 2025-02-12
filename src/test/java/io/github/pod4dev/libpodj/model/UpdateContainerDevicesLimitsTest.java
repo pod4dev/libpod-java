@@ -11,31 +11,74 @@
  */
 
 
-package io.github.pod4dev.libpodj;
+package io.github.pod4dev.libpodj.model;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class Configuration {
-    public static final String VERSION = "5.4.0";
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.ThrottleDevice;
+import io.github.pod4dev.libpodj.model.WeightDevice;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-    private static ApiClient defaultApiClient = new ApiClient();
+/**
+ * Model tests for UpdateContainerDevicesLimits
+ */
+public class UpdateContainerDevicesLimitsTest {
+    private final UpdateContainerDevicesLimits model = new UpdateContainerDevicesLimits();
 
     /**
-     * Get the default API client, which would be used when creating API
-     * instances without providing an API client.
-     *
-     * @return Default API client
+     * Model tests for UpdateContainerDevicesLimits
      */
-    public static ApiClient getDefaultApiClient() {
-        return defaultApiClient;
+    @Test
+    public void testUpdateContainerDevicesLimits() {
+        // TODO: test UpdateContainerDevicesLimits
     }
 
     /**
-     * Set the default API client, which would be used when creating API
-     * instances without providing an API client.
-     *
-     * @param apiClient API client
+     * Test the property 'blkIOWeightDevice'
      */
-    public static void setDefaultApiClient(ApiClient apiClient) {
-        defaultApiClient = apiClient;
+    @Test
+    public void blkIOWeightDeviceTest() {
+        // TODO: test blkIOWeightDevice
     }
+
+    /**
+     * Test the property 'deviceReadBPs'
+     */
+    @Test
+    public void deviceReadBPsTest() {
+        // TODO: test deviceReadBPs
+    }
+
+    /**
+     * Test the property 'deviceReadIOPs'
+     */
+    @Test
+    public void deviceReadIOPsTest() {
+        // TODO: test deviceReadIOPs
+    }
+
+    /**
+     * Test the property 'deviceWriteBPs'
+     */
+    @Test
+    public void deviceWriteBPsTest() {
+        // TODO: test deviceWriteBPs
+    }
+
+    /**
+     * Test the property 'deviceWriteIOPs'
+     */
+    @Test
+    public void deviceWriteIOPsTest() {
+        // TODO: test deviceWriteIOPs
+    }
+
 }

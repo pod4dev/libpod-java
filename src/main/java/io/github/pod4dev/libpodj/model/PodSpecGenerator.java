@@ -113,6 +113,10 @@ public class PodSpecGenerator implements Serializable {
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
   private String hostname;
 
+  public static final String SERIALIZED_NAME_HOSTS_FILE = "hostsFile";
+  @SerializedName(SERIALIZED_NAME_HOSTS_FILE)
+  private String hostsFile;
+
   public static final String SERIALIZED_NAME_IDMAPPINGS = "idmappings";
   @SerializedName(SERIALIZED_NAME_IDMAPPINGS)
   private IDMappingOptions idmappings;
@@ -164,6 +168,10 @@ public class PodSpecGenerator implements Serializable {
   public static final String SERIALIZED_NAME_NO_INFRA = "no_infra";
   @SerializedName(SERIALIZED_NAME_NO_INFRA)
   private Boolean noInfra;
+
+  public static final String SERIALIZED_NAME_NO_MANAGE_HOSTNAME = "no_manage_hostname";
+  @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTNAME)
+  private Boolean noManageHostname;
 
   public static final String SERIALIZED_NAME_NO_MANAGE_HOSTS = "no_manage_hosts";
   @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTS)
@@ -525,6 +533,26 @@ public class PodSpecGenerator implements Serializable {
   }
 
 
+  public PodSpecGenerator hostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+    return this;
+  }
+
+  /**
+   * HostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the infra container. This must either be an absolute path to a file on the host system, or one of the special flags &#x60;image&#x60; or &#x60;none&#x60;. If it is empty it defaults to the base_hosts_file configuration in containers.conf. Conflicts with NoInfra&#x3D;true and NoManageHosts. Optional.
+   * @return hostsFile
+   */
+  @jakarta.annotation.Nullable
+
+  public String getHostsFile() {
+    return hostsFile;
+  }
+
+  public void setHostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+  }
+
+
   public PodSpecGenerator idmappings(IDMappingOptions idmappings) {
     this.idmappings = idmappings;
     return this;
@@ -828,6 +856,26 @@ public class PodSpecGenerator implements Serializable {
 
   public void setNoInfra(Boolean noInfra) {
     this.noInfra = noInfra;
+  }
+
+
+  public PodSpecGenerator noManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
+    return this;
+  }
+
+  /**
+   * NoManageHostname indicates that /etc/hostname should not be managed by the pod. Instead, each container will create a separate etc/hostname as they would if not in a pod.
+   * @return noManageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getNoManageHostname() {
+    return noManageHostname;
+  }
+
+  public void setNoManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
   }
 
 
@@ -1380,6 +1428,7 @@ public class PodSpecGenerator implements Serializable {
         Objects.equals(this.exitPolicy, podSpecGenerator.exitPolicy) &&
         Objects.equals(this.hostadd, podSpecGenerator.hostadd) &&
         Objects.equals(this.hostname, podSpecGenerator.hostname) &&
+        Objects.equals(this.hostsFile, podSpecGenerator.hostsFile) &&
         Objects.equals(this.idmappings, podSpecGenerator.idmappings) &&
         Objects.equals(this.imageVolumes, podSpecGenerator.imageVolumes) &&
         Objects.equals(this.infraCommand, podSpecGenerator.infraCommand) &&
@@ -1393,6 +1442,7 @@ public class PodSpecGenerator implements Serializable {
         Objects.equals(this.netns, podSpecGenerator.netns) &&
         Objects.equals(this.networkOptions, podSpecGenerator.networkOptions) &&
         Objects.equals(this.noInfra, podSpecGenerator.noInfra) &&
+        Objects.equals(this.noManageHostname, podSpecGenerator.noManageHostname) &&
         Objects.equals(this.noManageHosts, podSpecGenerator.noManageHosts) &&
         Objects.equals(this.noManageResolvConf, podSpecGenerator.noManageResolvConf) &&
         Objects.equals(this.overlayVolumes, podSpecGenerator.overlayVolumes) &&
@@ -1419,7 +1469,7 @@ public class PodSpecGenerator implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, cgroupParent, cniNetworks, cpuPeriod, cpuQuota, dnsOption, dnsSearch, dnsServer, exitPolicy, hostadd, hostname, idmappings, imageVolumes, infraCommand, infraConmonPidFile, infraImage, infraName, ipcns, labels, mounts, name, netns, networkOptions, noInfra, noManageHosts, noManageResolvConf, overlayVolumes, pidns, podCreateCommand, podDevices, portmappings, resourceLimits, restartPolicy, restartTries, securityOpt, serviceContainerID, shareParent, sharedNamespaces, shmSize, shmSizeSystemd, sysctl, throttleReadBpsDevice, userns, utsns, volumes, volumesFrom);
+    return Objects.hash(networks, cgroupParent, cniNetworks, cpuPeriod, cpuQuota, dnsOption, dnsSearch, dnsServer, exitPolicy, hostadd, hostname, hostsFile, idmappings, imageVolumes, infraCommand, infraConmonPidFile, infraImage, infraName, ipcns, labels, mounts, name, netns, networkOptions, noInfra, noManageHostname, noManageHosts, noManageResolvConf, overlayVolumes, pidns, podCreateCommand, podDevices, portmappings, resourceLimits, restartPolicy, restartTries, securityOpt, serviceContainerID, shareParent, sharedNamespaces, shmSize, shmSizeSystemd, sysctl, throttleReadBpsDevice, userns, utsns, volumes, volumesFrom);
   }
 
   @Override
@@ -1437,6 +1487,7 @@ public class PodSpecGenerator implements Serializable {
     sb.append("    exitPolicy: ").append(toIndentedString(exitPolicy)).append("\n");
     sb.append("    hostadd: ").append(toIndentedString(hostadd)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    hostsFile: ").append(toIndentedString(hostsFile)).append("\n");
     sb.append("    idmappings: ").append(toIndentedString(idmappings)).append("\n");
     sb.append("    imageVolumes: ").append(toIndentedString(imageVolumes)).append("\n");
     sb.append("    infraCommand: ").append(toIndentedString(infraCommand)).append("\n");
@@ -1450,6 +1501,7 @@ public class PodSpecGenerator implements Serializable {
     sb.append("    netns: ").append(toIndentedString(netns)).append("\n");
     sb.append("    networkOptions: ").append(toIndentedString(networkOptions)).append("\n");
     sb.append("    noInfra: ").append(toIndentedString(noInfra)).append("\n");
+    sb.append("    noManageHostname: ").append(toIndentedString(noManageHostname)).append("\n");
     sb.append("    noManageHosts: ").append(toIndentedString(noManageHosts)).append("\n");
     sb.append("    noManageResolvConf: ").append(toIndentedString(noManageResolvConf)).append("\n");
     sb.append("    overlayVolumes: ").append(toIndentedString(overlayVolumes)).append("\n");
@@ -1505,6 +1557,7 @@ public class PodSpecGenerator implements Serializable {
     openapiFields.add("exit_policy");
     openapiFields.add("hostadd");
     openapiFields.add("hostname");
+    openapiFields.add("hostsFile");
     openapiFields.add("idmappings");
     openapiFields.add("image_volumes");
     openapiFields.add("infra_command");
@@ -1518,6 +1571,7 @@ public class PodSpecGenerator implements Serializable {
     openapiFields.add("netns");
     openapiFields.add("network_options");
     openapiFields.add("no_infra");
+    openapiFields.add("no_manage_hostname");
     openapiFields.add("no_manage_hosts");
     openapiFields.add("no_manage_resolv_conf");
     openapiFields.add("overlay_volumes");
@@ -1594,6 +1648,9 @@ public class PodSpecGenerator implements Serializable {
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+      }
+      if ((jsonObj.get("hostsFile") != null && !jsonObj.get("hostsFile").isJsonNull()) && !jsonObj.get("hostsFile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hostsFile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostsFile").toString()));
       }
       // validate the optional field `idmappings`
       if (jsonObj.get("idmappings") != null && !jsonObj.get("idmappings").isJsonNull()) {

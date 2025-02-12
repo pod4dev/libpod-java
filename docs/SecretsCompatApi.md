@@ -12,7 +12,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="secretCreate"></a>
 # **secretCreate**
-> SecretCreateLibpod201Response secretCreate().create(create).execute();
+> ContainerUpdateLibpod201Response secretCreate().create(create).execute();
 
 Create a secret
 
@@ -33,7 +33,7 @@ public class Example {
     SecretsCompatApi apiInstance = new SecretsCompatApi(defaultClient);
     SecretCreate create = new SecretCreate(); // SecretCreate | attributes for creating a secret 
     try {
-      SecretCreateLibpod201Response result = apiInstance.secretCreate()
+      ContainerUpdateLibpod201Response result = apiInstance.secretCreate()
             .create(create)
             .execute();
       System.out.println(result);
@@ -56,7 +56,7 @@ public class Example {
 
 ### Return type
 
-[**SecretCreateLibpod201Response**](SecretCreateLibpod201Response.md)
+[**ContainerUpdateLibpod201Response**](ContainerUpdateLibpod201Response.md)
 
 ### Authorization
 

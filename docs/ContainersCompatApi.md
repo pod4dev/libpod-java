@@ -1524,7 +1524,7 @@ public class Example {
 
     ContainersCompatApi apiInstance = new ContainersCompatApi(defaultClient);
     String name = "name_example"; // String | Full or partial ID or full name of the container to rename
-    UpdateConfig resources = new UpdateConfig(); // UpdateConfig | attributes for updating the container
+    ContainerUpdateRequest resources = new ContainerUpdateRequest(); // ContainerUpdateRequest | attributes for updating the container
     try {
       apiInstance.containerUpdate(name)
             .resources(resources)
@@ -1545,7 +1545,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**| Full or partial ID or full name of the container to rename | |
-| **resources** | **UpdateConfig**| attributes for updating the container | [optional] |
+| **resources** | [**ContainerUpdateRequest**](ContainerUpdateRequest.md)| attributes for updating the container | [optional] |
 
 ### Return type
 

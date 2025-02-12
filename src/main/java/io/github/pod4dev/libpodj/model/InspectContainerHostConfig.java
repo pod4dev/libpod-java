@@ -211,6 +211,10 @@ public class InspectContainerHostConfig implements Serializable {
   @SerializedName(SERIALIZED_NAME_GROUP_ADD)
   private List<String> groupAdd = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_HOSTS_FILE = "HostsFile";
+  @SerializedName(SERIALIZED_NAME_HOSTS_FILE)
+  private String hostsFile;
+
   public static final String SERIALIZED_NAME_ID_MAPPINGS = "IDMappings";
   @SerializedName(SERIALIZED_NAME_ID_MAPPINGS)
   private InspectIDMappings idMappings;
@@ -1212,6 +1216,26 @@ public class InspectContainerHostConfig implements Serializable {
   }
 
 
+  public InspectContainerHostConfig hostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+    return this;
+  }
+
+  /**
+   * HostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the container.
+   * @return hostsFile
+   */
+  @jakarta.annotation.Nullable
+
+  public String getHostsFile() {
+    return hostsFile;
+  }
+
+  public void setHostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+  }
+
+
   public InspectContainerHostConfig idMappings(InspectIDMappings idMappings) {
     this.idMappings = idMappings;
     return this;
@@ -1991,6 +2015,7 @@ public class InspectContainerHostConfig implements Serializable {
         Objects.equals(this.dnsSearch, inspectContainerHostConfig.dnsSearch) &&
         Objects.equals(this.extraHosts, inspectContainerHostConfig.extraHosts) &&
         Objects.equals(this.groupAdd, inspectContainerHostConfig.groupAdd) &&
+        Objects.equals(this.hostsFile, inspectContainerHostConfig.hostsFile) &&
         Objects.equals(this.idMappings, inspectContainerHostConfig.idMappings) &&
         Objects.equals(this.ioMaximumBandwidth, inspectContainerHostConfig.ioMaximumBandwidth) &&
         Objects.equals(this.ioMaximumIOps, inspectContainerHostConfig.ioMaximumIOps) &&
@@ -2029,7 +2054,7 @@ public class InspectContainerHostConfig implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(annotations, autoRemove, autoRemoveImage, binds, blkioDeviceReadBps, blkioDeviceReadIOps, blkioDeviceWriteBps, blkioDeviceWriteIOps, blkioWeight, blkioWeightDevice, capAdd, capDrop, cgroup, cgroupConf, cgroupManager, cgroupMode, cgroupParent, cgroups, consoleSize, containerIDFile, cpuCount, cpuPercent, cpuPeriod, cpuQuota, cpuRealtimePeriod, cpuRealtimeRuntime, cpuShares, cpusetCpus, cpusetMems, devices, diskQuota, dns, dnsOptions, dnsSearch, extraHosts, groupAdd, idMappings, ioMaximumBandwidth, ioMaximumIOps, init, intelRdtClosID, ipcMode, isolation, kernelMemory, links, logConfig, memory, memoryReservation, memorySwap, memorySwappiness, nanoCpus, networkMode, oomKillDisable, oomScoreAdj, pidMode, pidsLimit, portBindings, privileged, publishAllPorts, readonlyRootfs, restartPolicy, runtime, securityOpt, shmSize, tmpfs, utSMode, ulimits, usernsMode, volumeDriver, volumesFrom);
+    return Objects.hash(annotations, autoRemove, autoRemoveImage, binds, blkioDeviceReadBps, blkioDeviceReadIOps, blkioDeviceWriteBps, blkioDeviceWriteIOps, blkioWeight, blkioWeightDevice, capAdd, capDrop, cgroup, cgroupConf, cgroupManager, cgroupMode, cgroupParent, cgroups, consoleSize, containerIDFile, cpuCount, cpuPercent, cpuPeriod, cpuQuota, cpuRealtimePeriod, cpuRealtimeRuntime, cpuShares, cpusetCpus, cpusetMems, devices, diskQuota, dns, dnsOptions, dnsSearch, extraHosts, groupAdd, hostsFile, idMappings, ioMaximumBandwidth, ioMaximumIOps, init, intelRdtClosID, ipcMode, isolation, kernelMemory, links, logConfig, memory, memoryReservation, memorySwap, memorySwappiness, nanoCpus, networkMode, oomKillDisable, oomScoreAdj, pidMode, pidsLimit, portBindings, privileged, publishAllPorts, readonlyRootfs, restartPolicy, runtime, securityOpt, shmSize, tmpfs, utSMode, ulimits, usernsMode, volumeDriver, volumesFrom);
   }
 
   @Override
@@ -2072,6 +2097,7 @@ public class InspectContainerHostConfig implements Serializable {
     sb.append("    dnsSearch: ").append(toIndentedString(dnsSearch)).append("\n");
     sb.append("    extraHosts: ").append(toIndentedString(extraHosts)).append("\n");
     sb.append("    groupAdd: ").append(toIndentedString(groupAdd)).append("\n");
+    sb.append("    hostsFile: ").append(toIndentedString(hostsFile)).append("\n");
     sb.append("    idMappings: ").append(toIndentedString(idMappings)).append("\n");
     sb.append("    ioMaximumBandwidth: ").append(toIndentedString(ioMaximumBandwidth)).append("\n");
     sb.append("    ioMaximumIOps: ").append(toIndentedString(ioMaximumIOps)).append("\n");
@@ -2164,6 +2190,7 @@ public class InspectContainerHostConfig implements Serializable {
     openapiFields.add("DnsSearch");
     openapiFields.add("ExtraHosts");
     openapiFields.add("GroupAdd");
+    openapiFields.add("HostsFile");
     openapiFields.add("IDMappings");
     openapiFields.add("IOMaximumBandwidth");
     openapiFields.add("IOMaximumIOps");
@@ -2367,6 +2394,9 @@ public class InspectContainerHostConfig implements Serializable {
       // ensure the optional json data is an array if present
       if (jsonObj.get("GroupAdd") != null && !jsonObj.get("GroupAdd").isJsonNull() && !jsonObj.get("GroupAdd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `GroupAdd` to be an array in the JSON string but got `%s`", jsonObj.get("GroupAdd").toString()));
+      }
+      if ((jsonObj.get("HostsFile") != null && !jsonObj.get("HostsFile").isJsonNull()) && !jsonObj.get("HostsFile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `HostsFile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("HostsFile").toString()));
       }
       // validate the optional field `IDMappings`
       if (jsonObj.get("IDMappings") != null && !jsonObj.get("IDMappings").isJsonNull()) {

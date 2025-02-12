@@ -527,6 +527,10 @@ public class SpecGenerator implements Serializable {
   @SerializedName(SERIALIZED_NAME_UNSETENVALL)
   private Boolean unsetenvall;
 
+  public static final String SERIALIZED_NAME_USE_IMAGE_HOSTNAME = "use_image_hostname";
+  @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTNAME)
+  private Boolean useImageHostname;
+
   public static final String SERIALIZED_NAME_USE_IMAGE_HOSTS = "use_image_hosts";
   @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTS)
   private Boolean useImageHosts;
@@ -653,7 +657,7 @@ public class SpecGenerator implements Serializable {
   }
 
   /**
-   * BaseHostsFile is the path to a hosts file, the entries from this file are added to the containers hosts file. As special value \&quot;image\&quot; is allowed which uses the /etc/hosts file from within the image and \&quot;none\&quot; which uses no base file at all. If it is empty we should default to the base_hosts_file configuration in containers.conf. Optional.
+   * BaseHostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the container. This must either be an absolute path to a file on the host system, or one of the special flags &#x60;image&#x60; or &#x60;none&#x60;. If it is empty it defaults to the base_hosts_file configuration in containers.conf. Optional.
    * @return baseHostsFile
    */
   @jakarta.annotation.Nullable
@@ -3180,6 +3184,26 @@ public class SpecGenerator implements Serializable {
   }
 
 
+  public SpecGenerator useImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+    return this;
+  }
+
+  /**
+   * UseImageHostname indicates that /etc/hostname should not be managed by Podman, and instead sourced from the image. Optional.
+   * @return useImageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getUseImageHostname() {
+    return useImageHostname;
+  }
+
+  public void setUseImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+  }
+
+
   public SpecGenerator useImageHosts(Boolean useImageHosts) {
     this.useImageHosts = useImageHosts;
     return this;
@@ -3530,6 +3554,7 @@ public class SpecGenerator implements Serializable {
         Objects.equals(this.unmask, specGenerator.unmask) &&
         Objects.equals(this.unsetenv, specGenerator.unsetenv) &&
         Objects.equals(this.unsetenvall, specGenerator.unsetenvall) &&
+        Objects.equals(this.useImageHostname, specGenerator.useImageHostname) &&
         Objects.equals(this.useImageHosts, specGenerator.useImageHosts) &&
         Objects.equals(this.useImageResolveConf, specGenerator.useImageResolveConf) &&
         Objects.equals(this.user, specGenerator.user) &&
@@ -3544,7 +3569,7 @@ public class SpecGenerator implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, annotations, apparmorProfile, baseHostsFile, capAdd, capDrop, cgroupParent, cgroupns, cgroupsMode, chrootDirectories, cniNetworks, command, conmonPidFile, containerCreateCommand, createWorkingDir, dependencyContainers, deviceCgroupRule, devices, devicesFrom, dnsOption, dnsSearch, dnsServer, entrypoint, env, envHost, envmerge, expose, groupEntry, groups, healthCheckOnFailureAction, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthconfig, hostDeviceList, hostadd, hostname, hostusers, httpproxy, idmappings, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initContainerType, initPath, intelRdt, ipcns, labelNested, labels, logConfiguration, managePassword, mask, mounts, name, netns, networkOptions, noNewPrivileges, ociRuntime, oomScoreAdj, overlayVolumes, passwdEntry, personality, pidns, pod, portmappings, privileged, procfsOpts, publishImagePorts, rLimits, rawImageName, readOnlyFilesystem, readWriteTmpfs, remove, removeImage, resourceLimits, restartPolicy, restartTries, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, sdnotifyMode, seccompPolicy, seccompProfilePath, secretEnv, secrets, selinuxOpts, shmSize, shmSizeSystemd, startupHealthConfig, stdin, stopSignal, stopTimeout, storageOpts, sysctl, systemd, terminal, throttleReadBpsDevice, throttleReadIOPSDevice, throttleWriteBpsDevice, throttleWriteIOPSDevice, timeout, timezone, umask, unified, unmask, unsetenv, unsetenvall, useImageHosts, useImageResolveConf, user, userns, utsns, _volatile, volumes, volumesFrom, weightDevice, workDir);
+    return Objects.hash(networks, annotations, apparmorProfile, baseHostsFile, capAdd, capDrop, cgroupParent, cgroupns, cgroupsMode, chrootDirectories, cniNetworks, command, conmonPidFile, containerCreateCommand, createWorkingDir, dependencyContainers, deviceCgroupRule, devices, devicesFrom, dnsOption, dnsSearch, dnsServer, entrypoint, env, envHost, envmerge, expose, groupEntry, groups, healthCheckOnFailureAction, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthconfig, hostDeviceList, hostadd, hostname, hostusers, httpproxy, idmappings, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initContainerType, initPath, intelRdt, ipcns, labelNested, labels, logConfiguration, managePassword, mask, mounts, name, netns, networkOptions, noNewPrivileges, ociRuntime, oomScoreAdj, overlayVolumes, passwdEntry, personality, pidns, pod, portmappings, privileged, procfsOpts, publishImagePorts, rLimits, rawImageName, readOnlyFilesystem, readWriteTmpfs, remove, removeImage, resourceLimits, restartPolicy, restartTries, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, sdnotifyMode, seccompPolicy, seccompProfilePath, secretEnv, secrets, selinuxOpts, shmSize, shmSizeSystemd, startupHealthConfig, stdin, stopSignal, stopTimeout, storageOpts, sysctl, systemd, terminal, throttleReadBpsDevice, throttleReadIOPSDevice, throttleWriteBpsDevice, throttleWriteIOPSDevice, timeout, timezone, umask, unified, unmask, unsetenv, unsetenvall, useImageHostname, useImageHosts, useImageResolveConf, user, userns, utsns, _volatile, volumes, volumesFrom, weightDevice, workDir);
   }
 
   @Override
@@ -3663,6 +3688,7 @@ public class SpecGenerator implements Serializable {
     sb.append("    unmask: ").append(toIndentedString(unmask)).append("\n");
     sb.append("    unsetenv: ").append(toIndentedString(unsetenv)).append("\n");
     sb.append("    unsetenvall: ").append(toIndentedString(unsetenvall)).append("\n");
+    sb.append("    useImageHostname: ").append(toIndentedString(useImageHostname)).append("\n");
     sb.append("    useImageHosts: ").append(toIndentedString(useImageHosts)).append("\n");
     sb.append("    useImageResolveConf: ").append(toIndentedString(useImageResolveConf)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
@@ -3807,6 +3833,7 @@ public class SpecGenerator implements Serializable {
     openapiFields.add("unmask");
     openapiFields.add("unsetenv");
     openapiFields.add("unsetenvall");
+    openapiFields.add("use_image_hostname");
     openapiFields.add("use_image_hosts");
     openapiFields.add("use_image_resolve_conf");
     openapiFields.add("user");

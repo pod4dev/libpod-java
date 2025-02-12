@@ -33,12 +33,12 @@ import io.github.pod4dev.libpodj.model.Container;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
 import io.github.pod4dev.libpodj.model.ContainerJSON;
 import io.github.pod4dev.libpodj.model.ContainerTopOKBody;
+import io.github.pod4dev.libpodj.model.ContainerUpdateRequest;
 import io.github.pod4dev.libpodj.model.ContainerWait200Response;
 import io.github.pod4dev.libpodj.model.ContainersPruneReport;
 import io.github.pod4dev.libpodj.model.CreateContainerConfig;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
-import io.github.pod4dev.libpodj.model.UpdateConfig;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -4078,7 +4078,7 @@ public class ContainersCompatApi {
     public APIcontainerUnpauseRequest containerUnpause(String name) {
         return new APIcontainerUnpauseRequest(name);
     }
-    private okhttp3.Call containerUpdateCall(String name, UpdateConfig resources, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containerUpdateCall(String name, ContainerUpdateRequest resources, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4126,7 +4126,7 @@ public class ContainersCompatApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call containerUpdateValidateBeforeCall(String name, UpdateConfig resources, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call containerUpdateValidateBeforeCall(String name, ContainerUpdateRequest resources, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling containerUpdate(Async)");
@@ -4137,12 +4137,12 @@ public class ContainersCompatApi {
     }
 
 
-    private ApiResponse<Void> containerUpdateWithHttpInfo( @NotNull String name, UpdateConfig resources) throws ApiException {
+    private ApiResponse<Void> containerUpdateWithHttpInfo( @NotNull String name, ContainerUpdateRequest resources) throws ApiException {
         okhttp3.Call localVarCall = containerUpdateValidateBeforeCall(name, resources, null);
         return localVarApiClient.execute(localVarCall);
     }
 
-    private okhttp3.Call containerUpdateAsync(String name, UpdateConfig resources, final ApiCallback<Void> _callback) throws ApiException {
+    private okhttp3.Call containerUpdateAsync(String name, ContainerUpdateRequest resources, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = containerUpdateValidateBeforeCall(name, resources, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -4151,7 +4151,7 @@ public class ContainersCompatApi {
 
     public class APIcontainerUpdateRequest {
         private final String name;
-        private UpdateConfig resources;
+        private ContainerUpdateRequest resources;
 
         private APIcontainerUpdateRequest(String name) {
             this.name = name;
@@ -4162,7 +4162,7 @@ public class ContainersCompatApi {
          * @param resources attributes for updating the container (optional)
          * @return APIcontainerUpdateRequest
          */
-        public APIcontainerUpdateRequest resources(UpdateConfig resources) {
+        public APIcontainerUpdateRequest resources(ContainerUpdateRequest resources) {
             this.resources = resources;
             return this;
         }

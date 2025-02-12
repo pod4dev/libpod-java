@@ -78,6 +78,10 @@ public class NetOptions implements Serializable {
   @SerializedName(SERIALIZED_NAME_HOSTADD)
   private List<String> hostadd = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_HOSTS_FILE = "hosts_file";
+  @SerializedName(SERIALIZED_NAME_HOSTS_FILE)
+  private String hostsFile;
+
   public static final String SERIALIZED_NAME_NETNS = "netns";
   @SerializedName(SERIALIZED_NAME_NETNS)
   private Namespace netns;
@@ -93,6 +97,10 @@ public class NetOptions implements Serializable {
   public static final String SERIALIZED_NAME_NETWORKS = "networks";
   @SerializedName(SERIALIZED_NAME_NETWORKS)
   private Map<String, PerNetworkOptions> networks = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_NO_MANAGE_HOSTNAME = "no_manage_hostname";
+  @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTNAME)
+  private Boolean noManageHostname;
 
   public static final String SERIALIZED_NAME_NO_MANAGE_HOSTS = "no_manage_hosts";
   @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTS)
@@ -221,6 +229,26 @@ public class NetOptions implements Serializable {
   }
 
 
+  public NetOptions hostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+    return this;
+  }
+
+  /**
+   * Get hostsFile
+   * @return hostsFile
+   */
+  @jakarta.annotation.Nullable
+
+  public String getHostsFile() {
+    return hostsFile;
+  }
+
+  public void setHostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+  }
+
+
   public NetOptions netns(Namespace netns) {
     this.netns = netns;
     return this;
@@ -328,6 +356,26 @@ public class NetOptions implements Serializable {
   }
 
 
+  public NetOptions noManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
+    return this;
+  }
+
+  /**
+   * Get noManageHostname
+   * @return noManageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getNoManageHostname() {
+    return noManageHostname;
+  }
+
+  public void setNoManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
+  }
+
+
   public NetOptions noManageHosts(Boolean noManageHosts) {
     this.noManageHosts = noManageHosts;
     return this;
@@ -411,10 +459,12 @@ public class NetOptions implements Serializable {
         Objects.equals(this.dnsSearch, netOptions.dnsSearch) &&
         Objects.equals(this.dnsServer, netOptions.dnsServer) &&
         Objects.equals(this.hostadd, netOptions.hostadd) &&
+        Objects.equals(this.hostsFile, netOptions.hostsFile) &&
         Objects.equals(this.netns, netOptions.netns) &&
         Objects.equals(this.networkAlias, netOptions.networkAlias) &&
         Objects.equals(this.networkOptions, netOptions.networkOptions) &&
         Objects.equals(this.networks, netOptions.networks) &&
+        Objects.equals(this.noManageHostname, netOptions.noManageHostname) &&
         Objects.equals(this.noManageHosts, netOptions.noManageHosts) &&
         Objects.equals(this.noManageResolvConf, netOptions.noManageResolvConf) &&
         Objects.equals(this.portmappings, netOptions.portmappings);
@@ -422,7 +472,7 @@ public class NetOptions implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dnsOption, dnsSearch, dnsServer, hostadd, netns, networkAlias, networkOptions, networks, noManageHosts, noManageResolvConf, portmappings);
+    return Objects.hash(dnsOption, dnsSearch, dnsServer, hostadd, hostsFile, netns, networkAlias, networkOptions, networks, noManageHostname, noManageHosts, noManageResolvConf, portmappings);
   }
 
   @Override
@@ -433,10 +483,12 @@ public class NetOptions implements Serializable {
     sb.append("    dnsSearch: ").append(toIndentedString(dnsSearch)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    hostadd: ").append(toIndentedString(hostadd)).append("\n");
+    sb.append("    hostsFile: ").append(toIndentedString(hostsFile)).append("\n");
     sb.append("    netns: ").append(toIndentedString(netns)).append("\n");
     sb.append("    networkAlias: ").append(toIndentedString(networkAlias)).append("\n");
     sb.append("    networkOptions: ").append(toIndentedString(networkOptions)).append("\n");
     sb.append("    networks: ").append(toIndentedString(networks)).append("\n");
+    sb.append("    noManageHostname: ").append(toIndentedString(noManageHostname)).append("\n");
     sb.append("    noManageHosts: ").append(toIndentedString(noManageHosts)).append("\n");
     sb.append("    noManageResolvConf: ").append(toIndentedString(noManageResolvConf)).append("\n");
     sb.append("    portmappings: ").append(toIndentedString(portmappings)).append("\n");
@@ -466,10 +518,12 @@ public class NetOptions implements Serializable {
     openapiFields.add("dns_search");
     openapiFields.add("dns_server");
     openapiFields.add("hostadd");
+    openapiFields.add("hosts_file");
     openapiFields.add("netns");
     openapiFields.add("network_alias");
     openapiFields.add("network_options");
     openapiFields.add("networks");
+    openapiFields.add("no_manage_hostname");
     openapiFields.add("no_manage_hosts");
     openapiFields.add("no_manage_resolv_conf");
     openapiFields.add("portmappings");
@@ -514,6 +568,9 @@ public class NetOptions implements Serializable {
       // ensure the optional json data is an array if present
       if (jsonObj.get("hostadd") != null && !jsonObj.get("hostadd").isJsonNull() && !jsonObj.get("hostadd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostadd` to be an array in the JSON string but got `%s`", jsonObj.get("hostadd").toString()));
+      }
+      if ((jsonObj.get("hosts_file") != null && !jsonObj.get("hosts_file").isJsonNull()) && !jsonObj.get("hosts_file").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hosts_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hosts_file").toString()));
       }
       // validate the optional field `netns`
       if (jsonObj.get("netns") != null && !jsonObj.get("netns").isJsonNull()) {

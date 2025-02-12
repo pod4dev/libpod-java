@@ -11,31 +11,38 @@
  */
 
 
-package io.github.pod4dev.libpodj;
+package io.github.pod4dev.libpodj.model;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
-public class Configuration {
-    public static final String VERSION = "5.4.0";
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-    private static ApiClient defaultApiClient = new ApiClient();
+/**
+ * Model tests for ContainerUpdateLibpod201Response
+ */
+public class ContainerUpdateLibpod201ResponseTest {
+    private final ContainerUpdateLibpod201Response model = new ContainerUpdateLibpod201Response();
 
     /**
-     * Get the default API client, which would be used when creating API
-     * instances without providing an API client.
-     *
-     * @return Default API client
+     * Model tests for ContainerUpdateLibpod201Response
      */
-    public static ApiClient getDefaultApiClient() {
-        return defaultApiClient;
+    @Test
+    public void testContainerUpdateLibpod201Response() {
+        // TODO: test ContainerUpdateLibpod201Response
     }
 
     /**
-     * Set the default API client, which would be used when creating API
-     * instances without providing an API client.
-     *
-     * @param apiClient API client
+     * Test the property 'ID'
      */
-    public static void setDefaultApiClient(ApiClient apiClient) {
-        defaultApiClient = apiClient;
+    @Test
+    public void IDTest() {
+        // TODO: test ID
     }
+
 }

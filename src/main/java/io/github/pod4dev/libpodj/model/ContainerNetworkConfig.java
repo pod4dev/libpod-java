@@ -110,6 +110,10 @@ public class ContainerNetworkConfig implements Serializable {
   @SerializedName(SERIALIZED_NAME_PUBLISH_IMAGE_PORTS)
   private Boolean publishImagePorts;
 
+  public static final String SERIALIZED_NAME_USE_IMAGE_HOSTNAME = "use_image_hostname";
+  @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTNAME)
+  private Boolean useImageHostname;
+
   public static final String SERIALIZED_NAME_USE_IMAGE_HOSTS = "use_image_hosts";
   @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTS)
   private Boolean useImageHosts;
@@ -156,7 +160,7 @@ public class ContainerNetworkConfig implements Serializable {
   }
 
   /**
-   * BaseHostsFile is the path to a hosts file, the entries from this file are added to the containers hosts file. As special value \&quot;image\&quot; is allowed which uses the /etc/hosts file from within the image and \&quot;none\&quot; which uses no base file at all. If it is empty we should default to the base_hosts_file configuration in containers.conf. Optional.
+   * BaseHostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the container. This must either be an absolute path to a file on the host system, or one of the special flags &#x60;image&#x60; or &#x60;none&#x60;. If it is empty it defaults to the base_hosts_file configuration in containers.conf. Optional.
    * @return baseHostsFile
    */
   @jakarta.annotation.Nullable
@@ -429,6 +433,26 @@ public class ContainerNetworkConfig implements Serializable {
   }
 
 
+  public ContainerNetworkConfig useImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+    return this;
+  }
+
+  /**
+   * UseImageHostname indicates that /etc/hostname should not be managed by Podman, and instead sourced from the image. Optional.
+   * @return useImageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getUseImageHostname() {
+    return useImageHostname;
+  }
+
+  public void setUseImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+  }
+
+
   public ContainerNetworkConfig useImageHosts(Boolean useImageHosts) {
     this.useImageHosts = useImageHosts;
     return this;
@@ -491,13 +515,14 @@ public class ContainerNetworkConfig implements Serializable {
         Objects.equals(this.networkOptions, containerNetworkConfig.networkOptions) &&
         Objects.equals(this.portmappings, containerNetworkConfig.portmappings) &&
         Objects.equals(this.publishImagePorts, containerNetworkConfig.publishImagePorts) &&
+        Objects.equals(this.useImageHostname, containerNetworkConfig.useImageHostname) &&
         Objects.equals(this.useImageHosts, containerNetworkConfig.useImageHosts) &&
         Objects.equals(this.useImageResolveConf, containerNetworkConfig.useImageResolveConf);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, baseHostsFile, cniNetworks, dnsOption, dnsSearch, dnsServer, expose, hostadd, netns, networkOptions, portmappings, publishImagePorts, useImageHosts, useImageResolveConf);
+    return Objects.hash(networks, baseHostsFile, cniNetworks, dnsOption, dnsSearch, dnsServer, expose, hostadd, netns, networkOptions, portmappings, publishImagePorts, useImageHostname, useImageHosts, useImageResolveConf);
   }
 
   @Override
@@ -516,6 +541,7 @@ public class ContainerNetworkConfig implements Serializable {
     sb.append("    networkOptions: ").append(toIndentedString(networkOptions)).append("\n");
     sb.append("    portmappings: ").append(toIndentedString(portmappings)).append("\n");
     sb.append("    publishImagePorts: ").append(toIndentedString(publishImagePorts)).append("\n");
+    sb.append("    useImageHostname: ").append(toIndentedString(useImageHostname)).append("\n");
     sb.append("    useImageHosts: ").append(toIndentedString(useImageHosts)).append("\n");
     sb.append("    useImageResolveConf: ").append(toIndentedString(useImageResolveConf)).append("\n");
     sb.append("}");
@@ -552,6 +578,7 @@ public class ContainerNetworkConfig implements Serializable {
     openapiFields.add("network_options");
     openapiFields.add("portmappings");
     openapiFields.add("publish_image_ports");
+    openapiFields.add("use_image_hostname");
     openapiFields.add("use_image_hosts");
     openapiFields.add("use_image_resolve_conf");
 

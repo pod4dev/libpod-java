@@ -86,6 +86,10 @@ public class PodNetworkConfig implements Serializable {
   @SerializedName(SERIALIZED_NAME_HOSTADD)
   private List<String> hostadd = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_HOSTS_FILE = "hostsFile";
+  @SerializedName(SERIALIZED_NAME_HOSTS_FILE)
+  private String hostsFile;
+
   public static final String SERIALIZED_NAME_NETNS = "netns";
   @SerializedName(SERIALIZED_NAME_NETNS)
   private Namespace netns;
@@ -93,6 +97,10 @@ public class PodNetworkConfig implements Serializable {
   public static final String SERIALIZED_NAME_NETWORK_OPTIONS = "network_options";
   @SerializedName(SERIALIZED_NAME_NETWORK_OPTIONS)
   private Map<String, List<String>> networkOptions = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_NO_MANAGE_HOSTNAME = "no_manage_hostname";
+  @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTNAME)
+  private Boolean noManageHostname;
 
   public static final String SERIALIZED_NAME_NO_MANAGE_HOSTS = "no_manage_hosts";
   @SerializedName(SERIALIZED_NAME_NO_MANAGE_HOSTS)
@@ -278,6 +286,26 @@ public class PodNetworkConfig implements Serializable {
   }
 
 
+  public PodNetworkConfig hostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+    return this;
+  }
+
+  /**
+   * HostsFile is the base file to create the &#x60;/etc/hosts&#x60; file inside the infra container. This must either be an absolute path to a file on the host system, or one of the special flags &#x60;image&#x60; or &#x60;none&#x60;. If it is empty it defaults to the base_hosts_file configuration in containers.conf. Conflicts with NoInfra&#x3D;true and NoManageHosts. Optional.
+   * @return hostsFile
+   */
+  @jakarta.annotation.Nullable
+
+  public String getHostsFile() {
+    return hostsFile;
+  }
+
+  public void setHostsFile(String hostsFile) {
+    this.hostsFile = hostsFile;
+  }
+
+
   public PodNetworkConfig netns(Namespace netns) {
     this.netns = netns;
     return this;
@@ -325,6 +353,26 @@ public class PodNetworkConfig implements Serializable {
 
   public void setNetworkOptions(Map<String, List<String>> networkOptions) {
     this.networkOptions = networkOptions;
+  }
+
+
+  public PodNetworkConfig noManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
+    return this;
+  }
+
+  /**
+   * NoManageHostname indicates that /etc/hostname should not be managed by the pod. Instead, each container will create a separate etc/hostname as they would if not in a pod.
+   * @return noManageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getNoManageHostname() {
+    return noManageHostname;
+  }
+
+  public void setNoManageHostname(Boolean noManageHostname) {
+    this.noManageHostname = noManageHostname;
   }
 
 
@@ -413,8 +461,10 @@ public class PodNetworkConfig implements Serializable {
         Objects.equals(this.dnsSearch, podNetworkConfig.dnsSearch) &&
         Objects.equals(this.dnsServer, podNetworkConfig.dnsServer) &&
         Objects.equals(this.hostadd, podNetworkConfig.hostadd) &&
+        Objects.equals(this.hostsFile, podNetworkConfig.hostsFile) &&
         Objects.equals(this.netns, podNetworkConfig.netns) &&
         Objects.equals(this.networkOptions, podNetworkConfig.networkOptions) &&
+        Objects.equals(this.noManageHostname, podNetworkConfig.noManageHostname) &&
         Objects.equals(this.noManageHosts, podNetworkConfig.noManageHosts) &&
         Objects.equals(this.noManageResolvConf, podNetworkConfig.noManageResolvConf) &&
         Objects.equals(this.portmappings, podNetworkConfig.portmappings);
@@ -422,7 +472,7 @@ public class PodNetworkConfig implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, cniNetworks, dnsOption, dnsSearch, dnsServer, hostadd, netns, networkOptions, noManageHosts, noManageResolvConf, portmappings);
+    return Objects.hash(networks, cniNetworks, dnsOption, dnsSearch, dnsServer, hostadd, hostsFile, netns, networkOptions, noManageHostname, noManageHosts, noManageResolvConf, portmappings);
   }
 
   @Override
@@ -435,8 +485,10 @@ public class PodNetworkConfig implements Serializable {
     sb.append("    dnsSearch: ").append(toIndentedString(dnsSearch)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    hostadd: ").append(toIndentedString(hostadd)).append("\n");
+    sb.append("    hostsFile: ").append(toIndentedString(hostsFile)).append("\n");
     sb.append("    netns: ").append(toIndentedString(netns)).append("\n");
     sb.append("    networkOptions: ").append(toIndentedString(networkOptions)).append("\n");
+    sb.append("    noManageHostname: ").append(toIndentedString(noManageHostname)).append("\n");
     sb.append("    noManageHosts: ").append(toIndentedString(noManageHosts)).append("\n");
     sb.append("    noManageResolvConf: ").append(toIndentedString(noManageResolvConf)).append("\n");
     sb.append("    portmappings: ").append(toIndentedString(portmappings)).append("\n");
@@ -468,8 +520,10 @@ public class PodNetworkConfig implements Serializable {
     openapiFields.add("dns_search");
     openapiFields.add("dns_server");
     openapiFields.add("hostadd");
+    openapiFields.add("hostsFile");
     openapiFields.add("netns");
     openapiFields.add("network_options");
+    openapiFields.add("no_manage_hostname");
     openapiFields.add("no_manage_hosts");
     openapiFields.add("no_manage_resolv_conf");
     openapiFields.add("portmappings");
@@ -518,6 +572,9 @@ public class PodNetworkConfig implements Serializable {
       // ensure the optional json data is an array if present
       if (jsonObj.get("hostadd") != null && !jsonObj.get("hostadd").isJsonNull() && !jsonObj.get("hostadd").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostadd` to be an array in the JSON string but got `%s`", jsonObj.get("hostadd").toString()));
+      }
+      if ((jsonObj.get("hostsFile") != null && !jsonObj.get("hostsFile").isJsonNull()) && !jsonObj.get("hostsFile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hostsFile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostsFile").toString()));
       }
       // validate the optional field `netns`
       if (jsonObj.get("netns") != null && !jsonObj.get("netns").isJsonNull()) {

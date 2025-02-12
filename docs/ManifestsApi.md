@@ -162,7 +162,7 @@ No authorization required
 
 <a id="manifestDeleteLibpod"></a>
 # **manifestDeleteLibpod**
-> LibpodImagesRemoveReport manifestDeleteLibpod(name).execute();
+> LibpodImagesRemoveReport manifestDeleteLibpod(name).ignore(ignore).execute();
 
 Delete manifest list
 
@@ -184,8 +184,10 @@ public class Example {
 
     ManifestsApi apiInstance = new ManifestsApi(defaultClient);
     String name = "name_example"; // String | The name or ID of the  list to be deleted
+    Boolean ignore = true; // Boolean | Ignore if a specified manifest does not exist and do not throw an error.
     try {
       LibpodImagesRemoveReport result = apiInstance.manifestDeleteLibpod(name)
+            .ignore(ignore)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -204,6 +206,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**| The name or ID of the  list to be deleted | |
+| **ignore** | **Boolean**| Ignore if a specified manifest does not exist and do not throw an error. | [optional] |
 
 ### Return type
 

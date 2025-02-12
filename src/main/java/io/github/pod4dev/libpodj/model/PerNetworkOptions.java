@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.io.Serializable;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -64,6 +66,10 @@ public class PerNetworkOptions implements Serializable {
   public static final String SERIALIZED_NAME_INTERFACE_NAME = "interface_name";
   @SerializedName(SERIALIZED_NAME_INTERFACE_NAME)
   private String interfaceName;
+
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private Map<String, String> options = new HashMap<>();
 
   public static final String SERIALIZED_NAME_STATIC_IPS = "static_ips";
   @SerializedName(SERIALIZED_NAME_STATIC_IPS)
@@ -121,6 +127,34 @@ public class PerNetworkOptions implements Serializable {
 
   public void setInterfaceName(String interfaceName) {
     this.interfaceName = interfaceName;
+  }
+
+
+  public PerNetworkOptions options(Map<String, String> options) {
+    this.options = options;
+    return this;
+  }
+
+  public PerNetworkOptions putOptionsItem(String key, String optionsItem) {
+    if (this.options == null) {
+      this.options = new HashMap<>();
+    }
+    this.options.put(key, optionsItem);
+    return this;
+  }
+
+  /**
+   * Driver-specific options for this container.
+   * @return options
+   */
+  @jakarta.annotation.Nullable
+
+  public Map<String, String> getOptions() {
+    return options;
+  }
+
+  public void setOptions(Map<String, String> options) {
+    this.options = options;
   }
 
 
@@ -184,13 +218,14 @@ public class PerNetworkOptions implements Serializable {
     PerNetworkOptions perNetworkOptions = (PerNetworkOptions) o;
     return Objects.equals(this.aliases, perNetworkOptions.aliases) &&
         Objects.equals(this.interfaceName, perNetworkOptions.interfaceName) &&
+        Objects.equals(this.options, perNetworkOptions.options) &&
         Objects.equals(this.staticIps, perNetworkOptions.staticIps) &&
         Objects.equals(this.staticMac, perNetworkOptions.staticMac);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aliases, interfaceName, staticIps, staticMac);
+    return Objects.hash(aliases, interfaceName, options, staticIps, staticMac);
   }
 
   @Override
@@ -199,6 +234,7 @@ public class PerNetworkOptions implements Serializable {
     sb.append("class PerNetworkOptions {\n");
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("    interfaceName: ").append(toIndentedString(interfaceName)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    staticIps: ").append(toIndentedString(staticIps)).append("\n");
     sb.append("    staticMac: ").append(toIndentedString(staticMac)).append("\n");
     sb.append("}");
@@ -225,6 +261,7 @@ public class PerNetworkOptions implements Serializable {
     openapiFields = new HashSet<String>();
     openapiFields.add("aliases");
     openapiFields.add("interface_name");
+    openapiFields.add("options");
     openapiFields.add("static_ips");
     openapiFields.add("static_mac");
 

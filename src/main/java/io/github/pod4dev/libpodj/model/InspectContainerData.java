@@ -220,6 +220,14 @@ public class InspectContainerData implements Serializable {
   @SerializedName(SERIALIZED_NAME_STATIC_DIR)
   private String staticDir;
 
+  public static final String SERIALIZED_NAME_USE_IMAGE_HOSTNAME = "UseImageHostname";
+  @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTNAME)
+  private Boolean useImageHostname;
+
+  public static final String SERIALIZED_NAME_USE_IMAGE_HOSTS = "UseImageHosts";
+  @SerializedName(SERIALIZED_NAME_USE_IMAGE_HOSTS)
+  private Boolean useImageHosts;
+
   public static final String SERIALIZED_NAME_LOCK_NUMBER = "lockNumber";
   @SerializedName(SERIALIZED_NAME_LOCK_NUMBER)
   private Integer lockNumber;
@@ -1062,6 +1070,46 @@ public class InspectContainerData implements Serializable {
   }
 
 
+  public InspectContainerData useImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+    return this;
+  }
+
+  /**
+   * Get useImageHostname
+   * @return useImageHostname
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getUseImageHostname() {
+    return useImageHostname;
+  }
+
+  public void setUseImageHostname(Boolean useImageHostname) {
+    this.useImageHostname = useImageHostname;
+  }
+
+
+  public InspectContainerData useImageHosts(Boolean useImageHosts) {
+    this.useImageHosts = useImageHosts;
+    return this;
+  }
+
+  /**
+   * Get useImageHosts
+   * @return useImageHosts
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getUseImageHosts() {
+    return useImageHosts;
+  }
+
+  public void setUseImageHosts(Boolean useImageHosts) {
+    this.useImageHosts = useImageHosts;
+  }
+
+
   public InspectContainerData lockNumber(Integer lockNumber) {
     this.lockNumber = lockNumber;
     return this;
@@ -1131,12 +1179,14 @@ public class InspectContainerData implements Serializable {
         Objects.equals(this.sizeRw, inspectContainerData.sizeRw) &&
         Objects.equals(this.state, inspectContainerData.state) &&
         Objects.equals(this.staticDir, inspectContainerData.staticDir) &&
+        Objects.equals(this.useImageHostname, inspectContainerData.useImageHostname) &&
+        Objects.equals(this.useImageHosts, inspectContainerData.useImageHosts) &&
         Objects.equals(this.lockNumber, inspectContainerData.lockNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appArmorProfile, args, boundingCaps, config, conmonPidFile, created, dependencies, driver, effectiveCaps, execIDs, graphDriver, hostConfig, hostnamePath, hostsPath, id, image, imageDigest, imageName, isInfra, isService, kubeExitCodePropagation, mountLabel, mounts, name, namespace, networkSettings, ocIConfigPath, ocIRuntime, path, pidFile, pod, processLabel, resolvConfPath, restartCount, rootfs, sizeRootFs, sizeRw, state, staticDir, lockNumber);
+    return Objects.hash(appArmorProfile, args, boundingCaps, config, conmonPidFile, created, dependencies, driver, effectiveCaps, execIDs, graphDriver, hostConfig, hostnamePath, hostsPath, id, image, imageDigest, imageName, isInfra, isService, kubeExitCodePropagation, mountLabel, mounts, name, namespace, networkSettings, ocIConfigPath, ocIRuntime, path, pidFile, pod, processLabel, resolvConfPath, restartCount, rootfs, sizeRootFs, sizeRw, state, staticDir, useImageHostname, useImageHosts, lockNumber);
   }
 
   @Override
@@ -1182,6 +1232,8 @@ public class InspectContainerData implements Serializable {
     sb.append("    sizeRw: ").append(toIndentedString(sizeRw)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    staticDir: ").append(toIndentedString(staticDir)).append("\n");
+    sb.append("    useImageHostname: ").append(toIndentedString(useImageHostname)).append("\n");
+    sb.append("    useImageHosts: ").append(toIndentedString(useImageHosts)).append("\n");
     sb.append("    lockNumber: ").append(toIndentedString(lockNumber)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1244,6 +1296,8 @@ public class InspectContainerData implements Serializable {
     openapiFields.add("SizeRw");
     openapiFields.add("State");
     openapiFields.add("StaticDir");
+    openapiFields.add("UseImageHostname");
+    openapiFields.add("UseImageHosts");
     openapiFields.add("lockNumber");
 
     // a set of required properties/fields (JSON key names)

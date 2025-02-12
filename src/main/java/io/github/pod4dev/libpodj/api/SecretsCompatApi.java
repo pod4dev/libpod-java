@@ -29,9 +29,9 @@ import java.io.IOException;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
+import io.github.pod4dev.libpodj.model.ContainerUpdateLibpod201Response;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import io.github.pod4dev.libpodj.model.SecretCreate;
-import io.github.pod4dev.libpodj.model.SecretCreateLibpod201Response;
 import io.github.pod4dev.libpodj.model.SecretDeleteLibpod404Response;
 import io.github.pod4dev.libpodj.model.SecretInfoReportCompat;
 
@@ -131,16 +131,16 @@ public class SecretsCompatApi {
     }
 
 
-    private ApiResponse<SecretCreateLibpod201Response> secretCreateWithHttpInfo(SecretCreate create) throws ApiException {
+    private ApiResponse<ContainerUpdateLibpod201Response> secretCreateWithHttpInfo(SecretCreate create) throws ApiException {
         okhttp3.Call localVarCall = secretCreateValidateBeforeCall(create, null);
-        Type localVarReturnType = new TypeToken<SecretCreateLibpod201Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ContainerUpdateLibpod201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call secretCreateAsync(SecretCreate create, final ApiCallback<SecretCreateLibpod201Response> _callback) throws ApiException {
+    private okhttp3.Call secretCreateAsync(SecretCreate create, final ApiCallback<ContainerUpdateLibpod201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = secretCreateValidateBeforeCall(create, _callback);
-        Type localVarReturnType = new TypeToken<SecretCreateLibpod201Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ContainerUpdateLibpod201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -180,7 +180,7 @@ public class SecretsCompatApi {
 
         /**
          * Execute secretCreate request
-         * @return SecretCreateLibpod201Response
+         * @return ContainerUpdateLibpod201Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -190,14 +190,14 @@ public class SecretsCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public SecretCreateLibpod201Response execute() throws ApiException {
-            ApiResponse<SecretCreateLibpod201Response> localVarResp = secretCreateWithHttpInfo(create);
+        public ContainerUpdateLibpod201Response execute() throws ApiException {
+            ApiResponse<ContainerUpdateLibpod201Response> localVarResp = secretCreateWithHttpInfo(create);
             return localVarResp.getData();
         }
 
         /**
          * Execute secretCreate request with HTTP info returned
-         * @return ApiResponse&lt;SecretCreateLibpod201Response&gt;
+         * @return ApiResponse&lt;ContainerUpdateLibpod201Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -207,7 +207,7 @@ public class SecretsCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<SecretCreateLibpod201Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ContainerUpdateLibpod201Response> executeWithHttpInfo() throws ApiException {
             return secretCreateWithHttpInfo(create);
         }
 
@@ -224,7 +224,7 @@ public class SecretsCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<SecretCreateLibpod201Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ContainerUpdateLibpod201Response> _callback) throws ApiException {
             return secretCreateAsync(create, _callback);
         }
     }

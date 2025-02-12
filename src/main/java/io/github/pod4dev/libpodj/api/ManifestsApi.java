@@ -482,7 +482,7 @@ public class ManifestsApi {
     public APImanifestCreateLibpodRequest manifestCreateLibpod(String name, String images) {
         return new APImanifestCreateLibpodRequest(name, images);
     }
-    private okhttp3.Call manifestDeleteLibpodCall(String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call manifestDeleteLibpodCall(String name, Boolean ignore, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -508,6 +508,10 @@ public class ManifestsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (ignore != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ignore", ignore));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -528,26 +532,26 @@ public class ManifestsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call manifestDeleteLibpodValidateBeforeCall(String name, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call manifestDeleteLibpodValidateBeforeCall(String name, Boolean ignore, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling manifestDeleteLibpod(Async)");
         }
 
-        return manifestDeleteLibpodCall(name, _callback);
+        return manifestDeleteLibpodCall(name, ignore, _callback);
 
     }
 
 
-    private ApiResponse<LibpodImagesRemoveReport> manifestDeleteLibpodWithHttpInfo( @NotNull String name) throws ApiException {
-        okhttp3.Call localVarCall = manifestDeleteLibpodValidateBeforeCall(name, null);
+    private ApiResponse<LibpodImagesRemoveReport> manifestDeleteLibpodWithHttpInfo( @NotNull String name, Boolean ignore) throws ApiException {
+        okhttp3.Call localVarCall = manifestDeleteLibpodValidateBeforeCall(name, ignore, null);
         Type localVarReturnType = new TypeToken<LibpodImagesRemoveReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call manifestDeleteLibpodAsync(String name, final ApiCallback<LibpodImagesRemoveReport> _callback) throws ApiException {
+    private okhttp3.Call manifestDeleteLibpodAsync(String name, Boolean ignore, final ApiCallback<LibpodImagesRemoveReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = manifestDeleteLibpodValidateBeforeCall(name, _callback);
+        okhttp3.Call localVarCall = manifestDeleteLibpodValidateBeforeCall(name, ignore, _callback);
         Type localVarReturnType = new TypeToken<LibpodImagesRemoveReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -555,9 +559,20 @@ public class ManifestsApi {
 
     public class APImanifestDeleteLibpodRequest {
         private final String name;
+        private Boolean ignore;
 
         private APImanifestDeleteLibpodRequest(String name) {
             this.name = name;
+        }
+
+        /**
+         * Set ignore
+         * @param ignore Ignore if a specified manifest does not exist and do not throw an error. (optional)
+         * @return APImanifestDeleteLibpodRequest
+         */
+        public APImanifestDeleteLibpodRequest ignore(Boolean ignore) {
+            this.ignore = ignore;
+            return this;
         }
 
         /**
@@ -574,7 +589,7 @@ public class ManifestsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return manifestDeleteLibpodCall(name, _callback);
+            return manifestDeleteLibpodCall(name, ignore, _callback);
         }
 
         /**
@@ -590,7 +605,7 @@ public class ManifestsApi {
          </table>
          */
         public LibpodImagesRemoveReport execute() throws ApiException {
-            ApiResponse<LibpodImagesRemoveReport> localVarResp = manifestDeleteLibpodWithHttpInfo(name);
+            ApiResponse<LibpodImagesRemoveReport> localVarResp = manifestDeleteLibpodWithHttpInfo(name, ignore);
             return localVarResp.getData();
         }
 
@@ -607,7 +622,7 @@ public class ManifestsApi {
          </table>
          */
         public ApiResponse<LibpodImagesRemoveReport> executeWithHttpInfo() throws ApiException {
-            return manifestDeleteLibpodWithHttpInfo(name);
+            return manifestDeleteLibpodWithHttpInfo(name, ignore);
         }
 
         /**
@@ -624,7 +639,7 @@ public class ManifestsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<LibpodImagesRemoveReport> _callback) throws ApiException {
-            return manifestDeleteLibpodAsync(name, _callback);
+            return manifestDeleteLibpodAsync(name, ignore, _callback);
         }
     }
 

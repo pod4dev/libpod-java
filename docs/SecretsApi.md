@@ -13,7 +13,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="secretCreateLibpod"></a>
 # **secretCreateLibpod**
-> SecretCreateLibpod201Response secretCreateLibpod(name).driver(driver).driveropts(driveropts).labels(labels).request(request).execute();
+> ContainerUpdateLibpod201Response secretCreateLibpod(name).driver(driver).driveropts(driveropts).labels(labels).request(request).execute();
 
 Create a secret
 
@@ -38,7 +38,7 @@ public class Example {
     String labels = "labels_example"; // String | Labels on the secret
     String request = "request_example"; // String | Secret
     try {
-      SecretCreateLibpod201Response result = apiInstance.secretCreateLibpod(name)
+      ContainerUpdateLibpod201Response result = apiInstance.secretCreateLibpod(name)
             .driver(driver)
             .driveropts(driveropts)
             .labels(labels)
@@ -68,7 +68,7 @@ public class Example {
 
 ### Return type
 
-[**SecretCreateLibpod201Response**](SecretCreateLibpod201Response.md)
+[**ContainerUpdateLibpod201Response**](ContainerUpdateLibpod201Response.md)
 
 ### Authorization
 
