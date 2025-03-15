@@ -23,17 +23,15 @@ import io.github.pod4dev.libpodj.model.EndpointResource;
 import io.github.pod4dev.libpodj.model.IPAM;
 import io.github.pod4dev.libpodj.model.PeerInfo;
 import io.github.pod4dev.libpodj.model.ServiceInfo;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for Inspect

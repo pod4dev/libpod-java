@@ -21,16 +21,14 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Namespace;
 import io.github.pod4dev.libpodj.model.PerNetworkOptions;
 import io.github.pod4dev.libpodj.model.PortMapping;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for PodNetworkConfig
@@ -95,6 +93,14 @@ public class PodNetworkConfigTest {
     }
 
     /**
+     * Test the property 'hostsFile'
+     */
+    @Test
+    public void hostsFileTest() {
+        // TODO: test hostsFile
+    }
+
+    /**
      * Test the property 'netns'
      */
     @Test
@@ -108,6 +114,14 @@ public class PodNetworkConfigTest {
     @Test
     public void networkOptionsTest() {
         // TODO: test networkOptions
+    }
+
+    /**
+     * Test the property 'noManageHostname'
+     */
+    @Test
+    public void noManageHostnameTest() {
+        // TODO: test noManageHostname
     }
 
     /**

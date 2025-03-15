@@ -18,12 +18,12 @@ import io.github.pod4dev.libpodj.model.Container;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
 import io.github.pod4dev.libpodj.model.ContainerJSON;
 import io.github.pod4dev.libpodj.model.ContainerTopOKBody;
+import io.github.pod4dev.libpodj.model.ContainerUpdateRequest;
 import io.github.pod4dev.libpodj.model.ContainerWait200Response;
 import io.github.pod4dev.libpodj.model.ContainersPruneReport;
 import io.github.pod4dev.libpodj.model.CreateContainerConfig;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
-import io.github.pod4dev.libpodj.model.UpdateConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +31,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 /**
  * API tests for ContainersCompatApi
@@ -109,11 +112,11 @@ public class ContainersCompatApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void containerChangesLibpodTest() throws ApiException {
+    public void containerChangesLibpod_0Test() throws ApiException {
         String name = null;
         String parent = null;
         String diffType = null;
-        api.containerChangesLibpod(name)
+        api.containerChangesLibpod_0(name)
                 .parent(parent)
                 .diffType(diffType)
                 .execute();
@@ -432,7 +435,7 @@ public class ContainersCompatApiTest {
     @Test
     public void containerUpdateTest() throws ApiException {
         String name = null;
-        UpdateConfig resources = null;
+        ContainerUpdateRequest resources = null;
         api.containerUpdate(name)
                 .resources(resources)
                 .execute();

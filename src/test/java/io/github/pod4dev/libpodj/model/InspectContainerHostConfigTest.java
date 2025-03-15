@@ -26,16 +26,14 @@ import io.github.pod4dev.libpodj.model.InspectIDMappings;
 import io.github.pod4dev.libpodj.model.InspectLogConfig;
 import io.github.pod4dev.libpodj.model.InspectRestartPolicy;
 import io.github.pod4dev.libpodj.model.InspectUlimit;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for InspectContainerHostConfig
@@ -337,6 +335,14 @@ public class InspectContainerHostConfigTest {
     @Test
     public void groupAddTest() {
         // TODO: test groupAdd
+    }
+
+    /**
+     * Test the property 'hostsFile'
+     */
+    @Test
+    public void hostsFileTest() {
+        // TODO: test hostsFile
     }
 
     /**

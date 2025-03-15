@@ -26,16 +26,14 @@ import io.github.pod4dev.libpodj.model.LinuxMemory;
 import io.github.pod4dev.libpodj.model.LinuxNetwork;
 import io.github.pod4dev.libpodj.model.LinuxPids;
 import io.github.pod4dev.libpodj.model.LinuxRdma;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for LinuxResources

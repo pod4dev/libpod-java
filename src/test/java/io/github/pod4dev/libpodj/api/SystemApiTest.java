@@ -28,6 +28,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
+
 /**
  * API tests for SystemApi
  */
@@ -114,8 +117,8 @@ public class SystemApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void systemPingTest() throws ApiException {
-        String response = api.systemPing()
+    public void systemPing_0Test() throws ApiException {
+        String response = api.systemPing_0()
                 .execute();
         // TODO: test validations
     }

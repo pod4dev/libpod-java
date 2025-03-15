@@ -22,14 +22,12 @@ import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.Mount;
 import io.github.pod4dev.libpodj.model.NamedVolume;
 import io.github.pod4dev.libpodj.model.OverlayVolume;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for PodStorageConfig

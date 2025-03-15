@@ -14,8 +14,8 @@
 package io.github.pod4dev.libpodj.api;
 
 import io.github.pod4dev.libpodj.ApiException;
+import io.github.pod4dev.libpodj.model.ContainerUpdateLibpod201Response;
 import io.github.pod4dev.libpodj.model.ErrorModel;
-import io.github.pod4dev.libpodj.model.SecretCreateLibpod201Response;
 import io.github.pod4dev.libpodj.model.SecretDeleteLibpod404Response;
 import io.github.pod4dev.libpodj.model.SecretInfoReport;
 import org.junit.jupiter.api.Disabled;
@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 /**
  * API tests for SecretsApi
@@ -46,7 +49,7 @@ public class SecretsApiTest {
         String driveropts = null;
         String labels = null;
         String request = null;
-        SecretCreateLibpod201Response response = api.secretCreateLibpod(name)
+        ContainerUpdateLibpod201Response response = api.secretCreateLibpod(name)
                 .driver(driver)
                 .driveropts(driveropts)
                 .labels(labels)

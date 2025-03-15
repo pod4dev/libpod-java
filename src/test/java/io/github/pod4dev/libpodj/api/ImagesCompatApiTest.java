@@ -30,6 +30,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
+
 /**
  * API tests for ImagesCompatApi
  */
@@ -52,6 +55,7 @@ public class ImagesCompatApiTest {
         String dockerfile = null;
         String t = null;
         String extrahosts = null;
+        Boolean nohosts = null;
         String remote = null;
         Integer retry = null;
         String retryDelay = null;
@@ -83,6 +87,7 @@ public class ImagesCompatApiTest {
                 .dockerfile(dockerfile)
                 .t(t)
                 .extrahosts(extrahosts)
+                .nohosts(nohosts)
                 .remote(remote)
                 .retry(retry)
                 .retryDelay(retryDelay)

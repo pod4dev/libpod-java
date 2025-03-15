@@ -22,12 +22,10 @@ import io.github.pod4dev.libpodj.model.AttestationProperties;
 import io.github.pod4dev.libpodj.model.Descriptor;
 import io.github.pod4dev.libpodj.model.ImageProperties;
 import io.github.pod4dev.libpodj.model.ManifestSummarySize;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ManifestSummary

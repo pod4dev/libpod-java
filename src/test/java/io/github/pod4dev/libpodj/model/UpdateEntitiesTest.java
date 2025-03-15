@@ -18,13 +18,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.github.pod4dev.libpodj.model.LinuxResources;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.github.pod4dev.libpodj.model.LinuxBlockIO;
+import io.github.pod4dev.libpodj.model.LinuxCPU;
+import io.github.pod4dev.libpodj.model.LinuxDeviceCgroup;
+import io.github.pod4dev.libpodj.model.LinuxHugepageLimit;
+import io.github.pod4dev.libpodj.model.LinuxMemory;
+import io.github.pod4dev.libpodj.model.LinuxNetwork;
+import io.github.pod4dev.libpodj.model.LinuxPids;
+import io.github.pod4dev.libpodj.model.LinuxRdma;
+import io.github.pod4dev.libpodj.model.ThrottleDevice;
+import io.github.pod4dev.libpodj.model.WeightDevice;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for UpdateEntities
@@ -41,11 +52,235 @@ public class UpdateEntitiesTest {
     }
 
     /**
-     * Test the property 'resources'
+     * Test the property 'blkIOWeightDevice'
      */
     @Test
-    public void resourcesTest() {
-        // TODO: test resources
+    public void blkIOWeightDeviceTest() {
+        // TODO: test blkIOWeightDevice
+    }
+
+    /**
+     * Test the property 'deviceReadBPs'
+     */
+    @Test
+    public void deviceReadBPsTest() {
+        // TODO: test deviceReadBPs
+    }
+
+    /**
+     * Test the property 'deviceReadIOPs'
+     */
+    @Test
+    public void deviceReadIOPsTest() {
+        // TODO: test deviceReadIOPs
+    }
+
+    /**
+     * Test the property 'deviceWriteBPs'
+     */
+    @Test
+    public void deviceWriteBPsTest() {
+        // TODO: test deviceWriteBPs
+    }
+
+    /**
+     * Test the property 'deviceWriteIOPs'
+     */
+    @Test
+    public void deviceWriteIOPsTest() {
+        // TODO: test deviceWriteIOPs
+    }
+
+    /**
+     * Test the property 'blockIO'
+     */
+    @Test
+    public void blockIOTest() {
+        // TODO: test blockIO
+    }
+
+    /**
+     * Test the property 'cpu'
+     */
+    @Test
+    public void cpuTest() {
+        // TODO: test cpu
+    }
+
+    /**
+     * Test the property 'devices'
+     */
+    @Test
+    public void devicesTest() {
+        // TODO: test devices
+    }
+
+    /**
+     * Test the property 'healthCmd'
+     */
+    @Test
+    public void healthCmdTest() {
+        // TODO: test healthCmd
+    }
+
+    /**
+     * Test the property 'healthInterval'
+     */
+    @Test
+    public void healthIntervalTest() {
+        // TODO: test healthInterval
+    }
+
+    /**
+     * Test the property 'healthLogDestination'
+     */
+    @Test
+    public void healthLogDestinationTest() {
+        // TODO: test healthLogDestination
+    }
+
+    /**
+     * Test the property 'healthMaxLogCount'
+     */
+    @Test
+    public void healthMaxLogCountTest() {
+        // TODO: test healthMaxLogCount
+    }
+
+    /**
+     * Test the property 'healthMaxLogSize'
+     */
+    @Test
+    public void healthMaxLogSizeTest() {
+        // TODO: test healthMaxLogSize
+    }
+
+    /**
+     * Test the property 'healthOnFailure'
+     */
+    @Test
+    public void healthOnFailureTest() {
+        // TODO: test healthOnFailure
+    }
+
+    /**
+     * Test the property 'healthRetries'
+     */
+    @Test
+    public void healthRetriesTest() {
+        // TODO: test healthRetries
+    }
+
+    /**
+     * Test the property 'healthStartPeriod'
+     */
+    @Test
+    public void healthStartPeriodTest() {
+        // TODO: test healthStartPeriod
+    }
+
+    /**
+     * Test the property 'healthStartupCmd'
+     */
+    @Test
+    public void healthStartupCmdTest() {
+        // TODO: test healthStartupCmd
+    }
+
+    /**
+     * Test the property 'healthStartupInterval'
+     */
+    @Test
+    public void healthStartupIntervalTest() {
+        // TODO: test healthStartupInterval
+    }
+
+    /**
+     * Test the property 'healthStartupRetries'
+     */
+    @Test
+    public void healthStartupRetriesTest() {
+        // TODO: test healthStartupRetries
+    }
+
+    /**
+     * Test the property 'healthStartupSuccess'
+     */
+    @Test
+    public void healthStartupSuccessTest() {
+        // TODO: test healthStartupSuccess
+    }
+
+    /**
+     * Test the property 'healthStartupTimeout'
+     */
+    @Test
+    public void healthStartupTimeoutTest() {
+        // TODO: test healthStartupTimeout
+    }
+
+    /**
+     * Test the property 'healthTimeout'
+     */
+    @Test
+    public void healthTimeoutTest() {
+        // TODO: test healthTimeout
+    }
+
+    /**
+     * Test the property 'hugepageLimits'
+     */
+    @Test
+    public void hugepageLimitsTest() {
+        // TODO: test hugepageLimits
+    }
+
+    /**
+     * Test the property 'memory'
+     */
+    @Test
+    public void memoryTest() {
+        // TODO: test memory
+    }
+
+    /**
+     * Test the property 'network'
+     */
+    @Test
+    public void networkTest() {
+        // TODO: test network
+    }
+
+    /**
+     * Test the property 'noHealthcheck'
+     */
+    @Test
+    public void noHealthcheckTest() {
+        // TODO: test noHealthcheck
+    }
+
+    /**
+     * Test the property 'pids'
+     */
+    @Test
+    public void pidsTest() {
+        // TODO: test pids
+    }
+
+    /**
+     * Test the property 'rdma'
+     */
+    @Test
+    public void rdmaTest() {
+        // TODO: test rdma
+    }
+
+    /**
+     * Test the property 'unified'
+     */
+    @Test
+    public void unifiedTest() {
+        // TODO: test unified
     }
 
 }

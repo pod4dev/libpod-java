@@ -21,14 +21,12 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.NetworkPruneReport;
 import io.github.pod4dev.libpodj.model.PodPruneReport;
 import io.github.pod4dev.libpodj.model.PruneReport;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for SystemPruneReport

@@ -27,16 +27,14 @@ import io.github.pod4dev.libpodj.model.RestartPolicy;
 import io.github.pod4dev.libpodj.model.ThrottleDevice;
 import io.github.pod4dev.libpodj.model.Ulimit;
 import io.github.pod4dev.libpodj.model.WeightDevice;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for HostConfig

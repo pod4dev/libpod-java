@@ -22,14 +22,12 @@ import io.github.pod4dev.libpodj.model.Config;
 import io.github.pod4dev.libpodj.model.GraphDriverData;
 import io.github.pod4dev.libpodj.model.Metadata;
 import io.github.pod4dev.libpodj.model.RootFS;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ImageInspect

@@ -24,17 +24,15 @@ import io.github.pod4dev.libpodj.model.InspectDevice;
 import io.github.pod4dev.libpodj.model.InspectMount;
 import io.github.pod4dev.libpodj.model.InspectPodContainerInfo;
 import io.github.pod4dev.libpodj.model.InspectPodInfraConfig;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for InspectPodData

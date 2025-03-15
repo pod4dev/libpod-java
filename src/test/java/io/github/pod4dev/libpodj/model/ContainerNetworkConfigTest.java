@@ -21,16 +21,14 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Namespace;
 import io.github.pod4dev.libpodj.model.PerNetworkOptions;
 import io.github.pod4dev.libpodj.model.PortMapping;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ContainerNetworkConfig
@@ -140,6 +138,14 @@ public class ContainerNetworkConfigTest {
     @Test
     public void publishImagePortsTest() {
         // TODO: test publishImagePorts
+    }
+
+    /**
+     * Test the property 'useImageHostname'
+     */
+    @Test
+    public void useImageHostnameTest() {
+        // TODO: test useImageHostname
     }
 
     /**

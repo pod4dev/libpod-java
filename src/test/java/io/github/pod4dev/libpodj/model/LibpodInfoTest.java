@@ -22,14 +22,12 @@ import io.github.pod4dev.libpodj.model.HostInfo;
 import io.github.pod4dev.libpodj.model.Plugins;
 import io.github.pod4dev.libpodj.model.StoreInfo;
 import io.github.pod4dev.libpodj.model.Version;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for LibpodInfo

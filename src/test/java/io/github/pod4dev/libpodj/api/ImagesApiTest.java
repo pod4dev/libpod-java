@@ -36,6 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
+
 /**
  * API tests for ImagesApi
  */
@@ -57,6 +60,7 @@ public class ImagesApiTest {
         String t = null;
         Boolean allplatforms = null;
         String extrahosts = null;
+        Boolean nohosts = null;
         String remote = null;
         Boolean q = null;
         Boolean compatvolumes = null;
@@ -90,6 +94,7 @@ public class ImagesApiTest {
                 .t(t)
                 .allplatforms(allplatforms)
                 .extrahosts(extrahosts)
+                .nohosts(nohosts)
                 .remote(remote)
                 .q(q)
                 .compatvolumes(compatvolumes)

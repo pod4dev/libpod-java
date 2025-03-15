@@ -21,17 +21,15 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.ContainerSize;
 import io.github.pod4dev.libpodj.model.ListContainerNamespaces;
 import io.github.pod4dev.libpodj.model.PortMapping;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for ListContainer

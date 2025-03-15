@@ -28,16 +28,14 @@ import io.github.pod4dev.libpodj.model.Namespace;
 import io.github.pod4dev.libpodj.model.OverlayVolume;
 import io.github.pod4dev.libpodj.model.PerNetworkOptions;
 import io.github.pod4dev.libpodj.model.PortMapping;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for PodSpecGenerator
@@ -142,6 +140,14 @@ public class PodSpecGeneratorTest {
     }
 
     /**
+     * Test the property 'hostsFile'
+     */
+    @Test
+    public void hostsFileTest() {
+        // TODO: test hostsFile
+    }
+
+    /**
      * Test the property 'idmappings'
      */
     @Test
@@ -243,6 +249,14 @@ public class PodSpecGeneratorTest {
     @Test
     public void noInfraTest() {
         // TODO: test noInfra
+    }
+
+    /**
+     * Test the property 'noManageHostname'
+     */
+    @Test
+    public void noManageHostnameTest() {
+        // TODO: test noManageHostname
     }
 
     /**

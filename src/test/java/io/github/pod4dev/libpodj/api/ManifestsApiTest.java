@@ -29,6 +29,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
+
 /**
  * API tests for ManifestsApi
  */
@@ -86,7 +89,9 @@ public class ManifestsApiTest {
     @Test
     public void manifestDeleteLibpodTest() throws ApiException {
         String name = null;
+        Boolean ignore = null;
         LibpodImagesRemoveReport response = api.manifestDeleteLibpod(name)
+                .ignore(ignore)
                 .execute();
         // TODO: test validations
     }

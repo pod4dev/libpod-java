@@ -17,6 +17,7 @@ import io.github.pod4dev.libpodj.ApiException;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
 import io.github.pod4dev.libpodj.model.ContainerStats;
 import io.github.pod4dev.libpodj.model.ContainerTopOKBody;
+import io.github.pod4dev.libpodj.model.ContainerUpdateLibpod201Response;
 import io.github.pod4dev.libpodj.model.ContainersPruneReportLibpod;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
@@ -34,6 +35,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 /**
  * API tests for ContainersApi
@@ -557,9 +561,9 @@ public class ContainersApiTest {
     }
 
     /**
-     * Update an existing containers cgroup configuration
+     * Updates the configuration of an existing container, allowing changes to resource limits and healthchecks
      *
-     * Update an existing containers cgroup configuration.
+     * Updates the configuration of an existing container, allowing changes to resource limits and healthchecks.
      *
      * @throws ApiException if the Api call fails
      */
@@ -569,7 +573,7 @@ public class ContainersApiTest {
         String restartPolicy = null;
         Integer restartRetries = null;
         UpdateEntities config = null;
-        api.containerUpdateLibpod(name)
+        ContainerUpdateLibpod201Response response = api.containerUpdateLibpod(name)
                 .restartPolicy(restartPolicy)
                 .restartRetries(restartRetries)
                 .config(config)
@@ -766,7 +770,7 @@ public class ContainersApiTest {
     /**
      * Play a Kubernetes YAML file.
      *
-     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;plain/text&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
+     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;text/plain&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */

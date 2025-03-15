@@ -38,16 +38,14 @@ import io.github.pod4dev.libpodj.model.PortMapping;
 import io.github.pod4dev.libpodj.model.Schema2HealthConfig;
 import io.github.pod4dev.libpodj.model.Secret;
 import io.github.pod4dev.libpodj.model.StartupHealthCheck;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for SpecGenerator
@@ -957,6 +955,14 @@ public class SpecGeneratorTest {
     @Test
     public void unsetenvallTest() {
         // TODO: test unsetenvall
+    }
+
+    /**
+     * Test the property 'useImageHostname'
+     */
+    @Test
+    public void useImageHostnameTest() {
+        // TODO: test useImageHostname
     }
 
     /**

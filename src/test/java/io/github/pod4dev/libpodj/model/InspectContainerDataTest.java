@@ -24,15 +24,13 @@ import io.github.pod4dev.libpodj.model.InspectContainerHostConfig;
 import io.github.pod4dev.libpodj.model.InspectContainerState;
 import io.github.pod4dev.libpodj.model.InspectMount;
 import io.github.pod4dev.libpodj.model.InspectNetworkSettings;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for InspectContainerData
@@ -358,6 +356,22 @@ public class InspectContainerDataTest {
     @Test
     public void staticDirTest() {
         // TODO: test staticDir
+    }
+
+    /**
+     * Test the property 'useImageHostname'
+     */
+    @Test
+    public void useImageHostnameTest() {
+        // TODO: test useImageHostname
+    }
+
+    /**
+     * Test the property 'useImageHosts'
+     */
+    @Test
+    public void useImageHostsTest() {
+        // TODO: test useImageHosts
     }
 
     /**

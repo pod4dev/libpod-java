@@ -39,6 +39,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
+
 /**
  * API tests for PodsApi
  */
@@ -55,14 +58,14 @@ public class PodsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void generateKubeLibpodTest() throws ApiException {
+    public void generateKubeLibpod_0Test() throws ApiException {
         List<String> names = null;
         Boolean service = null;
         String type = null;
         Integer replicas = null;
         Boolean noTrunc = null;
         Boolean podmanOnly = null;
-        File response = api.generateKubeLibpod(names)
+        File response = api.generateKubeLibpod_0(names)
                 .service(service)
                 .type(type)
                 .replicas(replicas)
@@ -80,7 +83,7 @@ public class PodsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void generateSystemdLibpodTest() throws ApiException {
+    public void generateSystemdLibpod_0Test() throws ApiException {
         String name = null;
         Boolean useName = null;
         Boolean _new = null;
@@ -96,7 +99,7 @@ public class PodsApiTest {
         List<String> after = null;
         List<String> requires = null;
         List<String> additionalEnvVariables = null;
-        Map<String, String> response = api.generateSystemdLibpod(name)
+        Map<String, String> response = api.generateSystemdLibpod_0(name)
                 .useName(useName)
                 ._new(_new)
                 .noHeader(noHeader)
@@ -123,14 +126,14 @@ public class PodsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void kubeApplyLibpodTest() throws ApiException {
+    public void kubeApplyLibpod_0Test() throws ApiException {
         String caCertFile = null;
         String kubeConfig = null;
         String namespace = null;
         Boolean service = null;
         String _file = null;
         String request = null;
-        File response = api.kubeApplyLibpod()
+        File response = api.kubeApplyLibpod_0()
                 .caCertFile(caCertFile)
                 .kubeConfig(kubeConfig)
                 .namespace(namespace)
@@ -149,11 +152,11 @@ public class PodsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void playKubeDownLibpodTest() throws ApiException {
+    public void playKubeDownLibpod_0Test() throws ApiException {
         String contentType = null;
         Boolean force = null;
         String request = null;
-        PlayKubeReport response = api.playKubeDownLibpod()
+        PlayKubeReport response = api.playKubeDownLibpod_0()
                 .contentType(contentType)
                 .force(force)
                 .request(request)
@@ -164,12 +167,12 @@ public class PodsApiTest {
     /**
      * Play a Kubernetes YAML file.
      *
-     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;plain/text&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
+     * Create and run pods based on a Kubernetes YAML file.  ### Content-Type  Then endpoint support two Content-Type  - &#x60;text/plain&#x60; for yaml format  - &#x60;application/x-tar&#x60; for sending context(s) required for building images  #### Tar format  The tar format must contain a &#x60;play.yaml&#x60; file at the root that will be used. If the file format requires context to build an image, it uses the image name and check for corresponding folder.  For example, the client sends a tar file with the following structure:  &#x60;&#x60;&#x60; └── content.tar  ├── play.yaml  └── foobar/      └── Containerfile &#x60;&#x60;&#x60;  The &#x60;play.yaml&#x60; is the following, the &#x60;foobar&#x60; image means we are looking for a context with this name. &#x60;&#x60;&#x60; apiVersion: v1 kind: Pod metadata: name: demo-build-remote spec: containers:  - name: container    image: foobar &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void playKubeLibpodTest() throws ApiException {
+    public void playKubeLibpod_0Test() throws ApiException {
         String contentType = null;
         String annotations = null;
         String logDriver = null;
@@ -189,7 +192,7 @@ public class PodsApiTest {
         Boolean wait = null;
         Boolean build = null;
         String request = null;
-        PlayKubeReport response = api.playKubeLibpod()
+        PlayKubeReport response = api.playKubeLibpod_0()
                 .contentType(contentType)
                 .annotations(annotations)
                 .logDriver(logDriver)

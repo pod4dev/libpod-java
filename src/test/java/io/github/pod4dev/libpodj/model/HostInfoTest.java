@@ -28,16 +28,14 @@ import io.github.pod4dev.libpodj.model.PastaInfo;
 import io.github.pod4dev.libpodj.model.RemoteSocket;
 import io.github.pod4dev.libpodj.model.SecurityInfo;
 import io.github.pod4dev.libpodj.model.SlirpInfo;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for HostInfo

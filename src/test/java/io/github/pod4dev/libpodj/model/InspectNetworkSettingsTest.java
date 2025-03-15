@@ -21,16 +21,14 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Address;
 import io.github.pod4dev.libpodj.model.InspectAdditionalNetwork;
 import io.github.pod4dev.libpodj.model.InspectHostPort;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for InspectNetworkSettings
