@@ -110,7 +110,7 @@ public class ContainerHealthCheckConfig implements Serializable {
   }
 
   /**
-   * HealthLogDestination defines the destination where the log is stored
+   * HealthLogDestination defines the destination where the log is stored. TODO (6.0): In next major release convert it to pointer and use omitempty
    * @return healthLogDestination
    */
   @jakarta.annotation.Nullable
@@ -130,7 +130,7 @@ public class ContainerHealthCheckConfig implements Serializable {
   }
 
   /**
-   * HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. (&#39;0&#39; value means an infinite number of attempts in the log file)
+   * HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. (&#39;0&#39; value means an infinite number of attempts in the log file). TODO (6.0): In next major release convert it to pointer and use omitempty
    * @return healthMaxLogCount
    */
   @jakarta.annotation.Nullable
@@ -150,7 +150,7 @@ public class ContainerHealthCheckConfig implements Serializable {
   }
 
   /**
-   * HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\&quot;0\&quot; value means an infinite log length)
+   * HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\&quot;0\&quot; value means an infinite log length). TODO (6.0): In next major release convert it to pointer and use omitempty
    * @return healthMaxLogSize
    */
   @jakarta.annotation.Nullable
