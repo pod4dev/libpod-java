@@ -76,7 +76,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.github.pod4dev</groupId>
   <artifactId>libpod-java</artifactId>
-  <version>5.4.1</version>
+  <version>5.4.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -92,7 +92,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.github.pod4dev:libpod-java:5.4.1"
+     implementation "io.github.pod4dev:libpod-java:5.4.2"
   }
 ```
 
@@ -106,7 +106,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/libpod-java-5.4.1.jar`
+* `target/libpod-java-5.4.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

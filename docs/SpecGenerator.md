@@ -38,9 +38,9 @@ SpecGenerator creates an OCI spec and Libpod configuration options to create a c
 |**groupEntry** | **String** | GroupEntry specifies an arbitrary string to append to the container&#39;s /etc/group file. Optional. |  [optional] |
 |**groups** | **List&lt;String&gt;** | Groups are a list of supplemental groups the container&#39;s user will be granted access to. Optional. |  [optional] |
 |**healthCheckOnFailureAction** | **Long** | HealthCheckOnFailureAction defines how Podman reacts when a container&#39;s health status turns unhealthy. |  [optional] |
-|**healthLogDestination** | **String** | HealthLogDestination defines the destination where the log is stored |  [optional] |
-|**healthMaxLogCount** | **Integer** | HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. (&#39;0&#39; value means an infinite number of attempts in the log file) |  [optional] |
-|**healthMaxLogSize** | **Integer** | HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\&quot;0\&quot; value means an infinite log length) |  [optional] |
+|**healthLogDestination** | **String** | HealthLogDestination defines the destination where the log is stored. TODO (6.0): In next major release convert it to pointer and use omitempty |  [optional] |
+|**healthMaxLogCount** | **Integer** | HealthMaxLogCount is maximum number of attempts in the HealthCheck log file. (&#39;0&#39; value means an infinite number of attempts in the log file). TODO (6.0): In next major release convert it to pointer and use omitempty |  [optional] |
+|**healthMaxLogSize** | **Integer** | HealthMaxLogSize is the maximum length in characters of stored HealthCheck log (\&quot;0\&quot; value means an infinite log length). TODO (6.0): In next major release convert it to pointer and use omitempty |  [optional] |
 |**healthconfig** | [**Schema2HealthConfig**](Schema2HealthConfig.md) |  |  [optional] |
 |**hostDeviceList** | [**List&lt;LinuxDevice&gt;**](LinuxDevice.md) | HostDeviceList is used to recreate the mounted device on inherited containers |  [optional] |
 |**hostadd** | **List&lt;String&gt;** | HostAdd is a set of hosts which will be added to the container&#39;s etc/hosts file. Conflicts with UseImageHosts. Optional. |  [optional] |
