@@ -51,7 +51,7 @@ import java.util.Set;
 import io.github.pod4dev.libpodj.JSON;
 
 /**
- * DriverData handles the data for a storage driver
+ * DriverData Information about the storage driver used to store the container&#39;s and image&#39;s filesystem.
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class DriverData implements Serializable {
@@ -82,10 +82,11 @@ public class DriverData implements Serializable {
   }
 
   /**
-   * Get data
+   * Low-level storage metadata, provided as key/value pairs.  This information is driver-specific, and depends on the storage-driver in use, and should be used for informational purposes only.
    * @return data
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @NotNull
 
   public Map<String, String> getData() {
     return data;
@@ -102,10 +103,11 @@ public class DriverData implements Serializable {
   }
 
   /**
-   * Get name
+   * Name of the storage driver.
    * @return name
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
+  @NotNull
 
   public String getName() {
     return name;
@@ -168,6 +170,8 @@ public class DriverData implements Serializable {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("Data");
+    openapiRequiredFields.add("Name");
   }
 
   /**
@@ -190,8 +194,15 @@ public class DriverData implements Serializable {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DriverData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : DriverData.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("Name") != null && !jsonObj.get("Name").isJsonNull()) && !jsonObj.get("Name").isJsonPrimitive()) {
+      if (!jsonObj.get("Name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Name").toString()));
       }
   }

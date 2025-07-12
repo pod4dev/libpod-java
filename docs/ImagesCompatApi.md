@@ -21,7 +21,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="imageBuild"></a>
 # **imageBuild**
-> ImageBuild200Response imageBuild().contentType(contentType).xRegistryConfig(xRegistryConfig).dockerfile(dockerfile).t(t).extrahosts(extrahosts).nohosts(nohosts).remote(remote).retry(retry).retryDelay(retryDelay).q(q).compatvolumes(compatvolumes).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).networkmode(networkmode).platform(platform).target(target).outputs(outputs).inputStream(inputStream).execute();
+> ImageBuild200Response imageBuild().contentType(contentType).xRegistryConfig(xRegistryConfig).dockerfile(dockerfile).t(t).extrahosts(extrahosts).nohosts(nohosts).remote(remote).retry(retry).retryDelay(retryDelay).q(q).compatvolumes(compatvolumes).inheritlabels(inheritlabels).nocache(nocache).cachefrom(cachefrom).pull(pull).rm(rm).forcerm(forcerm).memory(memory).memswap(memswap).cpushares(cpushares).cpusetcpus(cpusetcpus).cpuperiod(cpuperiod).cpuquota(cpuquota).buildargs(buildargs).shmsize(shmsize).squash(squash).labels(labels).networkmode(networkmode).platform(platform).target(target).outputs(outputs).inputStream(inputStream).execute();
 
 Create image
 
@@ -53,6 +53,7 @@ public class Example {
     String retryDelay = "2s"; // String | Delay between retries in case of push/pull failures. 
     Boolean q = false; // Boolean | Suppress verbose build output 
     Boolean compatvolumes = false; // Boolean | Contents of base images to be modified on ADD or COPY only (As of Podman version v5.2) 
+    Boolean inheritlabels = true; // Boolean | Inherit the labels from the base image or base stages (As of Podman version v5.5) 
     Boolean nocache = false; // Boolean | Do not use the cache when building the image (As of version 1.xx) 
     String cachefrom = "cachefrom_example"; // String | JSON array of images used to build cache resolution (As of version 1.xx) 
     Boolean pull = false; // Boolean | Attempt to pull the image even if an older image exists locally (As of version 1.xx) 
@@ -86,6 +87,7 @@ public class Example {
             .retryDelay(retryDelay)
             .q(q)
             .compatvolumes(compatvolumes)
+            .inheritlabels(inheritlabels)
             .nocache(nocache)
             .cachefrom(cachefrom)
             .pull(pull)
@@ -134,6 +136,7 @@ public class Example {
 | **retryDelay** | **String**| Delay between retries in case of push/pull failures.  | [optional] [default to 2s] |
 | **q** | **Boolean**| Suppress verbose build output  | [optional] [default to false] |
 | **compatvolumes** | **Boolean**| Contents of base images to be modified on ADD or COPY only (As of Podman version v5.2)  | [optional] [default to false] |
+| **inheritlabels** | **Boolean**| Inherit the labels from the base image or base stages (As of Podman version v5.5)  | [optional] [default to true] |
 | **nocache** | **Boolean**| Do not use the cache when building the image (As of version 1.xx)  | [optional] [default to false] |
 | **cachefrom** | **String**| JSON array of images used to build cache resolution (As of version 1.xx)  | [optional] |
 | **pull** | **Boolean**| Attempt to pull the image even if an older image exists locally (As of version 1.xx)  | [optional] [default to false] |

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.ArtifactVolume;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxDevice;
 import io.github.pod4dev.libpodj.model.LinuxDeviceCgroup;
@@ -66,6 +67,10 @@ import io.github.pod4dev.libpodj.JSON;
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerStorageConfig implements Serializable {
   private static final long serialVersionUID = 1L;
+
+  public static final String SERIALIZED_NAME_ARTIFACT_VOLUMES = "artifact_volumes";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_VOLUMES)
+  private List<@Valid ArtifactVolume> artifactVolumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CHROOT_DIRECTORIES = "chroot_directories";
   @SerializedName(SERIALIZED_NAME_CHROOT_DIRECTORIES)
@@ -189,6 +194,35 @@ public class ContainerStorageConfig implements Serializable {
 
   public ContainerStorageConfig() {
   }
+
+  public ContainerStorageConfig artifactVolumes(List<@Valid ArtifactVolume> artifactVolumes) {
+    this.artifactVolumes = artifactVolumes;
+    return this;
+  }
+
+  public ContainerStorageConfig addArtifactVolumesItem(ArtifactVolume artifactVolumesItem) {
+    if (this.artifactVolumes == null) {
+      this.artifactVolumes = new ArrayList<>();
+    }
+    this.artifactVolumes.add(artifactVolumesItem);
+    return this;
+  }
+
+  /**
+   * ArtifactVolumes volumes based on an existing artifact.
+   * @return artifactVolumes
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public List<@Valid ArtifactVolume> getArtifactVolumes() {
+    return artifactVolumes;
+  }
+
+  public void setArtifactVolumes(List<@Valid ArtifactVolume> artifactVolumes) {
+    this.artifactVolumes = artifactVolumes;
+  }
+
 
   public ContainerStorageConfig chrootDirectories(List<String> chrootDirectories) {
     this.chrootDirectories = chrootDirectories;
@@ -905,7 +939,8 @@ public class ContainerStorageConfig implements Serializable {
       return false;
     }
     ContainerStorageConfig containerStorageConfig = (ContainerStorageConfig) o;
-    return Objects.equals(this.chrootDirectories, containerStorageConfig.chrootDirectories) &&
+    return Objects.equals(this.artifactVolumes, containerStorageConfig.artifactVolumes) &&
+        Objects.equals(this.chrootDirectories, containerStorageConfig.chrootDirectories) &&
         Objects.equals(this.createWorkingDir, containerStorageConfig.createWorkingDir) &&
         Objects.equals(this.deviceCgroupRule, containerStorageConfig.deviceCgroupRule) &&
         Objects.equals(this.devices, containerStorageConfig.devices) &&
@@ -939,13 +974,14 @@ public class ContainerStorageConfig implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chrootDirectories, createWorkingDir, deviceCgroupRule, devices, devicesFrom, hostDeviceList, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initPath, ipcns, mounts, overlayVolumes, rawImageName, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, secrets, shmSize, shmSizeSystemd, storageOpts, _volatile, volumes, volumesFrom, workDir);
+    return Objects.hash(artifactVolumes, chrootDirectories, createWorkingDir, deviceCgroupRule, devices, devicesFrom, hostDeviceList, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initPath, ipcns, mounts, overlayVolumes, rawImageName, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, secrets, shmSize, shmSizeSystemd, storageOpts, _volatile, volumes, volumesFrom, workDir);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ContainerStorageConfig {\n");
+    sb.append("    artifactVolumes: ").append(toIndentedString(artifactVolumes)).append("\n");
     sb.append("    chrootDirectories: ").append(toIndentedString(chrootDirectories)).append("\n");
     sb.append("    createWorkingDir: ").append(toIndentedString(createWorkingDir)).append("\n");
     sb.append("    deviceCgroupRule: ").append(toIndentedString(deviceCgroupRule)).append("\n");
@@ -998,6 +1034,7 @@ public class ContainerStorageConfig implements Serializable {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("artifact_volumes");
     openapiFields.add("chroot_directories");
     openapiFields.add("create_working_dir");
     openapiFields.add("device_cgroup_rule");
@@ -1054,6 +1091,20 @@ public class ContainerStorageConfig implements Serializable {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("artifact_volumes") != null && !jsonObj.get("artifact_volumes").isJsonNull()) {
+        JsonArray jsonArrayartifactVolumes = jsonObj.getAsJsonArray("artifact_volumes");
+        if (jsonArrayartifactVolumes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("artifact_volumes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `artifact_volumes` to be an array in the JSON string but got `%s`", jsonObj.get("artifact_volumes").toString()));
+          }
+
+          // validate the optional field `artifact_volumes` (array)
+          for (int i = 0; i < jsonArrayartifactVolumes.size(); i++) {
+            ArtifactVolume.validateJsonElement(jsonArrayartifactVolumes.get(i));
+          };
+        }
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("chroot_directories") != null && !jsonObj.get("chroot_directories").isJsonNull() && !jsonObj.get("chroot_directories").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `chroot_directories` to be an array in the JSON string but got `%s`", jsonObj.get("chroot_directories").toString()));

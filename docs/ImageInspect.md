@@ -14,9 +14,11 @@
 |**container** | **String** | Container is for backwards compat but is basically unused |  [optional] |
 |**containerConfig** | [**Config**](Config.md) |  |  [optional] |
 |**created** | **String** | Created is the date and time at which the image was created, formatted in RFC 3339 nano-seconds (time.RFC3339Nano).  This information is only available if present in the image, and omitted otherwise. |  [optional] |
+|**descriptor** | [**Descriptor**](Descriptor.md) |  |  [optional] |
 |**dockerVersion** | **String** | DockerVersion is the version of Docker that was used to build the image.  Depending on how the image was created, this field may be empty. |  [optional] |
-|**graphDriver** | [**GraphDriverData**](GraphDriverData.md) |  |  [optional] |
+|**graphDriver** | [**DriverData**](DriverData.md) |  |  [optional] |
 |**id** | **String** | ID is the content-addressable ID of an image.  This identifier is a content-addressable digest calculated from the image&#39;s configuration (which includes the digests of layers used by the image).  Note that this digest differs from the &#x60;RepoDigests&#x60; below, which holds digests of image manifests that reference the image. |  [optional] |
+|**manifests** | [**List&lt;ManifestSummary&gt;**](ManifestSummary.md) | Manifests is a list of image manifests available in this image. It provides a more detailed view of the platform-specific image manifests or other image-attached data like build attestations.  Only available if the daemon provides a multi-platform image store, the client requests manifests AND does not request a specific platform.  WARNING: This is experimental and may change at any time without any backward compatibility. |  [optional] |
 |**metadata** | [**Metadata**](Metadata.md) |  |  [optional] |
 |**os** | **String** | OS is the Operating System the image is built to run on. |  [optional] |
 |**osVersion** | **String** | OsVersion is the version of the Operating System the image is built to run on (especially for Windows). |  [optional] |

@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Config;
-import io.github.pod4dev.libpodj.model.GraphDriverData;
+import io.github.pod4dev.libpodj.model.Descriptor;
+import io.github.pod4dev.libpodj.model.DriverData;
+import io.github.pod4dev.libpodj.model.ManifestSummary;
 import io.github.pod4dev.libpodj.model.Metadata;
 import io.github.pod4dev.libpodj.model.RootFS;
 import java.io.IOException;
@@ -89,17 +91,25 @@ public class ImageInspect implements Serializable {
   @SerializedName(SERIALIZED_NAME_CREATED)
   private String created;
 
+  public static final String SERIALIZED_NAME_DESCRIPTOR = "Descriptor";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTOR)
+  private Descriptor descriptor;
+
   public static final String SERIALIZED_NAME_DOCKER_VERSION = "DockerVersion";
   @SerializedName(SERIALIZED_NAME_DOCKER_VERSION)
   private String dockerVersion;
 
   public static final String SERIALIZED_NAME_GRAPH_DRIVER = "GraphDriver";
   @SerializedName(SERIALIZED_NAME_GRAPH_DRIVER)
-  private GraphDriverData graphDriver;
+  private DriverData graphDriver;
 
   public static final String SERIALIZED_NAME_ID = "Id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_MANIFESTS = "Manifests";
+  @SerializedName(SERIALIZED_NAME_MANIFESTS)
+  private List<@Valid ManifestSummary> manifests = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_METADATA = "Metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -286,6 +296,27 @@ public class ImageInspect implements Serializable {
   }
 
 
+  public ImageInspect descriptor(Descriptor descriptor) {
+    this.descriptor = descriptor;
+    return this;
+  }
+
+  /**
+   * Get descriptor
+   * @return descriptor
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public Descriptor getDescriptor() {
+    return descriptor;
+  }
+
+  public void setDescriptor(Descriptor descriptor) {
+    this.descriptor = descriptor;
+  }
+
+
   public ImageInspect dockerVersion(String dockerVersion) {
     this.dockerVersion = dockerVersion;
     return this;
@@ -306,7 +337,7 @@ public class ImageInspect implements Serializable {
   }
 
 
-  public ImageInspect graphDriver(GraphDriverData graphDriver) {
+  public ImageInspect graphDriver(DriverData graphDriver) {
     this.graphDriver = graphDriver;
     return this;
   }
@@ -318,11 +349,11 @@ public class ImageInspect implements Serializable {
   @jakarta.annotation.Nullable
   @Valid
 
-  public GraphDriverData getGraphDriver() {
+  public DriverData getGraphDriver() {
     return graphDriver;
   }
 
-  public void setGraphDriver(GraphDriverData graphDriver) {
+  public void setGraphDriver(DriverData graphDriver) {
     this.graphDriver = graphDriver;
   }
 
@@ -344,6 +375,35 @@ public class ImageInspect implements Serializable {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public ImageInspect manifests(List<@Valid ManifestSummary> manifests) {
+    this.manifests = manifests;
+    return this;
+  }
+
+  public ImageInspect addManifestsItem(ManifestSummary manifestsItem) {
+    if (this.manifests == null) {
+      this.manifests = new ArrayList<>();
+    }
+    this.manifests.add(manifestsItem);
+    return this;
+  }
+
+  /**
+   * Manifests is a list of image manifests available in this image. It provides a more detailed view of the platform-specific image manifests or other image-attached data like build attestations.  Only available if the daemon provides a multi-platform image store, the client requests manifests AND does not request a specific platform.  WARNING: This is experimental and may change at any time without any backward compatibility.
+   * @return manifests
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public List<@Valid ManifestSummary> getManifests() {
+    return manifests;
+  }
+
+  public void setManifests(List<@Valid ManifestSummary> manifests) {
+    this.manifests = manifests;
   }
 
 
@@ -582,9 +642,11 @@ public class ImageInspect implements Serializable {
         Objects.equals(this.container, imageInspect.container) &&
         Objects.equals(this.containerConfig, imageInspect.containerConfig) &&
         Objects.equals(this.created, imageInspect.created) &&
+        Objects.equals(this.descriptor, imageInspect.descriptor) &&
         Objects.equals(this.dockerVersion, imageInspect.dockerVersion) &&
         Objects.equals(this.graphDriver, imageInspect.graphDriver) &&
         Objects.equals(this.id, imageInspect.id) &&
+        Objects.equals(this.manifests, imageInspect.manifests) &&
         Objects.equals(this.metadata, imageInspect.metadata) &&
         Objects.equals(this.os, imageInspect.os) &&
         Objects.equals(this.osVersion, imageInspect.osVersion) &&
@@ -599,7 +661,7 @@ public class ImageInspect implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(architecture, author, comment, config, container, containerConfig, created, dockerVersion, graphDriver, id, metadata, os, osVersion, parent, repoDigests, repoTags, rootFS, size, variant, virtualSize);
+    return Objects.hash(architecture, author, comment, config, container, containerConfig, created, descriptor, dockerVersion, graphDriver, id, manifests, metadata, os, osVersion, parent, repoDigests, repoTags, rootFS, size, variant, virtualSize);
   }
 
   @Override
@@ -613,9 +675,11 @@ public class ImageInspect implements Serializable {
     sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("    containerConfig: ").append(toIndentedString(containerConfig)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    descriptor: ").append(toIndentedString(descriptor)).append("\n");
     sb.append("    dockerVersion: ").append(toIndentedString(dockerVersion)).append("\n");
     sb.append("    graphDriver: ").append(toIndentedString(graphDriver)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    manifests: ").append(toIndentedString(manifests)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
@@ -655,9 +719,11 @@ public class ImageInspect implements Serializable {
     openapiFields.add("Container");
     openapiFields.add("ContainerConfig");
     openapiFields.add("Created");
+    openapiFields.add("Descriptor");
     openapiFields.add("DockerVersion");
     openapiFields.add("GraphDriver");
     openapiFields.add("Id");
+    openapiFields.add("Manifests");
     openapiFields.add("Metadata");
     openapiFields.add("Os");
     openapiFields.add("OsVersion");
@@ -717,15 +783,33 @@ public class ImageInspect implements Serializable {
       if ((jsonObj.get("Created") != null && !jsonObj.get("Created").isJsonNull()) && !jsonObj.get("Created").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Created` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Created").toString()));
       }
+      // validate the optional field `Descriptor`
+      if (jsonObj.get("Descriptor") != null && !jsonObj.get("Descriptor").isJsonNull()) {
+        Descriptor.validateJsonElement(jsonObj.get("Descriptor"));
+      }
       if ((jsonObj.get("DockerVersion") != null && !jsonObj.get("DockerVersion").isJsonNull()) && !jsonObj.get("DockerVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `DockerVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("DockerVersion").toString()));
       }
       // validate the optional field `GraphDriver`
       if (jsonObj.get("GraphDriver") != null && !jsonObj.get("GraphDriver").isJsonNull()) {
-        GraphDriverData.validateJsonElement(jsonObj.get("GraphDriver"));
+        DriverData.validateJsonElement(jsonObj.get("GraphDriver"));
       }
       if ((jsonObj.get("Id") != null && !jsonObj.get("Id").isJsonNull()) && !jsonObj.get("Id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Id").toString()));
+      }
+      if (jsonObj.get("Manifests") != null && !jsonObj.get("Manifests").isJsonNull()) {
+        JsonArray jsonArraymanifests = jsonObj.getAsJsonArray("Manifests");
+        if (jsonArraymanifests != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("Manifests").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `Manifests` to be an array in the JSON string but got `%s`", jsonObj.get("Manifests").toString()));
+          }
+
+          // validate the optional field `Manifests` (array)
+          for (int i = 0; i < jsonArraymanifests.size(); i++) {
+            ManifestSummary.validateJsonElement(jsonArraymanifests.get(i));
+          };
+        }
       }
       // validate the optional field `Metadata`
       if (jsonObj.get("Metadata") != null && !jsonObj.get("Metadata").isJsonNull()) {

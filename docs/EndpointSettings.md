@@ -15,6 +15,7 @@ EndpointSettings stores the network endpoint details
 |**gateway** | **String** |  |  [optional] |
 |**globalIPv6Address** | **String** |  |  [optional] |
 |**globalIPv6PrefixLen** | **Long** |  |  [optional] |
+|**gwPriority** | **Long** | GwPriority determines which endpoint will provide the default gateway for the container. The endpoint with the highest priority will be used. If multiple endpoints have the same priority, they are lexicographically sorted based on their network name, and the one that sorts first is picked. |  [optional] |
 |**ipAMConfig** | [**EndpointIPAMConfig**](EndpointIPAMConfig.md) |  |  [optional] |
 |**ipAddress** | **String** |  |  [optional] |
 |**ipPrefixLen** | **Long** |  |  [optional] |

@@ -79,6 +79,10 @@ public class CreateRequest implements Serializable {
   @SerializedName(SERIALIZED_NAME_DRIVER)
   private String driver;
 
+  public static final String SERIALIZED_NAME_ENABLE_I_PV4 = "EnableIPv4";
+  @SerializedName(SERIALIZED_NAME_ENABLE_I_PV4)
+  private Boolean enableIPv4;
+
   public static final String SERIALIZED_NAME_ENABLE_I_PV6 = "EnableIPv6";
   @SerializedName(SERIALIZED_NAME_ENABLE_I_PV6)
   private Boolean enableIPv6;
@@ -212,6 +216,26 @@ public class CreateRequest implements Serializable {
 
   public void setDriver(String driver) {
     this.driver = driver;
+  }
+
+
+  public CreateRequest enableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
+    return this;
+  }
+
+  /**
+   * Get enableIPv4
+   * @return enableIPv4
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getEnableIPv4() {
+    return enableIPv4;
+  }
+
+  public void setEnableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
   }
 
 
@@ -407,6 +431,7 @@ public class CreateRequest implements Serializable {
         Objects.equals(this.configFrom, createRequest.configFrom) &&
         Objects.equals(this.configOnly, createRequest.configOnly) &&
         Objects.equals(this.driver, createRequest.driver) &&
+        Objects.equals(this.enableIPv4, createRequest.enableIPv4) &&
         Objects.equals(this.enableIPv6, createRequest.enableIPv6) &&
         Objects.equals(this.ipam, createRequest.ipam) &&
         Objects.equals(this.ingress, createRequest.ingress) &&
@@ -419,7 +444,7 @@ public class CreateRequest implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachable, checkDuplicate, configFrom, configOnly, driver, enableIPv6, ipam, ingress, internal, labels, name, options, scope);
+    return Objects.hash(attachable, checkDuplicate, configFrom, configOnly, driver, enableIPv4, enableIPv6, ipam, ingress, internal, labels, name, options, scope);
   }
 
   @Override
@@ -431,6 +456,7 @@ public class CreateRequest implements Serializable {
     sb.append("    configFrom: ").append(toIndentedString(configFrom)).append("\n");
     sb.append("    configOnly: ").append(toIndentedString(configOnly)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
+    sb.append("    enableIPv4: ").append(toIndentedString(enableIPv4)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
     sb.append("    ipam: ").append(toIndentedString(ipam)).append("\n");
     sb.append("    ingress: ").append(toIndentedString(ingress)).append("\n");
@@ -466,6 +492,7 @@ public class CreateRequest implements Serializable {
     openapiFields.add("ConfigFrom");
     openapiFields.add("ConfigOnly");
     openapiFields.add("Driver");
+    openapiFields.add("EnableIPv4");
     openapiFields.add("EnableIPv6");
     openapiFields.add("IPAM");
     openapiFields.add("Ingress");

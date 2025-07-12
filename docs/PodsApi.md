@@ -482,7 +482,7 @@ No authorization required
 
 <a id="podCreateLibpod"></a>
 # **podCreateLibpod**
-> IdResponse podCreateLibpod().create(create).execute();
+> IDResponse podCreateLibpod().create(create).execute();
 
 Create a pod
 
@@ -503,7 +503,7 @@ public class Example {
     PodsApi apiInstance = new PodsApi(defaultClient);
     PodSpecGenerator create = new PodSpecGenerator(); // PodSpecGenerator | attributes for creating a pod
     try {
-      IdResponse result = apiInstance.podCreateLibpod()
+      IDResponse result = apiInstance.podCreateLibpod()
             .create(create)
             .execute();
       System.out.println(result);
@@ -526,7 +526,7 @@ public class Example {
 
 ### Return type
 
-[**IdResponse**](IdResponse.md)
+[**IDResponse**](IDResponse.md)
 
 ### Authorization
 

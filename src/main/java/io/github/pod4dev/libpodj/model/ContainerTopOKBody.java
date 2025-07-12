@@ -51,7 +51,7 @@ import java.util.Set;
 import io.github.pod4dev.libpodj.JSON;
 
 /**
- * ContainerTopOKBody OK response to ContainerTop operation
+ * ContainerTopOKBody
  */
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.9.0")
 public class ContainerTopOKBody implements Serializable {
@@ -82,11 +82,10 @@ public class ContainerTopOKBody implements Serializable {
   }
 
   /**
-   * Each process running in the container, where each is process is an array of values corresponding to the titles.
+   * Each process running in the container, where each process is an array of values corresponding to the titles.
    * @return processes
    */
-  @jakarta.annotation.Nonnull
-  @NotNull
+  @jakarta.annotation.Nullable
   @Valid
 
   public List<List<String>> getProcesses() {
@@ -115,8 +114,7 @@ public class ContainerTopOKBody implements Serializable {
    * The ps column titles
    * @return titles
    */
-  @jakarta.annotation.Nonnull
-  @NotNull
+  @jakarta.annotation.Nullable
 
   public List<String> getTitles() {
     return titles;
@@ -179,8 +177,6 @@ public class ContainerTopOKBody implements Serializable {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("Processes");
-    openapiRequiredFields.add("Titles");
   }
 
   /**
@@ -203,24 +199,13 @@ public class ContainerTopOKBody implements Serializable {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ContainerTopOKBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ContainerTopOKBody.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("Processes") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("Processes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Processes") != null && !jsonObj.get("Processes").isJsonNull() && !jsonObj.get("Processes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Processes` to be an array in the JSON string but got `%s`", jsonObj.get("Processes").toString()));
       }
-      // ensure the required json array is present
-      if (jsonObj.get("Titles") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("Titles").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Titles") != null && !jsonObj.get("Titles").isJsonNull() && !jsonObj.get("Titles").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `Titles` to be an array in the JSON string but got `%s`", jsonObj.get("Titles").toString()));
       }
   }

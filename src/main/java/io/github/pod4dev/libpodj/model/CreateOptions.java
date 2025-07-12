@@ -75,6 +75,10 @@ public class CreateOptions implements Serializable {
   @SerializedName(SERIALIZED_NAME_DRIVER)
   private String driver;
 
+  public static final String SERIALIZED_NAME_ENABLE_I_PV4 = "EnableIPv4";
+  @SerializedName(SERIALIZED_NAME_ENABLE_I_PV4)
+  private Boolean enableIPv4;
+
   public static final String SERIALIZED_NAME_ENABLE_I_PV6 = "EnableIPv6";
   @SerializedName(SERIALIZED_NAME_ENABLE_I_PV6)
   private Boolean enableIPv6;
@@ -184,6 +188,26 @@ public class CreateOptions implements Serializable {
 
   public void setDriver(String driver) {
     this.driver = driver;
+  }
+
+
+  public CreateOptions enableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
+    return this;
+  }
+
+  /**
+   * Get enableIPv4
+   * @return enableIPv4
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getEnableIPv4() {
+    return enableIPv4;
+  }
+
+  public void setEnableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
   }
 
 
@@ -358,6 +382,7 @@ public class CreateOptions implements Serializable {
         Objects.equals(this.configFrom, createOptions.configFrom) &&
         Objects.equals(this.configOnly, createOptions.configOnly) &&
         Objects.equals(this.driver, createOptions.driver) &&
+        Objects.equals(this.enableIPv4, createOptions.enableIPv4) &&
         Objects.equals(this.enableIPv6, createOptions.enableIPv6) &&
         Objects.equals(this.ipam, createOptions.ipam) &&
         Objects.equals(this.ingress, createOptions.ingress) &&
@@ -369,7 +394,7 @@ public class CreateOptions implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachable, configFrom, configOnly, driver, enableIPv6, ipam, ingress, internal, labels, options, scope);
+    return Objects.hash(attachable, configFrom, configOnly, driver, enableIPv4, enableIPv6, ipam, ingress, internal, labels, options, scope);
   }
 
   @Override
@@ -380,6 +405,7 @@ public class CreateOptions implements Serializable {
     sb.append("    configFrom: ").append(toIndentedString(configFrom)).append("\n");
     sb.append("    configOnly: ").append(toIndentedString(configOnly)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
+    sb.append("    enableIPv4: ").append(toIndentedString(enableIPv4)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
     sb.append("    ipam: ").append(toIndentedString(ipam)).append("\n");
     sb.append("    ingress: ").append(toIndentedString(ingress)).append("\n");
@@ -413,6 +439,7 @@ public class CreateOptions implements Serializable {
     openapiFields.add("ConfigFrom");
     openapiFields.add("ConfigOnly");
     openapiFields.add("Driver");
+    openapiFields.add("EnableIPv4");
     openapiFields.add("EnableIPv6");
     openapiFields.add("IPAM");
     openapiFields.add("Ingress");

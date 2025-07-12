@@ -11,6 +11,7 @@
 |**configFrom** | [**ConfigReference**](ConfigReference.md) |  |  [optional] |
 |**configOnly** | **Boolean** |  |  [optional] |
 |**driver** | **String** | Name of the volume driver to use. |  [optional] |
+|**enableIPv4** | **Boolean** |  |  [optional] |
 |**enableIPv6** | **Boolean** |  |  [optional] |
 |**ipam** | [**IPAM**](IPAM.md) |  |  [optional] |
 |**ingress** | **Boolean** |  |  [optional] |

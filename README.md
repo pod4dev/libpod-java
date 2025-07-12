@@ -76,7 +76,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>io.github.pod4dev</groupId>
   <artifactId>libpod-java</artifactId>
-  <version>5.4.2</version>
+  <version>5.5.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -92,7 +92,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "io.github.pod4dev:libpod-java:5.4.2"
+     implementation "io.github.pod4dev:libpod-java:5.5.2"
   }
 ```
 
@@ -106,7 +106,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/libpod-java-5.4.2.jar`
+* `target/libpod-java-5.5.2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
 
  - [AccessMode](docs/AccessMode.md)
  - [Address](docs/Address.md)
+ - [ArtifactVolume](docs/ArtifactVolume.md)
  - [AttestationProperties](docs/AttestationProperties.md)
  - [AuthConfig](docs/AuthConfig.md)
  - [AuthReport](docs/AuthReport.md)
@@ -369,20 +370,16 @@ Class | Method | HTTP request | Description
  - [ContainerCreateResponse](docs/ContainerCreateResponse.md)
  - [ContainerExecRequest](docs/ContainerExecRequest.md)
  - [ContainerHealthCheckConfig](docs/ContainerHealthCheckConfig.md)
- - [ContainerJSON](docs/ContainerJSON.md)
  - [ContainerNetworkConfig](docs/ContainerNetworkConfig.md)
  - [ContainerNetworkStats](docs/ContainerNetworkStats.md)
- - [ContainerNode](docs/ContainerNode.md)
  - [ContainerResourceConfig](docs/ContainerResourceConfig.md)
  - [ContainerSecurityConfig](docs/ContainerSecurityConfig.md)
  - [ContainerSize](docs/ContainerSize.md)
- - [ContainerState](docs/ContainerState.md)
  - [ContainerStats](docs/ContainerStats.md)
  - [ContainerStorageConfig](docs/ContainerStorageConfig.md)
  - [ContainerStore](docs/ContainerStore.md)
  - [ContainerTopOKBody](docs/ContainerTopOKBody.md)
  - [ContainerUpdateLibpod201Response](docs/ContainerUpdateLibpod201Response.md)
- - [ContainerUpdateOKBody](docs/ContainerUpdateOKBody.md)
  - [ContainerUpdateRequest](docs/ContainerUpdateRequest.md)
  - [ContainerWait200Response](docs/ContainerWait200Response.md)
  - [ContainerWait200ResponseError](docs/ContainerWait200ResponseError.md)
@@ -409,7 +406,6 @@ Class | Method | HTTP request | Description
  - [ExecStartLibpodRequest](docs/ExecStartLibpodRequest.md)
  - [ExecStartRequest](docs/ExecStartRequest.md)
  - [FilesystemChange](docs/FilesystemChange.md)
- - [GraphDriverData](docs/GraphDriverData.md)
  - [Health](docs/Health.md)
  - [HealthCheckLog](docs/HealthCheckLog.md)
  - [HealthCheckResults](docs/HealthCheckResults.md)
@@ -423,10 +419,10 @@ Class | Method | HTTP request | Description
  - [IDMap](docs/IDMap.md)
  - [IDMappingOptions](docs/IDMappingOptions.md)
  - [IDMappings](docs/IDMappings.md)
+ - [IDResponse](docs/IDResponse.md)
  - [IPAM](docs/IPAM.md)
  - [IPAMConfig](docs/IPAMConfig.md)
  - [IPNet](docs/IPNet.md)
- - [IdResponse](docs/IdResponse.md)
  - [ImageBuild200Response](docs/ImageBuild200Response.md)
  - [ImageBuildLibpod200Response](docs/ImageBuildLibpod200Response.md)
  - [ImageConfig](docs/ImageConfig.md)
@@ -435,6 +431,7 @@ Class | Method | HTTP request | Description
  - [ImageImportReport](docs/ImageImportReport.md)
  - [ImageInspect](docs/ImageInspect.md)
  - [ImageLoadReport](docs/ImageLoadReport.md)
+ - [ImageOptions](docs/ImageOptions.md)
  - [ImageProperties](docs/ImageProperties.md)
  - [ImagePropertiesSize](docs/ImagePropertiesSize.md)
  - [ImageSearch200Response](docs/ImageSearch200Response.md)
@@ -461,6 +458,7 @@ Class | Method | HTTP request | Description
  - [InspectPodContainerInfo](docs/InspectPodContainerInfo.md)
  - [InspectPodData](docs/InspectPodData.md)
  - [InspectPodInfraConfig](docs/InspectPodInfraConfig.md)
+ - [InspectResponse](docs/InspectResponse.md)
  - [InspectRestartPolicy](docs/InspectRestartPolicy.md)
  - [InspectSecret](docs/InspectSecret.md)
  - [InspectUlimit](docs/InspectUlimit.md)
@@ -523,6 +521,7 @@ Class | Method | HTTP request | Description
  - [NetworkPruneReport](docs/NetworkPruneReport.md)
  - [NetworkRmReport](docs/NetworkRmReport.md)
  - [NetworkSettings](docs/NetworkSettings.md)
+ - [NetworkSettingsSummary](docs/NetworkSettingsSummary.md)
  - [NetworkUpdateOptions](docs/NetworkUpdateOptions.md)
  - [NetworkingConfig](docs/NetworkingConfig.md)
  - [OCIRuntimeInfo](docs/OCIRuntimeInfo.md)
@@ -600,10 +599,10 @@ Class | Method | HTTP request | Description
  - [SlirpInfo](docs/SlirpInfo.md)
  - [SpecGenerator](docs/SpecGenerator.md)
  - [StartupHealthCheck](docs/StartupHealthCheck.md)
+ - [State](docs/State.md)
  - [StoreInfo](docs/StoreInfo.md)
  - [Subnet](docs/Subnet.md)
  - [Summary](docs/Summary.md)
- - [SummaryNetworkSettings](docs/SummaryNetworkSettings.md)
  - [SystemCheckReport](docs/SystemCheckReport.md)
  - [SystemComponentVersion](docs/SystemComponentVersion.md)
  - [SystemComponentVersionPlatform](docs/SystemComponentVersionPlatform.md)
@@ -615,6 +614,7 @@ Class | Method | HTTP request | Description
  - [Task](docs/Task.md)
  - [ThrottleDevice](docs/ThrottleDevice.md)
  - [TmpfsOptions](docs/TmpfsOptions.md)
+ - [TopResponse](docs/TopResponse.md)
  - [Topology](docs/Topology.md)
  - [TopologyRequirement](docs/TopologyRequirement.md)
  - [TypeMount](docs/TypeMount.md)
@@ -623,6 +623,7 @@ Class | Method | HTTP request | Description
  - [UpdateContainerDevicesLimits](docs/UpdateContainerDevicesLimits.md)
  - [UpdateEntities](docs/UpdateEntities.md)
  - [UpdateHealthCheckConfig](docs/UpdateHealthCheckConfig.md)
+ - [UpdateResponse](docs/UpdateResponse.md)
  - [UsageData](docs/UsageData.md)
  - [Version](docs/Version.md)
  - [Volume](docs/Volume.md)

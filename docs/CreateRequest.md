@@ -12,6 +12,7 @@
 |**configFrom** | [**ConfigReference**](ConfigReference.md) |  |  [optional] |
 |**configOnly** | **Boolean** |  |  [optional] |
 |**driver** | **String** |  |  [optional] |
+|**enableIPv4** | **Boolean** |  |  [optional] |
 |**enableIPv6** | **Boolean** |  |  [optional] |
 |**ipam** | [**IPAM**](IPAM.md) |  |  [optional] |
 |**ingress** | **Boolean** |  |  [optional] |

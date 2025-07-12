@@ -89,6 +89,10 @@ public class Inspect implements Serializable {
   @SerializedName(SERIALIZED_NAME_DRIVER)
   private String driver;
 
+  public static final String SERIALIZED_NAME_ENABLE_I_PV4 = "EnableIPv4";
+  @SerializedName(SERIALIZED_NAME_ENABLE_I_PV4)
+  private Boolean enableIPv4;
+
   public static final String SERIALIZED_NAME_ENABLE_I_PV6 = "EnableIPv6";
   @SerializedName(SERIALIZED_NAME_ENABLE_I_PV6)
   private Boolean enableIPv6;
@@ -264,6 +268,26 @@ public class Inspect implements Serializable {
 
   public void setDriver(String driver) {
     this.driver = driver;
+  }
+
+
+  public Inspect enableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
+    return this;
+  }
+
+  /**
+   * Get enableIPv4
+   * @return enableIPv4
+   */
+  @jakarta.annotation.Nullable
+
+  public Boolean getEnableIPv4() {
+    return enableIPv4;
+  }
+
+  public void setEnableIPv4(Boolean enableIPv4) {
+    this.enableIPv4 = enableIPv4;
   }
 
 
@@ -538,6 +562,7 @@ public class Inspect implements Serializable {
         Objects.equals(this.containers, inspect.containers) &&
         Objects.equals(this.created, inspect.created) &&
         Objects.equals(this.driver, inspect.driver) &&
+        Objects.equals(this.enableIPv4, inspect.enableIPv4) &&
         Objects.equals(this.enableIPv6, inspect.enableIPv6) &&
         Objects.equals(this.ipam, inspect.ipam) &&
         Objects.equals(this.id, inspect.id) &&
@@ -553,7 +578,7 @@ public class Inspect implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(attachable, configFrom, configOnly, containers, created, driver, enableIPv6, ipam, id, ingress, internal, labels, name, options, peers, scope, services);
+    return Objects.hash(attachable, configFrom, configOnly, containers, created, driver, enableIPv4, enableIPv6, ipam, id, ingress, internal, labels, name, options, peers, scope, services);
   }
 
   @Override
@@ -566,6 +591,7 @@ public class Inspect implements Serializable {
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
+    sb.append("    enableIPv4: ").append(toIndentedString(enableIPv4)).append("\n");
     sb.append("    enableIPv6: ").append(toIndentedString(enableIPv6)).append("\n");
     sb.append("    ipam: ").append(toIndentedString(ipam)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -605,6 +631,7 @@ public class Inspect implements Serializable {
     openapiFields.add("Containers");
     openapiFields.add("Created");
     openapiFields.add("Driver");
+    openapiFields.add("EnableIPv4");
     openapiFields.add("EnableIPv6");
     openapiFields.add("IPAM");
     openapiFields.add("Id");

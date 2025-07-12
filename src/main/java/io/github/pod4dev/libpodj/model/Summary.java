@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.Descriptor;
 import io.github.pod4dev.libpodj.model.ManifestSummary;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -95,6 +96,10 @@ public class Summary implements Serializable {
   public static final String SERIALIZED_NAME_SIZE = "Size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Long size;
+
+  public static final String SERIALIZED_NAME_DESCRIPTOR = "Descriptor";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTOR)
+  private Descriptor descriptor;
 
   public static final String SERIALIZED_NAME_MANIFESTS = "Manifests";
   @SerializedName(SERIALIZED_NAME_MANIFESTS)
@@ -320,6 +325,27 @@ public class Summary implements Serializable {
   }
 
 
+  public Summary descriptor(Descriptor descriptor) {
+    this.descriptor = descriptor;
+    return this;
+  }
+
+  /**
+   * Get descriptor
+   * @return descriptor
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public Descriptor getDescriptor() {
+    return descriptor;
+  }
+
+  public void setDescriptor(Descriptor descriptor) {
+    this.descriptor = descriptor;
+  }
+
+
   public Summary manifests(List<@Valid ManifestSummary> manifests) {
     this.manifests = manifests;
     return this;
@@ -388,13 +414,14 @@ public class Summary implements Serializable {
         Objects.equals(this.repoTags, summary.repoTags) &&
         Objects.equals(this.sharedSize, summary.sharedSize) &&
         Objects.equals(this.size, summary.size) &&
+        Objects.equals(this.descriptor, summary.descriptor) &&
         Objects.equals(this.manifests, summary.manifests) &&
         Objects.equals(this.virtualSize, summary.virtualSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(containers, created, id, labels, parentId, repoDigests, repoTags, sharedSize, size, manifests, virtualSize);
+    return Objects.hash(containers, created, id, labels, parentId, repoDigests, repoTags, sharedSize, size, descriptor, manifests, virtualSize);
   }
 
   @Override
@@ -410,6 +437,7 @@ public class Summary implements Serializable {
     sb.append("    repoTags: ").append(toIndentedString(repoTags)).append("\n");
     sb.append("    sharedSize: ").append(toIndentedString(sharedSize)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    descriptor: ").append(toIndentedString(descriptor)).append("\n");
     sb.append("    manifests: ").append(toIndentedString(manifests)).append("\n");
     sb.append("    virtualSize: ").append(toIndentedString(virtualSize)).append("\n");
     sb.append("}");
@@ -443,6 +471,7 @@ public class Summary implements Serializable {
     openapiFields.add("RepoTags");
     openapiFields.add("SharedSize");
     openapiFields.add("Size");
+    openapiFields.add("Descriptor");
     openapiFields.add("Manifests");
     openapiFields.add("VirtualSize");
 
@@ -504,6 +533,10 @@ public class Summary implements Serializable {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("RepoTags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `RepoTags` to be an array in the JSON string but got `%s`", jsonObj.get("RepoTags").toString()));
+      }
+      // validate the optional field `Descriptor`
+      if (jsonObj.get("Descriptor") != null && !jsonObj.get("Descriptor").isJsonNull()) {
+        Descriptor.validateJsonElement(jsonObj.get("Descriptor"));
       }
       if (jsonObj.get("Manifests") != null && !jsonObj.get("Manifests").isJsonNull()) {
         JsonArray jsonArraymanifests = jsonObj.getAsJsonArray("Manifests");

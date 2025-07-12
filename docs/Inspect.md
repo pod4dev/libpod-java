@@ -13,6 +13,7 @@
 |**containers** | [**Map&lt;String, EndpointResource&gt;**](EndpointResource.md) |  |  [optional] |
 |**created** | **OffsetDateTime** |  |  [optional] |
 |**driver** | **String** |  |  [optional] |
+|**enableIPv4** | **Boolean** |  |  [optional] |
 |**enableIPv6** | **Boolean** |  |  [optional] |
 |**ipam** | [**IPAM**](IPAM.md) |  |  [optional] |
 |**id** | **String** |  |  [optional] |

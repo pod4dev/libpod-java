@@ -31,7 +31,7 @@ import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
-import io.github.pod4dev.libpodj.model.IdResponse;
+import io.github.pod4dev.libpodj.model.IDResponse;
 import io.github.pod4dev.libpodj.model.InspectPodData;
 import io.github.pod4dev.libpodj.model.ListPodsReport;
 import io.github.pod4dev.libpodj.model.PlayKubeReport;
@@ -1604,16 +1604,16 @@ public class PodsApi {
     }
 
 
-    private ApiResponse<IdResponse> podCreateLibpodWithHttpInfo(PodSpecGenerator create) throws ApiException {
+    private ApiResponse<IDResponse> podCreateLibpodWithHttpInfo(PodSpecGenerator create) throws ApiException {
         okhttp3.Call localVarCall = podCreateLibpodValidateBeforeCall(create, null);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call podCreateLibpodAsync(PodSpecGenerator create, final ApiCallback<IdResponse> _callback) throws ApiException {
+    private okhttp3.Call podCreateLibpodAsync(PodSpecGenerator create, final ApiCallback<IDResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = podCreateLibpodValidateBeforeCall(create, _callback);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1654,7 +1654,7 @@ public class PodsApi {
 
         /**
          * Execute podCreateLibpod request
-         * @return IdResponse
+         * @return IDResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1665,14 +1665,14 @@ public class PodsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public IdResponse execute() throws ApiException {
-            ApiResponse<IdResponse> localVarResp = podCreateLibpodWithHttpInfo(create);
+        public IDResponse execute() throws ApiException {
+            ApiResponse<IDResponse> localVarResp = podCreateLibpodWithHttpInfo(create);
             return localVarResp.getData();
         }
 
         /**
          * Execute podCreateLibpod request with HTTP info returned
-         * @return ApiResponse&lt;IdResponse&gt;
+         * @return ApiResponse&lt;IDResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1683,7 +1683,7 @@ public class PodsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<IdResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<IDResponse> executeWithHttpInfo() throws ApiException {
             return podCreateLibpodWithHttpInfo(create);
         }
 
@@ -1701,7 +1701,7 @@ public class PodsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<IdResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<IDResponse> _callback) throws ApiException {
             return podCreateLibpodAsync(create, _callback);
         }
     }

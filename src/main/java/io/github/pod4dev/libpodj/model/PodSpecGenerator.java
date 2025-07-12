@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.IDMappingOptions;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxResources;
-import io.github.pod4dev.libpodj.model.LinuxThrottleDevice;
 import io.github.pod4dev.libpodj.model.Mount;
 import io.github.pod4dev.libpodj.model.NamedVolume;
 import io.github.pod4dev.libpodj.model.Namespace;
@@ -80,14 +79,6 @@ public class PodSpecGenerator implements Serializable {
   public static final String SERIALIZED_NAME_CNI_NETWORKS = "cni_networks";
   @SerializedName(SERIALIZED_NAME_CNI_NETWORKS)
   private List<String> cniNetworks = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_CPU_PERIOD = "cpu_period";
-  @SerializedName(SERIALIZED_NAME_CPU_PERIOD)
-  private Integer cpuPeriod;
-
-  public static final String SERIALIZED_NAME_CPU_QUOTA = "cpu_quota";
-  @SerializedName(SERIALIZED_NAME_CPU_QUOTA)
-  private Long cpuQuota;
 
   public static final String SERIALIZED_NAME_DNS_OPTION = "dns_option";
   @SerializedName(SERIALIZED_NAME_DNS_OPTION)
@@ -241,10 +232,6 @@ public class PodSpecGenerator implements Serializable {
   @SerializedName(SERIALIZED_NAME_SYSCTL)
   private Map<String, String> sysctl = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_THROTTLE_READ_BPS_DEVICE = "throttleReadBpsDevice";
-  @SerializedName(SERIALIZED_NAME_THROTTLE_READ_BPS_DEVICE)
-  private Map<String, LinuxThrottleDevice> throttleReadBpsDevice = new HashMap<>();
-
   public static final String SERIALIZED_NAME_USERNS = "userns";
   @SerializedName(SERIALIZED_NAME_USERNS)
   private Namespace userns;
@@ -338,46 +325,6 @@ public class PodSpecGenerator implements Serializable {
 
   public void setCniNetworks(List<String> cniNetworks) {
     this.cniNetworks = cniNetworks;
-  }
-
-
-  public PodSpecGenerator cpuPeriod(Integer cpuPeriod) {
-    this.cpuPeriod = cpuPeriod;
-    return this;
-  }
-
-  /**
-   * CPU period of the cpuset, determined by --cpus
-   * @return cpuPeriod
-   */
-  @jakarta.annotation.Nullable
-
-  public Integer getCpuPeriod() {
-    return cpuPeriod;
-  }
-
-  public void setCpuPeriod(Integer cpuPeriod) {
-    this.cpuPeriod = cpuPeriod;
-  }
-
-
-  public PodSpecGenerator cpuQuota(Long cpuQuota) {
-    this.cpuQuota = cpuQuota;
-    return this;
-  }
-
-  /**
-   * CPU quota of the cpuset, determined by --cpus
-   * @return cpuQuota
-   */
-  @jakarta.annotation.Nullable
-
-  public Long getCpuQuota() {
-    return cpuQuota;
-  }
-
-  public void setCpuQuota(Long cpuQuota) {
-    this.cpuQuota = cpuQuota;
   }
 
 
@@ -1279,35 +1226,6 @@ public class PodSpecGenerator implements Serializable {
   }
 
 
-  public PodSpecGenerator throttleReadBpsDevice(Map<String, LinuxThrottleDevice> throttleReadBpsDevice) {
-    this.throttleReadBpsDevice = throttleReadBpsDevice;
-    return this;
-  }
-
-  public PodSpecGenerator putThrottleReadBpsDeviceItem(String key, LinuxThrottleDevice throttleReadBpsDeviceItem) {
-    if (this.throttleReadBpsDevice == null) {
-      this.throttleReadBpsDevice = new HashMap<>();
-    }
-    this.throttleReadBpsDevice.put(key, throttleReadBpsDeviceItem);
-    return this;
-  }
-
-  /**
-   * ThrottleReadBpsDevice contains the rate at which the devices in the pod can be read from/accessed
-   * @return throttleReadBpsDevice
-   */
-  @jakarta.annotation.Nullable
-  @Valid
-
-  public Map<String, LinuxThrottleDevice> getThrottleReadBpsDevice() {
-    return throttleReadBpsDevice;
-  }
-
-  public void setThrottleReadBpsDevice(Map<String, LinuxThrottleDevice> throttleReadBpsDevice) {
-    this.throttleReadBpsDevice = throttleReadBpsDevice;
-  }
-
-
   public PodSpecGenerator userns(Namespace userns) {
     this.userns = userns;
     return this;
@@ -1420,8 +1338,6 @@ public class PodSpecGenerator implements Serializable {
     return Objects.equals(this.networks, podSpecGenerator.networks) &&
         Objects.equals(this.cgroupParent, podSpecGenerator.cgroupParent) &&
         Objects.equals(this.cniNetworks, podSpecGenerator.cniNetworks) &&
-        Objects.equals(this.cpuPeriod, podSpecGenerator.cpuPeriod) &&
-        Objects.equals(this.cpuQuota, podSpecGenerator.cpuQuota) &&
         Objects.equals(this.dnsOption, podSpecGenerator.dnsOption) &&
         Objects.equals(this.dnsSearch, podSpecGenerator.dnsSearch) &&
         Objects.equals(this.dnsServer, podSpecGenerator.dnsServer) &&
@@ -1460,7 +1376,6 @@ public class PodSpecGenerator implements Serializable {
         Objects.equals(this.shmSize, podSpecGenerator.shmSize) &&
         Objects.equals(this.shmSizeSystemd, podSpecGenerator.shmSizeSystemd) &&
         Objects.equals(this.sysctl, podSpecGenerator.sysctl) &&
-        Objects.equals(this.throttleReadBpsDevice, podSpecGenerator.throttleReadBpsDevice) &&
         Objects.equals(this.userns, podSpecGenerator.userns) &&
         Objects.equals(this.utsns, podSpecGenerator.utsns) &&
         Objects.equals(this.volumes, podSpecGenerator.volumes) &&
@@ -1469,7 +1384,7 @@ public class PodSpecGenerator implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, cgroupParent, cniNetworks, cpuPeriod, cpuQuota, dnsOption, dnsSearch, dnsServer, exitPolicy, hostadd, hostname, hostsFile, idmappings, imageVolumes, infraCommand, infraConmonPidFile, infraImage, infraName, ipcns, labels, mounts, name, netns, networkOptions, noInfra, noManageHostname, noManageHosts, noManageResolvConf, overlayVolumes, pidns, podCreateCommand, podDevices, portmappings, resourceLimits, restartPolicy, restartTries, securityOpt, serviceContainerID, shareParent, sharedNamespaces, shmSize, shmSizeSystemd, sysctl, throttleReadBpsDevice, userns, utsns, volumes, volumesFrom);
+    return Objects.hash(networks, cgroupParent, cniNetworks, dnsOption, dnsSearch, dnsServer, exitPolicy, hostadd, hostname, hostsFile, idmappings, imageVolumes, infraCommand, infraConmonPidFile, infraImage, infraName, ipcns, labels, mounts, name, netns, networkOptions, noInfra, noManageHostname, noManageHosts, noManageResolvConf, overlayVolumes, pidns, podCreateCommand, podDevices, portmappings, resourceLimits, restartPolicy, restartTries, securityOpt, serviceContainerID, shareParent, sharedNamespaces, shmSize, shmSizeSystemd, sysctl, userns, utsns, volumes, volumesFrom);
   }
 
   @Override
@@ -1479,8 +1394,6 @@ public class PodSpecGenerator implements Serializable {
     sb.append("    networks: ").append(toIndentedString(networks)).append("\n");
     sb.append("    cgroupParent: ").append(toIndentedString(cgroupParent)).append("\n");
     sb.append("    cniNetworks: ").append(toIndentedString(cniNetworks)).append("\n");
-    sb.append("    cpuPeriod: ").append(toIndentedString(cpuPeriod)).append("\n");
-    sb.append("    cpuQuota: ").append(toIndentedString(cpuQuota)).append("\n");
     sb.append("    dnsOption: ").append(toIndentedString(dnsOption)).append("\n");
     sb.append("    dnsSearch: ").append(toIndentedString(dnsSearch)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
@@ -1519,7 +1432,6 @@ public class PodSpecGenerator implements Serializable {
     sb.append("    shmSize: ").append(toIndentedString(shmSize)).append("\n");
     sb.append("    shmSizeSystemd: ").append(toIndentedString(shmSizeSystemd)).append("\n");
     sb.append("    sysctl: ").append(toIndentedString(sysctl)).append("\n");
-    sb.append("    throttleReadBpsDevice: ").append(toIndentedString(throttleReadBpsDevice)).append("\n");
     sb.append("    userns: ").append(toIndentedString(userns)).append("\n");
     sb.append("    utsns: ").append(toIndentedString(utsns)).append("\n");
     sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
@@ -1549,8 +1461,6 @@ public class PodSpecGenerator implements Serializable {
     openapiFields.add("Networks");
     openapiFields.add("cgroup_parent");
     openapiFields.add("cni_networks");
-    openapiFields.add("cpu_period");
-    openapiFields.add("cpu_quota");
     openapiFields.add("dns_option");
     openapiFields.add("dns_search");
     openapiFields.add("dns_server");
@@ -1589,7 +1499,6 @@ public class PodSpecGenerator implements Serializable {
     openapiFields.add("shm_size");
     openapiFields.add("shm_size_systemd");
     openapiFields.add("sysctl");
-    openapiFields.add("throttleReadBpsDevice");
     openapiFields.add("userns");
     openapiFields.add("utsns");
     openapiFields.add("volumes");

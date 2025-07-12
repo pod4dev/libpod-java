@@ -81,7 +81,7 @@ public class ImagesCompatApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call imageBuildCall(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call imageBuildCall(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -140,6 +140,10 @@ public class ImagesCompatApi {
 
         if (compatvolumes != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("compatvolumes", compatvolumes));
+        }
+
+        if (inheritlabels != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("inheritlabels", inheritlabels));
         }
 
         if (nocache != null) {
@@ -247,21 +251,21 @@ public class ImagesCompatApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call imageBuildValidateBeforeCall(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback _callback) throws ApiException {
-        return imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
+    private okhttp3.Call imageBuildValidateBeforeCall(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback _callback) throws ApiException {
+        return imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
 
     }
 
 
-    private ApiResponse<ImageBuild200Response> imageBuildWithHttpInfo(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream) throws ApiException {
-        okhttp3.Call localVarCall = imageBuildValidateBeforeCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, null);
+    private ApiResponse<ImageBuild200Response> imageBuildWithHttpInfo(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream) throws ApiException {
+        okhttp3.Call localVarCall = imageBuildValidateBeforeCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, null);
         Type localVarReturnType = new TypeToken<ImageBuild200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call imageBuildAsync(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback<ImageBuild200Response> _callback) throws ApiException {
+    private okhttp3.Call imageBuildAsync(String contentType, String xRegistryConfig, String dockerfile, String t, String extrahosts, Boolean nohosts, String remote, Integer retry, String retryDelay, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, String networkmode, String platform, String target, String outputs, File inputStream, final ApiCallback<ImageBuild200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = imageBuildValidateBeforeCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
+        okhttp3.Call localVarCall = imageBuildValidateBeforeCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
         Type localVarReturnType = new TypeToken<ImageBuild200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -279,6 +283,7 @@ public class ImagesCompatApi {
         private String retryDelay;
         private Boolean q;
         private Boolean compatvolumes;
+        private Boolean inheritlabels;
         private Boolean nocache;
         private String cachefrom;
         private Boolean pull;
@@ -410,6 +415,16 @@ public class ImagesCompatApi {
          */
         public APIimageBuildRequest compatvolumes(Boolean compatvolumes) {
             this.compatvolumes = compatvolumes;
+            return this;
+        }
+
+        /**
+         * Set inheritlabels
+         * @param inheritlabels Inherit the labels from the base image or base stages (As of Podman version v5.5)  (optional, default to true)
+         * @return APIimageBuildRequest
+         */
+        public APIimageBuildRequest inheritlabels(Boolean inheritlabels) {
+            this.inheritlabels = inheritlabels;
             return this;
         }
 
@@ -627,7 +642,7 @@ public class ImagesCompatApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
+            return imageBuildCall(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
         }
 
         /**
@@ -643,7 +658,7 @@ public class ImagesCompatApi {
          </table>
          */
         public ImageBuild200Response execute() throws ApiException {
-            ApiResponse<ImageBuild200Response> localVarResp = imageBuildWithHttpInfo(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream);
+            ApiResponse<ImageBuild200Response> localVarResp = imageBuildWithHttpInfo(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream);
             return localVarResp.getData();
         }
 
@@ -660,7 +675,7 @@ public class ImagesCompatApi {
          </table>
          */
         public ApiResponse<ImageBuild200Response> executeWithHttpInfo() throws ApiException {
-            return imageBuildWithHttpInfo(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream);
+            return imageBuildWithHttpInfo(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream);
         }
 
         /**
@@ -677,7 +692,7 @@ public class ImagesCompatApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ImageBuild200Response> _callback) throws ApiException {
-            return imageBuildAsync(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
+            return imageBuildAsync(contentType, xRegistryConfig, dockerfile, t, extrahosts, nohosts, remote, retry, retryDelay, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, networkmode, platform, target, outputs, inputStream, _callback);
         }
     }
 

@@ -8,6 +8,7 @@ ContainerStorageConfig contains information on the storage configuration of a co
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**artifactVolumes** | [**List&lt;ArtifactVolume&gt;**](ArtifactVolume.md) | ArtifactVolumes volumes based on an existing artifact. |  [optional] |
 |**chrootDirectories** | **List&lt;String&gt;** | ChrootDirs is an additional set of directories that need to be treated as root directories. Standard bind mounts will be mounted into paths relative to these directories. Optional. |  [optional] |
 |**createWorkingDir** | **Boolean** | Create the working directory if it doesn&#39;t exist. If unset, it doesn&#39;t create it. Optional. |  [optional] |
 |**deviceCgroupRule** | [**List&lt;LinuxDeviceCgroup&gt;**](LinuxDeviceCgroup.md) | DeviceCgroupRule are device cgroup rules that allow containers to use additional types of devices. |  [optional] |

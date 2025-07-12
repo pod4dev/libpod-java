@@ -89,6 +89,14 @@ public class UpdateEntities implements Serializable {
   @SerializedName(SERIALIZED_NAME_DEVICE_WRITE_I_O_PS)
   private List<@Valid ThrottleDevice> deviceWriteIOPs = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ENV = "Env";
+  @SerializedName(SERIALIZED_NAME_ENV)
+  private List<String> env = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_UNSET_ENV = "UnsetEnv";
+  @SerializedName(SERIALIZED_NAME_UNSET_ENV)
+  private List<String> unsetEnv = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_BLOCK_I_O = "blockIO";
   @SerializedName(SERIALIZED_NAME_BLOCK_I_O)
   private LinuxBlockIO blockIO;
@@ -330,6 +338,62 @@ public class UpdateEntities implements Serializable {
 
   public void setDeviceWriteIOPs(List<@Valid ThrottleDevice> deviceWriteIOPs) {
     this.deviceWriteIOPs = deviceWriteIOPs;
+  }
+
+
+  public UpdateEntities env(List<String> env) {
+    this.env = env;
+    return this;
+  }
+
+  public UpdateEntities addEnvItem(String envItem) {
+    if (this.env == null) {
+      this.env = new ArrayList<>();
+    }
+    this.env.add(envItem);
+    return this;
+  }
+
+  /**
+   * Get env
+   * @return env
+   */
+  @jakarta.annotation.Nullable
+
+  public List<String> getEnv() {
+    return env;
+  }
+
+  public void setEnv(List<String> env) {
+    this.env = env;
+  }
+
+
+  public UpdateEntities unsetEnv(List<String> unsetEnv) {
+    this.unsetEnv = unsetEnv;
+    return this;
+  }
+
+  public UpdateEntities addUnsetEnvItem(String unsetEnvItem) {
+    if (this.unsetEnv == null) {
+      this.unsetEnv = new ArrayList<>();
+    }
+    this.unsetEnv.add(unsetEnvItem);
+    return this;
+  }
+
+  /**
+   * Get unsetEnv
+   * @return unsetEnv
+   */
+  @jakarta.annotation.Nullable
+
+  public List<String> getUnsetEnv() {
+    return unsetEnv;
+  }
+
+  public void setUnsetEnv(List<String> unsetEnv) {
+    this.unsetEnv = unsetEnv;
   }
 
 
@@ -868,6 +932,8 @@ public class UpdateEntities implements Serializable {
         Objects.equals(this.deviceReadIOPs, updateEntities.deviceReadIOPs) &&
         Objects.equals(this.deviceWriteBPs, updateEntities.deviceWriteBPs) &&
         Objects.equals(this.deviceWriteIOPs, updateEntities.deviceWriteIOPs) &&
+        Objects.equals(this.env, updateEntities.env) &&
+        Objects.equals(this.unsetEnv, updateEntities.unsetEnv) &&
         Objects.equals(this.blockIO, updateEntities.blockIO) &&
         Objects.equals(this.cpu, updateEntities.cpu) &&
         Objects.equals(this.devices, updateEntities.devices) &&
@@ -896,7 +962,7 @@ public class UpdateEntities implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blkIOWeightDevice, deviceReadBPs, deviceReadIOPs, deviceWriteBPs, deviceWriteIOPs, blockIO, cpu, devices, healthCmd, healthInterval, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthOnFailure, healthRetries, healthStartPeriod, healthStartupCmd, healthStartupInterval, healthStartupRetries, healthStartupSuccess, healthStartupTimeout, healthTimeout, hugepageLimits, memory, network, noHealthcheck, pids, rdma, unified);
+    return Objects.hash(blkIOWeightDevice, deviceReadBPs, deviceReadIOPs, deviceWriteBPs, deviceWriteIOPs, env, unsetEnv, blockIO, cpu, devices, healthCmd, healthInterval, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthOnFailure, healthRetries, healthStartPeriod, healthStartupCmd, healthStartupInterval, healthStartupRetries, healthStartupSuccess, healthStartupTimeout, healthTimeout, hugepageLimits, memory, network, noHealthcheck, pids, rdma, unified);
   }
 
   @Override
@@ -908,6 +974,8 @@ public class UpdateEntities implements Serializable {
     sb.append("    deviceReadIOPs: ").append(toIndentedString(deviceReadIOPs)).append("\n");
     sb.append("    deviceWriteBPs: ").append(toIndentedString(deviceWriteBPs)).append("\n");
     sb.append("    deviceWriteIOPs: ").append(toIndentedString(deviceWriteIOPs)).append("\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
+    sb.append("    unsetEnv: ").append(toIndentedString(unsetEnv)).append("\n");
     sb.append("    blockIO: ").append(toIndentedString(blockIO)).append("\n");
     sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
     sb.append("    devices: ").append(toIndentedString(devices)).append("\n");
@@ -959,6 +1027,8 @@ public class UpdateEntities implements Serializable {
     openapiFields.add("DeviceReadIOPs");
     openapiFields.add("DeviceWriteBPs");
     openapiFields.add("DeviceWriteIOPs");
+    openapiFields.add("Env");
+    openapiFields.add("UnsetEnv");
     openapiFields.add("blockIO");
     openapiFields.add("cpu");
     openapiFields.add("devices");
@@ -1078,6 +1148,14 @@ public class UpdateEntities implements Serializable {
             ThrottleDevice.validateJsonElement(jsonArraydeviceWriteIOPs.get(i));
           };
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("Env") != null && !jsonObj.get("Env").isJsonNull() && !jsonObj.get("Env").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `Env` to be an array in the JSON string but got `%s`", jsonObj.get("Env").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("UnsetEnv") != null && !jsonObj.get("UnsetEnv").isJsonNull() && !jsonObj.get("UnsetEnv").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `UnsetEnv` to be an array in the JSON string but got `%s`", jsonObj.get("UnsetEnv").toString()));
       }
       // validate the optional field `blockIO`
       if (jsonObj.get("blockIO") != null && !jsonObj.get("blockIO").isJsonNull()) {

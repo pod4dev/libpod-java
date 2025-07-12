@@ -87,7 +87,7 @@ public class ImagesApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call imageBuildLibpodCall(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call imageBuildLibpodCall(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,6 +142,10 @@ public class ImagesApi {
 
         if (compatvolumes != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("compatvolumes", compatvolumes));
+        }
+
+        if (inheritlabels != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("inheritlabels", inheritlabels));
         }
 
         if (nocache != null) {
@@ -264,21 +268,21 @@ public class ImagesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call imageBuildLibpodValidateBeforeCall(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback _callback) throws ApiException {
-        return imageBuildLibpodCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
+    private okhttp3.Call imageBuildLibpodValidateBeforeCall(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback _callback) throws ApiException {
+        return imageBuildLibpodCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
 
     }
 
 
-    private ApiResponse<ImageBuildLibpod200Response> imageBuildLibpodWithHttpInfo(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume) throws ApiException {
-        okhttp3.Call localVarCall = imageBuildLibpodValidateBeforeCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, null);
+    private ApiResponse<ImageBuildLibpod200Response> imageBuildLibpodWithHttpInfo(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume) throws ApiException {
+        okhttp3.Call localVarCall = imageBuildLibpodValidateBeforeCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, null);
         Type localVarReturnType = new TypeToken<ImageBuildLibpod200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call imageBuildLibpodAsync(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback<ImageBuildLibpod200Response> _callback) throws ApiException {
+    private okhttp3.Call imageBuildLibpodAsync(String dockerfile, String t, Boolean allplatforms, String extrahosts, Boolean nohosts, String remote, Boolean q, Boolean compatvolumes, Boolean inheritlabels, Boolean nocache, String cachefrom, Boolean pull, Boolean rm, Boolean forcerm, Integer memory, Integer memswap, Integer cpushares, String cpusetcpus, Integer cpuperiod, Integer cpuquota, String buildargs, Integer shmsize, Boolean squash, String labels, List<String> layerLabel, Boolean layers, String networkmode, String platform, String target, String outputs, Boolean httpproxy, List<String> unsetenv, List<String> unsetlabel, List<String> volume, final ApiCallback<ImageBuildLibpod200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = imageBuildLibpodValidateBeforeCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
+        okhttp3.Call localVarCall = imageBuildLibpodValidateBeforeCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
         Type localVarReturnType = new TypeToken<ImageBuildLibpod200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -293,6 +297,7 @@ public class ImagesApi {
         private String remote;
         private Boolean q;
         private Boolean compatvolumes;
+        private Boolean inheritlabels;
         private Boolean nocache;
         private String cachefrom;
         private Boolean pull;
@@ -399,6 +404,16 @@ public class ImagesApi {
          */
         public APIimageBuildLibpodRequest compatvolumes(Boolean compatvolumes) {
             this.compatvolumes = compatvolumes;
+            return this;
+        }
+
+        /**
+         * Set inheritlabels
+         * @param inheritlabels Inherit the labels from the base image or base stages (As of Podman version v5.5)  (optional, default to true)
+         * @return APIimageBuildLibpodRequest
+         */
+        public APIimageBuildLibpodRequest inheritlabels(Boolean inheritlabels) {
+            this.inheritlabels = inheritlabels;
             return this;
         }
 
@@ -666,7 +681,7 @@ public class ImagesApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return imageBuildLibpodCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
+            return imageBuildLibpodCall(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
         }
 
         /**
@@ -682,7 +697,7 @@ public class ImagesApi {
          </table>
          */
         public ImageBuildLibpod200Response execute() throws ApiException {
-            ApiResponse<ImageBuildLibpod200Response> localVarResp = imageBuildLibpodWithHttpInfo(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume);
+            ApiResponse<ImageBuildLibpod200Response> localVarResp = imageBuildLibpodWithHttpInfo(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume);
             return localVarResp.getData();
         }
 
@@ -699,7 +714,7 @@ public class ImagesApi {
          </table>
          */
         public ApiResponse<ImageBuildLibpod200Response> executeWithHttpInfo() throws ApiException {
-            return imageBuildLibpodWithHttpInfo(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume);
+            return imageBuildLibpodWithHttpInfo(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume);
         }
 
         /**
@@ -716,7 +731,7 @@ public class ImagesApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ImageBuildLibpod200Response> _callback) throws ApiException {
-            return imageBuildLibpodAsync(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
+            return imageBuildLibpodAsync(dockerfile, t, allplatforms, extrahosts, nohosts, remote, q, compatvolumes, inheritlabels, nocache, cachefrom, pull, rm, forcerm, memory, memswap, cpushares, cpusetcpus, cpuperiod, cpuquota, buildargs, shmsize, squash, labels, layerLabel, layers, networkmode, platform, target, outputs, httpproxy, unsetenv, unsetlabel, volume, _callback);
         }
     }
 

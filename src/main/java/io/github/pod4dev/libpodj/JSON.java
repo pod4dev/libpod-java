@@ -95,6 +95,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.AccessMode.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Address.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ArtifactVolume.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.AttestationProperties.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.AuthConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.AuthReport.CustomTypeAdapterFactory());
@@ -116,20 +117,16 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerCreateResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerExecRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerHealthCheckConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerJSON.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerNetworkConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerNetworkStats.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerNode.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerResourceConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerSecurityConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerSize.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerState.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerStats.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerStorageConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerStore.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerTopOKBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerUpdateLibpod201Response.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerUpdateOKBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerUpdateRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerWait200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ContainerWait200ResponseError.CustomTypeAdapterFactory());
@@ -156,7 +153,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ExecStartLibpodRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ExecStartRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.FilesystemChange.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.GraphDriverData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Health.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.HealthCheckLog.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.HealthCheckResults.CustomTypeAdapterFactory());
@@ -170,10 +166,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IDMap.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IDMappingOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IDMappings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IDResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IPAM.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IPAMConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IPNet.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.IdResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageBuild200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageBuildLibpod200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageConfig.CustomTypeAdapterFactory());
@@ -182,6 +178,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageImportReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageInspect.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageLoadReport.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageProperties.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImagePropertiesSize.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ImageSearch200Response.CustomTypeAdapterFactory());
@@ -208,6 +205,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectPodContainerInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectPodData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectPodInfraConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectRestartPolicy.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectSecret.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.InspectUlimit.CustomTypeAdapterFactory());
@@ -270,6 +268,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkPruneReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkRmReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkSettings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkSettingsSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkUpdateOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.NetworkingConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.OCIRuntimeInfo.CustomTypeAdapterFactory());
@@ -347,10 +346,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SlirpInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SpecGenerator.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.StartupHealthCheck.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.State.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.StoreInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Subnet.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Summary.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SummaryNetworkSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SystemCheckReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SystemComponentVersion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.SystemComponentVersionPlatform.CustomTypeAdapterFactory());
@@ -362,6 +361,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Task.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.ThrottleDevice.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.TmpfsOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.TopResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Topology.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.TopologyRequirement.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.TypeMount.CustomTypeAdapterFactory());
@@ -370,6 +370,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.UpdateContainerDevicesLimits.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.UpdateEntities.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.UpdateHealthCheckConfig.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.UpdateResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.UsageData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Version.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.github.pod4dev.libpodj.model.Volume.CustomTypeAdapterFactory());

@@ -20,11 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.LinuxResources;
-import io.github.pod4dev.libpodj.model.LinuxThrottleDevice;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.io.Serializable;
 import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
@@ -59,64 +56,12 @@ import io.github.pod4dev.libpodj.JSON;
 public class PodResourceConfig implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  public static final String SERIALIZED_NAME_CPU_PERIOD = "cpu_period";
-  @SerializedName(SERIALIZED_NAME_CPU_PERIOD)
-  private Integer cpuPeriod;
-
-  public static final String SERIALIZED_NAME_CPU_QUOTA = "cpu_quota";
-  @SerializedName(SERIALIZED_NAME_CPU_QUOTA)
-  private Long cpuQuota;
-
   public static final String SERIALIZED_NAME_RESOURCE_LIMITS = "resource_limits";
   @SerializedName(SERIALIZED_NAME_RESOURCE_LIMITS)
   private LinuxResources resourceLimits;
 
-  public static final String SERIALIZED_NAME_THROTTLE_READ_BPS_DEVICE = "throttleReadBpsDevice";
-  @SerializedName(SERIALIZED_NAME_THROTTLE_READ_BPS_DEVICE)
-  private Map<String, LinuxThrottleDevice> throttleReadBpsDevice = new HashMap<>();
-
   public PodResourceConfig() {
   }
-
-  public PodResourceConfig cpuPeriod(Integer cpuPeriod) {
-    this.cpuPeriod = cpuPeriod;
-    return this;
-  }
-
-  /**
-   * CPU period of the cpuset, determined by --cpus
-   * @return cpuPeriod
-   */
-  @jakarta.annotation.Nullable
-
-  public Integer getCpuPeriod() {
-    return cpuPeriod;
-  }
-
-  public void setCpuPeriod(Integer cpuPeriod) {
-    this.cpuPeriod = cpuPeriod;
-  }
-
-
-  public PodResourceConfig cpuQuota(Long cpuQuota) {
-    this.cpuQuota = cpuQuota;
-    return this;
-  }
-
-  /**
-   * CPU quota of the cpuset, determined by --cpus
-   * @return cpuQuota
-   */
-  @jakarta.annotation.Nullable
-
-  public Long getCpuQuota() {
-    return cpuQuota;
-  }
-
-  public void setCpuQuota(Long cpuQuota) {
-    this.cpuQuota = cpuQuota;
-  }
-
 
   public PodResourceConfig resourceLimits(LinuxResources resourceLimits) {
     this.resourceLimits = resourceLimits;
@@ -139,35 +84,6 @@ public class PodResourceConfig implements Serializable {
   }
 
 
-  public PodResourceConfig throttleReadBpsDevice(Map<String, LinuxThrottleDevice> throttleReadBpsDevice) {
-    this.throttleReadBpsDevice = throttleReadBpsDevice;
-    return this;
-  }
-
-  public PodResourceConfig putThrottleReadBpsDeviceItem(String key, LinuxThrottleDevice throttleReadBpsDeviceItem) {
-    if (this.throttleReadBpsDevice == null) {
-      this.throttleReadBpsDevice = new HashMap<>();
-    }
-    this.throttleReadBpsDevice.put(key, throttleReadBpsDeviceItem);
-    return this;
-  }
-
-  /**
-   * ThrottleReadBpsDevice contains the rate at which the devices in the pod can be read from/accessed
-   * @return throttleReadBpsDevice
-   */
-  @jakarta.annotation.Nullable
-  @Valid
-
-  public Map<String, LinuxThrottleDevice> getThrottleReadBpsDevice() {
-    return throttleReadBpsDevice;
-  }
-
-  public void setThrottleReadBpsDevice(Map<String, LinuxThrottleDevice> throttleReadBpsDevice) {
-    this.throttleReadBpsDevice = throttleReadBpsDevice;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -178,25 +94,19 @@ public class PodResourceConfig implements Serializable {
       return false;
     }
     PodResourceConfig podResourceConfig = (PodResourceConfig) o;
-    return Objects.equals(this.cpuPeriod, podResourceConfig.cpuPeriod) &&
-        Objects.equals(this.cpuQuota, podResourceConfig.cpuQuota) &&
-        Objects.equals(this.resourceLimits, podResourceConfig.resourceLimits) &&
-        Objects.equals(this.throttleReadBpsDevice, podResourceConfig.throttleReadBpsDevice);
+    return Objects.equals(this.resourceLimits, podResourceConfig.resourceLimits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cpuPeriod, cpuQuota, resourceLimits, throttleReadBpsDevice);
+    return Objects.hash(resourceLimits);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PodResourceConfig {\n");
-    sb.append("    cpuPeriod: ").append(toIndentedString(cpuPeriod)).append("\n");
-    sb.append("    cpuQuota: ").append(toIndentedString(cpuQuota)).append("\n");
     sb.append("    resourceLimits: ").append(toIndentedString(resourceLimits)).append("\n");
-    sb.append("    throttleReadBpsDevice: ").append(toIndentedString(throttleReadBpsDevice)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -219,10 +129,7 @@ public class PodResourceConfig implements Serializable {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("cpu_period");
-    openapiFields.add("cpu_quota");
     openapiFields.add("resource_limits");
-    openapiFields.add("throttleReadBpsDevice");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

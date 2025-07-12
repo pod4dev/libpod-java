@@ -30,7 +30,7 @@ import jakarta.validation.constraints.*;
 import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.ErrorModel;
-import io.github.pod4dev.libpodj.model.IdResponse;
+import io.github.pod4dev.libpodj.model.IDResponse;
 import io.github.pod4dev.libpodj.model.LibpodImagesRemoveReport;
 import io.github.pod4dev.libpodj.model.ManifestAddOptions;
 import io.github.pod4dev.libpodj.model.ManifestModifyOptions;
@@ -139,16 +139,16 @@ public class ManifestsApi {
     }
 
 
-    private ApiResponse<IdResponse> manifestAddLibpodWithHttpInfo( @NotNull String name, ManifestAddOptions options) throws ApiException {
+    private ApiResponse<IDResponse> manifestAddLibpodWithHttpInfo( @NotNull String name, ManifestAddOptions options) throws ApiException {
         okhttp3.Call localVarCall = manifestAddLibpodValidateBeforeCall(name, options, null);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call manifestAddLibpodAsync(String name, ManifestAddOptions options, final ApiCallback<IdResponse> _callback) throws ApiException {
+    private okhttp3.Call manifestAddLibpodAsync(String name, ManifestAddOptions options, final ApiCallback<IDResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = manifestAddLibpodValidateBeforeCall(name, options, _callback);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -191,7 +191,7 @@ public class ManifestsApi {
 
         /**
          * Execute manifestAddLibpod request
-         * @return IdResponse
+         * @return IDResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -202,14 +202,14 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public IdResponse execute() throws ApiException {
-            ApiResponse<IdResponse> localVarResp = manifestAddLibpodWithHttpInfo(name, options);
+        public IDResponse execute() throws ApiException {
+            ApiResponse<IDResponse> localVarResp = manifestAddLibpodWithHttpInfo(name, options);
             return localVarResp.getData();
         }
 
         /**
          * Execute manifestAddLibpod request with HTTP info returned
-         * @return ApiResponse&lt;IdResponse&gt;
+         * @return ApiResponse&lt;IDResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -220,7 +220,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<IdResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<IDResponse> executeWithHttpInfo() throws ApiException {
             return manifestAddLibpodWithHttpInfo(name, options);
         }
 
@@ -238,7 +238,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<IdResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<IDResponse> _callback) throws ApiException {
             return manifestAddLibpodAsync(name, options, _callback);
         }
     }
@@ -336,16 +336,16 @@ public class ManifestsApi {
     }
 
 
-    private ApiResponse<IdResponse> manifestCreateLibpodWithHttpInfo( @NotNull String name,  @NotNull String images, Boolean all, Boolean amend, ManifestModifyOptions options) throws ApiException {
+    private ApiResponse<IDResponse> manifestCreateLibpodWithHttpInfo( @NotNull String name,  @NotNull String images, Boolean all, Boolean amend, ManifestModifyOptions options) throws ApiException {
         okhttp3.Call localVarCall = manifestCreateLibpodValidateBeforeCall(name, images, all, amend, options, null);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call manifestCreateLibpodAsync(String name, String images, Boolean all, Boolean amend, ManifestModifyOptions options, final ApiCallback<IdResponse> _callback) throws ApiException {
+    private okhttp3.Call manifestCreateLibpodAsync(String name, String images, Boolean all, Boolean amend, ManifestModifyOptions options, final ApiCallback<IDResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = manifestCreateLibpodValidateBeforeCall(name, images, all, amend, options, _callback);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -412,7 +412,7 @@ public class ManifestsApi {
 
         /**
          * Execute manifestCreateLibpod request
-         * @return IdResponse
+         * @return IDResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -423,14 +423,14 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public IdResponse execute() throws ApiException {
-            ApiResponse<IdResponse> localVarResp = manifestCreateLibpodWithHttpInfo(name, images, all, amend, options);
+        public IDResponse execute() throws ApiException {
+            ApiResponse<IDResponse> localVarResp = manifestCreateLibpodWithHttpInfo(name, images, all, amend, options);
             return localVarResp.getData();
         }
 
         /**
          * Execute manifestCreateLibpod request with HTTP info returned
-         * @return ApiResponse&lt;IdResponse&gt;
+         * @return ApiResponse&lt;IDResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -441,7 +441,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<IdResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<IDResponse> executeWithHttpInfo() throws ApiException {
             return manifestCreateLibpodWithHttpInfo(name, images, all, amend, options);
         }
 
@@ -459,7 +459,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<IdResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<IDResponse> _callback) throws ApiException {
             return manifestCreateLibpodAsync(name, images, all, amend, options, _callback);
         }
     }
@@ -1274,16 +1274,16 @@ public class ManifestsApi {
     }
 
 
-    private ApiResponse<IdResponse> manifestPushLibpodWithHttpInfo( @NotNull String name,  @NotNull String destination, List<String> addCompression, Boolean forceCompressionFormat, Boolean all, Boolean tlsVerify, Boolean quiet) throws ApiException {
+    private ApiResponse<IDResponse> manifestPushLibpodWithHttpInfo( @NotNull String name,  @NotNull String destination, List<String> addCompression, Boolean forceCompressionFormat, Boolean all, Boolean tlsVerify, Boolean quiet) throws ApiException {
         okhttp3.Call localVarCall = manifestPushLibpodValidateBeforeCall(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet, null);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call manifestPushLibpodAsync(String name, String destination, List<String> addCompression, Boolean forceCompressionFormat, Boolean all, Boolean tlsVerify, Boolean quiet, final ApiCallback<IdResponse> _callback) throws ApiException {
+    private okhttp3.Call manifestPushLibpodAsync(String name, String destination, List<String> addCompression, Boolean forceCompressionFormat, Boolean all, Boolean tlsVerify, Boolean quiet, final ApiCallback<IDResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = manifestPushLibpodValidateBeforeCall(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet, _callback);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1372,7 +1372,7 @@ public class ManifestsApi {
 
         /**
          * Execute manifestPushLibpod request
-         * @return IdResponse
+         * @return IDResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1383,14 +1383,14 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public IdResponse execute() throws ApiException {
-            ApiResponse<IdResponse> localVarResp = manifestPushLibpodWithHttpInfo(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet);
+        public IDResponse execute() throws ApiException {
+            ApiResponse<IDResponse> localVarResp = manifestPushLibpodWithHttpInfo(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet);
             return localVarResp.getData();
         }
 
         /**
          * Execute manifestPushLibpod request with HTTP info returned
-         * @return ApiResponse&lt;IdResponse&gt;
+         * @return ApiResponse&lt;IDResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1401,7 +1401,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<IdResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<IDResponse> executeWithHttpInfo() throws ApiException {
             return manifestPushLibpodWithHttpInfo(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet);
         }
 
@@ -1419,7 +1419,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<IdResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<IDResponse> _callback) throws ApiException {
             return manifestPushLibpodAsync(name, destination, addCompression, forceCompressionFormat, all, tlsVerify, quiet, _callback);
         }
     }
@@ -1512,16 +1512,16 @@ public class ManifestsApi {
     }
 
 
-    private ApiResponse<IdResponse> manifestPushV3LibpodWithHttpInfo( @NotNull String name,  @NotNull String destination, Boolean all) throws ApiException {
+    private ApiResponse<IDResponse> manifestPushV3LibpodWithHttpInfo( @NotNull String name,  @NotNull String destination, Boolean all) throws ApiException {
         okhttp3.Call localVarCall = manifestPushV3LibpodValidateBeforeCall(name, destination, all, null);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call manifestPushV3LibpodAsync(String name, String destination, Boolean all, final ApiCallback<IdResponse> _callback) throws ApiException {
+    private okhttp3.Call manifestPushV3LibpodAsync(String name, String destination, Boolean all, final ApiCallback<IDResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = manifestPushV3LibpodValidateBeforeCall(name, destination, all, _callback);
-        Type localVarReturnType = new TypeToken<IdResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<IDResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1566,7 +1566,7 @@ public class ManifestsApi {
 
         /**
          * Execute manifestPushV3Libpod request
-         * @return IdResponse
+         * @return IDResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1577,14 +1577,14 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public IdResponse execute() throws ApiException {
-            ApiResponse<IdResponse> localVarResp = manifestPushV3LibpodWithHttpInfo(name, destination, all);
+        public IDResponse execute() throws ApiException {
+            ApiResponse<IDResponse> localVarResp = manifestPushV3LibpodWithHttpInfo(name, destination, all);
             return localVarResp.getData();
         }
 
         /**
          * Execute manifestPushV3Libpod request with HTTP info returned
-         * @return ApiResponse&lt;IdResponse&gt;
+         * @return ApiResponse&lt;IDResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1595,7 +1595,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<IdResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<IDResponse> executeWithHttpInfo() throws ApiException {
             return manifestPushV3LibpodWithHttpInfo(name, destination, all);
         }
 
@@ -1613,7 +1613,7 @@ public class ManifestsApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<IdResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<IDResponse> _callback) throws ApiException {
             return manifestPushV3LibpodAsync(name, destination, all, _callback);
         }
     }

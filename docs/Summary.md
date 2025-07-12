@@ -16,6 +16,7 @@
 |**repoTags** | **List&lt;String&gt;** | List of image names/tags in the local image cache that reference this image.  Multiple image tags can refer to the same image, and this list may be empty if no tags reference the image, in which case the image is \&quot;untagged\&quot;, in which case it can still be referenced by its ID. |  |
 |**sharedSize** | **Long** | Total size of image layers that are shared between this image and other images.  This size is not calculated by default. &#x60;-1&#x60; indicates that the value has not been set / calculated. |  |
 |**size** | **Long** | Total size of the image including all layers it is composed of. |  |
+|**descriptor** | [**Descriptor**](Descriptor.md) |  |  [optional] |
 |**manifests** | [**List&lt;ManifestSummary&gt;**](ManifestSummary.md) | Manifests is a list of image manifests available in this image.  It provides a more detailed view of the platform-specific image manifests or other image-attached data like build attestations.  WARNING: This is experimental and may change at any time without any backward compatibility. |  [optional] |
 |**virtualSize** | **Long** | Total size of the image including all layers it is composed of.  Deprecated: this field is omitted in API v1.44, but kept for backward compatibility. Use Size instead. |  [optional] |
 

@@ -530,7 +530,7 @@ No authorization required
 
 <a id="containerInspect"></a>
 # **containerInspect**
-> ContainerJSON containerInspect(name).size(size).execute();
+> InspectResponse containerInspect(name).size(size).execute();
 
 Inspect container
 
@@ -554,7 +554,7 @@ public class Example {
     String name = "name_example"; // String | the name or id of the container
     Boolean size = false; // Boolean | include the size of the container
     try {
-      ContainerJSON result = apiInstance.containerInspect(name)
+      InspectResponse result = apiInstance.containerInspect(name)
             .size(size)
             .execute();
       System.out.println(result);
@@ -578,7 +578,7 @@ public class Example {
 
 ### Return type
 
-[**ContainerJSON**](ContainerJSON.md)
+[**InspectResponse**](InspectResponse.md)
 
 ### Authorization
 

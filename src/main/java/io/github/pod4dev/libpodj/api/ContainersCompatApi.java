@@ -31,7 +31,6 @@ import jakarta.validation.Valid;
 
 import io.github.pod4dev.libpodj.model.Container;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
-import io.github.pod4dev.libpodj.model.ContainerJSON;
 import io.github.pod4dev.libpodj.model.ContainerTopOKBody;
 import io.github.pod4dev.libpodj.model.ContainerUpdateRequest;
 import io.github.pod4dev.libpodj.model.ContainerWait200Response;
@@ -39,6 +38,7 @@ import io.github.pod4dev.libpodj.model.ContainersPruneReport;
 import io.github.pod4dev.libpodj.model.CreateContainerConfig;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
+import io.github.pod4dev.libpodj.model.InspectResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1519,16 +1519,16 @@ public class ContainersCompatApi {
     }
 
 
-    private ApiResponse<ContainerJSON> containerInspectWithHttpInfo( @NotNull String name, Boolean size) throws ApiException {
+    private ApiResponse<InspectResponse> containerInspectWithHttpInfo( @NotNull String name, Boolean size) throws ApiException {
         okhttp3.Call localVarCall = containerInspectValidateBeforeCall(name, size, null);
-        Type localVarReturnType = new TypeToken<ContainerJSON>(){}.getType();
+        Type localVarReturnType = new TypeToken<InspectResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call containerInspectAsync(String name, Boolean size, final ApiCallback<ContainerJSON> _callback) throws ApiException {
+    private okhttp3.Call containerInspectAsync(String name, Boolean size, final ApiCallback<InspectResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = containerInspectValidateBeforeCall(name, size, _callback);
-        Type localVarReturnType = new TypeToken<ContainerJSON>(){}.getType();
+        Type localVarReturnType = new TypeToken<InspectResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1570,7 +1570,7 @@ public class ContainersCompatApi {
 
         /**
          * Execute containerInspect request
-         * @return ContainerJSON
+         * @return InspectResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1580,14 +1580,14 @@ public class ContainersCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ContainerJSON execute() throws ApiException {
-            ApiResponse<ContainerJSON> localVarResp = containerInspectWithHttpInfo(name, size);
+        public InspectResponse execute() throws ApiException {
+            ApiResponse<InspectResponse> localVarResp = containerInspectWithHttpInfo(name, size);
             return localVarResp.getData();
         }
 
         /**
          * Execute containerInspect request with HTTP info returned
-         * @return ApiResponse&lt;ContainerJSON&gt;
+         * @return ApiResponse&lt;InspectResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table summary="Response Details" border="1">
@@ -1597,7 +1597,7 @@ public class ContainersCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<ContainerJSON> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<InspectResponse> executeWithHttpInfo() throws ApiException {
             return containerInspectWithHttpInfo(name, size);
         }
 
@@ -1614,7 +1614,7 @@ public class ContainersCompatApi {
             <tr><td> 500 </td><td> Internal server error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<ContainerJSON> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<InspectResponse> _callback) throws ApiException {
             return containerInspectAsync(name, size, _callback);
         }
     }

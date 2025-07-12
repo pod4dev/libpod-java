@@ -13,6 +13,8 @@ UpdateEntities used to wrap the oci resource spec in a swagger model
 |**deviceReadIOPs** | [**List&lt;ThrottleDevice&gt;**](ThrottleDevice.md) | Limit read rate (IO per second) from a device, in the form: &#x60;&#x60;&#x60;[{\&quot;Path\&quot;: \&quot;device_path\&quot;, \&quot;Rate\&quot;: rate}]&#x60;&#x60;&#x60; |  [optional] |
 |**deviceWriteBPs** | [**List&lt;ThrottleDevice&gt;**](ThrottleDevice.md) | Limit write rate (bytes per second) to a device, in the form: &#x60;&#x60;&#x60;[{\&quot;Path\&quot;: \&quot;device_path\&quot;, \&quot;Rate\&quot;: rate}]&#x60;&#x60;&#x60; |  [optional] |
 |**deviceWriteIOPs** | [**List&lt;ThrottleDevice&gt;**](ThrottleDevice.md) | Limit write rate (IO per second) to a device, in the form: &#x60;&#x60;&#x60;[{\&quot;Path\&quot;: \&quot;device_path\&quot;, \&quot;Rate\&quot;: rate}]&#x60;&#x60;&#x60; |  [optional] |
+|**env** | **List&lt;String&gt;** |  |  [optional] |
+|**unsetEnv** | **List&lt;String&gt;** |  |  [optional] |
 |**blockIO** | [**LinuxBlockIO**](LinuxBlockIO.md) |  |  [optional] |
 |**cpu** | [**LinuxCPU**](LinuxCPU.md) |  |  [optional] |
 |**devices** | [**List&lt;LinuxDeviceCgroup&gt;**](LinuxDeviceCgroup.md) | Devices configures the device allowlist. |  [optional] |

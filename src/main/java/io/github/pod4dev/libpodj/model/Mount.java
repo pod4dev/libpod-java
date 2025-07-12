@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.BindOptions;
+import io.github.pod4dev.libpodj.model.ImageOptions;
 import io.github.pod4dev.libpodj.model.TmpfsOptions;
 import io.github.pod4dev.libpodj.model.VolumeOptions;
 import java.io.IOException;
@@ -69,6 +70,10 @@ public class Mount implements Serializable {
   public static final String SERIALIZED_NAME_CONSISTENCY = "Consistency";
   @SerializedName(SERIALIZED_NAME_CONSISTENCY)
   private String consistency;
+
+  public static final String SERIALIZED_NAME_IMAGE_OPTIONS = "ImageOptions";
+  @SerializedName(SERIALIZED_NAME_IMAGE_OPTIONS)
+  private ImageOptions imageOptions;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "ReadOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
@@ -155,6 +160,27 @@ public class Mount implements Serializable {
 
   public void setConsistency(String consistency) {
     this.consistency = consistency;
+  }
+
+
+  public Mount imageOptions(ImageOptions imageOptions) {
+    this.imageOptions = imageOptions;
+    return this;
+  }
+
+  /**
+   * Get imageOptions
+   * @return imageOptions
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public ImageOptions getImageOptions() {
+    return imageOptions;
+  }
+
+  public void setImageOptions(ImageOptions imageOptions) {
+    this.imageOptions = imageOptions;
   }
 
 
@@ -293,6 +319,7 @@ public class Mount implements Serializable {
     return Objects.equals(this.bindOptions, mount.bindOptions) &&
         Objects.equals(this.clusterOptions, mount.clusterOptions) &&
         Objects.equals(this.consistency, mount.consistency) &&
+        Objects.equals(this.imageOptions, mount.imageOptions) &&
         Objects.equals(this.readOnly, mount.readOnly) &&
         Objects.equals(this.source, mount.source) &&
         Objects.equals(this.target, mount.target) &&
@@ -303,7 +330,7 @@ public class Mount implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindOptions, clusterOptions, consistency, readOnly, source, target, tmpfsOptions, type, volumeOptions);
+    return Objects.hash(bindOptions, clusterOptions, consistency, imageOptions, readOnly, source, target, tmpfsOptions, type, volumeOptions);
   }
 
   @Override
@@ -313,6 +340,7 @@ public class Mount implements Serializable {
     sb.append("    bindOptions: ").append(toIndentedString(bindOptions)).append("\n");
     sb.append("    clusterOptions: ").append(toIndentedString(clusterOptions)).append("\n");
     sb.append("    consistency: ").append(toIndentedString(consistency)).append("\n");
+    sb.append("    imageOptions: ").append(toIndentedString(imageOptions)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -344,6 +372,7 @@ public class Mount implements Serializable {
     openapiFields.add("BindOptions");
     openapiFields.add("ClusterOptions");
     openapiFields.add("Consistency");
+    openapiFields.add("ImageOptions");
     openapiFields.add("ReadOnly");
     openapiFields.add("Source");
     openapiFields.add("Target");
@@ -382,6 +411,10 @@ public class Mount implements Serializable {
       }
       if ((jsonObj.get("Consistency") != null && !jsonObj.get("Consistency").isJsonNull()) && !jsonObj.get("Consistency").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Consistency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Consistency").toString()));
+      }
+      // validate the optional field `ImageOptions`
+      if (jsonObj.get("ImageOptions") != null && !jsonObj.get("ImageOptions").isJsonNull()) {
+        ImageOptions.validateJsonElement(jsonObj.get("ImageOptions"));
       }
       if ((jsonObj.get("Source") != null && !jsonObj.get("Source").isJsonNull()) && !jsonObj.get("Source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `Source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Source").toString()));

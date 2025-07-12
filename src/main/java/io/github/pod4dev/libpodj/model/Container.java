@@ -20,12 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Config;
+import io.github.pod4dev.libpodj.model.Descriptor;
 import io.github.pod4dev.libpodj.model.HostConfig;
 import io.github.pod4dev.libpodj.model.MountPoint;
+import io.github.pod4dev.libpodj.model.NetworkSettingsSummary;
 import io.github.pod4dev.libpodj.model.NetworkingConfig;
 import io.github.pod4dev.libpodj.model.Platform;
 import io.github.pod4dev.libpodj.model.Port;
-import io.github.pod4dev.libpodj.model.SummaryNetworkSettings;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -98,6 +99,10 @@ public class Container implements Serializable {
   @SerializedName(SERIALIZED_NAME_IMAGE_I_D)
   private String imageID;
 
+  public static final String SERIALIZED_NAME_IMAGE_MANIFEST_DESCRIPTOR = "ImageManifestDescriptor";
+  @SerializedName(SERIALIZED_NAME_IMAGE_MANIFEST_DESCRIPTOR)
+  private Descriptor imageManifestDescriptor;
+
   public static final String SERIALIZED_NAME_LABELS = "Labels";
   @SerializedName(SERIALIZED_NAME_LABELS)
   private Map<String, String> labels = new HashMap<>();
@@ -116,7 +121,7 @@ public class Container implements Serializable {
 
   public static final String SERIALIZED_NAME_NETWORK_SETTINGS = "NetworkSettings";
   @SerializedName(SERIALIZED_NAME_NETWORK_SETTINGS)
-  private SummaryNetworkSettings networkSettings;
+  private NetworkSettingsSummary networkSettings;
 
   public static final String SERIALIZED_NAME_NETWORKING_CONFIG = "NetworkingConfig";
   @SerializedName(SERIALIZED_NAME_NETWORKING_CONFIG)
@@ -311,6 +316,27 @@ public class Container implements Serializable {
   }
 
 
+  public Container imageManifestDescriptor(Descriptor imageManifestDescriptor) {
+    this.imageManifestDescriptor = imageManifestDescriptor;
+    return this;
+  }
+
+  /**
+   * Get imageManifestDescriptor
+   * @return imageManifestDescriptor
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public Descriptor getImageManifestDescriptor() {
+    return imageManifestDescriptor;
+  }
+
+  public void setImageManifestDescriptor(Descriptor imageManifestDescriptor) {
+    this.imageManifestDescriptor = imageManifestDescriptor;
+  }
+
+
   public Container labels(Map<String, String> labels) {
     this.labels = labels;
     return this;
@@ -416,7 +442,7 @@ public class Container implements Serializable {
   }
 
 
-  public Container networkSettings(SummaryNetworkSettings networkSettings) {
+  public Container networkSettings(NetworkSettingsSummary networkSettings) {
     this.networkSettings = networkSettings;
     return this;
   }
@@ -428,11 +454,11 @@ public class Container implements Serializable {
   @jakarta.annotation.Nullable
   @Valid
 
-  public SummaryNetworkSettings getNetworkSettings() {
+  public NetworkSettingsSummary getNetworkSettings() {
     return networkSettings;
   }
 
-  public void setNetworkSettings(SummaryNetworkSettings networkSettings) {
+  public void setNetworkSettings(NetworkSettingsSummary networkSettings) {
     this.networkSettings = networkSettings;
   }
 
@@ -606,6 +632,7 @@ public class Container implements Serializable {
         Objects.equals(this.id, container.id) &&
         Objects.equals(this.image, container.image) &&
         Objects.equals(this.imageID, container.imageID) &&
+        Objects.equals(this.imageManifestDescriptor, container.imageManifestDescriptor) &&
         Objects.equals(this.labels, container.labels) &&
         Objects.equals(this.mounts, container.mounts) &&
         Objects.equals(this.name, container.name) &&
@@ -622,7 +649,7 @@ public class Container implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, config, created, defaultReadOnlyNonRecursive, hostConfig, id, image, imageID, labels, mounts, name, names, networkSettings, networkingConfig, platform, ports, sizeRootFs, sizeRw, state, status);
+    return Objects.hash(command, config, created, defaultReadOnlyNonRecursive, hostConfig, id, image, imageID, imageManifestDescriptor, labels, mounts, name, names, networkSettings, networkingConfig, platform, ports, sizeRootFs, sizeRw, state, status);
   }
 
   @Override
@@ -637,6 +664,7 @@ public class Container implements Serializable {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageID: ").append(toIndentedString(imageID)).append("\n");
+    sb.append("    imageManifestDescriptor: ").append(toIndentedString(imageManifestDescriptor)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    mounts: ").append(toIndentedString(mounts)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -679,6 +707,7 @@ public class Container implements Serializable {
     openapiFields.add("Id");
     openapiFields.add("Image");
     openapiFields.add("ImageID");
+    openapiFields.add("ImageManifestDescriptor");
     openapiFields.add("Labels");
     openapiFields.add("Mounts");
     openapiFields.add("Name");
@@ -737,6 +766,10 @@ public class Container implements Serializable {
       if ((jsonObj.get("ImageID") != null && !jsonObj.get("ImageID").isJsonNull()) && !jsonObj.get("ImageID").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ImageID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ImageID").toString()));
       }
+      // validate the optional field `ImageManifestDescriptor`
+      if (jsonObj.get("ImageManifestDescriptor") != null && !jsonObj.get("ImageManifestDescriptor").isJsonNull()) {
+        Descriptor.validateJsonElement(jsonObj.get("ImageManifestDescriptor"));
+      }
       if (jsonObj.get("Mounts") != null && !jsonObj.get("Mounts").isJsonNull()) {
         JsonArray jsonArraymounts = jsonObj.getAsJsonArray("Mounts");
         if (jsonArraymounts != null) {
@@ -760,7 +793,7 @@ public class Container implements Serializable {
       }
       // validate the optional field `NetworkSettings`
       if (jsonObj.get("NetworkSettings") != null && !jsonObj.get("NetworkSettings").isJsonNull()) {
-        SummaryNetworkSettings.validateJsonElement(jsonObj.get("NetworkSettings"));
+        NetworkSettingsSummary.validateJsonElement(jsonObj.get("NetworkSettings"));
       }
       // validate the optional field `NetworkingConfig`
       if (jsonObj.get("NetworkingConfig") != null && !jsonObj.get("NetworkingConfig").isJsonNull()) {

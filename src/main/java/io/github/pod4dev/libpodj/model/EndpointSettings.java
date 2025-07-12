@@ -88,6 +88,10 @@ public class EndpointSettings implements Serializable {
   @SerializedName(SERIALIZED_NAME_GLOBAL_I_PV6_PREFIX_LEN)
   private Long globalIPv6PrefixLen;
 
+  public static final String SERIALIZED_NAME_GW_PRIORITY = "GwPriority";
+  @SerializedName(SERIALIZED_NAME_GW_PRIORITY)
+  private Long gwPriority;
+
   public static final String SERIALIZED_NAME_IP_A_M_CONFIG = "IPAMConfig";
   @SerializedName(SERIALIZED_NAME_IP_A_M_CONFIG)
   private EndpointIPAMConfig ipAMConfig;
@@ -283,6 +287,26 @@ public class EndpointSettings implements Serializable {
   }
 
 
+  public EndpointSettings gwPriority(Long gwPriority) {
+    this.gwPriority = gwPriority;
+    return this;
+  }
+
+  /**
+   * GwPriority determines which endpoint will provide the default gateway for the container. The endpoint with the highest priority will be used. If multiple endpoints have the same priority, they are lexicographically sorted based on their network name, and the one that sorts first is picked.
+   * @return gwPriority
+   */
+  @jakarta.annotation.Nullable
+
+  public Long getGwPriority() {
+    return gwPriority;
+  }
+
+  public void setGwPriority(Long gwPriority) {
+    this.gwPriority = gwPriority;
+  }
+
+
   public EndpointSettings ipAMConfig(EndpointIPAMConfig ipAMConfig) {
     this.ipAMConfig = ipAMConfig;
     return this;
@@ -449,6 +473,7 @@ public class EndpointSettings implements Serializable {
         Objects.equals(this.gateway, endpointSettings.gateway) &&
         Objects.equals(this.globalIPv6Address, endpointSettings.globalIPv6Address) &&
         Objects.equals(this.globalIPv6PrefixLen, endpointSettings.globalIPv6PrefixLen) &&
+        Objects.equals(this.gwPriority, endpointSettings.gwPriority) &&
         Objects.equals(this.ipAMConfig, endpointSettings.ipAMConfig) &&
         Objects.equals(this.ipAddress, endpointSettings.ipAddress) &&
         Objects.equals(this.ipPrefixLen, endpointSettings.ipPrefixLen) &&
@@ -460,7 +485,7 @@ public class EndpointSettings implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aliases, dnSNames, driverOpts, endpointID, gateway, globalIPv6Address, globalIPv6PrefixLen, ipAMConfig, ipAddress, ipPrefixLen, ipv6Gateway, links, macAddress, networkID);
+    return Objects.hash(aliases, dnSNames, driverOpts, endpointID, gateway, globalIPv6Address, globalIPv6PrefixLen, gwPriority, ipAMConfig, ipAddress, ipPrefixLen, ipv6Gateway, links, macAddress, networkID);
   }
 
   @Override
@@ -474,6 +499,7 @@ public class EndpointSettings implements Serializable {
     sb.append("    gateway: ").append(toIndentedString(gateway)).append("\n");
     sb.append("    globalIPv6Address: ").append(toIndentedString(globalIPv6Address)).append("\n");
     sb.append("    globalIPv6PrefixLen: ").append(toIndentedString(globalIPv6PrefixLen)).append("\n");
+    sb.append("    gwPriority: ").append(toIndentedString(gwPriority)).append("\n");
     sb.append("    ipAMConfig: ").append(toIndentedString(ipAMConfig)).append("\n");
     sb.append("    ipAddress: ").append(toIndentedString(ipAddress)).append("\n");
     sb.append("    ipPrefixLen: ").append(toIndentedString(ipPrefixLen)).append("\n");
@@ -510,6 +536,7 @@ public class EndpointSettings implements Serializable {
     openapiFields.add("Gateway");
     openapiFields.add("GlobalIPv6Address");
     openapiFields.add("GlobalIPv6PrefixLen");
+    openapiFields.add("GwPriority");
     openapiFields.add("IPAMConfig");
     openapiFields.add("IPAddress");
     openapiFields.add("IPPrefixLen");

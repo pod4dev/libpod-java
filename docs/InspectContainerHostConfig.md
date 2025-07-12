@@ -2,7 +2,7 @@
 
 # InspectContainerHostConfig
 
-nolint:revive,stylecheck // Field names are fixed for compatibility and cannot be changed.
+InspectContainerHostConfig holds information used when the container was created. It's very much a Docker-specific struct, retained (mostly) as-is for compatibility. We fill individual fields as best as we can, inferring as much as possible from the spec and container config. Some things cannot be inferred. These will be populated by spec annotations (if available).
 
 ## Properties
 

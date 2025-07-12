@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.ArtifactVolume;
 import io.github.pod4dev.libpodj.model.IDMappingOptions;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxDevice;
@@ -90,6 +91,10 @@ public class SpecGenerator implements Serializable {
   public static final String SERIALIZED_NAME_APPARMOR_PROFILE = "apparmor_profile";
   @SerializedName(SERIALIZED_NAME_APPARMOR_PROFILE)
   private String apparmorProfile;
+
+  public static final String SERIALIZED_NAME_ARTIFACT_VOLUMES = "artifact_volumes";
+  @SerializedName(SERIALIZED_NAME_ARTIFACT_VOLUMES)
+  private List<@Valid ArtifactVolume> artifactVolumes = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BASE_HOSTS_FILE = "base_hosts_file";
   @SerializedName(SERIALIZED_NAME_BASE_HOSTS_FILE)
@@ -648,6 +653,35 @@ public class SpecGenerator implements Serializable {
 
   public void setApparmorProfile(String apparmorProfile) {
     this.apparmorProfile = apparmorProfile;
+  }
+
+
+  public SpecGenerator artifactVolumes(List<@Valid ArtifactVolume> artifactVolumes) {
+    this.artifactVolumes = artifactVolumes;
+    return this;
+  }
+
+  public SpecGenerator addArtifactVolumesItem(ArtifactVolume artifactVolumesItem) {
+    if (this.artifactVolumes == null) {
+      this.artifactVolumes = new ArrayList<>();
+    }
+    this.artifactVolumes.add(artifactVolumesItem);
+    return this;
+  }
+
+  /**
+   * ArtifactVolumes volumes based on an existing artifact.
+   * @return artifactVolumes
+   */
+  @jakarta.annotation.Nullable
+  @Valid
+
+  public List<@Valid ArtifactVolume> getArtifactVolumes() {
+    return artifactVolumes;
+  }
+
+  public void setArtifactVolumes(List<@Valid ArtifactVolume> artifactVolumes) {
+    this.artifactVolumes = artifactVolumes;
   }
 
 
@@ -3445,6 +3479,7 @@ public class SpecGenerator implements Serializable {
     return Objects.equals(this.networks, specGenerator.networks) &&
         Objects.equals(this.annotations, specGenerator.annotations) &&
         Objects.equals(this.apparmorProfile, specGenerator.apparmorProfile) &&
+        Objects.equals(this.artifactVolumes, specGenerator.artifactVolumes) &&
         Objects.equals(this.baseHostsFile, specGenerator.baseHostsFile) &&
         Objects.equals(this.capAdd, specGenerator.capAdd) &&
         Objects.equals(this.capDrop, specGenerator.capDrop) &&
@@ -3569,7 +3604,7 @@ public class SpecGenerator implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networks, annotations, apparmorProfile, baseHostsFile, capAdd, capDrop, cgroupParent, cgroupns, cgroupsMode, chrootDirectories, cniNetworks, command, conmonPidFile, containerCreateCommand, createWorkingDir, dependencyContainers, deviceCgroupRule, devices, devicesFrom, dnsOption, dnsSearch, dnsServer, entrypoint, env, envHost, envmerge, expose, groupEntry, groups, healthCheckOnFailureAction, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthconfig, hostDeviceList, hostadd, hostname, hostusers, httpproxy, idmappings, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initContainerType, initPath, intelRdt, ipcns, labelNested, labels, logConfiguration, managePassword, mask, mounts, name, netns, networkOptions, noNewPrivileges, ociRuntime, oomScoreAdj, overlayVolumes, passwdEntry, personality, pidns, pod, portmappings, privileged, procfsOpts, publishImagePorts, rLimits, rawImageName, readOnlyFilesystem, readWriteTmpfs, remove, removeImage, resourceLimits, restartPolicy, restartTries, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, sdnotifyMode, seccompPolicy, seccompProfilePath, secretEnv, secrets, selinuxOpts, shmSize, shmSizeSystemd, startupHealthConfig, stdin, stopSignal, stopTimeout, storageOpts, sysctl, systemd, terminal, throttleReadBpsDevice, throttleReadIOPSDevice, throttleWriteBpsDevice, throttleWriteIOPSDevice, timeout, timezone, umask, unified, unmask, unsetenv, unsetenvall, useImageHostname, useImageHosts, useImageResolveConf, user, userns, utsns, _volatile, volumes, volumesFrom, weightDevice, workDir);
+    return Objects.hash(networks, annotations, apparmorProfile, artifactVolumes, baseHostsFile, capAdd, capDrop, cgroupParent, cgroupns, cgroupsMode, chrootDirectories, cniNetworks, command, conmonPidFile, containerCreateCommand, createWorkingDir, dependencyContainers, deviceCgroupRule, devices, devicesFrom, dnsOption, dnsSearch, dnsServer, entrypoint, env, envHost, envmerge, expose, groupEntry, groups, healthCheckOnFailureAction, healthLogDestination, healthMaxLogCount, healthMaxLogSize, healthconfig, hostDeviceList, hostadd, hostname, hostusers, httpproxy, idmappings, image, imageArch, imageOs, imageVariant, imageVolumeMode, imageVolumes, init, initContainerType, initPath, intelRdt, ipcns, labelNested, labels, logConfiguration, managePassword, mask, mounts, name, netns, networkOptions, noNewPrivileges, ociRuntime, oomScoreAdj, overlayVolumes, passwdEntry, personality, pidns, pod, portmappings, privileged, procfsOpts, publishImagePorts, rLimits, rawImageName, readOnlyFilesystem, readWriteTmpfs, remove, removeImage, resourceLimits, restartPolicy, restartTries, rootfs, rootfsMapping, rootfsOverlay, rootfsPropagation, sdnotifyMode, seccompPolicy, seccompProfilePath, secretEnv, secrets, selinuxOpts, shmSize, shmSizeSystemd, startupHealthConfig, stdin, stopSignal, stopTimeout, storageOpts, sysctl, systemd, terminal, throttleReadBpsDevice, throttleReadIOPSDevice, throttleWriteBpsDevice, throttleWriteIOPSDevice, timeout, timezone, umask, unified, unmask, unsetenv, unsetenvall, useImageHostname, useImageHosts, useImageResolveConf, user, userns, utsns, _volatile, volumes, volumesFrom, weightDevice, workDir);
   }
 
   @Override
@@ -3579,6 +3614,7 @@ public class SpecGenerator implements Serializable {
     sb.append("    networks: ").append(toIndentedString(networks)).append("\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
     sb.append("    apparmorProfile: ").append(toIndentedString(apparmorProfile)).append("\n");
+    sb.append("    artifactVolumes: ").append(toIndentedString(artifactVolumes)).append("\n");
     sb.append("    baseHostsFile: ").append(toIndentedString(baseHostsFile)).append("\n");
     sb.append("    capAdd: ").append(toIndentedString(capAdd)).append("\n");
     sb.append("    capDrop: ").append(toIndentedString(capDrop)).append("\n");
@@ -3724,6 +3760,7 @@ public class SpecGenerator implements Serializable {
     openapiFields.add("Networks");
     openapiFields.add("annotations");
     openapiFields.add("apparmor_profile");
+    openapiFields.add("artifact_volumes");
     openapiFields.add("base_hosts_file");
     openapiFields.add("cap_add");
     openapiFields.add("cap_drop");
@@ -3872,6 +3909,20 @@ public class SpecGenerator implements Serializable {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apparmor_profile") != null && !jsonObj.get("apparmor_profile").isJsonNull()) && !jsonObj.get("apparmor_profile").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `apparmor_profile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apparmor_profile").toString()));
+      }
+      if (jsonObj.get("artifact_volumes") != null && !jsonObj.get("artifact_volumes").isJsonNull()) {
+        JsonArray jsonArrayartifactVolumes = jsonObj.getAsJsonArray("artifact_volumes");
+        if (jsonArrayartifactVolumes != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("artifact_volumes").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `artifact_volumes` to be an array in the JSON string but got `%s`", jsonObj.get("artifact_volumes").toString()));
+          }
+
+          // validate the optional field `artifact_volumes` (array)
+          for (int i = 0; i < jsonArrayartifactVolumes.size(); i++) {
+            ArtifactVolume.validateJsonElement(jsonArrayartifactVolumes.get(i));
+          };
+        }
       }
       if ((jsonObj.get("base_hosts_file") != null && !jsonObj.get("base_hosts_file").isJsonNull()) && !jsonObj.get("base_hosts_file").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `base_hosts_file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("base_hosts_file").toString()));

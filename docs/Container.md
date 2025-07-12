@@ -15,11 +15,12 @@
 |**id** | **String** |  |  [optional] |
 |**image** | **String** |  |  [optional] |
 |**imageID** | **String** |  |  [optional] |
+|**imageManifestDescriptor** | [**Descriptor**](Descriptor.md) |  |  [optional] |
 |**labels** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**mounts** | [**List&lt;MountPoint&gt;**](MountPoint.md) |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**names** | **List&lt;String&gt;** |  |  [optional] |
-|**networkSettings** | [**SummaryNetworkSettings**](SummaryNetworkSettings.md) |  |  [optional] |
+|**networkSettings** | [**NetworkSettingsSummary**](NetworkSettingsSummary.md) |  |  [optional] |
 |**networkingConfig** | [**NetworkingConfig**](NetworkingConfig.md) |  |  [optional] |
 |**platform** | [**Platform**](Platform.md) |  |  [optional] |
 |**ports** | [**List&lt;Port&gt;**](Port.md) |  |  [optional] |

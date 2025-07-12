@@ -16,7 +16,7 @@ All URIs are relative to *http://podman.io*
 
 <a id="manifestAddLibpod"></a>
 # **manifestAddLibpod**
-> IdResponse manifestAddLibpod(name).options(options).execute();
+> IDResponse manifestAddLibpod(name).options(options).execute();
 
 Add image
 
@@ -40,7 +40,7 @@ public class Example {
     String name = "name_example"; // String | the name or ID of the manifest
     ManifestAddOptions options = new ManifestAddOptions(); // ManifestAddOptions | options for creating a manifest
     try {
-      IdResponse result = apiInstance.manifestAddLibpod(name)
+      IDResponse result = apiInstance.manifestAddLibpod(name)
             .options(options)
             .execute();
       System.out.println(result);
@@ -64,7 +64,7 @@ public class Example {
 
 ### Return type
 
-[**IdResponse**](IdResponse.md)
+[**IDResponse**](IDResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ No authorization required
 
 <a id="manifestCreateLibpod"></a>
 # **manifestCreateLibpod**
-> IdResponse manifestCreateLibpod(name, images).all(all).amend(amend).options(options).execute();
+> IDResponse manifestCreateLibpod(name, images).all(all).amend(amend).options(options).execute();
 
 Create
 
@@ -112,7 +112,7 @@ public class Example {
     Boolean amend = true; // Boolean | modify an existing list if one with the desired name already exists
     ManifestModifyOptions options = new ManifestModifyOptions(); // ManifestModifyOptions | options for new manifest
     try {
-      IdResponse result = apiInstance.manifestCreateLibpod(name, images)
+      IDResponse result = apiInstance.manifestCreateLibpod(name, images)
             .all(all)
             .amend(amend)
             .options(options)
@@ -141,7 +141,7 @@ public class Example {
 
 ### Return type
 
-[**IdResponse**](IdResponse.md)
+[**IDResponse**](IDResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ No authorization required
 
 <a id="manifestPushLibpod"></a>
 # **manifestPushLibpod**
-> IdResponse manifestPushLibpod(name, destination).addCompression(addCompression).forceCompressionFormat(forceCompressionFormat).all(all).tlsVerify(tlsVerify).quiet(quiet).execute();
+> IDResponse manifestPushLibpod(name, destination).addCompression(addCompression).forceCompressionFormat(forceCompressionFormat).all(all).tlsVerify(tlsVerify).quiet(quiet).execute();
 
 Push manifest list to registry
 
@@ -463,7 +463,7 @@ public class Example {
     Boolean tlsVerify = true; // Boolean | Require HTTPS and verify signatures when contacting registries.
     Boolean quiet = true; // Boolean | silences extra stream data on push
     try {
-      IdResponse result = apiInstance.manifestPushLibpod(name, destination)
+      IDResponse result = apiInstance.manifestPushLibpod(name, destination)
             .addCompression(addCompression)
             .forceCompressionFormat(forceCompressionFormat)
             .all(all)
@@ -496,7 +496,7 @@ public class Example {
 
 ### Return type
 
-[**IdResponse**](IdResponse.md)
+[**IDResponse**](IDResponse.md)
 
 ### Authorization
 
@@ -517,7 +517,7 @@ No authorization required
 
 <a id="manifestPushV3Libpod"></a>
 # **manifestPushV3Libpod**
-> IdResponse manifestPushV3Libpod(name, destination).all(all).execute();
+> IDResponse manifestPushV3Libpod(name, destination).all(all).execute();
 
 Push manifest to registry
 
@@ -542,7 +542,7 @@ public class Example {
     String destination = "destination_example"; // String | the destination for the manifest
     Boolean all = true; // Boolean | push all images
     try {
-      IdResponse result = apiInstance.manifestPushV3Libpod(name, destination)
+      IDResponse result = apiInstance.manifestPushV3Libpod(name, destination)
             .all(all)
             .execute();
       System.out.println(result);
@@ -567,7 +567,7 @@ public class Example {
 
 ### Return type
 
-[**IdResponse**](IdResponse.md)
+[**IDResponse**](IDResponse.md)
 
 ### Authorization
 
