@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.ArtifactVolume;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxDevice;
 import io.github.pod4dev.libpodj.model.LinuxDeviceCgroup;
@@ -47,6 +48,14 @@ public class ContainerStorageConfigTest {
     @Test
     public void testContainerStorageConfig() {
         // TODO: test ContainerStorageConfig
+    }
+
+    /**
+     * Test the property 'artifactVolumes'
+     */
+    @Test
+    public void artifactVolumesTest() {
+        // TODO: test artifactVolumes
     }
 
     /**

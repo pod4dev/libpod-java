@@ -99,6 +99,14 @@ public class EndpointSettingsTest {
     }
 
     /**
+     * Test the property 'gwPriority'
+     */
+    @Test
+    public void gwPriorityTest() {
+        // TODO: test gwPriority
+    }
+
+    /**
      * Test the property 'ipAMConfig'
      */
     @Test

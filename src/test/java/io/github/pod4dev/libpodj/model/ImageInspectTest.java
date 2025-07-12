@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Config;
-import io.github.pod4dev.libpodj.model.GraphDriverData;
+import io.github.pod4dev.libpodj.model.Descriptor;
+import io.github.pod4dev.libpodj.model.DriverData;
+import io.github.pod4dev.libpodj.model.ManifestSummary;
 import io.github.pod4dev.libpodj.model.Metadata;
 import io.github.pod4dev.libpodj.model.RootFS;
 import java.io.IOException;
@@ -100,6 +102,14 @@ public class ImageInspectTest {
     }
 
     /**
+     * Test the property 'descriptor'
+     */
+    @Test
+    public void descriptorTest() {
+        // TODO: test descriptor
+    }
+
+    /**
      * Test the property 'dockerVersion'
      */
     @Test
@@ -121,6 +131,14 @@ public class ImageInspectTest {
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'manifests'
+     */
+    @Test
+    public void manifestsTest() {
+        // TODO: test manifests
     }
 
     /**

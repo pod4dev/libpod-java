@@ -16,7 +16,7 @@ package io.github.pod4dev.libpodj.api;
 import io.github.pod4dev.libpodj.ApiException;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
-import io.github.pod4dev.libpodj.model.IdResponse;
+import io.github.pod4dev.libpodj.model.IDResponse;
 import io.github.pod4dev.libpodj.model.InspectPodData;
 import io.github.pod4dev.libpodj.model.ListPodsReport;
 import io.github.pod4dev.libpodj.model.PlayKubeReport;
@@ -224,7 +224,7 @@ public class PodsApiTest {
     @Test
     public void podCreateLibpodTest() throws ApiException {
         PodSpecGenerator create = null;
-        IdResponse response = api.podCreateLibpod()
+        IDResponse response = api.podCreateLibpod()
                 .create(create)
                 .execute();
         // TODO: test validations

@@ -19,6 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.BindOptions;
+import io.github.pod4dev.libpodj.model.ImageOptions;
 import io.github.pod4dev.libpodj.model.TmpfsOptions;
 import io.github.pod4dev.libpodj.model.VolumeOptions;
 import java.io.IOException;
@@ -62,6 +63,14 @@ public class MountTest {
     @Test
     public void consistencyTest() {
         // TODO: test consistency
+    }
+
+    /**
+     * Test the property 'imageOptions'
+     */
+    @Test
+    public void imageOptionsTest() {
+        // TODO: test imageOptions
     }
 
     /**

@@ -21,7 +21,6 @@ import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.IDMappingOptions;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxResources;
-import io.github.pod4dev.libpodj.model.LinuxThrottleDevice;
 import io.github.pod4dev.libpodj.model.Mount;
 import io.github.pod4dev.libpodj.model.NamedVolume;
 import io.github.pod4dev.libpodj.model.Namespace;
@@ -73,22 +72,6 @@ public class PodSpecGeneratorTest {
     @Test
     public void cniNetworksTest() {
         // TODO: test cniNetworks
-    }
-
-    /**
-     * Test the property 'cpuPeriod'
-     */
-    @Test
-    public void cpuPeriodTest() {
-        // TODO: test cpuPeriod
-    }
-
-    /**
-     * Test the property 'cpuQuota'
-     */
-    @Test
-    public void cpuQuotaTest() {
-        // TODO: test cpuQuota
     }
 
     /**
@@ -393,14 +376,6 @@ public class PodSpecGeneratorTest {
     @Test
     public void sysctlTest() {
         // TODO: test sysctl
-    }
-
-    /**
-     * Test the property 'throttleReadBpsDevice'
-     */
-    @Test
-    public void throttleReadBpsDeviceTest() {
-        // TODO: test throttleReadBpsDevice
     }
 
     /**

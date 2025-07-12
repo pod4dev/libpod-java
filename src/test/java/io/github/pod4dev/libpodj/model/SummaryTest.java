@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.Descriptor;
 import io.github.pod4dev.libpodj.model.ManifestSummary;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -112,6 +113,14 @@ public class SummaryTest {
     @Test
     public void sizeTest() {
         // TODO: test size
+    }
+
+    /**
+     * Test the property 'descriptor'
+     */
+    @Test
+    public void descriptorTest() {
+        // TODO: test descriptor
     }
 
     /**

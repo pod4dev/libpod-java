@@ -16,7 +16,6 @@ package io.github.pod4dev.libpodj.api;
 import io.github.pod4dev.libpodj.ApiException;
 import io.github.pod4dev.libpodj.model.Container;
 import io.github.pod4dev.libpodj.model.ContainerCreateResponse;
-import io.github.pod4dev.libpodj.model.ContainerJSON;
 import io.github.pod4dev.libpodj.model.ContainerTopOKBody;
 import io.github.pod4dev.libpodj.model.ContainerUpdateRequest;
 import io.github.pod4dev.libpodj.model.ContainerWait200Response;
@@ -24,6 +23,7 @@ import io.github.pod4dev.libpodj.model.ContainersPruneReport;
 import io.github.pod4dev.libpodj.model.CreateContainerConfig;
 import io.github.pod4dev.libpodj.model.ErrorModel;
 import java.io.File;
+import io.github.pod4dev.libpodj.model.InspectResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -183,7 +183,7 @@ public class ContainersCompatApiTest {
     public void containerInspectTest() throws ApiException {
         String name = null;
         Boolean size = null;
-        ContainerJSON response = api.containerInspect(name)
+        InspectResponse response = api.containerInspect(name)
                 .size(size)
                 .execute();
         // TODO: test validations

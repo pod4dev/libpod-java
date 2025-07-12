@@ -15,7 +15,7 @@ package io.github.pod4dev.libpodj.api;
 
 import io.github.pod4dev.libpodj.ApiException;
 import io.github.pod4dev.libpodj.model.ErrorModel;
-import io.github.pod4dev.libpodj.model.IdResponse;
+import io.github.pod4dev.libpodj.model.IDResponse;
 import io.github.pod4dev.libpodj.model.LibpodImagesRemoveReport;
 import io.github.pod4dev.libpodj.model.ManifestAddOptions;
 import io.github.pod4dev.libpodj.model.ManifestModifyOptions;
@@ -51,7 +51,7 @@ public class ManifestsApiTest {
     public void manifestAddLibpodTest() throws ApiException {
         String name = null;
         ManifestAddOptions options = null;
-        IdResponse response = api.manifestAddLibpod(name)
+        IDResponse response = api.manifestAddLibpod(name)
                 .options(options)
                 .execute();
         // TODO: test validations
@@ -71,7 +71,7 @@ public class ManifestsApiTest {
         Boolean all = null;
         Boolean amend = null;
         ManifestModifyOptions options = null;
-        IdResponse response = api.manifestCreateLibpod(name, images)
+        IDResponse response = api.manifestCreateLibpod(name, images)
                 .all(all)
                 .amend(amend)
                 .options(options)
@@ -162,7 +162,7 @@ public class ManifestsApiTest {
         Boolean all = null;
         Boolean tlsVerify = null;
         Boolean quiet = null;
-        IdResponse response = api.manifestPushLibpod(name, destination)
+        IDResponse response = api.manifestPushLibpod(name, destination)
                 .addCompression(addCompression)
                 .forceCompressionFormat(forceCompressionFormat)
                 .all(all)
@@ -184,7 +184,7 @@ public class ManifestsApiTest {
         String name = null;
         String destination = null;
         Boolean all = null;
-        IdResponse response = api.manifestPushV3Libpod(name, destination)
+        IDResponse response = api.manifestPushV3Libpod(name, destination)
                 .all(all)
                 .execute();
         // TODO: test validations

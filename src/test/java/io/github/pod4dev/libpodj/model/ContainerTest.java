@@ -19,12 +19,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.github.pod4dev.libpodj.model.Config;
+import io.github.pod4dev.libpodj.model.Descriptor;
 import io.github.pod4dev.libpodj.model.HostConfig;
 import io.github.pod4dev.libpodj.model.MountPoint;
+import io.github.pod4dev.libpodj.model.NetworkSettingsSummary;
 import io.github.pod4dev.libpodj.model.NetworkingConfig;
 import io.github.pod4dev.libpodj.model.Platform;
 import io.github.pod4dev.libpodj.model.Port;
-import io.github.pod4dev.libpodj.model.SummaryNetworkSettings;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -110,6 +111,14 @@ public class ContainerTest {
     @Test
     public void imageIDTest() {
         // TODO: test imageID
+    }
+
+    /**
+     * Test the property 'imageManifestDescriptor'
+     */
+    @Test
+    public void imageManifestDescriptorTest() {
+        // TODO: test imageManifestDescriptor
     }
 
     /**

@@ -64,6 +64,7 @@ public class ImagesApiTest {
         String remote = null;
         Boolean q = null;
         Boolean compatvolumes = null;
+        Boolean inheritlabels = null;
         Boolean nocache = null;
         String cachefrom = null;
         Boolean pull = null;
@@ -98,6 +99,7 @@ public class ImagesApiTest {
                 .remote(remote)
                 .q(q)
                 .compatvolumes(compatvolumes)
+                .inheritlabels(inheritlabels)
                 .nocache(nocache)
                 .cachefrom(cachefrom)
                 .pull(pull)

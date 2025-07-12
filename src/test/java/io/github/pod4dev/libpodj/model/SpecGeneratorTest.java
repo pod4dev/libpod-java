@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.github.pod4dev.libpodj.model.ArtifactVolume;
 import io.github.pod4dev.libpodj.model.IDMappingOptions;
 import io.github.pod4dev.libpodj.model.ImageVolume;
 import io.github.pod4dev.libpodj.model.LinuxDevice;
@@ -83,6 +84,14 @@ public class SpecGeneratorTest {
     @Test
     public void apparmorProfileTest() {
         // TODO: test apparmorProfile
+    }
+
+    /**
+     * Test the property 'artifactVolumes'
+     */
+    @Test
+    public void artifactVolumesTest() {
+        // TODO: test artifactVolumes
     }
 
     /**

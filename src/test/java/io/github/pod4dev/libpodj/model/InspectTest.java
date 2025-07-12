@@ -96,6 +96,14 @@ public class InspectTest {
     }
 
     /**
+     * Test the property 'enableIPv4'
+     */
+    @Test
+    public void enableIPv4Test() {
+        // TODO: test enableIPv4
+    }
+
+    /**
      * Test the property 'enableIPv6'
      */
     @Test
