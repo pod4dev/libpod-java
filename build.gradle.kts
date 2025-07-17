@@ -13,7 +13,7 @@ repositories {
 }
 
 group = "io.github.pod4dev"
-version = "5.5.2"
+version = "5.5.2-1"
 
 dependencies {
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
@@ -39,6 +39,9 @@ tasks.withType<Javadoc> {
 }
 
 java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
     withJavadocJar()
     withSourcesJar()
 }
